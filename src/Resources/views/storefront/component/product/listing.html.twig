@@ -1,0 +1,12 @@
+{% sw_extends '@Storefront/storefront/component/product/listing.html.twig' %}
+
+{# Artikelzähler – wird beim Filtern per AJAX automatisch mit aktualisiert #}
+{% block element_product_listing_row %}
+    {% if config('NovaTheme.config.showProductCount') and searchResult.total > 0 %}
+        <p class="nova-listing-count">
+            {{ 'novaTheme.listing.count'|trans({ '%count%': searchResult.total }) }}
+        </p>
+    {% endif %}
+
+    {{ parent() }}
+{% endblock %}

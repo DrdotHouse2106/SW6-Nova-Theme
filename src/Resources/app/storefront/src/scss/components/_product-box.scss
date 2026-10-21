@@ -34,7 +34,7 @@
 }
 
 .product-image {
-    object-fit: contain;
+    object-fit: $nova-image-fit;
     mix-blend-mode: multiply;
     transition: transform 0.4s var(--nova-ease);
 }
@@ -81,11 +81,23 @@
     }
 }
 
+/* Merkzettel als runder, schwebender Button */
+.product-wishlist-btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: var(--nova-shadow-sm);
+}
+
 /* Zweispaltiges Listing auf Smartphones statt einspaltig */
-@include media-breakpoint-down(sm) {
-    .cms-listing-row > .cms-listing-col {
-        flex: 0 0 50%;
-        max-width: 50%;
-        padding-inline: 0.375rem;
+// Shopware übergibt Schalter als 0/1 – 0 wäre in Sass „wahr“, daher expliziter Vergleich
+@if $nova-mobile-two-columns == 1 or $nova-mobile-two-columns == true {
+    @include media-breakpoint-down(sm) {
+        .cms-listing-row > .cms-listing-col {
+            flex: 0 0 50%;
+            max-width: 50%;
+            padding-inline: 0.375rem;
+        }
     }
 }

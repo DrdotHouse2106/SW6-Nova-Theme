@@ -1,0 +1,48 @@
+{% sw_extends '@Storefront/storefront/layout/header/top-bar.html.twig' %}
+
+{% block layout_header_top_bar_inner %}
+    {% set novaText = config('NovaTheme.config.topbarText') %}
+    {% set novaLink = config('NovaTheme.config.topbarLink') %}
+    {% set novaPhone = config('NovaTheme.config.topbarPhone') %}
+    {% set novaMail = config('NovaTheme.config.topbarMail') %}
+    {% set novaHours = config('NovaTheme.config.topbarHours') %}
+
+    {% if config('NovaTheme.config.topbarActive') and (novaText or novaPhone or novaMail or novaHours) %}
+        <div class="nova-topbar" aria-label="{{ 'novaTheme.topbar.ariaLabel'|trans|striptags }}">
+            {% if novaText %}
+                <div class="nova-topbar-text">
+                    {% sw_icon 'info' style { size: 'xs' } %}
+                    {% if novaLink %}
+                        <a href="{{ novaLink }}">{{ novaText }}</a>
+                    {% else %}
+                        <span>{{ novaText }}</span>
+                    {% endif %}
+                </div>
+            {% endif %}
+
+            <ul class="nova-topbar-contact list-unstyled">
+                {% if novaPhone %}
+                    <li>
+                        <a href="tel:{{ novaPhone|replace({' ': '', '/': '', '-': '', '(': '', ')': ''}) }}" title="{{ 'novaTheme.topbar.phone'|trans|striptags }}">
+                            {% sw_icon 'phone' style { size: 'xs' } %} {{ novaPhone }}
+                        </a>
+                    </li>
+                {% endif %}
+                {% if novaMail %}
+                    <li>
+                        <a href="mailto:{{ novaMail }}" title="{{ 'novaTheme.topbar.mail'|trans|striptags }}">
+                            {% sw_icon 'envelope' style { size: 'xs' } %} {{ novaMail }}
+                        </a>
+                    </li>
+                {% endif %}
+                {% if novaHours %}
+                    <li title="{{ 'novaTheme.topbar.hours'|trans|striptags }}">
+                        {% sw_icon 'clock' style { size: 'xs' } %} {{ novaHours }}
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    {% endif %}
+
+    {{ parent() }}
+{% endblock %}

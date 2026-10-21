@@ -1,9 +1,11 @@
 {% sw_extends '@Storefront/storefront/base.html.twig' %}
 
-{# Schaltet Theme-Funktionen per CSS-Klasse am <body> – gesteuert über die Theme-Konfiguration #}
+{# Schaltet Theme-Funktionen per CSS-Klasse am <body> – gesteuert über Theme- und Plugin-Konfiguration #}
 {% block base_body_classes %}{{ parent() }}
-    {%- if theme_config('nova-header-sticky') %} nova-sticky-header
+    {%- if config('NovaTheme.config.compactHeader') %} nova-compact-header
         {%- if theme_config('nova-header-autohide') %} nova-header-autohide{% endif %}
     {%- endif %}
+    {%- if config('NovaTheme.config.loaderBar') %} nova-loader-bar{% endif %}
     {%- if theme_config('nova-animations') %} nova-animations{% endif %}
+    {%- if activeRoute == 'frontend.checkout.finish.page' and config('NovaTheme.config.confetti') %} nova-confetti{% endif %}
 {%- endblock %}

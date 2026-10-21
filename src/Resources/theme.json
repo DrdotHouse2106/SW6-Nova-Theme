@@ -29,15 +29,42 @@
     "config": {
         "blocks": {
             "novaLayout": {
-                "label": { "de-DE": "Nova: Layout", "en-GB": "Nova: Layout" }
+                "label": {
+                    "de-DE": "Nova: Layout",
+                    "en-GB": "Nova: Layout"
+                }
             },
             "novaPerformance": {
-                "label": { "de-DE": "Nova: Performance & Effekte", "en-GB": "Nova: Performance & effects" }
+                "label": {
+                    "de-DE": "Nova: Effekte",
+                    "en-GB": "Nova: Effects"
+                }
+            },
+            "novaHeader": {
+                "label": {
+                    "de-DE": "Nova: Header & Topbar",
+                    "en-GB": "Nova: Header & top bar"
+                }
+            },
+            "novaListing": {
+                "label": {
+                    "de-DE": "Nova: Produktlisting",
+                    "en-GB": "Nova: Product listing"
+                }
+            },
+            "novaFooter": {
+                "label": {
+                    "de-DE": "Nova: Footer",
+                    "en-GB": "Nova: Footer"
+                }
             }
         },
         "fields": {
             "sw-color-brand-primary": {
-                "label": { "de-DE": "Primärfarbe", "en-GB": "Primary colour" },
+                "label": {
+                    "de-DE": "Primärfarbe",
+                    "en-GB": "Primary colour"
+                },
                 "type": "color",
                 "value": "#2b4bff",
                 "editable": true,
@@ -45,7 +72,10 @@
                 "order": 100
             },
             "sw-color-brand-secondary": {
-                "label": { "de-DE": "Sekundärfarbe", "en-GB": "Secondary colour" },
+                "label": {
+                    "de-DE": "Sekundärfarbe",
+                    "en-GB": "Secondary colour"
+                },
                 "type": "color",
                 "value": "#111827",
                 "editable": true,
@@ -53,7 +83,10 @@
                 "order": 200
             },
             "sw-border-color": {
-                "label": { "de-DE": "Rahmenfarbe", "en-GB": "Border colour" },
+                "label": {
+                    "de-DE": "Rahmenfarbe",
+                    "en-GB": "Border colour"
+                },
                 "type": "color",
                 "value": "#e5e7eb",
                 "editable": true,
@@ -61,7 +94,10 @@
                 "order": 300
             },
             "sw-background-color": {
-                "label": { "de-DE": "Hintergrundfarbe", "en-GB": "Background colour" },
+                "label": {
+                    "de-DE": "Hintergrundfarbe",
+                    "en-GB": "Background colour"
+                },
                 "type": "color",
                 "value": "#ffffff",
                 "editable": true,
@@ -69,7 +105,10 @@
                 "order": 400
             },
             "sw-color-buy-button": {
-                "label": { "de-DE": "Kaufen-Button", "en-GB": "Buy button" },
+                "label": {
+                    "de-DE": "Kaufen-Button",
+                    "en-GB": "Buy button"
+                },
                 "type": "color",
                 "value": "#2b4bff",
                 "editable": true,
@@ -77,24 +116,36 @@
                 "order": 100
             },
             "sw-font-family-base": {
-                "label": { "de-DE": "Schriftart Fließtext", "en-GB": "Body font" },
+                "label": {
+                    "de-DE": "Schriftart Fließtext",
+                    "en-GB": "Body font"
+                },
                 "type": "fontFamily",
-                "value": "system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+                "value": "'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
                 "editable": true,
                 "block": "typography",
                 "order": 100
             },
             "sw-font-family-headline": {
-                "label": { "de-DE": "Schriftart Überschriften", "en-GB": "Headline font" },
+                "label": {
+                    "de-DE": "Schriftart Überschriften",
+                    "en-GB": "Headline font"
+                },
                 "type": "fontFamily",
-                "value": "system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+                "value": "'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
                 "editable": true,
                 "block": "typography",
                 "order": 200
             },
             "nova-container-max-width": {
-                "label": { "de-DE": "Maximale Inhaltsbreite", "en-GB": "Max content width" },
-                "helpText": { "de-DE": "z. B. 1440px oder 90rem", "en-GB": "e.g. 1440px or 90rem" },
+                "label": {
+                    "de-DE": "Maximale Inhaltsbreite",
+                    "en-GB": "Max content width"
+                },
+                "helpText": {
+                    "de-DE": "z. B. 1440px oder 90rem",
+                    "en-GB": "e.g. 1440px or 90rem"
+                },
                 "type": "text",
                 "value": "1440px",
                 "editable": true,
@@ -102,7 +153,10 @@
                 "order": 100
             },
             "nova-radius": {
-                "label": { "de-DE": "Eckenradius (Karten, Bilder)", "en-GB": "Corner radius (cards, images)" },
+                "label": {
+                    "de-DE": "Eckenradius (Karten, Bilder)",
+                    "en-GB": "Corner radius (cards, images)"
+                },
                 "type": "text",
                 "value": "14px",
                 "editable": true,
@@ -110,7 +164,10 @@
                 "order": 200
             },
             "nova-radius-button": {
-                "label": { "de-DE": "Eckenradius Buttons & Felder", "en-GB": "Corner radius buttons & inputs" },
+                "label": {
+                    "de-DE": "Eckenradius Buttons & Felder",
+                    "en-GB": "Corner radius buttons & inputs"
+                },
                 "type": "text",
                 "value": "10px",
                 "editable": true,
@@ -118,49 +175,132 @@
                 "order": 300
             },
             "nova-surface-color": {
-                "label": { "de-DE": "Flächenfarbe (Sektionen, Footer)", "en-GB": "Surface colour (sections, footer)" },
+                "label": {
+                    "de-DE": "Flächenfarbe (Sektionen, Footer)",
+                    "en-GB": "Surface colour (sections, footer)"
+                },
                 "type": "color",
                 "value": "#f6f7f9",
                 "editable": true,
                 "block": "novaLayout",
                 "order": 400
             },
-            "nova-header-sticky": {
-                "label": { "de-DE": "Header beim Scrollen fixieren", "en-GB": "Sticky header" },
-                "type": "switch",
-                "value": true,
-                "editable": true,
-                "scss": false,
-                "block": "novaLayout",
-                "order": 500
-            },
-            "nova-header-autohide": {
-                "label": { "de-DE": "Header beim Runterscrollen ausblenden", "en-GB": "Hide header when scrolling down" },
-                "type": "switch",
-                "value": true,
-                "editable": true,
-                "scss": false,
-                "block": "novaLayout",
-                "order": 600
-            },
-            "nova-disable-webfont": {
-                "label": { "de-DE": "Keine Webfonts laden (Systemschrift, schnellste Option)", "en-GB": "Do not load web fonts (system font, fastest)" },
-                "type": "switch",
-                "value": true,
-                "editable": true,
-                "scss": false,
-                "block": "novaPerformance",
-                "order": 100
-            },
             "nova-animations": {
-                "label": { "de-DE": "Dezente Einblend-Animationen", "en-GB": "Subtle reveal animations" },
-                "helpText": { "de-DE": "Respektiert automatisch „Bewegung reduzieren“ des Betriebssystems.", "en-GB": "Automatically respects the OS 'reduce motion' setting." },
+                "label": {
+                    "de-DE": "Dezente Einblend-Animationen",
+                    "en-GB": "Subtle reveal animations"
+                },
+                "helpText": {
+                    "de-DE": "Respektiert automatisch „Bewegung reduzieren“ des Betriebssystems.",
+                    "en-GB": "Automatically respects the OS 'reduce motion' setting."
+                },
                 "type": "switch",
                 "value": true,
                 "editable": true,
                 "scss": false,
                 "block": "novaPerformance",
                 "order": 200
+            },
+            "nova-topbar-bg": {
+                "label": {
+                    "de-DE": "Topbar: Hintergrund",
+                    "en-GB": "Top bar: background"
+                },
+                "type": "color",
+                "value": "#2b4bff",
+                "editable": true,
+                "block": "novaHeader",
+                "order": 100
+            },
+            "nova-topbar-color": {
+                "label": {
+                    "de-DE": "Topbar: Textfarbe",
+                    "en-GB": "Top bar: text colour"
+                },
+                "type": "color",
+                "value": "#ffffff",
+                "editable": true,
+                "block": "novaHeader",
+                "order": 200
+            },
+            "nova-logo-height": {
+                "label": {
+                    "de-DE": "Maximale Logohöhe (Desktop)",
+                    "en-GB": "Max logo height (desktop)"
+                },
+                "type": "text",
+                "value": "80px",
+                "editable": true,
+                "block": "novaHeader",
+                "order": 300,
+                "helpText": {
+                    "de-DE": "z. B. 60px für ein flaches Logo, 160px für ein rundes Siegel-Logo",
+                    "en-GB": "e.g. 60px for a wide logo, 160px for a round badge logo"
+                }
+            },
+            "nova-header-autohide": {
+                "label": {
+                    "de-DE": "Kompakten Header beim Runterscrollen ausblenden",
+                    "en-GB": "Hide compact header when scrolling down"
+                },
+                "type": "switch",
+                "value": true,
+                "editable": true,
+                "scss": false,
+                "block": "novaHeader",
+                "order": 400
+            },
+            "nova-image-fit": {
+                "label": {
+                    "de-DE": "Bild-Modus der Produktbilder",
+                    "en-GB": "Product image mode"
+                },
+                "type": "text",
+                "value": "contain",
+                "editable": true,
+                "block": "novaListing",
+                "order": 100,
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "contain",
+                            "label": {
+                                "de-DE": "Ganz zeigen (für freigestellte Bilder)",
+                                "en-GB": "Show entirely (cut-out images)"
+                            }
+                        },
+                        {
+                            "value": "cover",
+                            "label": {
+                                "de-DE": "Fläche füllen (für Fotos mit Hintergrund)",
+                                "en-GB": "Fill area (photos with background)"
+                            }
+                        }
+                    ]
+                }
+            },
+            "nova-mobile-two-columns": {
+                "label": {
+                    "de-DE": "2 Produkte pro Zeile auf Smartphones",
+                    "en-GB": "2 products per row on phones"
+                },
+                "type": "switch",
+                "value": true,
+                "editable": true,
+                "block": "novaListing",
+                "order": 200
+            },
+            "nova-footer-bg": {
+                "label": {
+                    "de-DE": "Footer: Hintergrund",
+                    "en-GB": "Footer: background"
+                },
+                "type": "color",
+                "value": "#f6f7f9",
+                "editable": true,
+                "block": "novaFooter",
+                "order": 100
             }
         }
     }

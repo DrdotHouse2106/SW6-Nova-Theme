@@ -1,5 +1,5 @@
 .footer-main {
-    background: var(--nova-surface);
+    background: $nova-footer-bg;
     border-top: 0;
     margin-top: var(--nova-section-space);
 }
@@ -9,14 +9,20 @@
     font-weight: 700;
 }
 
-.footer-link {
+.footer-link,
+.footer-service-menu-item a {
     color: inherit;
-    opacity: 0.8;
+    opacity: 0.85;
 
     @include nova-hover {
         opacity: 1;
         color: var(--nova-primary);
     }
+}
+
+.footer-logos {
+    background: #fff;
+    border-radius: var(--nova-radius);
 }
 
 .footer-bottom {

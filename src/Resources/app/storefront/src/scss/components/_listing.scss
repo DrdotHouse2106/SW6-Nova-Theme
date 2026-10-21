@@ -1,0 +1,33 @@
+.nova-listing-count {
+    margin: 0 0 1rem;
+    color: var(--bs-secondary-color, #6b7280);
+    font-size: 0.875rem;
+    text-align: right;
+}
+
+/* Kategorie-Navigation in der Sidebar */
+.category-navigation {
+    .category-navigation-link {
+        border-radius: var(--nova-radius-btn);
+        transition: background-color 0.15s var(--nova-ease), color 0.15s var(--nova-ease);
+
+        @include nova-hover {
+            background: var(--nova-surface);
+            color: var(--nova-primary);
+        }
+
+        &.is-active {
+            color: var(--nova-primary);
+            font-weight: 700;
+        }
+    }
+}
+
+/* Filter als Pillen */
+.filter-panel-item-toggle {
+    border-radius: 999px;
+}
+
+.pagination .page-link {
+    border-radius: var(--nova-radius-btn);
+}

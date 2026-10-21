@@ -1,0 +1,13 @@
+{
+    "novaTheme": {
+        "topbar": {
+            "ariaLabel": "Service information",
+            "phone": "Phone",
+            "mail": "E-mail",
+            "hours": "Opening hours"
+        },
+        "listing": {
+            "count": "{1} 1 product|]1,Inf[ %count% products"
+        }
+    }
+}

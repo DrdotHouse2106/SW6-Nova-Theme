@@ -8,13 +8,25 @@
 const PluginManager = window.PluginManager;
 
 PluginManager.register(
-    'NovaStickyHeader',
-    () => import('./plugin/nova-sticky-header.plugin'),
-    'body.nova-sticky-header'
+    'NovaCompactHeader',
+    () => import('./plugin/nova-compact-header.plugin'),
+    'body.nova-compact-header'
+);
+
+PluginManager.register(
+    'NovaLoaderBar',
+    () => import('./plugin/nova-loader-bar.plugin'),
+    'body.nova-loader-bar'
 );
 
 PluginManager.register(
     'NovaReveal',
     () => import('./plugin/nova-reveal.plugin'),
     'body.nova-animations'
+);
+
+PluginManager.register(
+    'NovaConfetti',
+    () => import('./plugin/nova-confetti.plugin'),
+    'body.nova-confetti'
 );

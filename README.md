@@ -8,7 +8,7 @@ Modernes, modulares und **schnelles** Storefront-Theme für Shopware 6.6 und 6.7
 
 | Bereich | Umsetzung |
 |---|---|
-| **Performance** | Systemschrift statt Webfonts (kein Download, kein Render-Blocking), nur ~2 KB eigenes JavaScript, JS-Plugins werden per Lazy-Import nur bei Bedarf geladen, `content-visibility` für den Footer, feste Bild-Seitenverhältnisse gegen Layout-Shift (CLS) |
+| **Performance** | keine externen Schriften oder Skripte, nur ~6 KB eigenes JavaScript, JS-Plugins werden per Lazy-Import nur bei Bedarf geladen, `content-visibility` für den Footer, feste Bild-Seitenverhältnisse gegen Layout-Shift (CLS) |
 | **Responsive** | Mobile-First, fließende Typografie und Abstände via `clamp()`, **Container Queries** für Produktkarten, zweispaltiges Listing auf Smartphones, 44–48 px Touch-Ziele, kein iOS-Auto-Zoom bei Formularen |
 | **Modular** | Jedes SCSS-Modul (Header, Footer, Produktkarte, …) ist eine eigene Datei und kann einzeln deaktiviert werden. Design-Tokens als CSS-Variablen (`--nova-*`) |
 | **Konfigurierbar** | Farben, Schriften, Eckenradien, Inhaltsbreite, Sticky-/Auto-Hide-Header und Animationen direkt in der Administration einstellbar |
@@ -33,12 +33,57 @@ bin/console cache:clear
 
 Alternativ in der Administration unter **Inhalte → Themes** das „Nova Theme“ auswählen und dem Verkaufskanal zuweisen.
 
-## Theme-Konfiguration
+## Funktionen
 
-Unter **Inhalte → Themes → Nova Theme** stehen neben den Standard-Optionen zur Verfügung:
+| Funktion | Beschreibung |
+|---|---|
+| **Topbar** | Infotext (optional verlinkt), Telefon, E-Mail und Öffnungszeiten über dem Header |
+| **Kompakter Header** | Sobald der Header aus dem Bild gescrollt ist, erscheint eine schmale Leiste mit Logo, Menü, Suche, Merkzettel, Konto und Warenkorb – ohne dass der Inhalt springt. Optional beim Runterscrollen ausblenden |
+| **Ladebalken** | Schmaler Fortschrittsbalken beim Klick auf interne Links |
+| **Artikelzähler** | „2126 Artikel“ über dem Listing, aktualisiert sich beim Filtern |
+| **Konfetti** | Kurze Animation nach erfolgreicher Bestellung (ohne externe Bibliothek) |
+| **Produktbilder** | Wahlweise ganz zeigen (freigestellt) oder Fläche füllen (Fotos) |
 
-- **Nova: Layout** – maximale Inhaltsbreite, Eckenradien (Karten/Buttons), Flächenfarbe, Sticky-Header, Header beim Runterscrollen ausblenden
-- **Nova: Performance & Effekte** – Webfonts deaktivieren, dezente Einblend-Animationen
+## Einstellungen
+
+### Plugin-Konfiguration (pro Verkaufskanal)
+
+**Erweiterungen → Meine Erweiterungen → Nova Theme → Konfigurieren** – oben den Verkaufskanal wählen:
+
+- **Topbar** – an/aus, Infotext, Link, Telefon, E-Mail, Öffnungszeiten
+- **Header** – kompakter Header beim Scrollen, Ladebalken
+- **Produktlisting** – Artikelanzahl anzeigen
+- **Checkout** – Konfetti nach der Bestellung
+
+### Theme-Konfiguration (Farben & Layout)
+
+**Inhalte → Themes → Nova Theme**:
+
+- **Theme-Farben / Typografie** – Primär-, Sekundär-, Kauf-Button-Farbe, Schriftart (Standard: Inter, wird von Shopware selbst ausgeliefert – keine externen Font-Server)
+- **Nova: Layout** – maximale Inhaltsbreite, Eckenradien, Flächenfarbe
+- **Nova: Header & Topbar** – Topbar-Farben, maximale Logohöhe, Header beim Runterscrollen ausblenden
+- **Nova: Produktlisting** – Bild-Modus, 2 Produkte pro Zeile auf Smartphones
+- **Nova: Footer** – Hintergrundfarbe
+- **Nova: Effekte** – dezente Einblend-Animationen
+
+## Mehrere Shops mit eigenen Farben
+
+Theme-Einstellungen gelten pro Theme. Für mehrere Verkaufskanäle mit unterschiedlichen Farben/Logos:
+
+1. **Inhalte → Themes**, beim Nova Theme auf **„…“ → Theme duplizieren**
+2. Der Kopie einen Namen geben (z. B. den Shopnamen), Farben und Logo einstellen
+3. Die Kopie dem jeweiligen Verkaufskanal zuweisen
+
+Code-Updates des Nova Themes wirken automatisch auf alle Kopien.
+
+## Umstieg von einem anderen Theme
+
+1. Nova Theme installieren (siehe oben) – **noch nicht zuweisen**
+2. Für jeden Shop eine Theme-Kopie anlegen, Farben, Logo und Favicon übernehmen
+3. Plugin-Konfiguration je Verkaufskanal ausfüllen (Topbar-Text etc.)
+4. Zuerst in einem Test-Verkaufskanal bzw. Staging prüfen, dann umstellen
+5. `bin/console theme:compile && bin/console cache:clear`
+6. Erst danach das alte Theme deaktivieren und deinstallieren
 
 ## Struktur
 
@@ -48,12 +93,15 @@ src/
 └── Resources/
     ├── theme.json                     Theme-Definition & Konfigurationsfelder
     ├── views/storefront/
-    │   ├── base.html.twig             Body-Klassen aus der Theme-Konfiguration
-    │   └── layout/meta.html.twig      theme-color, Webfont-Steuerung
+    │   ├── base.html.twig             Body-Klassen aus Theme- & Plugin-Konfiguration
+    │   ├── layout/header/top-bar.html.twig   Topbar
+    │   └── component/product/listing.html.twig   Artikelzähler
+    ├── config/config.xml              Plugin-Einstellungen pro Verkaufskanal
+    ├── snippet/                       Textbausteine (de-DE, en-GB)
     └── app/storefront/
         ├── src/
         │   ├── main.js                Registriert JS-Plugins (Lazy-Import)
-        │   ├── plugin/                Sticky-Header, Einblend-Animation
+        │   ├── plugin/                Kompakter Header, Ladebalken, Konfetti, Einblend-Animation
         │   └── scss/
         │       ├── overrides.scss     Bootstrap-/Shopware-Variablen (vor dem Kern)
         │       ├── base.scss          Einstiegspunkt – Module ein-/ausschalten
@@ -108,7 +156,7 @@ npm run build
 
 ## Kompatibilität
 
-- Shopware 6.6.x und 6.7.x
+- Shopware 6.6.x und 6.7.x (getestet gegen die Templates von 6.7.15)
 - Alle aktuellen Browser (Container Queries ab Chrome 105, Safari 16, Firefox 110)
 
 ## Lizenz

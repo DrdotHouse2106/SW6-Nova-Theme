@@ -1,0 +1,64 @@
+/* Topbar: Infotext links, Kontaktdaten rechts – farbig über die volle Breite */
+.top-bar {
+    background: $nova-topbar-bg;
+    color: $nova-topbar-color;
+    box-shadow: 0 0 0 100vmax $nova-topbar-bg;
+    clip-path: inset(0 -100vmax);
+    font-size: 0.875rem;
+
+    a {
+        color: inherit;
+    }
+
+    .top-bar-nav-btn {
+        color: inherit;
+    }
+}
+
+.nova-topbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.25rem 1.5rem;
+    padding-block: 0.375rem;
+    flex: 1 1 auto;
+
+    .icon {
+        color: inherit;
+        vertical-align: -0.125em;
+    }
+
+    .icon > svg {
+        fill: currentColor;
+    }
+}
+
+.nova-topbar-text a {
+    text-decoration: none;
+
+    @include nova-hover {
+        text-decoration: underline;
+    }
+}
+
+.nova-topbar-contact {
+    display: flex;
+    gap: 1.25rem;
+    margin: 0;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+/* Topbar und Sprach-/Währungswahl nebeneinander */
+.top-bar:has(.nova-topbar) {
+    display: flex !important;
+    align-items: center;
+    gap: 1.5rem;
+
+    @include media-breakpoint-down(lg) {
+        display: none !important;
+    }
+}

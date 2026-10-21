@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
+
+    <card>
+        <title>Topbar</title>
+        <title lang="de-DE">Topbar</title>
+
+        <input-field type="bool">
+            <name>topbarActive</name>
+            <label>Show top bar</label>
+            <label lang="de-DE">Topbar anzeigen</label>
+            <defaultValue>false</defaultValue>
+        </input-field>
+
+        <input-field type="text">
+            <name>topbarText</name>
+            <label>Info text</label>
+            <label lang="de-DE">Infotext</label>
+            <helpText lang="de-DE">z. B. „Jetzt zum Newsletter anmelden und 5 % Rabatt sichern.“</helpText>
+        </input-field>
+
+        <input-field type="url">
+            <name>topbarLink</name>
+            <label>Link for the info text</label>
+            <label lang="de-DE">Verlinkung des Infotexts</label>
+        </input-field>
+
+        <input-field type="text">
+            <name>topbarPhone</name>
+            <label>Phone number</label>
+            <label lang="de-DE">Telefonnummer</label>
+        </input-field>
+
+        <input-field type="text">
+            <name>topbarMail</name>
+            <label>E-mail address</label>
+            <label lang="de-DE">E-Mail-Adresse</label>
+        </input-field>
+
+        <input-field type="text">
+            <name>topbarHours</name>
+            <label>Opening hours</label>
+            <label lang="de-DE">Öffnungszeiten</label>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Header</title>
+        <title lang="de-DE">Header</title>
+
+        <input-field type="bool">
+            <name>compactHeader</name>
+            <label>Compact header while scrolling</label>
+            <label lang="de-DE">Kompakten Header beim Scrollen einblenden</label>
+            <helpText lang="de-DE">Logo, Suche, Menü und Warenkorb bleiben beim Scrollen erreichbar.</helpText>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>loaderBar</name>
+            <label>Loading bar on page change</label>
+            <label lang="de-DE">Ladebalken beim Seitenwechsel</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Listing</title>
+        <title lang="de-DE">Produktlisting</title>
+
+        <input-field type="bool">
+            <name>showProductCount</name>
+            <label>Show number of products</label>
+            <label lang="de-DE">Anzahl der Artikel anzeigen</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Checkout</title>
+        <title lang="de-DE">Checkout</title>
+
+        <input-field type="bool">
+            <name>confetti</name>
+            <label>Confetti after a successful order</label>
+            <label lang="de-DE">Konfetti nach erfolgreicher Bestellung</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+    </card>
+</config>

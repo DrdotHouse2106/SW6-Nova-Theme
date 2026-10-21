@@ -4,17 +4,15 @@
 }
 
 .header-row {
-    min-height: var(--nova-header-height);
-    padding-block: 0.5rem;
+    padding-block: 0.75rem;
 }
 
 .header-logo-main-img {
-    max-height: 44px;
+    max-height: $nova-logo-height;
     width: auto;
 }
 
 .header-search-input {
-    border-radius: var(--nova-radius-btn) 0 0 var(--nova-radius-btn);
     background: var(--nova-surface);
     border-color: transparent;
 
@@ -33,35 +31,70 @@
     }
 }
 
-/* Sticky Header (aktivierbar in der Theme-Konfiguration) */
-.nova-sticky-header {
-    .header-main {
-        position: sticky;
-        top: 0;
-        z-index: 1030;
-        transition: transform 0.25s var(--nova-ease), box-shadow 0.25s var(--nova-ease);
-    }
-
-    /* Nav-Leiste mit in den Sticky-Bereich nehmen */
-    .nav-main {
-        position: relative;
-    }
-
-    &.nova-is-scrolled .header-main {
-        box-shadow: var(--nova-shadow-sm);
-    }
-
-    &.nova-header-hidden .header-main {
-        transform: translateY(-100%);
+@include media-breakpoint-down(lg) {
+    .header-logo-main-img {
+        max-height: min(#{$nova-logo-height}, 64px);
     }
 }
 
-@include media-breakpoint-down(lg) {
-    :root {
-        --nova-header-height: 60px;
+/*
+ * Kompakter Header beim Scrollen
+ * ------------------------------------------------------------
+ * Wird per JS (nova-compact-header.plugin) aktiviert, sobald der
+ * normale Header aus dem sichtbaren Bereich gescrollt ist.
+ */
+@keyframes nova-header-in {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+.nova-header-fixed {
+    .header-main {
+        position: fixed;
+        inset: 0 0 auto;
+        z-index: 1030;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: saturate(180%) blur(12px);
+        border-bottom: 0;
+        box-shadow: var(--nova-shadow-md);
+        transition: transform 0.25s var(--nova-ease);
+
+        @include nova-motion {
+            animation: nova-header-in 0.25s var(--nova-ease);
+        }
+    }
+
+    .top-bar {
+        display: none !important;
+    }
+
+    .header-row {
+        padding-block: 0.375rem;
+    }
+
+    .header-logo-col {
+        margin-block: 0 !important;
+        padding-bottom: 0 !important;
     }
 
     .header-logo-main-img {
-        max-height: 34px;
+        max-height: 40px;
+    }
+
+    /* Menü-Button auch auf großen Bildschirmen zeigen, da die Navigation weggescrollt ist */
+    @include media-breakpoint-up(lg) {
+        .header-search-col > .row > div:has(> .nav-main-toggle) {
+            display: block !important;
+        }
+    }
+
+    &.nova-header-hidden .header-main {
+        transform: translateY(-110%);
+    }
+
+    @include media-breakpoint-down(sm) {
+        .header-logo-col {
+            display: none;
+        }
     }
 }
