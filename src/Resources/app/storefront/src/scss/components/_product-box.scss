@@ -1,0 +1,91 @@
+/*
+ * Produktkarten – nutzen Container Queries, damit sie sich an die
+ * tatsächliche Kartenbreite anpassen (Listing, Slider, Sidebar …).
+ */
+.card.product-box {
+    container-type: inline-size;
+    border: 0;
+    border-radius: var(--nova-radius);
+    background: #fff;
+    transition: box-shadow 0.2s var(--nova-ease), transform 0.2s var(--nova-ease);
+
+    @include nova-hover {
+        box-shadow: var(--nova-shadow-md);
+        transform: translateY(-2px);
+    }
+
+    .card-body {
+        padding: 0.75rem;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.product-image-wrapper {
+    aspect-ratio: 1 / 1; // Reserviert Platz → kein Layout-Shift (CLS)
+    height: auto;
+    background: var(--nova-surface);
+    border-radius: calc(var(--nova-radius) - 4px);
+    overflow: hidden;
+}
+
+.product-image-link {
+    height: 100%;
+}
+
+.product-image {
+    object-fit: contain;
+    mix-blend-mode: multiply;
+    transition: transform 0.4s var(--nova-ease);
+}
+
+.product-box {
+    @include nova-hover {
+        .product-image {
+            transform: scale(1.04);
+        }
+    }
+}
+
+.product-name {
+    font-weight: 600;
+    line-height: 1.35;
+    height: auto;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.product-price {
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+.product-badges .badge {
+    border-radius: 999px;
+    font-weight: 600;
+    padding: 0.35em 0.75em;
+}
+
+/* Kompakte Darstellung in schmalen Karten (z. B. 2 Spalten auf Smartphone) */
+@container (max-width: 220px) {
+    .product-box .product-description,
+    .product-box .product-variant-characteristics {
+        display: none;
+    }
+
+    .product-box .product-action .btn {
+        padding-inline: 0.5rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* Zweispaltiges Listing auf Smartphones statt einspaltig */
+@include media-breakpoint-down(sm) {
+    .cms-listing-row > .cms-listing-col {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding-inline: 0.375rem;
+    }
+}

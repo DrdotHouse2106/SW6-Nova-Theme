@@ -1,0 +1,14 @@
+{% sw_extends '@Storefront/storefront/layout/meta.html.twig' %}
+
+{% block layout_head_meta_tags %}
+    {{ parent() }}
+    {# Färbt die Browser-Leiste auf Mobilgeräten in der Primärfarbe #}
+    <meta name="theme-color" content="{{ theme_config('sw-color-brand-primary') }}">
+{% endblock %}
+
+{# Externe Webfonts komplett weglassen → kein Render-Blocking, kein Layout-Shift #}
+{% block layout_head_font %}
+    {% if not theme_config('nova-disable-webfont') %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

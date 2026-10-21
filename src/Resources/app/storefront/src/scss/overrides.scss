@@ -1,0 +1,40 @@
+/*
+ * Nova Theme – Overrides
+ * -----------------------------------------------------------
+ * Wird VOR dem Storefront-Kern kompiliert. Hier nur Variablen
+ * (Bootstrap/Shopware) überschreiben – keine CSS-Ausgabe!
+ */
+
+@import 'abstracts/variables';
+
+$enable-shadows: false;
+$enable-gradients: false;
+$enable-reduced-motion: true;
+
+$border-radius: $nova-radius-button;
+$border-radius-sm: calc(#{$nova-radius-button} * 0.75);
+$border-radius-lg: $nova-radius;
+
+$btn-border-radius: $nova-radius-button;
+$btn-border-radius-sm: $nova-radius-button;
+$btn-border-radius-lg: $nova-radius-button;
+$btn-padding-y: 0.625rem;
+$btn-padding-x: 1.25rem;
+$btn-font-weight: 600;
+
+$input-border-radius: $nova-radius-button;
+$input-padding-y: 0.625rem;
+
+$card-border-radius: $nova-radius;
+$card-border-color: transparent;
+
+$headings-font-weight: 700;
+$headings-line-height: 1.15;
+
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+    xxl: $nova-container-max-width
+);

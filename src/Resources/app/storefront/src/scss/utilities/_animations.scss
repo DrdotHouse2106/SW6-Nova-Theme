@@ -1,0 +1,17 @@
+/*
+ * Einblend-Animation für Elemente mit [data-nova-reveal].
+ * Nur aktiv, wenn JS die Klasse .nova-animations gesetzt hat und
+ * der Nutzer keine reduzierte Bewegung wünscht.
+ */
+@include nova-motion {
+    .nova-animations .nova-reveal {
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 0.6s var(--nova-ease), transform 0.6s var(--nova-ease);
+
+        &.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+    }
+}

@@ -1,0 +1,167 @@
+{
+    "name": "NovaTheme",
+    "author": "Nova Theme",
+    "description": {
+        "de-DE": "Modernes, modulares und schnelles Theme für alle Bildschirmgrößen.",
+        "en-GB": "Modern, modular and fast theme for every screen size."
+    },
+    "views": [
+        "@Storefront",
+        "@Plugins",
+        "@NovaTheme"
+    ],
+    "style": [
+        "app/storefront/src/scss/overrides.scss",
+        "@Storefront",
+        "app/storefront/src/scss/base.scss"
+    ],
+    "script": [
+        "@Storefront",
+        "app/storefront/dist/storefront/js/nova-theme/nova-theme.js"
+    ],
+    "asset": [
+        "@Storefront",
+        "app/storefront/src/assets"
+    ],
+    "configInheritance": [
+        "@Storefront"
+    ],
+    "config": {
+        "blocks": {
+            "novaLayout": {
+                "label": { "de-DE": "Nova: Layout", "en-GB": "Nova: Layout" }
+            },
+            "novaPerformance": {
+                "label": { "de-DE": "Nova: Performance & Effekte", "en-GB": "Nova: Performance & effects" }
+            }
+        },
+        "fields": {
+            "sw-color-brand-primary": {
+                "label": { "de-DE": "Primärfarbe", "en-GB": "Primary colour" },
+                "type": "color",
+                "value": "#2b4bff",
+                "editable": true,
+                "block": "themeColors",
+                "order": 100
+            },
+            "sw-color-brand-secondary": {
+                "label": { "de-DE": "Sekundärfarbe", "en-GB": "Secondary colour" },
+                "type": "color",
+                "value": "#111827",
+                "editable": true,
+                "block": "themeColors",
+                "order": 200
+            },
+            "sw-border-color": {
+                "label": { "de-DE": "Rahmenfarbe", "en-GB": "Border colour" },
+                "type": "color",
+                "value": "#e5e7eb",
+                "editable": true,
+                "block": "themeColors",
+                "order": 300
+            },
+            "sw-background-color": {
+                "label": { "de-DE": "Hintergrundfarbe", "en-GB": "Background colour" },
+                "type": "color",
+                "value": "#ffffff",
+                "editable": true,
+                "block": "themeColors",
+                "order": 400
+            },
+            "sw-color-buy-button": {
+                "label": { "de-DE": "Kaufen-Button", "en-GB": "Buy button" },
+                "type": "color",
+                "value": "#2b4bff",
+                "editable": true,
+                "block": "eCommerce",
+                "order": 100
+            },
+            "sw-font-family-base": {
+                "label": { "de-DE": "Schriftart Fließtext", "en-GB": "Body font" },
+                "type": "fontFamily",
+                "value": "system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+                "editable": true,
+                "block": "typography",
+                "order": 100
+            },
+            "sw-font-family-headline": {
+                "label": { "de-DE": "Schriftart Überschriften", "en-GB": "Headline font" },
+                "type": "fontFamily",
+                "value": "system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+                "editable": true,
+                "block": "typography",
+                "order": 200
+            },
+            "nova-container-max-width": {
+                "label": { "de-DE": "Maximale Inhaltsbreite", "en-GB": "Max content width" },
+                "helpText": { "de-DE": "z. B. 1440px oder 90rem", "en-GB": "e.g. 1440px or 90rem" },
+                "type": "text",
+                "value": "1440px",
+                "editable": true,
+                "block": "novaLayout",
+                "order": 100
+            },
+            "nova-radius": {
+                "label": { "de-DE": "Eckenradius (Karten, Bilder)", "en-GB": "Corner radius (cards, images)" },
+                "type": "text",
+                "value": "14px",
+                "editable": true,
+                "block": "novaLayout",
+                "order": 200
+            },
+            "nova-radius-button": {
+                "label": { "de-DE": "Eckenradius Buttons & Felder", "en-GB": "Corner radius buttons & inputs" },
+                "type": "text",
+                "value": "10px",
+                "editable": true,
+                "block": "novaLayout",
+                "order": 300
+            },
+            "nova-surface-color": {
+                "label": { "de-DE": "Flächenfarbe (Sektionen, Footer)", "en-GB": "Surface colour (sections, footer)" },
+                "type": "color",
+                "value": "#f6f7f9",
+                "editable": true,
+                "block": "novaLayout",
+                "order": 400
+            },
+            "nova-header-sticky": {
+                "label": { "de-DE": "Header beim Scrollen fixieren", "en-GB": "Sticky header" },
+                "type": "switch",
+                "value": true,
+                "editable": true,
+                "scss": false,
+                "block": "novaLayout",
+                "order": 500
+            },
+            "nova-header-autohide": {
+                "label": { "de-DE": "Header beim Runterscrollen ausblenden", "en-GB": "Hide header when scrolling down" },
+                "type": "switch",
+                "value": true,
+                "editable": true,
+                "scss": false,
+                "block": "novaLayout",
+                "order": 600
+            },
+            "nova-disable-webfont": {
+                "label": { "de-DE": "Keine Webfonts laden (Systemschrift, schnellste Option)", "en-GB": "Do not load web fonts (system font, fastest)" },
+                "type": "switch",
+                "value": true,
+                "editable": true,
+                "scss": false,
+                "block": "novaPerformance",
+                "order": 100
+            },
+            "nova-animations": {
+                "label": { "de-DE": "Dezente Einblend-Animationen", "en-GB": "Subtle reveal animations" },
+                "helpText": { "de-DE": "Respektiert automatisch „Bewegung reduzieren“ des Betriebssystems.", "en-GB": "Automatically respects the OS 'reduce motion' setting." },
+                "type": "switch",
+                "value": true,
+                "editable": true,
+                "scss": false,
+                "block": "novaPerformance",
+                "order": 200
+            }
+        }
+    }
+}

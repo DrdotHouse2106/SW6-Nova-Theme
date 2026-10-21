@@ -1,0 +1,44 @@
+/* Design-Tokens als CSS-Variablen – zur Laufzeit nutzbar */
+:root {
+    --nova-primary: #{$sw-color-brand-primary};
+    --nova-secondary: #{$sw-color-brand-secondary};
+    --nova-surface: #{$nova-surface-color};
+    --nova-border: #{$sw-border-color};
+    --nova-radius: #{$nova-radius};
+    --nova-radius-btn: #{$nova-radius-button};
+    --nova-shadow-sm: #{$nova-shadow-sm};
+    --nova-shadow-md: #{$nova-shadow-md};
+    --nova-ease: #{$nova-ease};
+    --nova-gutter: #{nova-fluid(1rem, 2rem)};
+    --nova-section-space: #{nova-fluid(2rem, 5rem)};
+    --nova-header-height: #{$nova-header-height};
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-padding-top: calc(var(--nova-header-height) + 1rem);
+
+    @include nova-motion {
+        scroll-behavior: smooth;
+    }
+}
+
+img,
+picture,
+video,
+svg {
+    max-width: 100%;
+    height: auto;
+}
+
+:focus-visible {
+    @include nova-focus-ring;
+}
+
+::selection {
+    background: var(--nova-primary);
+    color: #fff;
+}

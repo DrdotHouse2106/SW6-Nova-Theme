@@ -1,0 +1,25 @@
+.product-detail-name {
+    font-size: nova-fluid(1.5rem, 2.25rem);
+}
+
+.gallery-slider-item,
+.gallery-slider-single-image {
+    border-radius: var(--nova-radius);
+    overflow: hidden;
+}
+
+.product-detail-buy {
+    @include media-breakpoint-up(lg) {
+        position: sticky;
+        top: calc(var(--nova-header-height) + 1.5rem);
+    }
+}
+
+.product-detail-price {
+    font-size: nova-fluid(1.5rem, 2rem);
+    font-weight: 700;
+}
+
+.product-detail-tabs .nav-link {
+    font-weight: 600;
+}

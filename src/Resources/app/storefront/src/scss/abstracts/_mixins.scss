@@ -1,0 +1,28 @@
+/* Fließende Werte zwischen zwei Viewport-Breiten (320px → 1440px) */
+@function nova-fluid($min, $max, $min-vw: 20rem, $max-vw: 90rem) {
+    // Division in Klammern: kompatibel mit scssphp (Shopware) und Dart Sass
+    $slope: (($max - $min) / ($max-vw - $min-vw));
+    $intercept: $min - $slope * $min-vw;
+    // Als String zusammensetzen – scssphp interpretiert clamp() sonst fehlerhaft
+    @return unquote('clamp(' + $min + ', ' + $intercept + ' + ' + ($slope * 100vw) + ', ' + $max + ')');
+}
+
+/* Nur bei echtem Hover-Gerät (keine „klebenden“ Hover-Effekte auf Touch) */
+@mixin nova-hover {
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            @content;
+        }
+    }
+}
+
+@mixin nova-focus-ring {
+    outline: 2px solid var(--nova-primary);
+    outline-offset: 2px;
+}
+
+@mixin nova-motion {
+    @media (prefers-reduced-motion: no-preference) {
+        @content;
+    }
+}

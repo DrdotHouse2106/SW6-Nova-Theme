@@ -1,0 +1,25 @@
+.footer-main {
+    background: var(--nova-surface);
+    border-top: 0;
+    margin-top: var(--nova-section-space);
+}
+
+.footer-column-headline {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.footer-link {
+    color: inherit;
+    opacity: 0.8;
+
+    @include nova-hover {
+        opacity: 1;
+        color: var(--nova-primary);
+    }
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--nova-border);
+    font-size: 0.875rem;
+}

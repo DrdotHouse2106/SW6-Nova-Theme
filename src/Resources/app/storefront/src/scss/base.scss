@@ -1,0 +1,31 @@
+/*
+ * Nova Theme – Einstiegspunkt
+ * -----------------------------------------------------------
+ * Jedes Modul ist eigenständig und kann einzeln auskommentiert
+ * werden, um CSS-Größe zu sparen.
+ */
+
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+/* Basis */
+@import 'base/root';
+@import 'base/typography';
+
+/* Layout */
+@import 'layout/container';
+@import 'layout/header';
+@import 'layout/navigation';
+@import 'layout/footer';
+
+/* Komponenten */
+@import 'components/buttons';
+@import 'components/forms';
+@import 'components/product-box';
+@import 'components/product-detail';
+@import 'components/cms';
+@import 'components/offcanvas';
+
+/* Hilfsklassen */
+@import 'utilities/animations';
+@import 'utilities/helpers';

@@ -1,0 +1,24 @@
+/* Fluid Typography: skaliert stufenlos von Smartphone bis 4K */
+body {
+    font-size: nova-fluid(0.9375rem, 1rem);
+    line-height: 1.6;
+}
+
+h1, .h1 { font-size: nova-fluid(1.75rem, 2.75rem); letter-spacing: -0.02em; }
+h2, .h2 { font-size: nova-fluid(1.5rem, 2.125rem); letter-spacing: -0.015em; }
+h3, .h3 { font-size: nova-fluid(1.25rem, 1.625rem); }
+h4, .h4 { font-size: nova-fluid(1.125rem, 1.3125rem); }
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    text-wrap: balance;
+}
+
+p {
+    text-wrap: pretty;
+}
+
+a {
+    text-underline-offset: 0.2em;
+    transition: color 0.15s var(--nova-ease);
+}

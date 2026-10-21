@@ -1,0 +1,26 @@
+.btn {
+    transition: background-color 0.15s var(--nova-ease), border-color 0.15s var(--nova-ease),
+        transform 0.15s var(--nova-ease), box-shadow 0.15s var(--nova-ease);
+
+    &:active {
+        transform: translateY(1px);
+    }
+}
+
+.btn-primary,
+.btn-buy {
+    @include nova-hover {
+        box-shadow: var(--nova-shadow-md);
+    }
+}
+
+.btn-buy {
+    min-height: 48px; // Touch-Zielgröße
+}
+
+/* Größere Touch-Flächen auf Mobilgeräten */
+@include media-breakpoint-down(md) {
+    .btn {
+        min-height: 44px;
+    }
+}

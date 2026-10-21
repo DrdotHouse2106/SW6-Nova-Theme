@@ -1,0 +1,23 @@
+.cms-section {
+    &.bg-surface,
+    &.nova-surface {
+        background: var(--nova-surface);
+    }
+}
+
+.cms-block {
+    .cms-element-image img,
+    .cms-image-container {
+        border-radius: var(--nova-radius);
+    }
+}
+
+.cms-element-text h1,
+.cms-element-text h2 {
+    margin-bottom: 0.75rem;
+}
+
+/* Gleichmäßige Abstände zwischen CMS-Blöcken auf allen Geräten */
+.cms-block:not(:first-child) .cms-block-container {
+    padding-top: nova-fluid(1rem, 2rem);
+}

@@ -1,0 +1,67 @@
+.header-main {
+    background: var(--bs-body-bg, #fff);
+    border-bottom: 1px solid var(--nova-border);
+}
+
+.header-row {
+    min-height: var(--nova-header-height);
+    padding-block: 0.5rem;
+}
+
+.header-logo-main-img {
+    max-height: 44px;
+    width: auto;
+}
+
+.header-search-input {
+    border-radius: var(--nova-radius-btn) 0 0 var(--nova-radius-btn);
+    background: var(--nova-surface);
+    border-color: transparent;
+
+    &:focus {
+        background: #fff;
+        border-color: var(--nova-primary);
+        box-shadow: none;
+    }
+}
+
+.header-actions-btn {
+    border-radius: var(--nova-radius-btn);
+
+    @include nova-hover {
+        background: var(--nova-surface);
+    }
+}
+
+/* Sticky Header (aktivierbar in der Theme-Konfiguration) */
+.nova-sticky-header {
+    .header-main {
+        position: sticky;
+        top: 0;
+        z-index: 1030;
+        transition: transform 0.25s var(--nova-ease), box-shadow 0.25s var(--nova-ease);
+    }
+
+    /* Nav-Leiste mit in den Sticky-Bereich nehmen */
+    .nav-main {
+        position: relative;
+    }
+
+    &.nova-is-scrolled .header-main {
+        box-shadow: var(--nova-shadow-sm);
+    }
+
+    &.nova-header-hidden .header-main {
+        transform: translateY(-100%);
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    :root {
+        --nova-header-height: 60px;
+    }
+
+    .header-logo-main-img {
+        max-height: 34px;
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "name": "nova/nova-theme",
+    "description": "Modernes, modulares und performantes Theme für Shopware 6",
+    "type": "shopware-platform-plugin",
+    "version": "1.0.0",
+    "license": "MIT",
+    "authors": [{ "name": "Nova Theme" }],
+    "require": {
+        "shopware/core": "~6.6.0 || ~6.7.0",
+        "shopware/storefront": "~6.6.0 || ~6.7.0"
+    },
+    "autoload": {
+        "psr-4": { "Nova\\NovaTheme\\": "src/" }
+    },
+    "extra": {
+        "shopware-plugin-class": "Nova\\NovaTheme\\NovaTheme",
+        "label": {
+            "de-DE": "Nova Theme",
+            "en-GB": "Nova Theme"
+        },
+        "description": {
+            "de-DE": "Modernes, modulares und schnelles Theme für alle Bildschirmgrößen.",
+            "en-GB": "Modern, modular and fast theme for every screen size."
+        }
+    }
+}

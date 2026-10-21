@@ -1,0 +1,10 @@
+.nova-surface { background: var(--nova-surface); }
+.nova-rounded { border-radius: var(--nova-radius); }
+.nova-shadow { box-shadow: var(--nova-shadow-md); }
+.nova-section { padding-block: var(--nova-section-space); }
+
+/* Rendering von Inhalten unterhalb des sichtbaren Bereichs aufschieben */
+.footer-main {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 600px;
+}

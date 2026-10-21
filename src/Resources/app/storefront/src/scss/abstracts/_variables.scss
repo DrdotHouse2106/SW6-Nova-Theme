@@ -1,0 +1,13 @@
+/*
+ * Fallback-Werte. Die echten Werte kommen aus der Theme-Konfiguration
+ * (Admin → Inhalte → Themes) und überschreiben diese Defaults.
+ */
+$nova-container-max-width: 1440px !default;
+$nova-radius: 14px !default;
+$nova-radius-button: 10px !default;
+$nova-surface-color: #f6f7f9 !default;
+
+$nova-shadow-sm: 0 1px 2px rgba(17, 24, 39, 0.06), 0 1px 3px rgba(17, 24, 39, 0.08) !default;
+$nova-shadow-md: 0 8px 24px -8px rgba(17, 24, 39, 0.18) !default;
+$nova-ease: cubic-bezier(0.2, 0.7, 0.2, 1) !default;
+$nova-header-height: 72px !default;

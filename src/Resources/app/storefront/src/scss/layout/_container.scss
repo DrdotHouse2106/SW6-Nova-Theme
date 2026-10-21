@@ -1,0 +1,15 @@
+.container,
+.cms-section .boxed {
+    padding-inline: var(--nova-gutter);
+}
+
+.cms-section .boxed {
+    max-width: $nova-container-max-width;
+}
+
+/* Inhalte auf sehr großen Monitoren nicht endlos strecken */
+@media (min-width: 1920px) {
+    .container-fluid {
+        max-width: 1920px;
+    }
+}

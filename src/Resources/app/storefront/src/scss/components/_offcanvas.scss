@@ -1,0 +1,26 @@
+.offcanvas {
+    border: 0;
+    box-shadow: var(--nova-shadow-md);
+
+    &.offcanvas-end {
+        border-radius: var(--nova-radius) 0 0 var(--nova-radius);
+    }
+
+    &.offcanvas-start {
+        border-radius: 0 var(--nova-radius) var(--nova-radius) 0;
+    }
+
+    @include media-breakpoint-down(sm) {
+        &.offcanvas-end,
+        &.offcanvas-start {
+            border-radius: 0;
+            width: 100%;
+        }
+    }
+}
+
+.line-item-img-container {
+    border-radius: calc(var(--nova-radius) - 4px);
+    overflow: hidden;
+    background: var(--nova-surface);
+}

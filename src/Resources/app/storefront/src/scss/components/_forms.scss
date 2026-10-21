@@ -1,0 +1,17 @@
+.form-control,
+.form-select {
+    border-radius: var(--nova-radius-btn);
+
+    &:focus {
+        border-color: var(--nova-primary);
+        box-shadow: 0 0 0 3px color-mix(in srgb, var(--nova-primary) 18%, transparent);
+    }
+}
+
+/* Verhindert Auto-Zoom bei Fokus auf iOS */
+@include media-breakpoint-down(md) {
+    .form-control,
+    .form-select {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,37 @@
+.nav-main {
+    border-bottom: 1px solid var(--nova-border);
+    background: var(--bs-body-bg, #fff);
+}
+
+.main-navigation-link {
+    font-weight: 600;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: auto 1rem 0.35rem;
+        height: 2px;
+        background: var(--nova-primary);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.2s var(--nova-ease);
+    }
+
+    &.active::after,
+    &:focus-visible::after {
+        transform: scaleX(1);
+    }
+
+    @include nova-hover {
+        &::after {
+            transform: scaleX(1);
+        }
+    }
+}
+
+.navigation-flyout {
+    border-radius: 0 0 var(--nova-radius) var(--nova-radius);
+    box-shadow: var(--nova-shadow-md);
+    border-top: 0;
+}

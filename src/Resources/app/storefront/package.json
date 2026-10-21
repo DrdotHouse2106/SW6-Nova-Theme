@@ -1,0 +1,11 @@
+{
+    "name": "nova-theme-storefront",
+    "private": true,
+    "description": "Nur für den Standalone-Build ohne Shopware-Installation (siehe README).",
+    "scripts": {
+        "build": "esbuild src/main.js --bundle --minify --format=iife --target=es2019 --outfile=dist/storefront/js/nova-theme/nova-theme.js"
+    },
+    "devDependencies": {
+        "esbuild": "^0.24.0"
+    }
+}

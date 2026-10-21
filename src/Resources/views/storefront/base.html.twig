@@ -1,0 +1,9 @@
+{% sw_extends '@Storefront/storefront/base.html.twig' %}
+
+{# Schaltet Theme-Funktionen per CSS-Klasse am <body> – gesteuert über die Theme-Konfiguration #}
+{% block base_body_classes %}{{ parent() }}
+    {%- if theme_config('nova-header-sticky') %} nova-sticky-header
+        {%- if theme_config('nova-header-autohide') %} nova-header-autohide{% endif %}
+    {%- endif %}
+    {%- if theme_config('nova-animations') %} nova-animations{% endif %}
+{%- endblock %}
