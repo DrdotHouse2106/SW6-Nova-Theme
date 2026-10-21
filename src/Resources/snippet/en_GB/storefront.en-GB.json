@@ -8,6 +8,25 @@
         },
         "listing": {
             "count": "{1} 1 product|]1,Inf[ %count% products"
+        },
+        "recentlyViewed": {
+            "title": "Recently viewed"
+        },
+        "slider": {
+            "previous": "Previous",
+            "next": "Next"
+        },
+        "account": {
+            "deleteTitle": "Delete account",
+            "deleteText": "Your customer account and all stored data will be removed permanently. Orders are kept for legal reasons. This cannot be undone.",
+            "deleteButton": "Delete account"
+        },
+        "checkout": {
+            "progress": "Order progress",
+            "stepCart": "Cart",
+            "stepAddress": "Address",
+            "stepConfirm": "Review & order",
+            "stepFinish": "Done"
         }
     }
 }

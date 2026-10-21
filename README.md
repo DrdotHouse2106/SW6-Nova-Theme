@@ -8,7 +8,7 @@ Modernes, modulares und **schnelles** Storefront-Theme für Shopware 6.6 und 6.7
 
 | Bereich | Umsetzung |
 |---|---|
-| **Performance** | keine externen Schriften oder Skripte, nur ~6 KB eigenes JavaScript, JS-Plugins werden per Lazy-Import nur bei Bedarf geladen, `content-visibility` für den Footer, feste Bild-Seitenverhältnisse gegen Layout-Shift (CLS) |
+| **Performance** | keine externen Schriften oder Skripte, nur ~7 KB eigenes JavaScript, JS-Plugins werden per Lazy-Import nur bei Bedarf geladen, `content-visibility` für den Footer, feste Bild-Seitenverhältnisse gegen Layout-Shift (CLS) |
 | **Responsive** | Mobile-First, fließende Typografie und Abstände via `clamp()`, **Container Queries** für Produktkarten, zweispaltiges Listing auf Smartphones, 44–48 px Touch-Ziele, kein iOS-Auto-Zoom bei Formularen |
 | **Modular** | Jedes SCSS-Modul (Header, Footer, Produktkarte, …) ist eine eigene Datei und kann einzeln deaktiviert werden. Design-Tokens als CSS-Variablen (`--nova-*`) |
 | **Konfigurierbar** | Farben, Schriften, Eckenradien, Inhaltsbreite, Sticky-/Auto-Hide-Header und Animationen direkt in der Administration einstellbar |
@@ -43,6 +43,10 @@ Alternativ in der Administration unter **Inhalte → Themes** das „Nova Theme�
 | **Artikelzähler** | „2126 Artikel“ über dem Listing, aktualisiert sich beim Filtern |
 | **Konfetti** | Kurze Animation nach erfolgreicher Bestellung (ohne externe Bibliothek) |
 | **Produktbilder** | Wahlweise ganz zeigen (freigestellt) oder Fläche füllen (Fotos) |
+| **Zuletzt angesehen** | Slider unter der Produktseite und im Warenkorb. Die Liste liegt nur im Browser des Kunden (localStorage, max. 20 Produkte) – auf dem Server wird nichts gespeichert |
+| **Modernes Checkout** | Fortschrittsanzeige (Warenkorb → Adresse → Prüfen → Fertig), Versand- und Zahlungsarten als Auswahlkarten, mitlaufende Zusammenfassung auf dem Desktop, Bestell-Button auf dem Smartphone immer sichtbar, schlanker Checkout-Header |
+| **Modernes Kundenkonto** | Konto-Menü als Karte, Karten für Übersicht, Profil, Adressen und Bestellungen, Login und Registrierung mit großen Eingabefeldern |
+| **Konto löschen** | Gut sichtbarer Bereich „Konto löschen“ im Profil mit Sicherheitsabfrage |
 
 ## Einstellungen
 
@@ -53,6 +57,7 @@ Alternativ in der Administration unter **Inhalte → Themes** das „Nova Theme�
 - **Topbar** – an/aus, Infotext, Link, Telefon, E-Mail, Öffnungszeiten
 - **Header** – kompakter Header beim Scrollen, Ladebalken
 - **Produktlisting** – Artikelanzahl anzeigen
+- **Zuletzt angesehen** – Liste an/aus
 - **Checkout** – Konfetti nach der Bestellung
 
 ### Theme-Konfiguration (Farben & Layout)
@@ -64,7 +69,22 @@ Alternativ in der Administration unter **Inhalte → Themes** das „Nova Theme�
 - **Nova: Header & Topbar** – Topbar-Farben, maximale Logohöhe, Header beim Runterscrollen ausblenden
 - **Nova: Produktlisting** – Bild-Modus, 2 Produkte pro Zeile auf Smartphones
 - **Nova: Footer** – Hintergrundfarbe
+- **Nova: Checkout & Konto** – Fortschrittsanzeige im Checkout an/aus
 - **Nova: Effekte** – dezente Einblend-Animationen
+
+### Konto löschen aktivieren
+
+Die Funktion ist in Shopware eingebaut, aber standardmäßig aus: **Einstellungen → Login & Registrierung → „Kunden können ihr Konto löschen“** aktivieren. Danach erscheint im Profil der Bereich „Konto löschen“ mit Sicherheitsabfrage.
+
+### Absprache mit anderen Plugins (Tracking)
+
+Produktlisten, die das Theme per JavaScript nachlädt (z. B. „Zuletzt angesehen“), sind so ausgezeichnet, dass ein Tag-Manager-Plugin sie erfassen kann:
+
+| Merkmal | Bedeutung |
+|---|---|
+| `data-nova-list-id` / `data-nova-list-name` am Listen-Container | Listen-ID und -Name, z. B. `recently_viewed` / `Zuletzt angesehen` |
+| `data-product-information` an jeder Produktbox | Kommt aus Shopwares Standard-Produktbox (ID, Name, Marke, Preis, Nummer) |
+| Event `nova:products-rendered` auf `document` | Wird nach dem Einfügen ausgelöst, `event.detail.container` ist der Listen-Container |
 
 ## Mehrere Shops mit eigenen Farben
 
@@ -95,20 +115,27 @@ src/
     ├── views/storefront/
     │   ├── base.html.twig             Body-Klassen aus Theme- & Plugin-Konfiguration
     │   ├── layout/header/top-bar.html.twig   Topbar
-    │   └── component/product/listing.html.twig   Artikelzähler
+    │   ├── component/product/listing.html.twig   Artikelzähler
+    │   ├── page/checkout/_page.html.twig    Fortschrittsanzeige im Checkout
+    │   ├── page/checkout/cart/index.html.twig   „Zuletzt angesehen“ im Warenkorb
+    │   ├── page/content/product-detail.html.twig   „Zuletzt angesehen“ auf der Produktseite
+    │   ├── page/account/profile/index.html.twig   Bereich „Konto löschen“
+    │   └── nova/                        Templates für „Zuletzt angesehen“
+    ├── config/routes.xml, services.xml   Route /nova/recently-viewed
     ├── config/config.xml              Plugin-Einstellungen pro Verkaufskanal
     ├── snippet/                       Textbausteine (de-DE, en-GB)
     └── app/storefront/
         ├── src/
         │   ├── main.js                Registriert JS-Plugins (Lazy-Import)
-        │   ├── plugin/                Kompakter Header, Ladebalken, Konfetti, Einblend-Animation
+        │   ├── plugin/                Kompakter Header, Ladebalken, Konfetti, Einblend-Animation, Zuletzt angesehen
         │   └── scss/
         │       ├── overrides.scss     Bootstrap-/Shopware-Variablen (vor dem Kern)
         │       ├── base.scss          Einstiegspunkt – Module ein-/ausschalten
         │       ├── abstracts/         Variablen, Mixins, nova-fluid()
         │       ├── base/              Tokens, Typografie
         │       ├── layout/            Container, Header, Navigation, Footer
-        │       ├── components/        Buttons, Formulare, Produktkarte, PDP, CMS, Offcanvas
+        │       ├── components/        Buttons, Formulare, Produktkarte, PDP, CMS, Offcanvas, Warenkorb-Positionen, Produkt-Slider
+│       ├── pages/             Checkout, Kundenkonto
         │       └── utilities/         Animationen, Hilfsklassen
         └── dist/                      Fertig gebautes JavaScript
 ```

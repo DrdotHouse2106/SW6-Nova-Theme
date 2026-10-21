@@ -1,0 +1,335 @@
+/*
+ * Checkout: Warenkorb, Adresse/Registrierung, Prüfen & bestellen, Abschluss
+ */
+
+/* ---------- Fortschrittsanzeige ---------- */
+.nova-checkout-steps {
+    margin: 0.5rem 0 2rem;
+
+    ol {
+        display: flex;
+        margin: 0;
+        counter-reset: none;
+    }
+}
+
+.nova-checkout-step {
+    position: relative;
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.8125rem;
+    color: var(--bs-secondary-color, #6c757d);
+    text-align: center;
+
+    // Verbindungslinie zum nächsten Schritt
+    &:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        top: 1rem;
+        left: calc(50% + 1.25rem);
+        right: calc(-50% + 1.25rem);
+        height: 2px;
+        background: var(--nova-border);
+    }
+
+    &.is-done::after {
+        background: var(--nova-primary);
+    }
+
+    &.is-current {
+        color: var(--bs-body-color);
+        font-weight: 700;
+    }
+
+    @include media-breakpoint-up(md) {
+        font-size: 0.9375rem;
+    }
+}
+
+.nova-checkout-step-label {
+    padding-inline: 0.25rem;
+    overflow-wrap: anywhere;
+    line-height: 1.25;
+
+    // Auf kleinen Bildschirmen nur den aktuellen Schritt beschriften
+    @include media-breakpoint-down(sm) {
+        .nova-checkout-step:not(.is-current) & {
+            @include visually-hidden;
+        }
+    }
+}
+
+.nova-checkout-step-index {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    font-weight: 700;
+    background: var(--bs-body-bg, #fff);
+    border: 2px solid var(--nova-border);
+    border-radius: 50%;
+
+    .is-current & {
+        color: #fff;
+        background: var(--nova-primary);
+        border-color: var(--nova-primary);
+        box-shadow: 0 0 0 4px color-mix(in srgb, var(--nova-primary) 20%, transparent);
+    }
+
+    .is-done & {
+        color: var(--nova-primary);
+        border-color: var(--nova-primary);
+
+        .icon {
+            color: inherit;
+        }
+    }
+}
+
+/* ---------- Grundlayout ---------- */
+.checkout {
+    .checkout-main h1,
+    .cart-main-header,
+    .confirm-main-header,
+    .address-main-header {
+        font-size: nova-fluid(1.5rem, 2rem);
+    }
+}
+
+.checkout-card,
+.checkout-product-table,
+.register-card,
+.login-card {
+    border: 1px solid var(--nova-border);
+    border-radius: var(--nova-radius);
+    box-shadow: none;
+
+    > .card-body {
+        padding: nova-fluid(1rem, 1.5rem);
+    }
+
+    .card-title {
+        margin-bottom: 1rem;
+        font-size: 1.125rem;
+        font-weight: 700;
+        border-bottom: 0;
+    }
+}
+
+/* Zusammenfassung rechts – auf großen Bildschirmen mitlaufend */
+.checkout-aside-summary,
+.checkout-aside-products {
+    padding: nova-fluid(1rem, 1.5rem);
+    background: var(--nova-surface);
+    border-radius: var(--nova-radius);
+}
+
+.checkout-aside-summary-header {
+    font-size: 1.25rem;
+}
+
+.checkout-aside-summary-total {
+    font-size: 1.25rem;
+    border-top-color: var(--nova-border);
+}
+
+@include media-breakpoint-up(lg) {
+    .checkout .checkout-aside-container {
+        position: sticky;
+        top: calc(var(--nova-header-height) + 1rem);
+    }
+
+    .is-active-route-frontend-checkout-confirm-page .checkout-aside-container,
+    .is-active-route-frontend-checkout-register-page .checkout-aside-container {
+        top: 1rem;
+    }
+}
+
+.begin-checkout-btn,
+.checkout-aside-action .btn-primary,
+#confirmFormSubmit {
+    min-height: 3.25rem;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    border-radius: var(--nova-radius-btn);
+}
+
+.cart-add-product-container,
+.cart-add-promotion,
+.cart-shipping-costs-container {
+    .input-group > .form-control,
+    .input-group > .btn {
+        min-height: 2.75rem;
+    }
+}
+
+/* ---------- Versand- und Zahlungsart als Auswahlkarten ---------- */
+.shipping-methods,
+.payment-methods {
+    display: grid;
+    gap: 0.625rem;
+}
+
+.shipping-method,
+.payment-method {
+    .form-group {
+        margin: 0;
+    }
+}
+
+.shipping-method-radio,
+.payment-method-radio {
+    position: relative;
+    margin: 0;
+    padding: 0;
+
+    .form-check-input {
+        position: absolute;
+        top: 1.125rem;
+        left: 1rem;
+        margin: 0;
+        z-index: 1;
+    }
+
+    .form-check-label {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+        min-height: 3.5rem;
+        padding: 0.875rem 1rem 0.875rem 3rem;
+        background: var(--bs-body-bg, #fff);
+        border: 1px solid var(--nova-border);
+        border-radius: var(--nova-radius-btn);
+        cursor: pointer;
+        transition: border-color 0.15s var(--nova-ease), box-shadow 0.15s var(--nova-ease), background-color 0.15s var(--nova-ease);
+    }
+
+    @include nova-hover {
+        .form-check-label {
+            border-color: var(--nova-primary);
+        }
+    }
+
+    &:has(.form-check-input:checked) .form-check-label {
+        background: color-mix(in srgb, var(--nova-primary) 6%, var(--bs-body-bg, #fff));
+        border-color: var(--nova-primary);
+        box-shadow: 0 0 0 1px var(--nova-primary);
+    }
+
+    &:has(.form-check-input:focus-visible) .form-check-label {
+        @include nova-focus-ring;
+    }
+}
+
+.shipping-method-image,
+.payment-method-image {
+    float: none;
+    max-height: 28px;
+    margin: 0;
+}
+
+.shipping-method-description,
+.payment-method-description {
+    flex: 1 1 auto;
+
+    p {
+        font-size: 0.875rem;
+        color: var(--bs-secondary-color, #6c757d);
+    }
+}
+
+/* ---------- Bestellprüfung ---------- */
+.confirm-address .card-body,
+.confirm-payment-shipping .card-body {
+    height: 100%;
+}
+
+.confirm-tos .form-check,
+.checkout-confirm-revocation-checkbox {
+    padding: 1rem 1rem 1rem 2.75rem;
+    background: var(--nova-surface);
+    border-radius: var(--nova-radius-btn);
+}
+
+.checkout-customer-comment-control {
+    border-radius: var(--nova-radius-btn);
+}
+
+/* ---------- Registrierung / Gastbestellung ---------- */
+.register-login-collapse-toogle,
+.login-collapse-toggle {
+    font-weight: 600;
+}
+
+.register-form .form-control,
+.register-form .form-select,
+.login-form .form-control {
+    min-height: 2.875rem;
+}
+
+.register-submit .btn,
+.login-submit .btn {
+    min-height: 3rem;
+    padding-inline: 2rem;
+    font-weight: 700;
+}
+
+/* ---------- Abschlussseite ---------- */
+.finish-header {
+    font-size: nova-fluid(1.5rem, 2.25rem);
+    color: var(--nova-primary);
+}
+
+.finish-ordernumber {
+    display: inline-block;
+    padding: 0.375rem 0.875rem;
+    font-weight: 700;
+    background: var(--nova-surface);
+    border-radius: 999px;
+}
+
+.finish-info {
+    margin-top: 1rem;
+}
+
+/* ---------- Offcanvas-Warenkorb ---------- */
+.offcanvas-cart {
+    .offcanvas-cart-header {
+        font-size: 1.25rem;
+        font-weight: 700;
+    }
+
+    .offcanvas-cart-actions {
+        padding-top: 1rem;
+        border-top: 1px solid var(--nova-border);
+    }
+
+    .offcanvas-summary-list {
+        font-size: 0.9375rem;
+    }
+
+    .begin-checkout-btn {
+        width: 100%;
+    }
+}
+
+/* Mobile: Weiter-Button immer erreichbar unten */
+@include media-breakpoint-down(lg) {
+    .is-active-route-frontend-checkout-cart-page .checkout-aside-action:has(.begin-checkout-btn),
+    .is-active-route-frontend-checkout-confirm-page .checkout-aside-action:has(#confirmFormSubmit) {
+        position: sticky;
+        bottom: 0;
+        z-index: 5;
+        margin-inline: calc(-1 * var(--nova-gutter));
+        padding: 0.75rem var(--nova-gutter);
+        background: var(--bs-body-bg, #fff);
+        box-shadow: 0 -0.5rem 1.5rem rgba(0, 0, 0, 0.08);
+    }
+}

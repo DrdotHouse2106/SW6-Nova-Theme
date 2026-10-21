@@ -1,0 +1,31 @@
+{% sw_extends '@Storefront/storefront/page/checkout/_page.html.twig' %}
+
+{# Fortschrittsanzeige über allen Checkout-Seiten: Warenkorb → Adresse → Prüfen → Fertig #}
+{% block page_checkout %}
+    {% set novaCheckoutStep = {
+        'frontend.checkout.cart.page': 1,
+        'frontend.checkout.register.page': 2,
+        'frontend.checkout.confirm.page': 3,
+        'frontend.checkout.finish.page': 4
+    }[activeRoute] ?? 0 %}
+
+    {% if novaCheckoutStep > 0 and theme_config('nova-checkout-steps') is not same as(false) %}
+        {% block nova_checkout_steps %}
+            <nav class="nova-checkout-steps" aria-label="{{ 'novaTheme.checkout.progress'|trans|striptags }}">
+                <ol class="list-unstyled">
+                    {% for label in ['novaTheme.checkout.stepCart', 'novaTheme.checkout.stepAddress', 'novaTheme.checkout.stepConfirm', 'novaTheme.checkout.stepFinish'] %}
+                        <li class="nova-checkout-step{% if loop.index < novaCheckoutStep %} is-done{% elseif loop.index == novaCheckoutStep %} is-current{% endif %}"
+                            {% if loop.index == novaCheckoutStep %}aria-current="step"{% endif %}>
+                            <span class="nova-checkout-step-index" aria-hidden="true">
+                                {% if loop.index < novaCheckoutStep %}{% sw_icon 'checkmark' style { size: 'xs' } %}{% else %}{{ loop.index }}{% endif %}
+                            </span>
+                            <span class="nova-checkout-step-label">{{ label|trans }}</span>
+                        </li>
+                    {% endfor %}
+                </ol>
+            </nav>
+        {% endblock %}
+    {% endif %}
+
+    {{ parent() }}
+{% endblock %}

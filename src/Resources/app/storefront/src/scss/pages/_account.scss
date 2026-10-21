@@ -1,0 +1,134 @@
+/*
+ * Kundenkonto: Übersicht, Profil, Adressen, Bestellungen, Zahlungsarten, Login
+ */
+.account-content {
+    margin-top: 1rem;
+}
+
+.account-welcome {
+    h1 {
+        font-size: nova-fluid(1.5rem, 2rem);
+    }
+}
+
+/* Konto-Menü links als Karte mit klaren Einträgen */
+.account-aside .account-menu-inner {
+    padding: 0.75rem;
+    background: var(--nova-surface);
+    border: 0;
+    border-radius: var(--nova-radius);
+}
+
+.account-aside-item {
+    padding: 0.625rem 0.875rem !important;
+    margin-bottom: 0.125rem;
+    border-radius: var(--nova-radius-btn);
+    transition: background-color 0.15s var(--nova-ease), color 0.15s var(--nova-ease);
+
+    @include nova-hover {
+        background: var(--bs-body-bg, #fff) !important;
+    }
+
+    &.is-active {
+        color: var(--nova-primary);
+        background: var(--bs-body-bg, #fff) !important;
+        box-shadow: var(--nova-shadow-sm);
+    }
+}
+
+.account-aside-footer {
+    border-top-color: var(--nova-border);
+}
+
+/* Karten der Übersicht, Adressen, Profil */
+.account-overview-card,
+.is-active-route-frontend-account-address-page .account-content-main .card,
+.account-profile-personal,
+.account-profile-credentials,
+.account-orders .order-wrapper {
+    border: 1px solid var(--nova-border);
+    border-radius: var(--nova-radius);
+    box-shadow: none;
+    transition: box-shadow 0.2s var(--nova-ease);
+
+    @include nova-hover {
+        box-shadow: var(--nova-shadow-md);
+    }
+}
+
+.account-overview-card .card-title,
+.is-active-route-frontend-account-address-page .account-content-main .card-title {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    border-bottom: 0;
+}
+
+.address-item-default-badge,
+.order-item-status-badge {
+    border-radius: 999px;
+    padding: 0.3em 0.75em;
+    font-weight: 600;
+}
+
+/* Bestellungen */
+.order-wrapper {
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.order-table-header {
+    background: var(--nova-surface);
+}
+
+.order-table-header-heading {
+    font-weight: 700;
+}
+
+/* Gefahrenzone: Konto löschen */
+.nova-danger-zone {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-block: 2rem 1rem;
+    padding: 1.25rem 1.5rem;
+    background: color-mix(in srgb, var(--bs-danger, #dc3545) 5%, var(--bs-body-bg, #fff));
+    border: 1px solid color-mix(in srgb, var(--bs-danger, #dc3545) 45%, transparent);
+    border-radius: var(--nova-radius);
+}
+
+.nova-danger-zone-text {
+    flex: 1 1 20rem;
+
+    p {
+        font-size: 0.9375rem;
+        color: var(--bs-secondary-color, #6c757d);
+    }
+}
+
+.nova-danger-zone-title {
+    margin-bottom: 0.25rem;
+    color: var(--bs-danger, #dc3545);
+    font-weight: 700;
+}
+
+.nova-danger-zone-btn {
+    min-height: 2.75rem;
+    padding-inline: 1.5rem;
+    font-weight: 700;
+}
+
+/* Login-Seite: Vorteile und Formular nebeneinander als Karten */
+.login-card,
+.register-card {
+    height: 100%;
+}
+
+.login-advantages {
+    padding-left: 1.25rem;
+
+    li::marker {
+        color: var(--nova-primary);
+    }
+}

@@ -16,6 +16,7 @@
 @import 'layout/container';
 @import 'layout/topbar';
 @import 'layout/header';
+@import 'layout/header-minimal';
 @import 'layout/navigation';
 @import 'layout/footer';
 
@@ -27,6 +28,12 @@
 @import 'components/product-detail';
 @import 'components/cms';
 @import 'components/offcanvas';
+@import 'components/line-item';
+@import 'components/product-slider';
+
+/* Seiten */
+@import 'pages/checkout';
+@import 'pages/account';
 
 /* Hilfsklassen */
 @import 'utilities/animations';

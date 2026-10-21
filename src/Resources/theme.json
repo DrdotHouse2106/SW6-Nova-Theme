@@ -57,6 +57,12 @@
                     "de-DE": "Nova: Footer",
                     "en-GB": "Nova: Footer"
                 }
+            },
+            "novaCheckout": {
+                "label": {
+                    "de-DE": "Nova: Checkout & Konto",
+                    "en-GB": "Nova: Checkout & account"
+                }
             }
         },
         "fields": {
@@ -300,6 +306,18 @@
                 "value": "#f6f7f9",
                 "editable": true,
                 "block": "novaFooter",
+                "order": 100
+            },
+            "nova-checkout-steps": {
+                "label": {
+                    "de-DE": "Fortschrittsanzeige im Checkout",
+                    "en-GB": "Checkout progress indicator"
+                },
+                "type": "switch",
+                "value": true,
+                "editable": true,
+                "scss": false,
+                "block": "novaCheckout",
                 "order": 100
             }
         }

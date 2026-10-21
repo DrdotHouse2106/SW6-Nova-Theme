@@ -1,0 +1,31 @@
+{# Liste „Zuletzt angesehen“ – wird per JavaScript in [data-nova-recently-viewed] geladen #}
+{% block nova_recently_viewed %}
+    {% if products|length > 0 %}
+        <section class="nova-recently-viewed-section" aria-labelledby="nova-recently-viewed-title">
+            <h2 class="nova-section-title" id="nova-recently-viewed-title">{{ 'novaTheme.recentlyViewed.title'|trans }}</h2>
+
+            {# data-nova-list-* werden vom Tag-Manager-Plugin für view_item_list / select_item ausgewertet #}
+            <div class="nova-product-slider" data-nova-list-id="recently_viewed" data-nova-list-name="Zuletzt angesehen">
+                <button type="button" class="nova-product-slider-btn is-prev" data-nova-slide="-1" aria-label="{{ 'novaTheme.slider.previous'|trans|striptags }}">
+                    {% sw_icon 'arrow-head-left' style { size: 'sm' } %}
+                </button>
+
+                <ul class="nova-product-slider-track list-unstyled">
+                    {% for product in products %}
+                        <li class="nova-product-slider-item">
+                            {% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+                                product: product,
+                                layout: 'standard',
+                                displayMode: 'standard'
+                            } %}
+                        </li>
+                    {% endfor %}
+                </ul>
+
+                <button type="button" class="nova-product-slider-btn is-next" data-nova-slide="1" aria-label="{{ 'novaTheme.slider.next'|trans|striptags }}">
+                    {% sw_icon 'arrow-head-right' style { size: 'sm' } %}
+                </button>
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}

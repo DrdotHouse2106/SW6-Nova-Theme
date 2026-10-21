@@ -1,0 +1,87 @@
+/*
+ * Produkt-Slider (z. B. „Zuletzt angesehen“) – horizontal wischbar,
+ * Pfeiltasten nur auf Geräten mit Maus.
+ */
+.nova-recently-viewed {
+    &:empty {
+        display: none;
+    }
+
+    &.is-loaded {
+        margin-block: var(--nova-section-space);
+
+        @include nova-motion {
+            animation: nova-fade-in 0.4s var(--nova-ease);
+        }
+    }
+}
+
+@keyframes nova-fade-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: none; }
+}
+
+.nova-section-title {
+    margin-bottom: 1rem;
+    font-size: nova-fluid(1.25rem, 1.625rem);
+}
+
+.nova-product-slider {
+    position: relative;
+}
+
+.nova-product-slider-track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% - 3 * 1rem) / 4);
+    gap: 1rem;
+    margin: 0;
+    padding-bottom: 0.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    @include media-breakpoint-down(lg) {
+        grid-auto-columns: calc((100% - 2 * 1rem) / 3);
+    }
+
+    @include media-breakpoint-down(md) {
+        grid-auto-columns: 45%;
+    }
+}
+
+.nova-product-slider-item {
+    scroll-snap-align: start;
+
+    .card.product-box {
+        height: 100%;
+    }
+}
+
+.nova-product-slider-btn {
+    position: absolute;
+    top: 35%;
+    z-index: 2;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    color: var(--bs-body-color);
+    background: var(--bs-body-bg, #fff);
+    border: 1px solid var(--nova-border);
+    border-radius: 50%;
+    box-shadow: var(--nova-shadow-md);
+
+    &.is-prev { left: -1rem; }
+    &.is-next { right: -1rem; }
+
+    @media (hover: hover) and (pointer: fine) {
+        display: flex;
+    }
+}

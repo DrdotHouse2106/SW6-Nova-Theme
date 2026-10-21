@@ -8,6 +8,25 @@
         },
         "listing": {
             "count": "{1} 1 Artikel|]1,Inf[ %count% Artikel"
+        },
+        "recentlyViewed": {
+            "title": "Zuletzt angesehen"
+        },
+        "slider": {
+            "previous": "Zurück",
+            "next": "Weiter"
+        },
+        "account": {
+            "deleteTitle": "Konto löschen",
+            "deleteText": "Dein Kundenkonto und alle gespeicherten Daten werden dauerhaft entfernt. Bestellungen bleiben aus rechtlichen Gründen erhalten. Das lässt sich nicht rückgängig machen.",
+            "deleteButton": "Konto löschen"
+        },
+        "checkout": {
+            "progress": "Fortschritt der Bestellung",
+            "stepCart": "Warenkorb",
+            "stepAddress": "Adresse",
+            "stepConfirm": "Prüfen & bestellen",
+            "stepFinish": "Fertig"
         }
     }
 }

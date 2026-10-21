@@ -1,0 +1,13 @@
+{% sw_extends '@Storefront/storefront/page/content/product-detail.html.twig' %}
+
+{# „Zuletzt angesehen“ unterhalb der Produktseite – speichert zugleich das aktuelle Produkt #}
+{% block page_content %}
+    {{ parent() }}
+
+    {% block nova_product_detail_recently_viewed %}
+        {% sw_include '@NovaTheme/storefront/nova/recently-viewed-container.html.twig' with {
+            productId: page.product.id,
+            containerClass: 'container'
+        } %}
+    {% endblock %}
+{% endblock %}

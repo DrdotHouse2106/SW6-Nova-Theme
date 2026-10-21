@@ -30,3 +30,9 @@ PluginManager.register(
     () => import('./plugin/nova-confetti.plugin'),
     'body.nova-confetti'
 );
+
+PluginManager.register(
+    'NovaRecentlyViewed',
+    () => import('./plugin/nova-recently-viewed.plugin'),
+    '[data-nova-recently-viewed]'
+);

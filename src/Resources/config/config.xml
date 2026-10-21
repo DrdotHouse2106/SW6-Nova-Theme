@@ -78,6 +78,19 @@
     </card>
 
     <card>
+        <title>Recently viewed</title>
+        <title lang="de-DE">Zuletzt angesehen</title>
+
+        <input-field type="bool">
+            <name>recentlyViewed</name>
+            <label>Show "recently viewed"</label>
+            <label lang="de-DE">„Zuletzt angesehen“ anzeigen</label>
+            <helpText lang="de-DE">Auf der Produktseite und im Warenkorb. Die Liste wird nur im Browser des Kunden gespeichert (localStorage), nicht auf dem Server.</helpText>
+            <defaultValue>true</defaultValue>
+        </input-field>
+    </card>
+
+    <card>
         <title>Checkout</title>
         <title lang="de-DE">Checkout</title>
 

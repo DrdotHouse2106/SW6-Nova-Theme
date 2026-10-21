@@ -1,0 +1,30 @@
+/* Schlanker Header im Checkout */
+.header-minimal {
+    border-bottom: 1px solid var(--nova-border);
+    background: var(--bs-body-bg, #fff);
+
+    .header-row {
+        padding-block: 0.75rem;
+    }
+
+    .header-logo-main-img {
+        max-height: min(#{$nova-logo-height}, 56px);
+    }
+}
+
+.header-minimal-contact {
+    font-size: 0.875rem;
+    color: var(--bs-secondary-color, #6c757d);
+    text-align: center;
+}
+
+.header-minimal-back-to-shop-button {
+    border-radius: 999px;
+    white-space: nowrap;
+
+    @include media-breakpoint-down(sm) {
+        min-height: 2.25rem;
+        padding: 0.25rem 0.875rem;
+        font-size: 0.875rem;
+    }
+}

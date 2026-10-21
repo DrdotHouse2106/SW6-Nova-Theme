@@ -1,0 +1,13 @@
+{#
+ # Platzhalter für „Zuletzt angesehen“. Variablen:
+ #  - productId: aktuelles Produkt (wird gespeichert und nicht angezeigt), optional
+ #}
+{% if config('NovaTheme.config.recentlyViewed') is not same as(false) %}
+    {% set novaRecentlyViewedOptions = {
+        url: path('frontend.nova.recently-viewed'),
+        currentId: productId ?? null
+    } %}
+    <div class="nova-recently-viewed{% if containerClass is defined %} {{ containerClass }}{% endif %}"
+         data-nova-recently-viewed="true"
+         data-nova-recently-viewed-options="{{ novaRecentlyViewedOptions|json_encode }}"></div>
+{% endif %}

@@ -1,0 +1,23 @@
+{% sw_extends '@Storefront/storefront/page/account/profile/index.html.twig' %}
+
+{#
+ # Konto löschen als deutlich sichtbare „Gefahrenzone“.
+ # Nutzt Shopwares eingebaute Funktion (Einstellungen → Login & Registrierung →
+ # „Kunden können ihr Konto löschen“) und das vorhandene Bestätigungsfenster.
+ #}
+{% block page_account_profile_delete_account %}
+    {% if config('core.loginRegistration.allowCustomerDeletion') %}
+        <section class="nova-danger-zone account-deleting" aria-labelledby="nova-danger-zone-title">
+            <div class="nova-danger-zone-text">
+                <h2 class="nova-danger-zone-title h5" id="nova-danger-zone-title">{{ 'novaTheme.account.deleteTitle'|trans }}</h2>
+                <p class="mb-0">{{ 'novaTheme.account.deleteText'|trans }}</p>
+            </div>
+            <button type="button"
+                    class="btn btn-danger nova-danger-zone-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#confirmDeleteAccountModal">
+                {{ 'novaTheme.account.deleteButton'|trans }}
+            </button>
+        </section>
+    {% endif %}
+{% endblock %}

@@ -6,7 +6,7 @@ Modern, modular and **fast** storefront theme for Shopware 6.6 and 6.7 – optim
 
 ## Highlights
 
-- **Performance:** no external fonts or scripts, only ~6 KB of custom JavaScript, plugins loaded on demand via dynamic import, `content-visibility` for the footer, fixed image aspect ratios to avoid layout shift (CLS)
+- **Performance:** no external fonts or scripts, only ~7 KB of custom JavaScript, plugins loaded on demand via dynamic import, `content-visibility` for the footer, fixed image aspect ratios to avoid layout shift (CLS)
 - **Responsive:** mobile first, fluid typography and spacing with `clamp()`, **container queries** for product cards, two-column listing on phones, 44–48 px touch targets
 - **Modular:** every SCSS module lives in its own file and can be disabled in `base.scss`; design tokens exposed as CSS custom properties (`--nova-*`)
 - **Configurable:** colours, fonts, radii, content width, sticky/auto-hide header and animations in the administration
@@ -26,7 +26,7 @@ bin/console cache:clear
 
 ## Features
 
-Top bar (info text, phone, e-mail, opening hours), compact header while scrolling (no layout shift, optional auto-hide), page loading bar, product count above listings, confetti after a successful order, image mode (contain/cover), 2 products per row on phones.
+Modern cart, checkout (progress indicator, shipping/payment selection cards, sticky summary) and customer account, a clearly visible "delete account" section (enable it under *Settings → Login & registration*), a "recently viewed" slider on product and cart pages (stored only in the browser), top bar (info text, phone, e-mail, opening hours), compact header while scrolling (no layout shift, optional auto-hide), page loading bar, product count above listings, confetti after a successful order, image mode (contain/cover), 2 products per row on phones.
 
 Per-sales-channel settings: *Extensions → My extensions → Nova Theme → Configure*. Colours and layout: *Content → Themes*. For several shops with different colours, duplicate the theme once per sales channel.
 

@@ -1,0 +1,80 @@
+/*
+ * Warenkorb-Positionen (Warenkorb, Offcanvas-Warenkorb, Bestellprüfung, Abschluss)
+ */
+.line-item {
+    padding-block: 1rem;
+    border-color: var(--nova-border);
+}
+
+.line-item-img-container {
+    border-radius: calc(var(--nova-radius) - 4px);
+    background: var(--nova-surface);
+    overflow: hidden;
+}
+
+.line-item-img {
+    object-fit: contain;
+    mix-blend-mode: multiply;
+}
+
+.line-item-label {
+    font-weight: 600;
+    color: var(--bs-body-color);
+    text-decoration: none;
+
+    @include nova-hover {
+        color: var(--nova-primary);
+    }
+}
+
+.line-item-total-price {
+    font-weight: 700;
+}
+
+.line-item-remove-button {
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0;
+    border-radius: 50%;
+    border-color: var(--nova-border);
+
+    @include nova-hover {
+        color: var(--bs-danger);
+        border-color: var(--bs-danger);
+        background: transparent;
+    }
+}
+
+.line-item-delivery-date {
+    font-size: 0.8125rem;
+    color: var(--bs-success, #198754);
+}
+
+/* Mengenauswahl als kompakte Pille */
+.line-item-quantity-group,
+.quantity-selector-group {
+    flex-wrap: nowrap;
+    border-radius: 999px;
+    overflow: hidden;
+
+    .btn,
+    .form-control {
+        border-color: var(--nova-border);
+    }
+
+    // Kompakte Plus/Minus-Knöpfe, damit die Gruppe nicht umbricht
+    .btn {
+        min-width: 2.25rem;
+        min-height: 2.5rem;
+        padding-inline: 0.5rem;
+    }
+
+    .form-control {
+        min-width: 2.75rem;
+        padding-inline: 0.25rem;
+    }
+
+    .form-control {
+        text-align: center;
+    }
+}
