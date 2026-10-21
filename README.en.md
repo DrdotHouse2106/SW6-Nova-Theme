@@ -30,6 +30,10 @@ Modern cart, checkout (progress indicator, shipping/payment selection cards, sti
 
 Per-sales-channel settings: *Extensions → My extensions → Nova Theme → Configure*. Colours and layout: *Content → Themes*. For several shops with different colours, duplicate the theme once per sales channel.
 
+## Recently viewed and delivery dates
+
+"Recently viewed" is shown as a slider at the bottom of every page above the footer (not in checkout after the cart and not in the customer account), only with consent (comfort features). Page types are configurable. The theme also styles the "Dynamic monthly delivery dates" plugin (product page info box, line items, listing, checkout summary).
+
 ## Development
 
 Inside Shopware: `bin/build-storefront.sh` / `bin/watch-storefront.sh`.

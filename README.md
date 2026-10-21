@@ -43,7 +43,8 @@ Alternativ in der Administration unter **Inhalte → Themes** das „Nova Theme�
 | **Artikelzähler** | „2126 Artikel“ über dem Listing, aktualisiert sich beim Filtern |
 | **Konfetti** | Kurze Animation nach erfolgreicher Bestellung (ohne externe Bibliothek) |
 | **Produktbilder** | Wahlweise ganz zeigen (freigestellt) oder Fläche füllen (Fotos) |
-| **Zuletzt angesehen** | Slider unter der Produktseite und im Warenkorb. Nur mit Zustimmung im Cookie-Dialog („Komfortfunktionen“), beim Widerruf wird die Liste sofort gelöscht. Die Liste liegt nur im Browser des Kunden (localStorage, max. 20 Produkte) – auf dem Server wird nichts gespeichert |
+| **Dynamische Lieferzeiten** | Passende Gestaltung für das Plugin „Dynamische Monats-Lieferzeiten“: Infobox mit Kalender-Symbol auf der Produktseite, kompakte Zeile an Warenkorb-Positionen, kurze Zeile im Listing, Termin-Übersicht in Bestellprüfung und Abschluss. Ohne das Plugin wirkungslos |
+| **Zuletzt angesehen** | Slider unten auf jeder Seite direkt über dem Footer (nicht im Checkout ab der Adresseingabe und nicht im Kundenkonto), auf der Produktseite ohne das aktuelle Produkt. Seitentypen in der Plugin-Konfiguration wählbar. Nur mit Zustimmung im Cookie-Dialog („Komfortfunktionen“), beim Widerruf wird die Liste sofort gelöscht. Die Liste liegt nur im Browser des Kunden (localStorage, max. 20 Produkte) – auf dem Server wird nichts gespeichert |
 | **Modernes Checkout** | Fortschrittsanzeige (Warenkorb → Adresse → Prüfen → Fertig), Versand- und Zahlungsarten als Auswahlkarten, mitlaufende Zusammenfassung auf dem Desktop, Bestell-Button auf dem Smartphone immer sichtbar, schlanker Checkout-Header |
 | **Modernes Kundenkonto** | Konto-Menü als Karte, Karten für Übersicht, Profil, Adressen und Bestellungen, Login und Registrierung mit großen Eingabefeldern |
 | **Konto löschen** | Gut sichtbarer Bereich „Konto löschen“ im Profil mit Sicherheitsabfrage |
@@ -57,7 +58,7 @@ Alternativ in der Administration unter **Inhalte → Themes** das „Nova Theme�
 - **Topbar** – an/aus, Infotext, Link, Telefon, E-Mail, Öffnungszeiten
 - **Header** – kompakter Header beim Scrollen, Ladebalken
 - **Produktlisting** – Artikelanzahl anzeigen
-- **Zuletzt angesehen** – Liste an/aus
+- **Zuletzt angesehen** – Liste an/aus und auf welchen Seiten (leer = alle außer Checkout und Kundenkonto)
 - **Checkout** – Konfetti nach der Bestellung
 
 ### Theme-Konfiguration (Farben & Layout)
@@ -113,12 +114,10 @@ src/
 └── Resources/
     ├── theme.json                     Theme-Definition & Konfigurationsfelder
     ├── views/storefront/
-    │   ├── base.html.twig             Body-Klassen aus Theme- & Plugin-Konfiguration
+    │   ├── base.html.twig             Body-Klassen; „Zuletzt angesehen“ über dem Footer jeder Seite
     │   ├── layout/header/top-bar.html.twig   Topbar
     │   ├── component/product/listing.html.twig   Artikelzähler
     │   ├── page/checkout/_page.html.twig    Fortschrittsanzeige im Checkout
-    │   ├── page/checkout/cart/index.html.twig   „Zuletzt angesehen“ im Warenkorb
-    │   ├── page/content/product-detail.html.twig   „Zuletzt angesehen“ auf der Produktseite
     │   ├── page/account/profile/index.html.twig   Bereich „Konto löschen“
     │   └── nova/                        Templates für „Zuletzt angesehen“
     ├── config/routes.xml, services.xml   Route /nova/recently-viewed
@@ -134,7 +133,7 @@ src/
         │       ├── abstracts/         Variablen, Mixins, nova-fluid()
         │       ├── base/              Tokens, Typografie
         │       ├── layout/            Container, Header, Navigation, Footer
-        │       ├── components/        Buttons, Formulare, Produktkarte, PDP, CMS, Offcanvas, Warenkorb-Positionen, Produkt-Slider
+        │       ├── components/        Buttons, Formulare, Produktkarte, PDP, CMS, Offcanvas, Warenkorb-Positionen, Produkt-Slider, Lieferzeiten
 │       ├── pages/             Checkout, Kundenkonto
         │       └── utilities/         Animationen, Hilfsklassen
         └── dist/                      Fertig gebautes JavaScript

@@ -85,8 +85,24 @@
             <name>recentlyViewed</name>
             <label>Show "recently viewed"</label>
             <label lang="de-DE">„Zuletzt angesehen“ anzeigen</label>
-            <helpText lang="de-DE">Auf der Produktseite und im Warenkorb. Nur mit Zustimmung im Cookie-Dialog („Komfortfunktionen“). Die Liste wird nur im Browser des Kunden gespeichert (localStorage), nicht auf dem Server.</helpText>
+            <helpText lang="de-DE">Als Slider unten auf jeder Seite (über dem Footer) – nicht im Checkout ab der Adresseingabe und nicht im Kundenkonto. Nur mit Zustimmung im Cookie-Dialog („Komfortfunktionen“). Die Liste wird nur im Browser des Kunden gespeichert (localStorage), nicht auf dem Server.</helpText>
             <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="multi-select">
+            <name>recentlyViewedPages</name>
+            <label>"Recently viewed" on these pages</label>
+            <label lang="de-DE">„Zuletzt angesehen“ auf diesen Seiten</label>
+            <helpText lang="de-DE">Leer lassen = auf allen Seiten (außer Checkout und Kundenkonto).</helpText>
+            <helpText>Leave empty = on all pages (except checkout and account).</helpText>
+            <options>
+                <option><id>home</id><name>Home page</name><name lang="de-DE">Startseite</name></option>
+                <option><id>listing</id><name>Categories and landing pages</name><name lang="de-DE">Kategorien und Landingpages</name></option>
+                <option><id>product</id><name>Product page</name><name lang="de-DE">Produktseite</name></option>
+                <option><id>search</id><name>Search results</name><name lang="de-DE">Suchergebnis</name></option>
+                <option><id>cart</id><name>Cart</name><name lang="de-DE">Warenkorb</name></option>
+                <option><id>other</id><name>Other pages (e.g. 404, wishlist)</name><name lang="de-DE">Sonstige Seiten (z. B. 404, Merkzettel)</name></option>
+            </options>
         </input-field>
     </card>
 

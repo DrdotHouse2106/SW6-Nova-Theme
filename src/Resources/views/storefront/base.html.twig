@@ -9,3 +9,39 @@
     {%- if theme_config('nova-animations') %} nova-animations{% endif %}
     {%- if activeRoute == 'frontend.checkout.finish.page' and config('NovaTheme.config.confetti') %} nova-confetti{% endif %}
 {%- endblock %}
+
+{#
+ # „Zuletzt angesehen“ unten auf jeder Seite, direkt über dem Footer.
+ # Der Container ist im (gecachten) HTML leer – die Liste lädt erst per JavaScript
+ # aus dem Browser-Speicher des Kunden und nur mit seiner Zustimmung.
+ #}
+{% block base_esi_footer %}
+    {% block nova_recently_viewed_global %}
+        {% set novaRoute = activeRoute|default('') %}
+        {% set novaPageType = 'other' %}
+        {% if novaRoute == 'frontend.home.page' %}
+            {% set novaPageType = 'home' %}
+        {% elseif novaRoute in ['frontend.navigation.page', 'frontend.landing.page'] %}
+            {% set novaPageType = 'listing' %}
+        {% elseif novaRoute == 'frontend.detail.page' %}
+            {% set novaPageType = 'product' %}
+        {% elseif novaRoute == 'frontend.search.page' %}
+            {% set novaPageType = 'search' %}
+        {% elseif novaRoute == 'frontend.checkout.cart.page' %}
+            {% set novaPageType = 'cart' %}
+        {% elseif novaRoute starts with 'frontend.checkout.' or novaRoute starts with 'frontend.account.' %}
+            {# Checkout ab Adresse und Kundenkonto: keine Ablenkung #}
+            {% set novaPageType = null %}
+        {% endif %}
+
+        {% set novaRecentlyViewedPages = config('NovaTheme.config.recentlyViewedPages') %}
+        {% if novaPageType and (novaRecentlyViewedPages is empty or novaPageType in novaRecentlyViewedPages) %}
+            {% sw_include '@NovaTheme/storefront/nova/recently-viewed-container.html.twig' with {
+                productId: novaPageType == 'product' and page.product is defined ? page.product.id : null,
+                containerClass: 'container'
+            } %}
+        {% endif %}
+    {% endblock %}
+
+    {{ parent() }}
+{% endblock %}
