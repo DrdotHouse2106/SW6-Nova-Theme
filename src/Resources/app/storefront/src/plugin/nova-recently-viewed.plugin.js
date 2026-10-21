@@ -2,9 +2,16 @@ const { PluginBaseClass } = window;
 
 export const RECENTLY_VIEWED_KEY = 'nova-recently-viewed';
 
+/** Zustimmung zu „Komfortfunktionen → Zuletzt angesehen“ (gleicher Name wie der localStorage-Schlüssel) */
+function hasConsent() {
+    return document.cookie.split('; ').indexOf(`${RECENTLY_VIEWED_KEY}=1`) !== -1;
+}
+
 /**
  * „Zuletzt angesehen“
  *
+ * - Nur mit Zustimmung im Cookie-Dialog (Komfortfunktionen). Wird die Zustimmung
+ *   zurückgenommen, wird die gespeicherte Liste sofort gelöscht.
  * - Auf der Produktseite wird die Produkt-ID im Browser gespeichert (localStorage,
  *   neueste zuerst, max. 20). Auf dem Server wird nichts gespeichert.
  * - Sind IDs vorhanden, wird die Liste als HTML-Fragment geladen und als Slider
@@ -21,6 +28,12 @@ export default class NovaRecentlyViewedPlugin extends PluginBaseClass {
     };
 
     init() {
+        this._listenToConsent();
+
+        if (!hasConsent()) {
+            return;
+        }
+
         const ids = this._read();
 
         if (this.options.currentId) {
@@ -31,6 +44,34 @@ export default class NovaRecentlyViewedPlugin extends PluginBaseClass {
         if (shown.length > 0 && this.options.url) {
             this._load(shown);
         }
+    }
+
+    /** Zustimmung entzogen → Liste löschen; erteilt → auf der Produktseite sofort mitschreiben */
+    _listenToConsent() {
+        if (!document.$emitter) {
+            return;
+        }
+
+        document.$emitter.subscribe('CookieConfiguration_Update', (event) => {
+            const changes = event.detail || {};
+            if (!(RECENTLY_VIEWED_KEY in changes)) {
+                return;
+            }
+
+            if (changes[RECENTLY_VIEWED_KEY]) {
+                if (this.options.currentId) {
+                    this._write([this.options.currentId, ...this._read().filter((id) => id !== this.options.currentId)]);
+                }
+            } else {
+                try {
+                    window.localStorage.removeItem(RECENTLY_VIEWED_KEY);
+                } catch (e) {
+                    // Speicher gesperrt → es gibt ohnehin nichts zu löschen
+                }
+                this.el.innerHTML = '';
+                this.el.classList.remove('is-loaded');
+            }
+        });
     }
 
     _read() {

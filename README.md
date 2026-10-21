@@ -43,7 +43,7 @@ Alternativ in der Administration unter **Inhalte → Themes** das „Nova Theme�
 | **Artikelzähler** | „2126 Artikel“ über dem Listing, aktualisiert sich beim Filtern |
 | **Konfetti** | Kurze Animation nach erfolgreicher Bestellung (ohne externe Bibliothek) |
 | **Produktbilder** | Wahlweise ganz zeigen (freigestellt) oder Fläche füllen (Fotos) |
-| **Zuletzt angesehen** | Slider unter der Produktseite und im Warenkorb. Die Liste liegt nur im Browser des Kunden (localStorage, max. 20 Produkte) – auf dem Server wird nichts gespeichert |
+| **Zuletzt angesehen** | Slider unter der Produktseite und im Warenkorb. Nur mit Zustimmung im Cookie-Dialog („Komfortfunktionen“), beim Widerruf wird die Liste sofort gelöscht. Die Liste liegt nur im Browser des Kunden (localStorage, max. 20 Produkte) – auf dem Server wird nichts gespeichert |
 | **Modernes Checkout** | Fortschrittsanzeige (Warenkorb → Adresse → Prüfen → Fertig), Versand- und Zahlungsarten als Auswahlkarten, mitlaufende Zusammenfassung auf dem Desktop, Bestell-Button auf dem Smartphone immer sichtbar, schlanker Checkout-Header |
 | **Modernes Kundenkonto** | Konto-Menü als Karte, Karten für Übersicht, Profil, Adressen und Bestellungen, Login und Registrierung mit großen Eingabefeldern |
 | **Konto löschen** | Gut sichtbarer Bereich „Konto löschen“ im Profil mit Sicherheitsabfrage |

@@ -27,6 +27,9 @@
             "stepAddress": "Address",
             "stepConfirm": "Review & order",
             "stepFinish": "Done"
+        },
+        "cookie": {
+            "recentlyViewed": "Recently viewed products"
         }
     }
 }

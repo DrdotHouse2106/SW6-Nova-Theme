@@ -85,7 +85,7 @@
             <name>recentlyViewed</name>
             <label>Show "recently viewed"</label>
             <label lang="de-DE">„Zuletzt angesehen“ anzeigen</label>
-            <helpText lang="de-DE">Auf der Produktseite und im Warenkorb. Die Liste wird nur im Browser des Kunden gespeichert (localStorage), nicht auf dem Server.</helpText>
+            <helpText lang="de-DE">Auf der Produktseite und im Warenkorb. Nur mit Zustimmung im Cookie-Dialog („Komfortfunktionen“). Die Liste wird nur im Browser des Kunden gespeichert (localStorage), nicht auf dem Server.</helpText>
             <defaultValue>true</defaultValue>
         </input-field>
     </card>

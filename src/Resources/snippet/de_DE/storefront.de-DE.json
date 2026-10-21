@@ -27,6 +27,9 @@
             "stepAddress": "Adresse",
             "stepConfirm": "Prüfen & bestellen",
             "stepFinish": "Fertig"
+        },
+        "cookie": {
+            "recentlyViewed": "Zuletzt angesehene Produkte"
         }
     }
 }

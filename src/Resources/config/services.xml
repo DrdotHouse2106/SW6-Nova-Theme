@@ -9,5 +9,10 @@
                 <argument type="service" id="service_container"/>
             </call>
         </service>
+
+        <service id="Nova\NovaTheme\Cookie\RecentlyViewedCookieListener">
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <tag name="kernel.event_listener" event="Shopware\Core\Content\Cookie\Event\CookieGroupCollectEvent"/>
+        </service>
     </services>
 </container>
