@@ -1,3 +1,6 @@
+# 1.1.0
+- New: footer copyright notice per sales channel – keep, replace with own text (`{year}`, `{shop}`, translatable via snippet `novaTheme.footer.copyright`) or hide
+
 # 1.0.0
 - First release: modern, modular and fast theme for Shopware 6.6 and 6.7
 - Top bar, compact header while scrolling, loading bar, product count, confetti after ordering

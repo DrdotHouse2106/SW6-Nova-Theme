@@ -48,6 +48,7 @@ Alternativ in der Administration unter **Inhalte → Themes** das „Nova Theme�
 | **Modernes Checkout** | Fortschrittsanzeige (Warenkorb → Adresse → Prüfen → Fertig), Versand- und Zahlungsarten als Auswahlkarten, mitlaufende Zusammenfassung auf dem Desktop, Bestell-Button auf dem Smartphone immer sichtbar, schlanker Checkout-Header |
 | **Modernes Kundenkonto** | Konto-Menü als Karte, Karten für Übersicht, Profil, Adressen und Bestellungen, Login und Registrierung mit großen Eingabefeldern |
 | **Konto löschen** | Gut sichtbarer Bereich „Konto löschen“ im Profil mit Sicherheitsabfrage |
+| **Copyright im Footer** | „Realisiert mit Shopware“ beibehalten, durch eigenen Text ersetzen (mit `{year}` und `{shop}`, pro Sprache übersetzbar) oder ausblenden – pro Verkaufskanal |
 
 ## Einstellungen
 
@@ -59,6 +60,11 @@ Alternativ in der Administration unter **Inhalte → Themes** das „Nova Theme�
 - **Header** – kompakter Header beim Scrollen, Ladebalken
 - **Produktlisting** – Artikelanzahl anzeigen
 - **Zuletzt angesehen** – Liste an/aus und auf welchen Seiten (leer = alle außer Checkout und Kundenkonto)
+- **Footer** – Copyright-Hinweis: Shopware-Standard, eigener Text oder ausblenden.
+  Eigener Text z. B. `© {year} {shop} – Alle Rechte vorbehalten` (`{year}` = aktuelles Jahr,
+  `{shop}` = Shopname). Feld leer lassen, um den Text pro Sprache über den Textbaustein
+  `novaTheme.footer.copyright` (*Einstellungen → Textbausteine*) zu pflegen.
+  Shopware steht unter MIT-Lizenz, der Hinweis darf entfernt werden.
 - **Checkout** – Konfetti nach der Bestellung
 
 ### Theme-Konfiguration (Farben & Layout)

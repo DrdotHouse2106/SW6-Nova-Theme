@@ -107,6 +107,34 @@
     </card>
 
     <card>
+        <title>Footer</title>
+        <title lang="de-DE">Footer</title>
+
+        <input-field type="single-select">
+            <name>footerCopyright</name>
+            <label>Copyright notice in the footer</label>
+            <label lang="de-DE">Copyright-Hinweis im Footer</label>
+            <helpText>Shopware is MIT licensed – the "Realised with Shopware" notice may be removed or replaced.</helpText>
+            <helpText lang="de-DE">Shopware steht unter MIT-Lizenz – der Hinweis „Realisiert mit Shopware“ darf entfernt oder ersetzt werden.</helpText>
+            <defaultValue>shopware</defaultValue>
+            <options>
+                <option><id>shopware</id><name>Shopware default</name><name lang="de-DE">Shopware-Standard („Realisiert mit Shopware“)</name></option>
+                <option><id>custom</id><name>Own text</name><name lang="de-DE">Eigener Text</name></option>
+                <option><id>hidden</id><name>Hide</name><name lang="de-DE">Ausblenden</name></option>
+            </options>
+        </input-field>
+
+        <input-field type="text">
+            <name>footerCopyrightText</name>
+            <label>Own copyright text</label>
+            <label lang="de-DE">Eigener Copyright-Text</label>
+            <helpText>Only for "Own text". {year} is replaced by the current year, {shop} by the shop name. Empty = text from the snippet "novaTheme.footer.copyright" (translatable per language under Settings → Snippets).</helpText>
+            <helpText lang="de-DE">Nur bei „Eigener Text“. {year} wird durch das aktuelle Jahr ersetzt, {shop} durch den Shopnamen. Leer = Text aus dem Textbaustein „novaTheme.footer.copyright“ (pro Sprache unter Einstellungen → Textbausteine änderbar).</helpText>
+            <placeholder>© {year} {shop} – Alle Rechte vorbehalten</placeholder>
+        </input-field>
+    </card>
+
+    <card>
         <title>Checkout</title>
         <title lang="de-DE">Checkout</title>
 

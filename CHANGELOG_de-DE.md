@@ -1,3 +1,6 @@
+# 1.1.0
+- Neu: Copyright-Hinweis im Footer pro Verkaufskanal beibehalten, durch eigenen Text ersetzen (`{year}`, `{shop}`, übersetzbar über den Textbaustein `novaTheme.footer.copyright`) oder ausblenden
+
 # 1.0.0
 - Erste Version: modernes, modulares und schnelles Theme für Shopware 6.6 und 6.7
 - Topbar, kompakter Header beim Scrollen, Ladebalken, Artikelzähler, Konfetti nach der Bestellung

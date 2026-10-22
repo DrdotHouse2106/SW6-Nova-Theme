@@ -1,0 +1,20 @@
+{% sw_extends '@Storefront/storefront/layout/footer/footer.html.twig' %}
+
+{# Copyright-Hinweis: Shopware-Standard, eigener Text oder ausgeblendet (Theme-Konfiguration „Footer“) #}
+{% block layout_footer_copyright %}
+    {% set novaCopyrightMode = config('NovaTheme.config.footerCopyright') ?: 'shopware' %}
+
+    {% if novaCopyrightMode == 'custom' %}
+        {% set novaCopyrightText = config('NovaTheme.config.footerCopyrightText')|trim %}
+        {% if novaCopyrightText is empty %}
+            {% set novaCopyrightText = 'novaTheme.footer.copyright'|trans %}
+        {% endif %}
+        {% set novaShopName = config('core.basicInformation.shopName') ?: context.salesChannel.translated.name %}
+
+        <div class="footer-copyright nova-footer-copyright">
+            {{ novaCopyrightText|replace({ '{year}': 'now'|date('Y'), '{shop}': novaShopName })|sw_sanitize }}
+        </div>
+    {% elseif novaCopyrightMode != 'hidden' %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

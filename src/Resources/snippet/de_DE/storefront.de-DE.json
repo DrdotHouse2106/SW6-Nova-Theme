@@ -30,6 +30,9 @@
         },
         "cookie": {
             "recentlyViewed": "Zuletzt angesehene Produkte"
+        },
+        "footer": {
+            "copyright": "© {year} {shop} – Alle Rechte vorbehalten"
         }
     }
 }
