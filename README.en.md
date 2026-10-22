@@ -47,6 +47,16 @@ Standalone JS build: `cd src/Resources/app/storefront && npm install && npm run 
 
 Shopware 6.6.x and 6.7.x · all current browsers.
 
+## Troubleshooting
+
+Known pitfalls from real installations. **Please add new ones** (or open an issue).
+
+- **No visible change:** run `bin/console theme:compile` and `cache:clear`.
+- **Only one shop uses the theme:** themes are assigned per sales channel – duplicate the theme per shop.
+- **Top bar missing:** enable it in the plugin configuration per sales channel; hidden below 992 px.
+- **No "delete account" button:** enable *Settings → Login & registration → customers may delete their account*.
+- **"Recently viewed" missing:** requires consent ("comfort features"), stored in the browser only, not shown in checkout/account.
+
 ## License
 
 MIT
