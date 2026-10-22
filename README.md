@@ -189,17 +189,59 @@ npm run build
 
 Hier sammeln wir Hürden, die bei Installation und Betrieb tatsächlich aufgetreten sind. **Neue Probleme bitte ergänzen** (oder als Issue melden), damit andere nicht lange suchen müssen.
 
-| Problem | Ursache | Lösung |
-|---|---|---|
-| Nach Installation/Update keine Änderung im Shop | Theme nicht neu kompiliert oder Cache | `bin/console theme:compile` und `bin/console cache:clear` (oder in der Administration: Theme speichern) |
-| Nur ein Shop sieht das Theme | Themes werden **pro Verkaufskanal** zugewiesen | *Inhalte → Themes → Nova Theme → „…“ → Theme duplizieren* und die Kopie dem jeweiligen Verkaufskanal zuweisen – so bekommt jeder Shop eigene Farben/Logo |
-| Topbar erscheint nicht | Topbar ist in der **Plugin-Konfiguration** pro Verkaufskanal aus, oder Bildschirm schmaler als 992 px | *Erweiterungen → Nova Theme → Konfigurieren* → oben Verkaufskanal wählen → Topbar aktivieren und Text eintragen. Auf Smartphones wird die Topbar bewusst ausgeblendet |
-| Kein Button „Konto löschen“ | Shopware-Einstellung ist aus | *Einstellungen → Login & Registrierung → „Kunden dürfen ihr Konto löschen“* aktivieren |
-| „Zuletzt angesehen“ erscheint nicht | Nur mit Zustimmung im Cookie-Dialog („Komfortfunktionen“), erst nachdem Produktseiten besucht wurden; nicht im Checkout und nicht im Kundenkonto | Cookie-Einstellungen öffnen, „Zuletzt angesehene Produkte“ erlauben, ein Produkt ansehen. Seitentypen in der Plugin-Konfiguration prüfen |
-| „Zuletzt angesehen“ ist leer, obwohl Produkte angesehen wurden | Die Liste liegt im **Browser** (localStorage) – anderer Browser/Gerät oder privater Modus | Gewolltes Verhalten (es wird nichts auf dem Server gespeichert) |
-| Schrift sieht anders aus als vorher | Standard ist die Schrift **Inter**, die Shopware selbst ausliefert | In der Theme-Konfiguration unter Typografie eine andere Schrift eintragen |
-| Logo zu groß/zu klein | Logohöhe ist begrenzt | Theme-Konfiguration → „Nova: Header & Topbar“ → maximale Logohöhe |
-| Lieferzeiten-Hinweise ohne Gestaltung | Styles greifen nur mit dem Plugin „Dynamische Monats-Lieferzeiten“ (ab 2.0.0) | Plugin installieren; danach `theme:compile` |
+### Nach Installation/Update keine Änderung im Shop
+
+**Ursache:** Theme nicht neu kompiliert oder Cache
+
+**Lösung:** `bin/console theme:compile` und `bin/console cache:clear` (oder in der Administration: Theme speichern)
+
+### Nur ein Shop sieht das Theme
+
+**Ursache:** Themes werden **pro Verkaufskanal** zugewiesen
+
+**Lösung:** *Inhalte → Themes → Nova Theme → „…“ → Theme duplizieren* und die Kopie dem jeweiligen Verkaufskanal zuweisen – so bekommt jeder Shop eigene Farben/Logo
+
+### Topbar erscheint nicht
+
+**Ursache:** Topbar ist in der **Plugin-Konfiguration** pro Verkaufskanal aus, oder Bildschirm schmaler als 992 px
+
+**Lösung:** *Erweiterungen → Nova Theme → Konfigurieren* → oben Verkaufskanal wählen → Topbar aktivieren und Text eintragen. Auf Smartphones wird die Topbar bewusst ausgeblendet
+
+### Kein Button „Konto löschen“
+
+**Ursache:** Shopware-Einstellung ist aus
+
+**Lösung:** *Einstellungen → Login & Registrierung → „Kunden dürfen ihr Konto löschen“* aktivieren
+
+### „Zuletzt angesehen“ erscheint nicht
+
+**Ursache:** Nur mit Zustimmung im Cookie-Dialog („Komfortfunktionen“), erst nachdem Produktseiten besucht wurden; nicht im Checkout und nicht im Kundenkonto
+
+**Lösung:** Cookie-Einstellungen öffnen, „Zuletzt angesehene Produkte“ erlauben, ein Produkt ansehen. Seitentypen in der Plugin-Konfiguration prüfen
+
+### „Zuletzt angesehen“ ist leer, obwohl Produkte angesehen wurden
+
+**Ursache:** Die Liste liegt im **Browser** (localStorage) – anderer Browser/Gerät oder privater Modus
+
+**Lösung:** Gewolltes Verhalten (es wird nichts auf dem Server gespeichert)
+
+### Schrift sieht anders aus als vorher
+
+**Ursache:** Standard ist die Schrift **Inter**, die Shopware selbst ausliefert
+
+**Lösung:** In der Theme-Konfiguration unter Typografie eine andere Schrift eintragen
+
+### Logo zu groß/zu klein
+
+**Ursache:** Logohöhe ist begrenzt
+
+**Lösung:** Theme-Konfiguration → „Nova: Header & Topbar“ → maximale Logohöhe
+
+### Lieferzeiten-Hinweise ohne Gestaltung
+
+**Ursache:** Styles greifen nur mit dem Plugin „Dynamische Monats-Lieferzeiten“ (ab 2.0.0)
+
+**Lösung:** Plugin installieren; danach `theme:compile`
 
 ## Lizenz
 
