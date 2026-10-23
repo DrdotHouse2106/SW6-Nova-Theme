@@ -15,3 +15,9 @@
         font-size: 16px;
     }
 }
+
+/* Checkboxen und Radio-Buttons gut sichtbar – auch auf getönten Flächen (WCAG: Kontrast ≥ 3:1) */
+.form-check-input:not(:checked) {
+    background-color: #fff;
+    border-color: rgba(17, 24, 39, 0.45);
+}

@@ -1,3 +1,7 @@
+# 1.4.2
+- Checkboxes and radio buttons have a clearly visible border, also on tinted surfaces
+- Privacy text in the newsletter bar uses the same small font size as the other notes
+
 # 1.4.1
 - New: newsletter registration in the checkout either as a box on the order finish page (after the order, one click, own headline – default) or as a checkbox on the order confirmation page
 - Newsletter bar is now also shown on the login page and in the customer account (still not in the checkout steps after the cart)

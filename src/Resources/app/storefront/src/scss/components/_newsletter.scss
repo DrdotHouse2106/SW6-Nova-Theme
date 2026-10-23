@@ -57,6 +57,11 @@
         .privacy-notice-title + br {
             display: none;
         }
+
+        .form-check-label,
+        .custom-control-label {
+            font-size: inherit;
+        }
     }
 
     .nova-newsletter-note {
@@ -90,6 +95,11 @@
         .privacy-notice-title,
         .privacy-notice-title + br {
             display: none;
+        }
+
+        .form-check-label,
+        .custom-control-label {
+            font-size: inherit;
         }
     }
 }

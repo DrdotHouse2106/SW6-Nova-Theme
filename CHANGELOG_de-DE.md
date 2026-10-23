@@ -1,3 +1,7 @@
+# 1.4.2
+- Checkboxen und Radio-Buttons haben einen deutlich sichtbaren Rand, auch auf getönten Flächen
+- Datenschutz-Text in der Newsletter-Leiste in derselben kleinen Schriftgröße wie die übrigen Hinweise
+
 # 1.4.1
 - Neu: Newsletter-Anmeldung im Bestellprozess wahlweise als Kasten auf der Bestellabschlussseite (nach der Bestellung, ein Klick, eigene Überschrift – Standard) oder als Häkchen in der Bestellübersicht
 - Newsletter-Leiste erscheint jetzt auch auf der Anmeldeseite und im Kundenkonto (weiterhin nicht in den Checkout-Schritten nach dem Warenkorb)
