@@ -261,6 +261,12 @@ Hier sammeln wir Hürden, die bei Installation und Betrieb tatsächlich aufgetre
 
 **Lösung:** Plugin installieren; danach `theme:compile`
 
+### Suchfeld fehlt nur in einem Shop
+
+**Ursache:** Ein anderes Plugin blendet Header-Symbole aus (z. B. ein „Hide Header Icons“-Plugin) und erwischt dabei das Suchfeld – das Feld wird dann leer ausgegeben
+
+**Lösung:** Das andere Plugin deaktivieren und die Symbole stattdessen in Nova unter *Header-Symbole ausblenden* pro Verkaufskanal wählen
+
 ### Startbild (`nova-hero`): Text klebt am linken Rand oder Bild fehlt
 
 **Ursache:** Der Block liegt in einem Abschnitt mit Inhaltsbreite, oder das Bild ist als Bild-Element statt als Hintergrundbild des Blocks gesetzt

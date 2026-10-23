@@ -33,6 +33,11 @@
 .footer-logos {
     background: #fff;
     border-radius: var(--nova-radius);
+
+    // Ohne Zahlungs-/Versandlogos (z. B. Infoseiten) keine leere weiße Leiste
+    &:not(:has(img, svg)) {
+        display: none;
+    }
 }
 
 .footer-bottom {
@@ -62,5 +67,11 @@
         .footer-copyright {
             color: rgba(255, 255, 255, 0.7);
         }
+    }
+
+    // Shopware gibt der untersten Zeile einen eigenen hellen Hintergrund – hier etwas dunkler als der Footer
+    .footer-bottom {
+        background: rgba(0, 0, 0, 0.18);
+        color: rgba(255, 255, 255, 0.7);
     }
 }

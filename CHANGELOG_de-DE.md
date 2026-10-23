@@ -1,3 +1,6 @@
+# 1.5.1
+- Footer: leere Logo-Leiste (ohne Zahlungs-/Versandlogos) wird ausgeblendet; bei dunklem Footer ist die Copyright-Zeile dunkel statt hellgrau und damit lesbar
+
 # 1.5.0
 - Neu: Bausteine für Erlebniswelten (CSS-Klasse am Block): `nova-hero` (Startbild mit Verlauf und Buttons), `nova-lead` (zentrierte Einleitung), `nova-trust` (Vorteils-Leiste), `nova-cards` (Bild-Text-Spalten als Karten), `nova-split` (Bild und Text nebeneinander), `nova-band` (farbiges Kontaktband), `nova-accent`
 - Neu: Akzentfarbe in der Theme-Konfiguration (Haupt-Button im Startbild), Schriftfarbe automatisch hell oder dunkel

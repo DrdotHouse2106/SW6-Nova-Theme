@@ -1,3 +1,6 @@
+# 1.5.1
+- Footer: empty logo bar is hidden; with a dark footer the copyright row is dark instead of light grey and readable
+
 # 1.5.0
 - New: building blocks for shopping experiences (CSS class on the block): `nova-hero`, `nova-lead`, `nova-trust`, `nova-cards`, `nova-split`, `nova-band`, `nova-accent`
 - New: accent colour in the theme configuration (main hero button), text colour chosen automatically
