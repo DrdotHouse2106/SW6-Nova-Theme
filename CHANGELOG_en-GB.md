@@ -1,3 +1,6 @@
+# 1.5.4
+- Building blocks: flatter, centred `nova-trust`, more space before `nova-lead`, `nova-split` and `nova-band`, links in `nova-cards` aligned at the bottom of every card
+
 # 1.5.3
 - Phone/tablet: no empty navigation bar with double line below the header
 - Dark footer on phones: dividers and plus/minus of the collapsible columns light

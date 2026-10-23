@@ -1,3 +1,6 @@
+# 1.5.4
+- Erlebniswelt-Bausteine: Vorteils-Leiste (`nova-trust`) flacher und je Spalte mittig, mehr Abstand vor `nova-lead`, `nova-split` und `nova-band`, Links in `nova-cards` sitzen in allen Karten auf gleicher Höhe unten
+
 # 1.5.3
 - Smartphone/Tablet: keine leere Navigationsleiste mit Doppellinie mehr unter dem Header
 - Dunkler Footer auf dem Smartphone: Trennlinien und Plus/Minus der aufklappbaren Spalten passend hell

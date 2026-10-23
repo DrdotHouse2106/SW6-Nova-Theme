@@ -86,6 +86,13 @@
     }
 }
 
+/* Luft zwischen den Bausteinen (Shopware-Blockabstände sind dafür meist zu knapp) */
+.cms-block.nova-lead,
+.cms-block.nova-split,
+.cms-block.nova-band {
+    margin-top: nova-fluid(1.5rem, 3.5rem);
+}
+
 /* Zentrierte Einleitung */
 .cms-block.nova-lead {
     text-align: center;
@@ -109,9 +116,12 @@
 .cms-block.nova-trust {
     background: #fff;
     border-block: 1px solid var(--nova-border);
-    padding-block: 1.25rem;
     font-weight: 600;
     font-size: 0.9375rem;
+
+    > .cms-block-container {
+        padding-block: 0.875rem !important;
+    }
 
     p {
         margin: 0;
@@ -121,6 +131,14 @@
         display: flex;
         align-items: center;
         padding-block: 0.375rem;
+    }
+
+    // Ab Tablet nebeneinander und je Spalte mittig
+    @include media-breakpoint-up(md) {
+        .cms-row > [class*='col'] {
+            justify-content: center;
+            text-align: center;
+        }
     }
 }
 
@@ -146,9 +164,29 @@
         }
 
         > div:last-child {
+            display: flex;
+            flex-direction: column;
             flex: 1 1 auto;
             border-radius: 0 0 var(--nova-radius) var(--nova-radius);
             padding: 1.25rem 1.375rem 1.5rem;
+
+            // Text füllt die Karte, der Link-Absatz am Ende sitzt in allen Karten auf gleicher Höhe unten
+            > .cms-element-text {
+                display: flex;
+                flex-direction: column;
+                flex: 1 1 auto;
+
+                > .cms-element-alignment {
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1 1 auto;
+                }
+            }
+
+            p:last-child:has(> a) {
+                margin-top: auto;
+                margin-bottom: 0;
+            }
         }
 
         > div:only-child {
