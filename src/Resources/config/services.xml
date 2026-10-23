@@ -23,5 +23,12 @@
             <argument type="service" id="logger"/>
             <tag name="kernel.event_subscriber"/>
         </service>
+
+        <service id="Nova\NovaTheme\Contact\ContactUploadSubscriber">
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <argument type="service" id="translator"/>
+            <tag name="kernel.event_subscriber"/>
+            <tag name="kernel.reset" method="reset"/>
+        </service>
     </services>
 </container>

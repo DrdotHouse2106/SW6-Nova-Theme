@@ -21,3 +21,37 @@
     background-color: #fff;
     border-color: rgba(17, 24, 39, 0.45);
 }
+
+// ---------------------------------------------------------------
+// Datei-Anhänge im Kontaktformular
+// ---------------------------------------------------------------
+.nova-contact-upload {
+    margin-top: .5rem;
+
+    .form-control[type='file'] {
+        padding: .625rem .75rem;
+        border-style: dashed;
+        background-color: var(--nova-surface);
+        cursor: pointer;
+
+        &::file-selector-button {
+            margin: 0;
+            margin-inline-end: .75rem;
+            padding: .375rem .875rem;
+            border: 0;
+            border-radius: var(--nova-radius-btn);
+            background-color: var(--nova-primary);
+            color: nova-on-color($sw-color-brand-primary);
+            font-weight: 600;
+        }
+
+        &:hover:not(:disabled)::file-selector-button {
+            filter: brightness(.92);
+            background-color: var(--nova-primary);
+        }
+    }
+
+    .form-text {
+        font-size: .8125rem;
+    }
+}

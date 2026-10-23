@@ -1,3 +1,6 @@
+# 1.7.0
+- New: file attachments in the contact form (plugin configuration "Contact form") – images, PDF, Office, ZIP and 3D/CAD files are attached to the contact mail to the shop without being stored; number and size configurable and validated
+
 # 1.6.0
 - `nova-hero` without background image: dark area in the secondary colour with a subtle accent glow
 - `nova-hero` on the two-column image & text block: text left, image right

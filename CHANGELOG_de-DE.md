@@ -1,3 +1,6 @@
+# 1.7.0
+- Neu: Datei-Anhänge im Kontaktformular (Plugin-Konfiguration „Kontaktformular“) – Fotos, PDF, Office, ZIP und 3D-/CAD-Dateien hängen direkt an der Kontaktformular-Mail an den Shop, ohne gespeichert zu werden; Anzahl und Größe einstellbar und geprüft
+
 # 1.6.0
 - `nova-hero` ohne Hintergrundbild: dunkle Fläche in der Sekundärfarbe mit leichtem Schimmer in der Akzentfarbe
 - `nova-hero` auf „Zwei Spalten, zentriertes Bild & Text“: Text links, Bild rechts (z. B. Produkt-Collage)
