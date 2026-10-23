@@ -1,3 +1,8 @@
+# 1.3.0
+- Neu: Theme-Einstellung „Bildformat der Produktbilder“ – quadratisch, Hochformat 3:4, Buch/Cover 2:3 oder Querformat 4:3 für Produktkarten und Produktseite. Im Hochformat wird das Produktbild auf der Produktseite auf Bildschirmhöhe begrenzt
+- Neu: Serifenschrift „Nova Serif“ (Source Serif 4) wird mitgeliefert – für Überschriften `'Nova Serif', Georgia, serif` eintragen
+- Produktnamen in Karten werden nicht mehr mitten im Wort umgebrochen
+
 # 1.2.0
 - Neu: Kompakter Header „schwebend“ – abgerundete Leiste mittig mit Menü, Suche, Merkzettel, Konto und Warenkorb (Standard); alternativ wie bisher volle Breite mit Logo (Theme-Einstellung „Aussehen des kompakten Headers“)
 

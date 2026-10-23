@@ -42,7 +42,8 @@ Alternativ in der Administration unter **Inhalte → Themes** das „Nova Theme�
 | **Ladebalken** | Schmaler Fortschrittsbalken beim Klick auf interne Links |
 | **Artikelzähler** | „2126 Artikel“ über dem Listing, aktualisiert sich beim Filtern |
 | **Konfetti** | Kurze Animation nach erfolgreicher Bestellung (ohne externe Bibliothek) |
-| **Produktbilder** | Wahlweise ganz zeigen (freigestellt) oder Fläche füllen (Fotos) |
+| **Produktbilder** | Wahlweise ganz zeigen (freigestellt) oder Fläche füllen (Fotos). **Bildformat** quadratisch, Hochformat 3:4, Buch/Cover 2:3 oder Querformat 4:3 – gilt für Produktkarten und Produktseite; im Hochformat wird das Bild auf der Produktseite auf Bildschirmhöhe begrenzt statt über die volle Spaltenbreite aufgeblasen |
+| **Serifenschrift** | „Nova Serif“ (Source Serif 4, SIL Open Font License) wird mit dem Theme ausgeliefert – ohne externen Font-Server und nur geladen, wenn sie eingestellt ist. Ideal für Überschriften in Verlags-, Buch- oder Manufaktur-Shops |
 | **Dynamische Lieferzeiten** | Passende Gestaltung für das Plugin „Dynamische Monats-Lieferzeiten“: Infobox mit Kalender-Symbol auf der Produktseite, kompakte Zeile an Warenkorb-Positionen, kurze Zeile im Listing, Termin-Übersicht in Bestellprüfung und Abschluss. Ohne das Plugin wirkungslos |
 | **Zuletzt angesehen** | Slider unten auf jeder Seite direkt über dem Footer (nicht im Checkout ab der Adresseingabe und nicht im Kundenkonto), auf der Produktseite ohne das aktuelle Produkt. Seitentypen in der Plugin-Konfiguration wählbar. Nur mit Zustimmung im Cookie-Dialog („Komfortfunktionen“), beim Widerruf wird die Liste sofort gelöscht. Die Liste liegt nur im Browser des Kunden (localStorage, max. 20 Produkte) – auf dem Server wird nichts gespeichert |
 | **Modernes Checkout** | Fortschrittsanzeige (Warenkorb → Adresse → Prüfen → Fertig), Versand- und Zahlungsarten als Auswahlkarten, mitlaufende Zusammenfassung auf dem Desktop, Bestell-Button auf dem Smartphone immer sichtbar, schlanker Checkout-Header |
@@ -71,10 +72,10 @@ Alternativ in der Administration unter **Inhalte → Themes** das „Nova Theme�
 
 **Inhalte → Themes → Nova Theme**:
 
-- **Theme-Farben / Typografie** – Primär-, Sekundär-, Kauf-Button-Farbe, Schriftart (Standard: Inter, wird von Shopware selbst ausgeliefert – keine externen Font-Server)
+- **Theme-Farben / Typografie** – Primär-, Sekundär-, Kauf-Button-Farbe, Schriftart (Standard: Inter, wird von Shopware selbst ausgeliefert – keine externen Font-Server). Für Überschriften mit Serifen bei *Schriftart Überschriften* eintragen: `'Nova Serif', Georgia, serif`
 - **Nova: Layout** – maximale Inhaltsbreite, Eckenradien, Flächenfarbe
 - **Nova: Header & Topbar** – Topbar-Farben, maximale Logohöhe, Header beim Runterscrollen ausblenden
-- **Nova: Produktlisting** – Bild-Modus, 2 Produkte pro Zeile auf Smartphones
+- **Nova: Produktlisting** – Bild-Modus, Bildformat (1:1, 3:4, 2:3, 4:3), 2 Produkte pro Zeile auf Smartphones
 - **Nova: Footer** – Hintergrundfarbe
 - **Nova: Checkout & Konto** – Fortschrittsanzeige im Checkout an/aus
 - **Nova: Effekte** – dezente Einblend-Animationen

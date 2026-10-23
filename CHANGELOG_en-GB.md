@@ -1,3 +1,8 @@
+# 1.3.0
+- New: theme setting "Product image format" – square, portrait 3:4, book/cover 2:3 or landscape 4:3 for product cards and product page. In portrait mode the product page image is limited to the screen height
+- New: bundled serif font "Nova Serif" (Source Serif 4) – set the headline font to `'Nova Serif', Georgia, serif`
+- Product names in cards no longer break in the middle of a word
+
 # 1.2.0
 - New: floating compact header – rounded bar in the centre (default); full-width bar with logo still available (theme setting "Compact header style")
 

@@ -23,3 +23,28 @@
 .product-detail-tabs .nav-link {
     font-weight: 600;
 }
+
+/* Hochformat (Bücher, Cover): Bild nicht über die volle Spaltenbreite aufblasen */
+@if $nova-image-ratio < 1 {
+    .product-detail-media {
+        .gallery-slider-item,
+        .gallery-slider-single-image {
+            aspect-ratio: $nova-image-ratio;
+            min-height: 0 !important; // Shopware setzt min-height inline
+            max-height: min(72vh, 640px);
+            margin-inline: auto;
+
+            .gallery-slider-image {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+
+        .gallery-slider-thumbnails-item-inner {
+            aspect-ratio: $nova-image-ratio;
+        }
+    }
+}

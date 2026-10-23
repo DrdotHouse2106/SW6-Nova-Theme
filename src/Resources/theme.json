@@ -317,6 +317,54 @@
                     ]
                 }
             },
+            "nova-image-ratio": {
+                "label": {
+                    "de-DE": "Bildformat der Produktbilder",
+                    "en-GB": "Product image format"
+                },
+                "type": "text",
+                "value": "1",
+                "editable": true,
+                "block": "novaListing",
+                "order": 105,
+                "helpText": {
+                    "de-DE": "Seitenverhältnis der Bildfläche in Produktkarten und auf der Produktseite. Hochformat z. B. für Bücher, Cover und Flaschen",
+                    "en-GB": "Aspect ratio of the image area in product cards and on the product page. Portrait e.g. for books, covers and bottles"
+                },
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "1",
+                            "label": {
+                                "de-DE": "Quadratisch (1:1)",
+                                "en-GB": "Square (1:1)"
+                            }
+                        },
+                        {
+                            "value": "0.75",
+                            "label": {
+                                "de-DE": "Hochformat (3:4)",
+                                "en-GB": "Portrait (3:4)"
+                            }
+                        },
+                        {
+                            "value": "0.6667",
+                            "label": {
+                                "de-DE": "Buch/Cover (2:3)",
+                                "en-GB": "Book/cover (2:3)"
+                            }
+                        },
+                        {
+                            "value": "1.3333",
+                            "label": {
+                                "de-DE": "Querformat (4:3)",
+                                "en-GB": "Landscape (4:3)"
+                            }
+                        }
+                    ]
+                }
+            },
             "nova-mobile-two-columns": {
                 "label": {
                     "de-DE": "2 Produkte pro Zeile auf Smartphones",

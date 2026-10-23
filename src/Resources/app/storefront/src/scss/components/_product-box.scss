@@ -22,7 +22,7 @@
 }
 
 .product-image-wrapper {
-    aspect-ratio: 1 / 1; // Reserviert Platz → kein Layout-Shift (CLS)
+    aspect-ratio: $nova-image-ratio; // Reserviert Platz → kein Layout-Shift (CLS)
     height: auto;
     background: var(--nova-surface);
     border-radius: calc(var(--nova-radius) - 4px);
@@ -49,6 +49,9 @@
 
 .product-name {
     font-weight: 600;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: auto;
     line-height: 1.35;
     height: auto;
     -webkit-line-clamp: 2;
