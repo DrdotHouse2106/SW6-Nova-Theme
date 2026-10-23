@@ -4,7 +4,8 @@
     margin-top: var(--nova-section-space);
 }
 
-/* Newsletter-Leiste anderer Plugins direkt über dem Footer: Abstand davor statt Lücke dazwischen */
+/* Newsletter-Leiste (eigene oder anderer Plugins) direkt über dem Footer: Abstand davor statt Lücke dazwischen */
+.nova-newsletter,
 .footer-main-newsletter {
     margin-top: var(--nova-section-space);
 

@@ -33,6 +33,13 @@
         },
         "footer": {
             "copyright": "© {year} {shop} – Alle Rechte vorbehalten"
+        },
+        "newsletter": {
+            "headline": "Newsletter abonnieren",
+            "text": "Neuheiten und Angebote direkt ins Postfach – jederzeit abbestellbar.",
+            "emailLabel": "E-Mail-Adresse",
+            "submit": "Anmelden",
+            "checkout": "Ja, ich möchte den Newsletter erhalten (jederzeit abbestellbar)."
         }
     }
 }

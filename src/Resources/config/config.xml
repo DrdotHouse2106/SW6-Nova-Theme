@@ -135,6 +135,62 @@
     </card>
 
     <card>
+        <title>Newsletter</title>
+        <title lang="de-DE">Newsletter</title>
+
+        <input-field type="bool">
+            <name>newsletterFooter</name>
+            <label>Newsletter bar above the footer</label>
+            <label lang="de-DE">Newsletter-Leiste über dem Footer</label>
+            <helpText>Uses Shopware's own newsletter registration (double opt-in, captcha and privacy setting as configured in Shopware). Not shown in checkout and customer account.</helpText>
+            <helpText lang="de-DE">Nutzt Shopwares eigene Newsletter-Anmeldung (Double-Opt-in, Captcha und Datenschutz wie in Shopware eingestellt). Nicht im Checkout und im Kundenkonto.</helpText>
+            <defaultValue>false</defaultValue>
+        </input-field>
+
+        <input-field type="text">
+            <name>newsletterHeadline</name>
+            <label>Headline</label>
+            <label lang="de-DE">Überschrift</label>
+            <helpText>Empty = snippet "novaTheme.newsletter.headline" (translatable per language under Settings → Snippets).</helpText>
+            <helpText lang="de-DE">Leer = Textbaustein „novaTheme.newsletter.headline“ (pro Sprache unter Einstellungen → Textbausteine änderbar).</helpText>
+            <placeholder>Newsletter abonnieren</placeholder>
+        </input-field>
+
+        <input-field type="textarea">
+            <name>newsletterText</name>
+            <label>Text</label>
+            <label lang="de-DE">Text</label>
+            <helpText>Short text below the headline, simple HTML (bold, links) allowed. Empty = snippet "novaTheme.newsletter.text".</helpText>
+            <helpText lang="de-DE">Kurzer Text unter der Überschrift, einfaches HTML (fett, Links) erlaubt. Leer = Textbaustein „novaTheme.newsletter.text“.</helpText>
+        </input-field>
+
+        <input-field type="text">
+            <name>newsletterNote</name>
+            <label>Small print below the form</label>
+            <label lang="de-DE">Kleingedrucktes unter dem Formular</label>
+            <helpText>Optional, e.g. conditions of a newsletter discount.</helpText>
+            <helpText lang="de-DE">Optional, z. B. Bedingungen eines Newsletter-Rabatts.</helpText>
+        </input-field>
+
+        <input-field type="bool">
+            <name>newsletterCheckout</name>
+            <label>Newsletter checkbox on the order confirmation page</label>
+            <label lang="de-DE">Newsletter-Häkchen in der Bestellübersicht</label>
+            <helpText>Unchecked by default; not shown if the customer's e-mail is already subscribed. When checked, the order e-mail is registered via Shopware's newsletter registration (double opt-in as configured).</helpText>
+            <helpText lang="de-DE">Standardmäßig nicht angehakt; wird nicht gezeigt, wenn die E-Mail des Kunden schon angemeldet ist. Angehakt wird die Bestell-E-Mail über Shopwares Newsletter-Anmeldung eingetragen (Double-Opt-in wie eingestellt).</helpText>
+            <defaultValue>false</defaultValue>
+        </input-field>
+
+        <input-field type="text">
+            <name>newsletterCheckoutText</name>
+            <label>Checkbox text</label>
+            <label lang="de-DE">Text am Häkchen</label>
+            <helpText>Empty = snippet "novaTheme.newsletter.checkout".</helpText>
+            <helpText lang="de-DE">Leer = Textbaustein „novaTheme.newsletter.checkout“.</helpText>
+        </input-field>
+    </card>
+
+    <card>
         <title>Checkout</title>
         <title lang="de-DE">Checkout</title>
 

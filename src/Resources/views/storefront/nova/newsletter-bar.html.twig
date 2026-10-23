@@ -1,0 +1,78 @@
+{#
+ # Newsletter-Leiste über dem Footer – nutzt Shopwares eigene Newsletter-Anmeldung
+ # (/form/newsletter, Double-Opt-in, Captcha und Datenschutz-Hinweis wie in Shopware eingestellt).
+ # Die Antwort (Erfolg/Fehler) setzt Shopwares Formular-Skript an die Stelle des Blocks.
+ #}
+{% block nova_newsletter_bar %}
+    {% set novaHeadline = config('NovaTheme.config.newsletterHeadline')|trim %}
+    {% set novaText = config('NovaTheme.config.newsletterText')|trim %}
+    {% set novaNote = config('NovaTheme.config.newsletterNote')|trim %}
+
+    <section class="nova-newsletter" aria-labelledby="nova-newsletter-title">
+        <div class="container">
+            <div class="cms-block nova-newsletter-block">
+                <div class="cms-element-form">
+                    <form action="{{ path('frontend.form.newsletter.register.handle') }}"
+                          method="post"
+                          data-form-handler="true"
+                          id="nova-newsletter-form">
+                        <div class="form-content">
+                            {% block nova_newsletter_bar_intro %}
+                                <div class="nova-newsletter-intro">
+                                    <h2 class="nova-newsletter-title" id="nova-newsletter-title">
+                                        {{ novaHeadline ?: 'novaTheme.newsletter.headline'|trans }}
+                                    </h2>
+                                    <div class="nova-newsletter-text">
+                                        {{ (novaText ?: 'novaTheme.newsletter.text'|trans)|sw_sanitize }}
+                                    </div>
+                                </div>
+                            {% endblock %}
+
+                            <input type="hidden" name="option" value="subscribe">
+
+                            {% block nova_newsletter_bar_fields %}
+                                <div class="nova-newsletter-fields">
+                                    <label class="visually-hidden" for="nova-newsletter-email">
+                                        {{ 'novaTheme.newsletter.emailLabel'|trans }}
+                                    </label>
+                                    <input type="email"
+                                           class="form-control"
+                                           id="nova-newsletter-email"
+                                           name="email"
+                                           autocomplete="email"
+                                           placeholder="{{ 'novaTheme.newsletter.emailLabel'|trans|striptags }}"
+                                           data-validation="required,email"
+                                           aria-required="true"
+                                           required>
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ 'novaTheme.newsletter.submit'|trans }}
+                                    </button>
+                                </div>
+                            {% endblock %}
+
+                            {% block nova_newsletter_bar_legal %}
+                                <div class="nova-newsletter-legal">
+                                    {% sw_include '@Storefront/storefront/component/captcha/base.html.twig' with {
+                                        formId: 'nova-newsletter'
+                                    } %}
+
+                                    {% sw_include '@Storefront/storefront/element/cms-element-form/form-components/cms-element-form-privacy.html.twig' with {
+                                        requiresTermsOfService: false
+                                    } %}
+
+                                    {% if novaNote %}
+                                        <p class="nova-newsletter-note">{{ novaNote|sw_sanitize }}</p>
+                                    {% endif %}
+                                </div>
+                            {% endblock %}
+                        </div>
+
+                        <div class="form-hidden-fields">
+                            <input type="submit" class="submit--hidden d-none">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

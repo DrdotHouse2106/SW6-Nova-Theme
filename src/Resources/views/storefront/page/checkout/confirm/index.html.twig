@@ -1,0 +1,23 @@
+{% sw_extends '@Storefront/storefront/page/checkout/confirm/index.html.twig' %}
+
+{# Newsletter-Häkchen unter den AGB – nur wenn aktiviert und die E-Mail noch nicht angemeldet ist #}
+{% block page_checkout_confirm_tos_control %}
+    {{ parent() }}
+
+    {% set novaNewsletter = page.getExtension('novaNewsletter') %}
+    {% if novaNewsletter and novaNewsletter['show'] %}
+        {% set novaNewsletterText = config('NovaTheme.config.newsletterCheckoutText')|trim %}
+
+        <div class="form-check nova-newsletter-checkout">
+            <input type="checkbox"
+                   class="form-check-input"
+                   id="novaNewsletter"
+                   name="novaNewsletter"
+                   value="1"
+                   form="confirmOrderForm">
+            <label for="novaNewsletter" class="custom-control-label">
+                {{ (novaNewsletterText ?: 'novaTheme.newsletter.checkout'|trans)|sw_sanitize }}
+            </label>
+        </div>
+    {% endif %}
+{% endblock %}

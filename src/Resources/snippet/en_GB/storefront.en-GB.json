@@ -33,6 +33,13 @@
         },
         "footer": {
             "copyright": "© {year} {shop} – All rights reserved"
+        },
+        "newsletter": {
+            "headline": "Subscribe to our newsletter",
+            "text": "News and offers straight to your inbox – unsubscribe at any time.",
+            "emailLabel": "E-mail address",
+            "submit": "Subscribe",
+            "checkout": "Yes, I would like to receive the newsletter (unsubscribe at any time)."
         }
     }
 }

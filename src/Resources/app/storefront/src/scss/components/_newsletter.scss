@@ -1,0 +1,76 @@
+/*
+ * Newsletter-Leiste über dem Footer und Häkchen in der Bestellübersicht.
+ * Farben kommen aus Primärfarbe und Flächenfarbe der Theme-Konfiguration.
+ */
+.nova-newsletter {
+    background: var(--nova-surface);
+    padding-block: nova-fluid(2rem, 3.5rem);
+
+    .nova-newsletter-block {
+        max-width: 720px;
+        margin-inline: auto;
+        text-align: center;
+    }
+
+    .nova-newsletter-title {
+        font-size: nova-fluid(1.25rem, 1.625rem);
+        margin-bottom: 0.5rem;
+    }
+
+    .nova-newsletter-text {
+        margin-bottom: 1.25rem;
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .nova-newsletter-fields {
+        display: flex;
+        gap: 0.5rem;
+        max-width: 520px;
+        margin-inline: auto;
+
+        .form-control {
+            flex: 1 1 auto;
+            min-width: 0;
+            background: #fff;
+        }
+
+        .btn {
+            flex: 0 0 auto;
+        }
+
+        @include media-breakpoint-down(sm) {
+            flex-direction: column;
+        }
+    }
+
+    .nova-newsletter-legal {
+        margin-top: 1rem;
+        font-size: 0.8125rem;
+        text-align: left;
+        max-width: 520px;
+        margin-inline: auto;
+
+        .privacy-notice-title,
+        .privacy-notice-title + br {
+            display: none;
+        }
+    }
+
+    .nova-newsletter-note {
+        margin: 0.75rem 0 0;
+        opacity: 0.75;
+    }
+
+    // Erfolgs-/Fehlermeldung, die Shopware nach dem Absenden einsetzt
+    .confirm-message,
+    .confirm-alert {
+        text-align: left;
+    }
+}
+
+.nova-newsletter-checkout {
+    margin-top: 0.75rem;
+}

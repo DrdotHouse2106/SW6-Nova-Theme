@@ -44,5 +44,14 @@
         {% endif %}
     {% endblock %}
 
+    {% block nova_newsletter_bar_global %}
+        {# Nicht im Checkout (außer Warenkorb) und nicht im Kundenkonto #}
+        {% set novaRoute = activeRoute|default('') %}
+        {% if config('NovaTheme.config.newsletterFooter')
+            and (novaRoute == 'frontend.checkout.cart.page' or not (novaRoute starts with 'frontend.checkout.' or novaRoute starts with 'frontend.account.')) %}
+            {% sw_include '@NovaTheme/storefront/nova/newsletter-bar.html.twig' %}
+        {% endif %}
+    {% endblock %}
+
     {{ parent() }}
 {% endblock %}
