@@ -1,3 +1,6 @@
+# 1.4.3
+- Newsletter-Leiste und Kasten auf der Bestellabschlussseite: Nach erfolgreichem Absenden wird das Formular ausgeblendet und nur noch die Bestätigung gezeigt; bei Fehlern bleibt es stehen
+
 # 1.4.2
 - Checkboxen und Radio-Buttons haben einen deutlich sichtbaren Rand, auch auf getönten Flächen
 - Datenschutz-Text in der Newsletter-Leiste in derselben kleinen Schriftgröße wie die übrigen Hinweise

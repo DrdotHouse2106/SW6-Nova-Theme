@@ -107,3 +107,23 @@
 .nova-newsletter-checkout {
     margin-top: 0.75rem;
 }
+
+/*
+ * Nach erfolgreichem Absenden nur noch die Meldung zeigen: Shopwares Formular-Skript hängt die Antwort
+ * als .confirm-alert an den Block an. Bei Fehlern (.alert-danger) bleibt das Formular stehen.
+ */
+.nova-newsletter-block,
+.nova-newsletter-finish .cms-block {
+    &:has(> .confirm-alert):not(:has(> .confirm-alert .alert-danger)) > .cms-element-form {
+        display: none;
+    }
+
+    > .confirm-alert {
+        text-align: left;
+
+        .alert {
+            margin-top: 0.75rem;
+            margin-bottom: 0;
+        }
+    }
+}

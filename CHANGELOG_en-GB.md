@@ -1,3 +1,6 @@
+# 1.4.3
+- Newsletter bar and order finish box: after a successful submit the form is hidden and only the confirmation is shown; on errors it stays visible
+
 # 1.4.2
 - Checkboxes and radio buttons have a clearly visible border, also on tinted surfaces
 - Privacy text in the newsletter bar uses the same small font size as the other notes
