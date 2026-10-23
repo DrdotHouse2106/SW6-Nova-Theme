@@ -1,3 +1,9 @@
+# 1.6.0
+- `nova-hero` without background image: dark area in the secondary colour with a subtle accent glow
+- `nova-hero` on the two-column image & text block: text left, image right
+- New: `nova-cards-cta` – last card without image in the accent colour as call to action
+- New: `nova-cards-contain` – show card images entirely instead of cropping (product photos)
+
 # 1.5.9
 - Footer "service hotline": links (phone, WhatsApp, e-mail) are shown inline instead of as separate large blocks – the column stays compact
 

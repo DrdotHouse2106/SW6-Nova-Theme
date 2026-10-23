@@ -2,7 +2,11 @@
  * Bausteine für Erlebniswelten – im Block oder Abschnitt unter „CSS-Klasse“ eintragen.
  *
  * nova-hero   Startbild: Block (z. B. „Text“) mit Hintergrundbild, Text hell auf Verlauf,
- *             Buttons aus dem Texteditor: primär = Akzentfarbe, sekundär = weißer Rahmen
+ *             Buttons aus dem Texteditor: primär = Akzentfarbe, sekundär = weißer Rahmen.
+ *             Ohne Hintergrundbild: dunkle Fläche in der Sekundärfarbe. Auf „Zwei Spalten,
+ *             zentriertes Bild & Text“: Text links, Bild rechts
+ * nova-cards-cta  Zusätzlich zu nova-cards: letzte Karte ohne Bild in der Akzentfarbe (Aufruf zur Anfrage)
+ * nova-cards-contain  Zusätzlich zu nova-cards: Bilder ganz zeigen statt beschneiden (Produktfotos)
  * nova-lead   Zentrierte Einleitung (Überschrift + Text) über einem Bereich
  * nova-trust  Schmale Leiste mit kurzen Vorteilen (Block mit 2–4 Text-Spalten)
  * nova-cards  Spalten mit Bild und Text als Karten (z. B. „Drei Spalten, Bild & Text“)
@@ -115,6 +119,47 @@
 .cms-block.nova-band,
 .cms-block.nova-prose {
     margin-top: nova-fluid(1.5rem, 3.5rem);
+}
+
+/* Startbereich ohne Hintergrundbild: dunkle Fläche (Sekundärfarbe) mit leichtem Schimmer in der Akzentfarbe */
+.cms-block.nova-hero:not(.bg-image) {
+    min-height: 0;
+    background:
+        radial-gradient(70rem 30rem at 85% 15%, color-mix(in srgb, var(--nova-accent) 20%, transparent), transparent 60%),
+        var(--nova-secondary);
+
+    &::before {
+        display: none;
+    }
+
+    > .cms-block-container {
+        padding-block: nova-fluid(3rem, 5rem) !important;
+    }
+}
+
+/* Startbereich als „Zwei Spalten, zentriertes Bild & Text“: Text links, Bild rechts */
+.cms-block.nova-hero.cms-block-image-text {
+    .cms-row {
+        align-items: center;
+        row-gap: 2rem;
+
+        @include media-breakpoint-up(md) {
+            flex-direction: row-reverse;
+        }
+    }
+
+    .cms-image-container {
+        min-height: 0 !important;
+        height: auto !important;
+    }
+
+    .cms-element-image img {
+        position: static !important;
+        width: 100%;
+        height: auto !important;
+        max-height: 30rem;
+        object-fit: contain;
+    }
 }
 
 /* Zentrierte Einleitung */
@@ -252,6 +297,36 @@
     a:not(.btn) {
         font-weight: 700;
         text-decoration: none;
+    }
+}
+
+/* Produktfotos in Karten ganz zeigen, auf Flächenfarbe */
+.cms-block.nova-cards.nova-cards-contain {
+    .cms-image-container img,
+    .cms-element-image img {
+        object-fit: contain;
+        padding: 1.25rem;
+        background: var(--nova-surface);
+    }
+}
+
+/* Letzte Karte als Aufruf: ohne Bild, in der Akzentfarbe */
+.cms-block.nova-cards.nova-cards-cta .cms-row > [class*='col']:last-child {
+    > div:first-child {
+        display: none;
+    }
+
+    > div:last-child {
+        justify-content: center;
+        border-radius: var(--nova-radius);
+        background: var(--nova-accent);
+        color: var(--nova-on-accent);
+        padding: nova-fluid(1.5rem, 2.25rem);
+    }
+
+    h2, h3, .h2, .h3, p, a:not(.btn) {
+        color: var(--nova-on-accent);
+        opacity: 1;
     }
 }
 

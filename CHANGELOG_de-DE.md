@@ -1,3 +1,9 @@
+# 1.6.0
+- `nova-hero` ohne Hintergrundbild: dunkle Fläche in der Sekundärfarbe mit leichtem Schimmer in der Akzentfarbe
+- `nova-hero` auf „Zwei Spalten, zentriertes Bild & Text“: Text links, Bild rechts (z. B. Produkt-Collage)
+- Neu: `nova-cards-cta` – letzte Karte ohne Bild in der Akzentfarbe als Aufruf (z. B. „Ihr Teil ist nicht dabei?“)
+- Neu: `nova-cards-contain` – Bilder in Karten ganz zeigen statt beschneiden (Produktfotos)
+
 # 1.5.9
 - Footer „Service-Hotline“: Links (Telefon, WhatsApp, E-Mail) stehen als normale Links im Text statt als einzelne große Blöcke – die Spalte bleibt kompakt
 
