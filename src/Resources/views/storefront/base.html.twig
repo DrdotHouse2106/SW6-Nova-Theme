@@ -4,6 +4,7 @@
 {% block base_body_classes %}{{ parent() }}
     {%- if config('NovaTheme.config.compactHeader') %} nova-compact-header
         {%- if theme_config('nova-header-autohide') %} nova-header-autohide{% endif %}
+        {%- if theme_config('nova-header-compact-style')|default('floating') != 'bar' %} nova-header-floating{% endif %}
     {%- endif %}
     {%- if config('NovaTheme.config.loaderBar') %} nova-loader-bar{% endif %}
     {%- if theme_config('nova-animations') %} nova-animations{% endif %}

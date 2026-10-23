@@ -1,3 +1,6 @@
+# 1.2.0
+- New: floating compact header – rounded bar in the centre (default); full-width bar with logo still available (theme setting "Compact header style")
+
 # 1.1.0
 - New: footer copyright notice per sales channel – keep, replace with own text (`{year}`, `{shop}`, translatable via snippet `novaTheme.footer.copyright`) or hide
 

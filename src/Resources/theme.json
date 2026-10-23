@@ -256,6 +256,37 @@
                 "block": "novaHeader",
                 "order": 400
             },
+            "nova-header-compact-style": {
+                "label": {
+                    "de-DE": "Aussehen des kompakten Headers",
+                    "en-GB": "Compact header style"
+                },
+                "type": "text",
+                "value": "floating",
+                "editable": true,
+                "scss": false,
+                "block": "novaHeader",
+                "order": 410,
+                "custom": {
+                    "componentName": "sw-single-select",
+                    "options": [
+                        {
+                            "value": "floating",
+                            "label": {
+                                "de-DE": "Schwebend: abgerundete Leiste in der Mitte (Menü, Suche, Merkzettel, Konto, Warenkorb)",
+                                "en-GB": "Floating: rounded bar in the centre (menu, search, wishlist, account, cart)"
+                            }
+                        },
+                        {
+                            "value": "bar",
+                            "label": {
+                                "de-DE": "Leiste über die volle Breite mit Logo",
+                                "en-GB": "Full-width bar with logo"
+                            }
+                        }
+                    ]
+                }
+            },
             "nova-image-fit": {
                 "label": {
                     "de-DE": "Bild-Modus der Produktbilder",

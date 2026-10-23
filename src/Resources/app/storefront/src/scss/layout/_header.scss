@@ -98,3 +98,44 @@
         }
     }
 }
+
+/*
+ * Kompakter Header „schwebend“: abgerundete Leiste mittig mit Abstand zum Rand,
+ * ohne Logo – nur Menü, Suche und Symbole. Auf sehr kleinen Bildschirmen bleibt die volle Leiste.
+ */
+@include media-breakpoint-up(sm) {
+    .nova-header-floating.nova-header-fixed {
+        .header-main {
+            inset: 0.625rem 0 auto;
+            width: min(60rem, calc(100% - 1.25rem));
+            margin-inline: auto;
+            border-radius: 1rem;
+            background: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.12);
+
+            > .container {
+                max-width: none;
+                padding-inline: 0.75rem;
+            }
+        }
+
+        .header-logo-col {
+            display: none;
+        }
+
+        .header-row {
+            flex-wrap: nowrap;
+            align-items: center;
+        }
+
+        .header-search-col {
+            flex: 1 1 auto;
+            max-width: none;
+            width: auto;
+        }
+
+        &.nova-header-hidden .header-main {
+            transform: translateY(calc(-100% - 1rem));
+        }
+    }
+}

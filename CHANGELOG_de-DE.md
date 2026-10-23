@@ -1,3 +1,6 @@
+# 1.2.0
+- Neu: Kompakter Header „schwebend“ – abgerundete Leiste mittig mit Menü, Suche, Merkzettel, Konto und Warenkorb (Standard); alternativ wie bisher volle Breite mit Logo (Theme-Einstellung „Aussehen des kompakten Headers“)
+
 # 1.1.0
 - Neu: Copyright-Hinweis im Footer pro Verkaufskanal beibehalten, durch eigenen Text ersetzen (`{year}`, `{shop}`, übersetzbar über den Textbaustein `novaTheme.footer.copyright`) oder ausblenden
 

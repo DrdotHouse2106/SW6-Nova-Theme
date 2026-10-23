@@ -26,7 +26,7 @@ bin/console cache:clear
 
 ## Features
 
-Modern cart, checkout (progress indicator, shipping/payment selection cards, sticky summary) and customer account, a clearly visible "delete account" section (enable it under *Settings → Login & registration*), a "recently viewed" slider on product and cart pages (stored only in the browser), top bar (info text, phone, e-mail, opening hours), compact header while scrolling (no layout shift, optional auto-hide), page loading bar, product count above listings, confetti after a successful order, footer copyright notice (keep, replace with own text incl. `{year}`/`{shop}` or hide – per sales channel), image mode (contain/cover), 2 products per row on phones.
+Modern cart, checkout (progress indicator, shipping/payment selection cards, sticky summary) and customer account, a clearly visible "delete account" section (enable it under *Settings → Login & registration*), a "recently viewed" slider on product and cart pages (stored only in the browser), top bar (info text, phone, e-mail, opening hours), compact header while scrolling (floating rounded bar or full width with logo, no layout shift, optional auto-hide), page loading bar, product count above listings, confetti after a successful order, footer copyright notice (keep, replace with own text incl. `{year}`/`{shop}` or hide – per sales channel), image mode (contain/cover), 2 products per row on phones.
 
 Per-sales-channel settings: *Extensions → My extensions → Nova Theme → Configure*. Colours and layout: *Content → Themes*. For several shops with different colours, duplicate the theme once per sales channel.
 

@@ -38,7 +38,7 @@ Alternativ in der Administration unter **Inhalte → Themes** das „Nova Theme�
 | Funktion | Beschreibung |
 |---|---|
 | **Topbar** | Infotext (optional verlinkt), Telefon, E-Mail und Öffnungszeiten über dem Header |
-| **Kompakter Header** | Sobald der Header aus dem Bild gescrollt ist, erscheint eine schmale Leiste mit Logo, Menü, Suche, Merkzettel, Konto und Warenkorb – ohne dass der Inhalt springt. Optional beim Runterscrollen ausblenden |
+| **Kompakter Header** | Sobald der Header aus dem Bild gescrollt ist, erscheint eine schmale Leiste mit Menü, Suche, Merkzettel, Konto und Warenkorb – ohne dass der Inhalt springt. Aussehen wählbar: **schwebend** (abgerundete Leiste mittig, Standard) oder **volle Breite mit Logo**. Optional beim Runterscrollen ausblenden |
 | **Ladebalken** | Schmaler Fortschrittsbalken beim Klick auf interne Links |
 | **Artikelzähler** | „2126 Artikel“ über dem Listing, aktualisiert sich beim Filtern |
 | **Konfetti** | Kurze Animation nach erfolgreicher Bestellung (ohne externe Bibliothek) |
