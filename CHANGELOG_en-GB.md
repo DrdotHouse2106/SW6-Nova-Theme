@@ -1,3 +1,7 @@
+# 1.5.5
+- New building block `nova-prose` – longer text in a comfortable reading width
+- `nova-split` also for the image – text – image block
+
 # 1.5.4
 - Building blocks: flatter, centred `nova-trust`, more space before `nova-lead`, `nova-split` and `nova-band`, links in `nova-cards` aligned at the bottom of every card
 

@@ -1,3 +1,7 @@
+# 1.5.5
+- Neu: Erlebniswelt-Baustein `nova-prose` – längerer Fließtext in angenehmer Lesebreite
+- `nova-split` auch für „Drei Spalten, Bild & Text“ (Bild – Text – Bild)
+
 # 1.5.4
 - Erlebniswelt-Bausteine: Vorteils-Leiste (`nova-trust`) flacher und je Spalte mittig, mehr Abstand vor `nova-lead`, `nova-split` und `nova-band`, Links in `nova-cards` sitzen in allen Karten auf gleicher Höhe unten
 

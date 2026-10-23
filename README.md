@@ -163,8 +163,9 @@ In CMS-Sektionen/-Blöcken (Feld „CSS-Klasse“) nutzbar:
 | `nova-hero` | **Startbild:** Block (z. B. „Text“) mit Hintergrundbild in einem Abschnitt mit voller Breite. Text hell auf dunklem Verlauf, Überschrift groß. Buttons aus dem Texteditor: „Primär“ = Akzentfarbe, „Sekundär“ = weißer Rahmen |
 | `nova-lead` | Zentrierte Einleitung (Überschrift + Text) über einem Bereich |
 | `nova-trust` | Schmale weiße Leiste mit kurzen Vorteilen (Block mit 2–3 Text-Spalten) |
-| `nova-cards` | Spalten mit Bild und Text als Karten mit gemeinsamem Schatten, Bilder einheitlich 4:3 (z. B. „Drei Spalten, Bild & Text“) |
-| `nova-split` | Bild und Text nebeneinander, Bild mit runden Ecken, Text vertikal mittig („Bild & Text“) |
+| `nova-cards` | Spalten mit Bild und Text als Karten mit gemeinsamem Schatten, Bilder einheitlich 4:3 (Block „Drei Spalten, Bilder mit Unterschrift“) |
+| `nova-split` | Bild und Text nebeneinander, Bilder mit runden Ecken, Text vertikal mittig („Zwei Spalten, zentriertes Bild & Text“ oder „Drei Spalten, Bild & Text“) |
+| `nova-prose` | Längerer Fließtext in angenehmer Lesebreite, mittig auf der Seite (Block „Text“) |
 | `nova-band` | Band in der Primärfarbe mit heller Schrift und runden Ecken – z. B. Kontakt oder Hinweis |
 | `nova-accent` | Hintergrund in der Akzentfarbe, Schriftfarbe automatisch |
 | `nova-surface` | Hintergrund in Flächenfarbe |

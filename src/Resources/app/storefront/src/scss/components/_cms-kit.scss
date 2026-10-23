@@ -6,7 +6,8 @@
  * nova-lead   Zentrierte Einleitung (Überschrift + Text) über einem Bereich
  * nova-trust  Schmale Leiste mit kurzen Vorteilen (Block mit 2–4 Text-Spalten)
  * nova-cards  Spalten mit Bild und Text als Karten (z. B. „Drei Spalten, Bild & Text“)
- * nova-split  Bild und Text nebeneinander, Bild mit runden Ecken, Text mittig
+ * nova-split  Bild und Text nebeneinander (auch Bild – Text – Bild), Bilder mit runden Ecken, Text mittig
+ * nova-prose  Längerer Fließtext in angenehmer Lesebreite, mittig auf der Seite
  * nova-band   Farbiges Band in der Primärfarbe mit heller Schrift (Kontakt, Hinweis)
  * nova-accent Hintergrund in der Akzentfarbe
  */
@@ -89,7 +90,8 @@
 /* Luft zwischen den Bausteinen (Shopware-Blockabstände sind dafür meist zu knapp) */
 .cms-block.nova-lead,
 .cms-block.nova-split,
-.cms-block.nova-band {
+.cms-block.nova-band,
+.cms-block.nova-prose {
     margin-top: nova-fluid(1.5rem, 3.5rem);
 }
 
@@ -238,6 +240,34 @@
 
     h2, .h2 {
         font-size: nova-fluid(1.75rem, 2.375rem);
+    }
+
+    // Bild – Text – Bild: Text bekommt seitlich Luft
+    &.cms-block-center-text .cms-element-text {
+        padding-inline: nova-fluid(0rem, 1rem);
+    }
+}
+
+/* Längerer Fließtext */
+.cms-block.nova-prose {
+    .cms-element-text {
+        max-width: 46rem;
+        margin-inline: auto;
+    }
+
+    h2, .h2 {
+        font-size: nova-fluid(1.5rem, 2rem);
+        margin-top: 1.5rem;
+    }
+
+    h3, .h3 {
+        font-size: nova-fluid(1.25rem, 1.5rem);
+        margin-top: 1.25rem;
+    }
+
+    p, li {
+        font-size: nova-fluid(1rem, 1.0625rem);
+        line-height: 1.7;
     }
 }
 
