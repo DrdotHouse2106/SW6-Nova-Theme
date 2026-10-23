@@ -1,3 +1,7 @@
+# 1.4.1
+- Neu: Newsletter-Anmeldung im Bestellprozess wahlweise als Kasten auf der Bestellabschlussseite (nach der Bestellung, ein Klick, eigene Überschrift – Standard) oder als Häkchen in der Bestellübersicht
+- Newsletter-Leiste erscheint jetzt auch auf der Anmeldeseite und im Kundenkonto (weiterhin nicht in den Checkout-Schritten nach dem Warenkorb)
+
 # 1.4.0
 - Neu: Newsletter-Leiste über dem Footer (pro Verkaufskanal) mit Überschrift, Text und Kleingedrucktem – nutzt Shopwares eigene Newsletter-Anmeldung mit Double-Opt-in, Captcha und Datenschutz-Hinweis; nicht im Checkout und im Kundenkonto
 - Neu: Newsletter-Häkchen in der Bestellübersicht – nicht vorausgewählt, erscheint nur, wenn die E-Mail noch nicht angemeldet ist; meldet die Bestell-E-Mail über Shopwares Newsletter-Anmeldung an. Ein Fehler dabei bricht die Bestellung nie ab

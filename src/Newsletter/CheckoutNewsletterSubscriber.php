@@ -15,15 +15,17 @@ use Shopware\Core\SalesChannelRequest;
 use Shopware\Core\System\SalesChannel\SalesChannelContext;
 use Shopware\Core\System\SystemConfig\SystemConfigService;
 use Shopware\Storefront\Page\Checkout\Confirm\CheckoutConfirmPageLoadedEvent;
+use Shopware\Storefront\Page\Checkout\Finish\CheckoutFinishPageLoadedEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
- * Newsletter-Häkchen in der Bestellübersicht.
+ * Newsletter-Anmeldung im Bestellprozess – wahlweise
+ * - „finish“: Kasten auf der Bestellabschlussseite (nach der Bestellung, Formular an /form/newsletter) oder
+ * - „confirm“: Häkchen in der Bestellübersicht; ist es gesetzt, meldet Shopwares Newsletter-Anmeldung die
+ *   Bestell-E-Mail an. Ein Fehler dabei bricht die Bestellung nie ab.
  *
- * Bestellübersicht: prüft, ob die E-Mail des Kunden schon angemeldet ist – dann wird kein Häkchen gezeigt.
- * Bestellung: Ist das Häkchen gesetzt, meldet Shopwares eigene Newsletter-Anmeldung die Bestell-E-Mail an
- * (mit Double-Opt-in gemäß Shopware-Einstellung). Ein Fehler dabei bricht die Bestellung nie ab.
+ * In beiden Fällen wird nichts gezeigt, wenn die E-Mail schon angemeldet ist. Double-Opt-in gemäß Shopware-Einstellung.
  */
 class CheckoutNewsletterSubscriber implements EventSubscriberInterface
 {
@@ -46,6 +48,7 @@ class CheckoutNewsletterSubscriber implements EventSubscriberInterface
     {
         return [
             CheckoutConfirmPageLoadedEvent::class => 'onConfirmPage',
+            CheckoutFinishPageLoadedEvent::class => 'onFinishPage',
             CheckoutOrderPlacedEvent::class => 'onOrderPlaced',
         ];
     }
@@ -53,7 +56,7 @@ class CheckoutNewsletterSubscriber implements EventSubscriberInterface
     public function onConfirmPage(CheckoutConfirmPageLoadedEvent $event): void
     {
         $context = $event->getSalesChannelContext();
-        if (!$this->isActive($context->getSalesChannelId())) {
+        if (!$this->isActive($context->getSalesChannelId(), 'confirm')) {
             return;
         }
 
@@ -61,6 +64,21 @@ class CheckoutNewsletterSubscriber implements EventSubscriberInterface
         $subscribed = $email !== null && $this->isSubscribed($email, $context);
 
         $event->getPage()->addExtension(self::EXTENSION, new ArrayStruct(['show' => !$subscribed]));
+    }
+
+    public function onFinishPage(CheckoutFinishPageLoadedEvent $event): void
+    {
+        $context = $event->getSalesChannelContext();
+        if (!$this->isActive($context->getSalesChannelId(), 'finish')) {
+            return;
+        }
+
+        $email = $event->getPage()->getOrder()->getOrderCustomer()?->getEmail() ?? '';
+        if ($email === '' || $this->isSubscribed($email, $context)) {
+            return;
+        }
+
+        $event->getPage()->addExtension(self::EXTENSION, new ArrayStruct(['show' => true, 'email' => $email]));
     }
 
     public function onOrderPlaced(CheckoutOrderPlacedEvent $event): void
@@ -71,7 +89,7 @@ class CheckoutNewsletterSubscriber implements EventSubscriberInterface
         }
 
         $context = $event->getSalesChannelContext();
-        if (!$this->isActive($context->getSalesChannelId())) {
+        if (!$this->isActive($context->getSalesChannelId(), 'confirm')) {
             return;
         }
 
@@ -105,9 +123,15 @@ class CheckoutNewsletterSubscriber implements EventSubscriberInterface
         }
     }
 
-    private function isActive(string $salesChannelId): bool
+    private function isActive(string $salesChannelId, string $position): bool
     {
-        return $this->config->getBool('NovaTheme.config.newsletterCheckout', $salesChannelId);
+        if (!$this->config->getBool('NovaTheme.config.newsletterCheckout', $salesChannelId)) {
+            return false;
+        }
+
+        $configured = $this->config->getString('NovaTheme.config.newsletterCheckoutPosition', $salesChannelId);
+
+        return ($configured !== '' ? $configured : 'finish') === $position;
     }
 
     private function isSubscribed(string $email, SalesChannelContext $context): bool

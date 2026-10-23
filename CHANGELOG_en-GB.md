@@ -1,3 +1,7 @@
+# 1.4.1
+- New: newsletter registration in the checkout either as a box on the order finish page (after the order, one click, own headline – default) or as a checkbox on the order confirmation page
+- Newsletter bar is now also shown on the login page and in the customer account (still not in the checkout steps after the cart)
+
 # 1.4.0
 - New: newsletter bar above the footer (per sales channel) with headline, text and small print – uses Shopware's own newsletter registration with double opt-in, captcha and privacy notice; not shown in checkout and customer account
 - New: newsletter checkbox on the order confirmation page – not pre-checked, only shown if the e-mail is not subscribed yet; registers the order e-mail via Shopware's newsletter registration. An error never blocks the order

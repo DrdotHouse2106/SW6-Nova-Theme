@@ -39,7 +39,9 @@
             "text": "Neuheiten und Angebote direkt ins Postfach – jederzeit abbestellbar.",
             "emailLabel": "E-Mail-Adresse",
             "submit": "Anmelden",
-            "checkout": "Ja, ich möchte den Newsletter erhalten (jederzeit abbestellbar)."
+            "checkout": "Ja, ich möchte den Newsletter erhalten (jederzeit abbestellbar).",
+            "finishHeadline": "Nichts mehr verpassen",
+            "finishSubmit": "Newsletter abonnieren"
         }
     }
 }

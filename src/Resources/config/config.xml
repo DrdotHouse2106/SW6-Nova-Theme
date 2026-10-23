@@ -142,8 +142,8 @@
             <name>newsletterFooter</name>
             <label>Newsletter bar above the footer</label>
             <label lang="de-DE">Newsletter-Leiste über dem Footer</label>
-            <helpText>Uses Shopware's own newsletter registration (double opt-in, captcha and privacy setting as configured in Shopware). Not shown in checkout and customer account.</helpText>
-            <helpText lang="de-DE">Nutzt Shopwares eigene Newsletter-Anmeldung (Double-Opt-in, Captcha und Datenschutz wie in Shopware eingestellt). Nicht im Checkout und im Kundenkonto.</helpText>
+            <helpText>Uses Shopware's own newsletter registration (double opt-in, captcha and privacy setting as configured in Shopware). Shown on all pages incl. login and customer account, not in the checkout steps after the cart.</helpText>
+            <helpText lang="de-DE">Nutzt Shopwares eigene Newsletter-Anmeldung (Double-Opt-in, Captcha und Datenschutz wie in Shopware eingestellt). Auf allen Seiten inkl. Anmeldung und Kundenkonto, nicht in den Checkout-Schritten nach dem Warenkorb.</helpText>
             <defaultValue>false</defaultValue>
         </input-field>
 
@@ -174,17 +174,36 @@
 
         <input-field type="bool">
             <name>newsletterCheckout</name>
-            <label>Newsletter checkbox on the order confirmation page</label>
-            <label lang="de-DE">Newsletter-Häkchen in der Bestellübersicht</label>
-            <helpText>Unchecked by default; not shown if the customer's e-mail is already subscribed. When checked, the order e-mail is registered via Shopware's newsletter registration (double opt-in as configured).</helpText>
-            <helpText lang="de-DE">Standardmäßig nicht angehakt; wird nicht gezeigt, wenn die E-Mail des Kunden schon angemeldet ist. Angehakt wird die Bestell-E-Mail über Shopwares Newsletter-Anmeldung eingetragen (Double-Opt-in wie eingestellt).</helpText>
+            <label>Newsletter registration in the checkout</label>
+            <label lang="de-DE">Newsletter-Anmeldung im Bestellprozess</label>
+            <helpText>Not shown if the e-mail is already subscribed. Works for customers and guests; double opt-in as configured in Shopware.</helpText>
+            <helpText lang="de-DE">Wird nicht gezeigt, wenn die E-Mail schon angemeldet ist. Für Kunden und Gastbesteller; Double-Opt-in wie in Shopware eingestellt.</helpText>
             <defaultValue>false</defaultValue>
+        </input-field>
+
+        <input-field type="single-select">
+            <name>newsletterCheckoutPosition</name>
+            <label>Position</label>
+            <label lang="de-DE">Position</label>
+            <defaultValue>finish</defaultValue>
+            <options>
+                <option><id>finish</id><name>Box on the order finish page (after the order, one click)</name><name lang="de-DE">Kasten auf der Bestellabschlussseite (nach der Bestellung, ein Klick)</name></option>
+                <option><id>confirm</id><name>Checkbox on the order confirmation page (before the order, not pre-checked)</name><name lang="de-DE">Häkchen in der Bestellübersicht (vor der Bestellung, nicht vorausgewählt)</name></option>
+            </options>
+        </input-field>
+
+        <input-field type="text">
+            <name>newsletterCheckoutHeadline</name>
+            <label>Headline (order finish page)</label>
+            <label lang="de-DE">Überschrift (Bestellabschlussseite)</label>
+            <helpText>Empty = snippet "novaTheme.newsletter.finishHeadline".</helpText>
+            <helpText lang="de-DE">Leer = Textbaustein „novaTheme.newsletter.finishHeadline“.</helpText>
         </input-field>
 
         <input-field type="text">
             <name>newsletterCheckoutText</name>
-            <label>Checkbox text</label>
-            <label lang="de-DE">Text am Häkchen</label>
+            <label>Text (box text or checkbox label)</label>
+            <label lang="de-DE">Text (Kastentext bzw. Text am Häkchen)</label>
             <helpText>Empty = snippet "novaTheme.newsletter.checkout".</helpText>
             <helpText lang="de-DE">Leer = Textbaustein „novaTheme.newsletter.checkout“.</helpText>
         </input-field>

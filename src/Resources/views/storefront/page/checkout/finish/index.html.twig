@@ -1,0 +1,53 @@
+{% sw_extends '@Storefront/storefront/page/checkout/finish/index.html.twig' %}
+
+{# Newsletter-Kasten nach der Bestellung – nur wenn aktiviert und die Bestell-E-Mail noch nicht angemeldet ist #}
+{% block page_checkout_finish_details %}
+    {{ parent() }}
+
+    {% set novaNewsletter = page.getExtension('novaNewsletter') %}
+    {% if novaNewsletter and novaNewsletter['show'] %}
+        {% set novaHeadline = config('NovaTheme.config.newsletterCheckoutHeadline')|trim %}
+        {% set novaText = config('NovaTheme.config.newsletterCheckoutText')|trim %}
+
+        <section class="nova-newsletter-finish" aria-labelledby="nova-newsletter-finish-title">
+            <div class="cms-block">
+                <div class="cms-element-form">
+                    <form action="{{ path('frontend.form.newsletter.register.handle') }}"
+                          method="post"
+                          data-form-handler="true"
+                          id="nova-newsletter-finish-form">
+                        <div class="form-content">
+                            <h2 class="nova-newsletter-title" id="nova-newsletter-finish-title">
+                                {{ novaHeadline ?: 'novaTheme.newsletter.finishHeadline'|trans }}
+                            </h2>
+                            <p class="nova-newsletter-text">
+                                {{ (novaText ?: 'novaTheme.newsletter.checkout'|trans)|sw_sanitize }}
+                            </p>
+
+                            <input type="hidden" name="option" value="subscribe">
+                            <input type="hidden" name="email" value="{{ novaNewsletter['email'] }}">
+
+                            {% sw_include '@Storefront/storefront/component/captcha/base.html.twig' with {
+                                formId: 'nova-newsletter-finish'
+                            } %}
+
+                            <div class="nova-newsletter-legal">
+                                {% sw_include '@Storefront/storefront/element/cms-element-form/form-components/cms-element-form-privacy.html.twig' with {
+                                    requiresTermsOfService: false
+                                } %}
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">
+                                {{ 'novaTheme.newsletter.finishSubmit'|trans }}
+                            </button>
+                        </div>
+
+                        <div class="form-hidden-fields">
+                            <input type="submit" class="submit--hidden d-none">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}

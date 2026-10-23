@@ -71,6 +71,29 @@
     }
 }
 
+/* Kasten auf der Bestellabschlussseite */
+.nova-newsletter-finish {
+    margin-block: 2rem;
+    padding: nova-fluid(1.25rem, 2rem);
+    background: var(--nova-surface);
+    border-radius: var(--nova-radius);
+
+    .nova-newsletter-title {
+        font-size: nova-fluid(1.125rem, 1.375rem);
+        margin-bottom: 0.5rem;
+    }
+
+    .nova-newsletter-legal {
+        font-size: 0.8125rem;
+        margin-block: 0.75rem 1rem;
+
+        .privacy-notice-title,
+        .privacy-notice-title + br {
+            display: none;
+        }
+    }
+}
+
 .nova-newsletter-checkout {
     margin-top: 0.75rem;
 }

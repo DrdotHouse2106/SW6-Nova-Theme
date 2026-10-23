@@ -49,7 +49,7 @@ Alternativ in der Administration unter **Inhalte → Themes** das „Nova Theme�
 | **Modernes Checkout** | Fortschrittsanzeige (Warenkorb → Adresse → Prüfen → Fertig), Versand- und Zahlungsarten als Auswahlkarten, mitlaufende Zusammenfassung auf dem Desktop, Bestell-Button auf dem Smartphone immer sichtbar, schlanker Checkout-Header |
 | **Modernes Kundenkonto** | Konto-Menü als Karte, Karten für Übersicht, Profil, Adressen und Bestellungen, Login und Registrierung mit großen Eingabefeldern |
 | **Konto löschen** | Gut sichtbarer Bereich „Konto löschen“ im Profil mit Sicherheitsabfrage |
-| **Newsletter** | Leiste über dem Footer (Überschrift, Text, Kleingedrucktes, pro Verkaufskanal) und Häkchen in der Bestellübersicht. Beides nutzt Shopwares eigene Newsletter-Anmeldung – Double-Opt-in, Captcha und Datenschutz-Hinweis wie in Shopware eingestellt, angemeldete Empfänger stehen unter *Marketing → Newsletter-Empfänger*. Das Häkchen ist nie vorausgewählt und erscheint nur, wenn die E-Mail noch nicht angemeldet ist |
+| **Newsletter** | Leiste über dem Footer (Überschrift, Text, Kleingedrucktes, pro Verkaufskanal) und Anmeldung im Bestellprozess – als Kasten auf der Bestellabschlussseite (ein Klick, die Bestell-E-Mail ist schon eingesetzt) oder als Häkchen in der Bestellübersicht. Beides nutzt Shopwares eigene Newsletter-Anmeldung – Double-Opt-in, Captcha und Datenschutz-Hinweis wie in Shopware eingestellt, angemeldete Empfänger stehen unter *Marketing → Newsletter-Empfänger*. Kasten bzw. Häkchen erscheinen nur, wenn die E-Mail noch nicht angemeldet ist; das Häkchen ist nie vorausgewählt |
 | **Copyright im Footer** | „Realisiert mit Shopware“ beibehalten, durch eigenen Text ersetzen (mit `{year}` und `{shop}`, pro Sprache übersetzbar) oder ausblenden – pro Verkaufskanal |
 
 ## Einstellungen
@@ -67,7 +67,7 @@ Alternativ in der Administration unter **Inhalte → Themes** das „Nova Theme�
   `{shop}` = Shopname). Feld leer lassen, um den Text pro Sprache über den Textbaustein
   `novaTheme.footer.copyright` (*Einstellungen → Textbausteine*) zu pflegen.
   Shopware steht unter MIT-Lizenz, der Hinweis darf entfernt werden.
-- **Newsletter** – Leiste über dem Footer an/aus, Überschrift, Text (einfaches HTML), Kleingedrucktes; Häkchen in der Bestellübersicht an/aus und dessen Text. Leere Felder nutzen die Textbausteine `novaTheme.newsletter.*` (pro Sprache übersetzbar)
+- **Newsletter** – Leiste über dem Footer an/aus, Überschrift, Text (einfaches HTML), Kleingedrucktes; Anmeldung im Bestellprozess an/aus, Position (Bestellabschlussseite oder Bestellübersicht), Überschrift und Text. Leere Felder nutzen die Textbausteine `novaTheme.newsletter.*` (pro Sprache übersetzbar)
 - **Checkout** – Konfetti nach der Bestellung
 
 ### Theme-Konfiguration (Farben & Layout)
