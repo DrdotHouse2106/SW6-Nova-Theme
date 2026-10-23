@@ -1,3 +1,6 @@
+# 1.5.8
+- Building blocks: empty paragraphs (often pasted from other programs) are removed – they caused large gaps e.g. in `nova-cards`; no extra space below the last paragraph of a card
+
 # 1.5.7
 - New: footer column with logo and short text (plugin configuration "Footer") – the logo is shown light on a dark footer
 

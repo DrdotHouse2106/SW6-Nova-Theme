@@ -1,3 +1,6 @@
+# 1.5.8
+- Erlebniswelt-Bausteine: leere Absätze (oft aus anderen Programmen kopiert) werden entfernt – sie erzeugten z. B. in `nova-cards` große Lücken; kein Zusatzabstand unter dem letzten Absatz einer Karte
+
 # 1.5.7
 - Neu: Footer-Spalte mit Logo und Kurztext (Plugin-Konfiguration „Footer“) – auf dunklem Footer wird das Logo hell dargestellt
 

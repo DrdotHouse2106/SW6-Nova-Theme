@@ -99,6 +99,16 @@
     }
 }
 
+/* Leere Absätze aus dem Texteditor (oft Reste alter Layouts) erzeugen in Karten und Bändern sonst große Lücken */
+[class*='nova-'].cms-block .cms-element-text {
+    p:empty,
+    p:has(> br:only-child),
+    p:has(> b:only-child > br:only-child),
+    p:has(> strong:only-child > br:only-child) {
+        display: none;
+    }
+}
+
 /* Luft zwischen den Bausteinen (Shopware-Blockabstände sind dafür meist zu knapp) */
 .cms-block.nova-lead,
 .cms-block.nova-split,
@@ -184,8 +194,10 @@
             border-radius: 0 0 var(--nova-radius) var(--nova-radius);
             padding: 1.25rem 1.375rem 1.5rem;
 
-            // Text füllt die Karte, der Link-Absatz am Ende sitzt in allen Karten auf gleicher Höhe unten
-            > .cms-element-text {
+            // Endet der Text mit einem Link-Absatz, sitzt dieser in allen Karten auf gleicher Höhe unten.
+            // Nur dann Flexbox – sonst fallen Abstände leerer Absätze nicht zusammen und erzeugen Lücken.
+            > .cms-element-text:has(> p:last-child > a),
+            > .cms-element-text:has(> .cms-element-alignment > p:last-child > a) {
                 display: flex;
                 flex-direction: column;
                 flex: 1 1 auto;
@@ -229,6 +241,12 @@
 
     p {
         opacity: 0.85;
+    }
+
+    // Kein zusätzlicher Abstand unter dem letzten Absatz einer Karte
+    .cms-element-text p:last-child,
+    .cms-element-text .cms-element-alignment > p:last-child {
+        margin-bottom: 0;
     }
 
     a:not(.btn) {

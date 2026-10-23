@@ -36,3 +36,16 @@ PluginManager.register(
     () => import('./plugin/nova-recently-viewed.plugin'),
     '[data-nova-recently-viewed]'
 );
+
+/*
+ * Leere Absätze in Nova-Bausteinen der Erlebniswelten entfernen.
+ * Aus anderen Programmen kopierte Texte enthalten oft <p> ohne Inhalt; deren Abstände
+ * summieren sich in Karten und Bändern zu großen Lücken. Absätze mit Bild, Video oder
+ * Formularfeld bleiben unangetastet.
+ */
+document.querySelectorAll('.cms-block[class*="nova-"] .cms-element-text p').forEach((p) => {
+    const text = p.textContent.replace(/[\s ]/g, '');
+    if (text === '' && !p.querySelector('img, picture, video, iframe, svg, input, button')) {
+        p.remove();
+    }
+});
