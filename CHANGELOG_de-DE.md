@@ -1,3 +1,10 @@
+# 1.4.6
+- Kundenkonto überarbeitet: Karten mit Innenabstand (Texte kleben nicht mehr an der Linie), einheitliche Kartentitel, keine Karte in der Karte bei „Letzte Bestellung“
+- „Änderungen speichern“ als echter Button in der Akzentfarbe statt kaum sichtbarem hellen Button
+- Adressen: Karten mit Rahmen in Theme-Optik, Badge „Standard-Adresse“ in der Akzentfarbe statt Blau
+- Überschriften im Kundenkonto auf allen Seiten gleich groß (z. B. „Adressen“)
+- Konto-Dropdown im Header im selben Stil wie das Konto-Menü, „Abmelden“ ohne Unterstreichung
+
 # 1.4.5
 - Kundenkonto: Seitenüberschrift schließt oben bündig mit dem Konto-Menü ab
 

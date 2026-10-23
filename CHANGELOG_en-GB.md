@@ -1,3 +1,10 @@
+# 1.4.6
+- Customer account reworked: cards with inner padding, consistent card titles, no nested card for "latest order"
+- "Save changes" as a real button in the accent colour
+- Addresses: cards in theme style, "default address" badge in the accent colour instead of blue
+- Same heading size on all account pages
+- Account dropdown in the header styled like the account menu, "Log out" without underline
+
 # 1.4.5
 - Customer account: page heading aligns with the top of the account menu
 

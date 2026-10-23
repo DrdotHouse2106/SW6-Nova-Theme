@@ -5,15 +5,23 @@
     margin-top: 1rem;
 }
 
-// Überschrift bündig mit der Oberkante des Konto-Menüs (Shopware setzt hier zusätzlich padding-top)
+// Überschrift bündig mit der Oberkante des Konto-Menüs (Shopware setzt hier zusätzlich padding-top).
+// Auf manchen Seiten ist die Überschrift selbst die .account-welcome (z. B. Adressen).
 .account-welcome {
     padding-top: 0;
+}
 
-    h1 {
-        font-size: nova-fluid(1.5rem, 2rem);
-        line-height: 1.15;
-        margin-top: 0;
-    }
+.account-welcome h1,
+h1.account-welcome,
+.account-content-main h1 {
+    font-size: nova-fluid(1.5rem, 2rem);
+    line-height: 1.15;
+    margin-top: 0;
+}
+
+.account-content-main h2:not(.card-title) {
+    font-size: nova-fluid(1.25rem, 1.5rem);
+    margin-top: 2rem;
 }
 
 /*
@@ -44,7 +52,12 @@
         font-size: 1rem;
         line-height: 1.35;
     }
+}
 
+/* Abmelden – im Konto-Menü links und im Konto-Dropdown im Header gleich */
+.account-aside,
+.account-menu-dropdown,
+.account-menu-offcanvas {
     .account-aside-footer {
         margin-top: 0.375rem;
         padding: 0.375rem 0 0;
@@ -79,6 +92,23 @@
     }
 }
 
+.account-menu-dropdown {
+    min-width: 240px;
+    padding: 0.5rem;
+    border-color: var(--nova-border);
+    border-radius: var(--nova-radius);
+    box-shadow: var(--nova-shadow-md);
+}
+
+.account-menu-dropdown,
+.account-menu-offcanvas {
+    .account-menu-header {
+        padding: 0.5rem 0.75rem 0.75rem;
+        margin-bottom: 0.375rem;
+        border-bottom-color: var(--nova-border);
+    }
+}
+
 .account-aside-list-group {
     gap: 0.125rem;
 }
@@ -105,34 +135,89 @@
     }
 }
 
-/* Karten der Übersicht, Adressen, Profil */
-.account-overview-card,
-.is-active-route-frontend-account-address-page .account-content-main .card,
-.account-profile-personal,
-.account-profile-credentials,
-.account-orders .order-wrapper {
-    border: 1px solid var(--nova-border);
+/*
+ * Karten im Kundenkonto (Übersicht, Profil, Zugangsdaten, Bestellungen, Adressen).
+ * Shopware gibt Karten keinen Innenabstand – mit Rahmen klebt der Text sonst an der Linie.
+ */
+.account-content-main .card,
+.account-orders .order-wrapper,
+.address-manager-select-address {
+    background: #fff;
+    border: 1px solid var(--nova-border) !important;
     border-radius: var(--nova-radius);
     box-shadow: none;
-    transition: box-shadow 0.2s var(--nova-ease);
+}
 
-    @include nova-hover {
-        box-shadow: var(--nova-shadow-md);
+.account-content-main .card {
+    overflow: hidden;
+
+    > .card-body {
+        padding: nova-fluid(1.125rem, 1.5rem);
+    }
+
+    .card-title {
+        margin-bottom: 0.875rem;
+        padding-bottom: 0;
+        border-bottom: 0;
+        font-family: inherit;
+        font-size: 1.0625rem;
+        font-weight: 700;
+        letter-spacing: 0;
+    }
+
+    .card-actions {
+        margin-top: 1.25rem;
+        padding-top: 0;
+        border-top: 0;
     }
 }
 
-.account-overview-card .card-title,
-.is-active-route-frontend-account-address-page .account-content-main .card-title {
-    font-size: 1.0625rem;
-    font-weight: 700;
-    border-bottom: 0;
+// Übersicht: Abstand zwischen den Karten, gleich hohe Karten nebeneinander
+.account-overview-card {
+    margin-bottom: 1.5rem;
+}
+
+.account-overview-card.card-col .card {
+    height: 100%;
+}
+
+// Letzte Bestellung in der Übersicht: keine Karte in der Karte
+.account-overview-newest-order .order-wrapper {
+    margin: 0;
+    border: 0 !important;
+    border-radius: 0;
+}
+
+// Speichern-Buttons (Shopware: btn-light, auf weißer Karte kaum als Button erkennbar)
+.account-content-main .card-actions .btn-light {
+    --#{$prefix}btn-bg: var(--nova-primary);
+    --#{$prefix}btn-border-color: var(--nova-primary);
+    --#{$prefix}btn-color: #fff;
+    --#{$prefix}btn-hover-bg: color-mix(in srgb, var(--nova-primary) 85%, #000);
+    --#{$prefix}btn-hover-border-color: color-mix(in srgb, var(--nova-primary) 85%, #000);
+    --#{$prefix}btn-hover-color: #fff;
+    padding: 0.625rem 1.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+// Adressen
+.address-manager-select-address {
+    padding: nova-fluid(1rem, 1.25rem) !important;
 }
 
 .address-item-default-badge,
 .order-item-status-badge {
     border-radius: 999px;
-    padding: 0.3em 0.75em;
+    padding: 0.3em 0.75em !important;
     font-weight: 600;
+    font-size: 0.875rem !important;
+}
+
+// Standard-Adresse in der Akzentfarbe statt Bootstrap-Blau
+.address-item-default-badge.text-bg-info {
+    background-color: color-mix(in srgb, var(--nova-primary) 10%, #fff) !important;
+    color: var(--nova-primary) !important;
 }
 
 /* Bestellungen */
@@ -141,12 +226,19 @@
     overflow: hidden;
 }
 
+.order-item-header {
+    padding: nova-fluid(1rem, 1.25rem);
+}
+
 .order-table-header {
     background: var(--nova-surface);
 }
 
 .order-table-header-heading {
+    font-family: inherit;
+    font-size: 1.125rem;
     font-weight: 700;
+    letter-spacing: 0;
 }
 
 /* Gefahrenzone: Konto löschen */
