@@ -1,3 +1,6 @@
+# 1.4.4
+- Redesigned account menu: one calm card with greeting as header, entries without separate boxes, active entry with accent bar, "Log out" set apart in the footer; sticky on desktop
+
 # 1.4.3
 - Newsletter bar and order finish box: after a successful submit the form is hidden and only the confirmation is shown; on errors it stays visible
 

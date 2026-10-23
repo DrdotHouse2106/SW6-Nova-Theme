@@ -1,3 +1,6 @@
+# 1.4.4
+- Konto-Menü neu gestaltet: eine ruhige Karte mit Begrüßung als Kopf, Einträge ohne eigene Kästen, aktiver Eintrag mit Akzentstrich, „Abmelden“ abgesetzt im Fuß; auf dem Desktop bleibt das Menü beim Scrollen sichtbar
+
 # 1.4.3
 - Newsletter-Leiste und Kasten auf der Bestellabschlussseite: Nach erfolgreichem Absenden wird das Formular ausgeblendet und nur noch die Bestätigung gezeigt; bei Fehlern bleibt es stehen
 
