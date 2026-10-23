@@ -14,6 +14,28 @@
     }
 }
 
+/*
+ * Service-Hotline: Shopware zeigt jeden Link darin als eigenen, großen Block mit Abstand
+ * (gedacht für eine einzelne Telefonnummer). Mit mehreren Links (Telefon · WhatsApp · E-Mail)
+ * fällt die Spalte dadurch auseinander – hier als normale Links im Text.
+ */
+.footer-contact-hotline {
+    line-height: 1.7;
+    margin-bottom: 0;
+
+    a {
+        display: inline;
+        margin: 0;
+        font-size: inherit;
+        font-weight: 600;
+        color: inherit;
+    }
+}
+
+.footer-contact-form {
+    margin-top: 0.75rem;
+}
+
 /* Optionale Spalte mit Logo und Kurztext – oben bündig mit den Spaltenüberschriften (Shopware: 48px) */
 .nova-footer-about {
     padding-top: 1.5rem;

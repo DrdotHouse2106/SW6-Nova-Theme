@@ -1,3 +1,6 @@
+# 1.5.9
+- Footer "service hotline": links (phone, WhatsApp, e-mail) are shown inline instead of as separate large blocks – the column stays compact
+
 # 1.5.8
 - Building blocks: empty paragraphs (often pasted from other programs) are removed – they caused large gaps e.g. in `nova-cards`; no extra space below the last paragraph of a card
 

@@ -1,3 +1,6 @@
+# 1.5.9
+- Footer „Service-Hotline“: Links (Telefon, WhatsApp, E-Mail) stehen als normale Links im Text statt als einzelne große Blöcke – die Spalte bleibt kompakt
+
 # 1.5.8
 - Erlebniswelt-Bausteine: leere Absätze (oft aus anderen Programmen kopiert) werden entfernt – sie erzeugten z. B. in `nova-cards` große Lücken; kein Zusatzabstand unter dem letzten Absatz einer Karte
 
