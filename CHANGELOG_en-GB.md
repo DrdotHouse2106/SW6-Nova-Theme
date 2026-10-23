@@ -1,3 +1,7 @@
+# 1.4.7
+- Mega menu: "To category …" and all columns on one common left edge, header row with divider, even row spacing without separators, hover without jumping indent
+- Orders in the customer account: double border removed
+
 # 1.4.6
 - Customer account reworked: cards with inner padding, consistent card titles, no nested card for "latest order"
 - "Save changes" as a real button in the accent colour

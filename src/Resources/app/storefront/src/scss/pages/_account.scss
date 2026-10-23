@@ -220,9 +220,13 @@ h1.account-welcome,
     color: var(--nova-primary) !important;
 }
 
-/* Bestellungen */
-.order-wrapper {
+/* Bestellungen – Shopware rahmt zusätzlich das Listenelement (.order-table) ein, das ergäbe einen Doppelrahmen */
+.account-orders-overview .order-table {
     margin-bottom: 1rem;
+    border: 0;
+}
+
+.order-wrapper {
     overflow: hidden;
 }
 

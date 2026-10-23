@@ -30,8 +30,67 @@
     }
 }
 
-.navigation-flyout {
+.navigation-flyout,
+.main-navigation-menu .dropdown-menu {
     border-radius: 0 0 var(--nova-radius) var(--nova-radius);
     box-shadow: var(--nova-shadow-md);
     border-top: 0;
+}
+
+/*
+ * Megamenü: Kopfzeile („Zur Kategorie …“ + Schließen) und alle Spalten auf einer gemeinsamen
+ * linken Kante, gleichmäßige Zeilen ohne Trennstriche, Hover nur farbig statt springendem Einzug.
+ */
+.navigation-flyout-category-link {
+    a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        color: var(--nova-primary);
+        font-weight: 600;
+        text-decoration: none;
+
+        &::after {
+            content: '→';
+            transition: transform 0.15s var(--nova-ease);
+        }
+
+        @include nova-hover {
+            &::after {
+                transform: translateX(3px);
+            }
+        }
+    }
+}
+
+.navigation-flyout-content {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--nova-border);
+}
+
+.navigation-flyout-categories.is-level-0 {
+    row-gap: 0.25rem;
+
+    > div,
+    > .navigation-flyout-col {
+        margin-bottom: 0;
+    }
+
+    > .navigation-flyout-col::before {
+        display: none;
+    }
+}
+
+.navigation-flyout-link {
+    margin-inline: 0;
+
+    &.is-level-0 {
+        padding-block: 0.5rem;
+    }
+
+    &.nav-link:hover {
+        padding-left: 0;
+        color: var(--nova-primary);
+    }
 }

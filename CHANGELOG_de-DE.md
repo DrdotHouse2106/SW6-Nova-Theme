@@ -1,3 +1,7 @@
+# 1.4.7
+- Megamenü: „Zur Kategorie …“ und alle Spalten auf einer gemeinsamen linken Kante, Kopfzeile mit Trennlinie, gleichmäßige Zeilenabstände ohne Trennstriche, Hover ohne springenden Einzug
+- Bestellungen im Kundenkonto: doppelter Rahmen entfernt
+
 # 1.4.6
 - Kundenkonto überarbeitet: Karten mit Innenabstand (Texte kleben nicht mehr an der Linie), einheitliche Kartentitel, keine Karte in der Karte bei „Letzte Bestellung“
 - „Änderungen speichern“ als echter Button in der Akzentfarbe statt kaum sichtbarem hellen Button
