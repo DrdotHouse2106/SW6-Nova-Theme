@@ -134,6 +134,17 @@
             width: auto;
         }
 
+        // Ohne Suchfeld (Header-Symbole ausblenden → Suche) nur so breit wie der Inhalt: Menü links, Symbole/Button rechts
+        .header-main:has(.nova-header-search-hidden) {
+            width: fit-content;
+            min-width: min(20rem, calc(100% - 1.25rem));
+            max-width: calc(100% - 1.25rem);
+
+            .header-row {
+                column-gap: 1.5rem;
+            }
+        }
+
         &.nova-header-hidden .header-main {
             transform: translateY(calc(-100% - 1rem));
         }

@@ -1,3 +1,6 @@
+# 1.5.2
+- Schwebender kompakter Header: Ist die Suche ausgeblendet, ist die Leiste nur so breit wie ihr Inhalt (Menü und Button/Symbole) statt einer großen leeren Fläche
+
 # 1.5.1
 - Footer: leere Logo-Leiste (ohne Zahlungs-/Versandlogos) wird ausgeblendet; bei dunklem Footer ist die Copyright-Zeile dunkel statt hellgrau und damit lesbar
 

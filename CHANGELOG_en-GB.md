@@ -1,3 +1,6 @@
+# 1.5.2
+- Floating compact header: with the search hidden, the bar is only as wide as its content instead of a large empty area
+
 # 1.5.1
 - Footer: empty logo bar is hidden; with a dark footer the copyright row is dark instead of light grey and readable
 
