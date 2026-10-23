@@ -1,3 +1,6 @@
+# 1.4.5
+- Customer account: page heading aligns with the top of the account menu
+
 # 1.4.4
 - Redesigned account menu: one calm card with greeting as header, entries without separate boxes, active entry with accent bar, "Log out" set apart in the footer; sticky on desktop
 

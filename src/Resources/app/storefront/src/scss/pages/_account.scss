@@ -5,9 +5,14 @@
     margin-top: 1rem;
 }
 
+// Überschrift bündig mit der Oberkante des Konto-Menüs (Shopware setzt hier zusätzlich padding-top)
 .account-welcome {
+    padding-top: 0;
+
     h1 {
         font-size: nova-fluid(1.5rem, 2rem);
+        line-height: 1.15;
+        margin-top: 0;
     }
 }
 

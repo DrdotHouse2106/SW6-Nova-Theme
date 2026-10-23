@@ -1,3 +1,6 @@
+# 1.4.5
+- Kundenkonto: Seitenüberschrift schließt oben bündig mit dem Konto-Menü ab
+
 # 1.4.4
 - Konto-Menü neu gestaltet: eine ruhige Karte mit Begrüßung als Kopf, Einträge ohne eigene Kästen, aktiver Eintrag mit Akzentstrich, „Abmelden“ abgesetzt im Fuß; auf dem Desktop bleibt das Menü beim Scrollen sichtbar
 
