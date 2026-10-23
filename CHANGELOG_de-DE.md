@@ -1,3 +1,7 @@
+# 1.5.3
+- Smartphone/Tablet: keine leere Navigationsleiste mit Doppellinie mehr unter dem Header
+- Dunkler Footer auf dem Smartphone: Trennlinien und Plus/Minus der aufklappbaren Spalten passend hell
+
 # 1.5.2
 - Schwebender kompakter Header: Ist die Suche ausgeblendet, ist die Leiste nur so breit wie ihr Inhalt (Menü und Button/Symbole) statt einer großen leeren Fläche
 

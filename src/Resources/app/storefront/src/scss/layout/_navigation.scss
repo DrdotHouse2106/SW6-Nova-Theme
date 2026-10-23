@@ -1,6 +1,11 @@
 .nav-main {
     border-bottom: 1px solid var(--nova-border);
     background: var(--bs-body-bg, #fff);
+
+    // Unterhalb von lg ist die Hauptnavigation eingeklappt (Menü über das Burger-Symbol) – keine leere Leiste mit Doppellinie
+    @include media-breakpoint-down(lg) {
+        display: none;
+    }
 }
 
 .main-navigation-link {

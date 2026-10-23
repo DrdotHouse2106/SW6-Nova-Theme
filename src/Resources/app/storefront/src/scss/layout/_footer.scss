@@ -57,9 +57,17 @@
             color: #fff;
         }
 
+        .footer-column,
+        .footer-column-headline,
         .footer-column-headline::after,
         .footer-bottom {
             border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        // Plus/Minus der aufklappbaren Spalten auf dem Smartphone
+        .footer-column-toggle,
+        .footer-column-toggle .icon {
+            color: rgba(255, 255, 255, 0.75);
         }
 
         .footer-bottom,

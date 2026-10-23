@@ -1,3 +1,7 @@
+# 1.5.3
+- Phone/tablet: no empty navigation bar with double line below the header
+- Dark footer on phones: dividers and plus/minus of the collapsible columns light
+
 # 1.5.2
 - Floating compact header: with the search hidden, the bar is only as wide as its content instead of a large empty area
 
