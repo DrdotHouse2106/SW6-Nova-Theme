@@ -13,6 +13,18 @@
  */
 
 /* Startbild */
+// Liegt das Startbild in einem Abschnitt mit Inhaltsbreite, reicht es trotzdem über die volle Fensterbreite
+.cms-section .boxed > .cms-block.nova-hero {
+    width: 100vw;
+    max-width: none;
+    margin-inline: calc(50% - 50vw);
+}
+
+// Verhindert seitliches Scrollen durch die Scrollleiste (100vw enthält ihre Breite)
+.cms-page:has(.nova-hero) {
+    overflow-x: clip;
+}
+
 .cms-block.nova-hero {
     display: flex;
     align-items: flex-end;

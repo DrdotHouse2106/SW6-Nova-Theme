@@ -1,3 +1,6 @@
+# 1.5.6
+- `nova-hero` reicht auch in einem Abschnitt mit Inhaltsbreite über die volle Fensterbreite – ein eigener Abschnitt „Volle Breite“ ist nicht mehr nötig
+
 # 1.5.5
 - Neu: Erlebniswelt-Baustein `nova-prose` – längerer Fließtext in angenehmer Lesebreite
 - `nova-split` auch für „Drei Spalten, Bild & Text“ (Bild – Text – Bild)

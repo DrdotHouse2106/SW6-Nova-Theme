@@ -160,7 +160,7 @@ In CMS-Sektionen/-Blöcken (Feld „CSS-Klasse“) nutzbar:
 
 | Klasse | Wirkung |
 |---|---|
-| `nova-hero` | **Startbild:** Block (z. B. „Text“) mit Hintergrundbild in einem Abschnitt mit voller Breite. Text hell auf dunklem Verlauf, Überschrift groß. Buttons aus dem Texteditor: „Primär“ = Akzentfarbe, „Sekundär“ = weißer Rahmen |
+| `nova-hero` | **Startbild:** Block (z. B. „Text“) mit Hintergrundbild – reicht immer über die volle Fensterbreite, auch in einem Abschnitt mit Inhaltsbreite. Text hell auf dunklem Verlauf, Überschrift groß. Buttons aus dem Texteditor: „Primär“ = Akzentfarbe, „Sekundär“ = weißer Rahmen |
 | `nova-lead` | Zentrierte Einleitung (Überschrift + Text) über einem Bereich |
 | `nova-trust` | Schmale weiße Leiste mit kurzen Vorteilen (Block mit 2–3 Text-Spalten) |
 | `nova-cards` | Spalten mit Bild und Text als Karten mit gemeinsamem Schatten, Bilder einheitlich 4:3 (Block „Drei Spalten, Bilder mit Unterschrift“) |
@@ -272,7 +272,13 @@ Hier sammeln wir Hürden, die bei Installation und Betrieb tatsächlich aufgetre
 
 **Ursache:** Der Block liegt in einem Abschnitt mit Inhaltsbreite, oder das Bild ist als Bild-Element statt als Hintergrundbild des Blocks gesetzt
 
-**Lösung:** Abschnitt auf „Volle Breite“ stellen und das Bild im Block unter *Einstellungen → Hintergrundbild* (Modus „Ausfüllen“) eintragen. Der Text richtet sich automatisch an der Inhaltsbreite aus
+**Lösung:** Theme auf mindestens 1.5.6 aktualisieren (Startbild reicht dann in jedem Abschnitt über die volle Breite) und das Bild im Block unter *Einstellungen → Hintergrundbild* (Modus „Ausfüllen“) eintragen – nicht als Bild-Element. Der Text richtet sich automatisch an der Inhaltsbreite aus
+
+### Block lässt sich im Erlebniswelt-Editor nicht in einen neuen Abschnitt ziehen
+
+**Ursache:** Drag & Drop im Editor funktioniert mit Automatisierungen/Fernsteuerung oft nicht zuverlässig
+
+**Lösung:** Einen vorhandenen Block im selben Abschnitt duplizieren, im Navigator an die gewünschte Stelle schieben und umbauen – für `nova-hero` ist kein eigener Abschnitt nötig
 
 ### Newsletter-Anmeldung erscheint doppelt
 

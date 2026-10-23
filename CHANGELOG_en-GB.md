@@ -1,3 +1,6 @@
+# 1.5.6
+- `nova-hero` spans the full window width even inside a content-width section – no separate full-width section needed
+
 # 1.5.5
 - New building block `nova-prose` – longer text in a comfortable reading width
 - `nova-split` also for the image – text – image block
