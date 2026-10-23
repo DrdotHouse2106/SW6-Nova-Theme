@@ -1,3 +1,10 @@
+# 1.3.1
+- Behoben: Bildformat und Bild-Modus wirkten nicht, weil Shopwares feste Bildhöhe (180–200 px) Vorrang hatte – Produktbilder füllen jetzt die Karte im gewählten Seitenverhältnis
+- Produktkarten kompakter: keine Lücken mehr für leere Bewertungen, fehlende „ab“-Preise und Grundpreise; der Warenkorb-Button sitzt unten
+- Behoben: Seite war auf dem Smartphone einige Pixel zu breit (horizontales Scrollen), u. a. auf Kategorieseiten mit Seitenleiste
+- Keine Lücke mehr zwischen einer Newsletter-Leiste anderer Plugins und dem Footer
+- Button „In den Warenkorb“ in schmalen Karten kleiner, damit er nicht umbricht
+
 # 1.3.0
 - Neu: Theme-Einstellung „Bildformat der Produktbilder“ – quadratisch, Hochformat 3:4, Buch/Cover 2:3 oder Querformat 4:3 für Produktkarten und Produktseite. Im Hochformat wird das Produktbild auf der Produktseite auf Bildschirmhöhe begrenzt
 - Neu: Serifenschrift „Nova Serif“ (Source Serif 4) wird mitgeliefert – für Überschriften `'Nova Serif', Georgia, serif` eintragen

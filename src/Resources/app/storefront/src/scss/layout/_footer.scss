@@ -4,6 +4,15 @@
     margin-top: var(--nova-section-space);
 }
 
+/* Newsletter-Leiste anderer Plugins direkt über dem Footer: Abstand davor statt Lücke dazwischen */
+.footer-main-newsletter {
+    margin-top: var(--nova-section-space);
+
+    + .footer-main {
+        margin-top: 0;
+    }
+}
+
 .footer-column-headline {
     font-size: 1rem;
     font-weight: 700;

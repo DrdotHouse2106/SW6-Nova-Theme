@@ -24,6 +24,8 @@
 .product-image-wrapper {
     aspect-ratio: $nova-image-ratio; // Reserviert Platz → kein Layout-Shift (CLS)
     height: auto;
+    // Shopware setzt flex-basis 180px (Spalten-Flexbox) – das würde das Seitenverhältnis überstimmen
+    flex: 0 0 auto;
     background: var(--nova-surface);
     border-radius: calc(var(--nova-radius) - 4px);
     overflow: hidden;
@@ -33,10 +35,20 @@
     height: 100%;
 }
 
+.product-box.box-image .product-image-wrapper {
+    height: auto;
+}
+
 .product-image {
+    max-height: none;
     object-fit: $nova-image-fit;
     mix-blend-mode: multiply;
     transition: transform 0.4s var(--nova-ease);
+}
+
+// Shopware-Standard „scale-down“ würde den Bild-Modus aus der Theme-Konfiguration überstimmen
+.product-image.is-standard {
+    object-fit: $nova-image-fit;
 }
 
 .product-box {
@@ -65,6 +77,45 @@
     font-weight: 700;
 }
 
+/* Preisbereich kompakt: Shopware reserviert feste Höhen für Grundpreis und Steuer-Link,
+   das ergibt große Lücken. Der Button sitzt stattdessen per margin-top: auto unten. */
+.product-box {
+    .product-info {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    .product-price-unit {
+        height: auto;
+        min-height: 0;
+    }
+
+    // Leere Bewertungszeile (keine Bewertungen) nicht als Lücke reservieren
+    .product-rating:not(:has(*)) {
+        display: none;
+    }
+
+    // Platzhalter für „ab“-Preise nur, wenn wirklich einer angezeigt wird
+    .product-cheapest-price:not(:has(*)) {
+        min-height: 0;
+        margin-bottom: 0;
+    }
+
+    .product-price-tax-link {
+        min-height: 0;
+        height: auto;
+        padding: 0;
+        font-size: 0.75rem;
+        text-align: left;
+    }
+
+    .product-action {
+        margin-top: auto;
+        padding-top: 0.75rem;
+    }
+}
+
 .product-badges .badge {
     border-radius: 999px;
     font-weight: 600;
@@ -80,7 +131,8 @@
 
     .product-box .product-action .btn {
         padding-inline: 0.5rem;
-        font-size: 0.875rem;
+        font-size: 0.8125rem;
+        line-height: 1.2;
     }
 }
 

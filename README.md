@@ -250,6 +250,12 @@ Hier sammeln wir Hürden, die bei Installation und Betrieb tatsächlich aufgetre
 
 **Lösung:** Plugin installieren; danach `theme:compile`
 
+### Nach dem Theme-Wechsel haben einzelne Bereiche noch die alten Farben
+
+**Ursache:** Die Farben stammen nicht aus dem Theme, sondern aus der Konfiguration eines anderen Plugins (z. B. Newsletter-Leiste über dem Footer, Cookie- oder Copyright-Plugins) oder aus eigenem CSS in einer Erlebniswelt
+
+**Lösung:** Im Browser per Rechtsklick → *Untersuchen* die Klasse des Bereichs ansehen (z. B. `footer-main-newsletter`), das zugehörige Plugin unter *Erweiterungen → Meine Erweiterungen → Konfigurieren* öffnen und die Farben dort pro Verkaufskanal anpassen
+
 ## Lizenz
 
 MIT

@@ -1,3 +1,10 @@
+# 1.3.1
+- Fixed: image format and image mode had no effect because Shopware's fixed image height (180–200 px) took precedence – product images now fill the card in the chosen aspect ratio
+- More compact product cards: no gaps for empty ratings, missing "from" prices and unit prices; the buy button sits at the bottom
+- Fixed: page was a few pixels too wide on smartphones (horizontal scrolling), e.g. on category pages with sidebar
+- No gap anymore between a newsletter bar of other plugins and the footer
+- Smaller "Add to cart" button in narrow cards so it doesn't wrap
+
 # 1.3.0
 - New: theme setting "Product image format" – square, portrait 3:4, book/cover 2:3 or landscape 4:3 for product cards and product page. In portrait mode the product page image is limited to the screen height
 - New: bundled serif font "Nova Serif" (Source Serif 4) – set the headline font to `'Nova Serif', Georgia, serif`

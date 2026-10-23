@@ -1,6 +1,14 @@
 .container,
 .cms-section .boxed {
-    padding-inline: var(--nova-gutter);
+    // Mindestens die halbe Spaltenbreite, sonst ragen Bootstrap-Zeilen über den Rand (horizontales Scrollen am Handy)
+    padding-inline: max(var(--nova-gutter), #{$grid-gutter-width * 0.5});
+}
+
+/* Sidebar-Abschnitte (Kategorie-Seiten): Shopware nutzt 60px Spaltenabstand – auf kleinen Bildschirmen zu breit */
+@include media-breakpoint-down(lg) {
+    .cms-section .cms-section-sidebar > .row {
+        --#{$prefix}gutter-x: #{$grid-gutter-width};
+    }
 }
 
 .cms-section .boxed {
