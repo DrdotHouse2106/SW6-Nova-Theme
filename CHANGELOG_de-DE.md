@@ -1,3 +1,11 @@
+# 1.5.0
+- Neu: Bausteine für Erlebniswelten (CSS-Klasse am Block): `nova-hero` (Startbild mit Verlauf und Buttons), `nova-lead` (zentrierte Einleitung), `nova-trust` (Vorteils-Leiste), `nova-cards` (Bild-Text-Spalten als Karten), `nova-split` (Bild und Text nebeneinander), `nova-band` (farbiges Kontaktband), `nova-accent`
+- Neu: Akzentfarbe in der Theme-Konfiguration (Haupt-Button im Startbild), Schriftfarbe automatisch hell oder dunkel
+- Neu: Header-Symbole pro Verkaufskanal ausblenden (Suche, Merkzettel, Konto, Warenkorb) – für Infoseiten ohne Shop
+- Neu: Button rechts im Header mit eigenem Text und Link (z. B. „Termin anfragen“)
+- Neu: Preis-Hinweis im Footer abschaltbar
+- Dunkler Footer-Hintergrund: Schrift, Links und Linien werden automatisch hell
+
 # 1.4.7
 - Megamenü: „Zur Kategorie …“ und alle Spalten auf einer gemeinsamen linken Kante, Kopfzeile mit Trennlinie, gleichmäßige Zeilenabstände ohne Trennstriche, Hover ohne springenden Einzug
 - Bestellungen im Kundenkonto: doppelter Rahmen entfernt

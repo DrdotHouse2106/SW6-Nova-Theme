@@ -39,3 +39,28 @@
     border-top: 1px solid var(--nova-border);
     font-size: 0.875rem;
 }
+
+/* Dunkler Footer: Schrift und Linien automatisch hell (Footer-Hintergrund in der Theme-Konfiguration) */
+@if lightness($nova-footer-bg) < 58% {
+    .footer-main {
+        color: rgba(255, 255, 255, 0.82);
+
+        .footer-column-headline,
+        .footer-link,
+        .footer-service-menu-item a,
+        a:not(.btn) {
+            color: #fff;
+        }
+
+        .footer-column-headline::after,
+        .footer-bottom {
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .footer-bottom,
+        .footer-vat,
+        .footer-copyright {
+            color: rgba(255, 255, 255, 0.7);
+        }
+    }
+}

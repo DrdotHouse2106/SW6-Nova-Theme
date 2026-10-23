@@ -1,0 +1,55 @@
+{% sw_extends '@Storefront/storefront/layout/header/header.html.twig' %}
+
+{#
+ # Header-Symbole pro Verkaufskanal ausblenden (z. B. reine Infoseiten ohne Shop)
+ # und optionaler Button rechts im Header (Plugin-Konfiguration „Header“).
+ #}
+
+{% block layout_header_search %}
+    {% if 'search' in (config('NovaTheme.config.headerHideIcons') ?? []) %}
+        {# Suche aus – das Menü-Symbol für Tablets steckt in derselben Spalte und bleibt erhalten #}
+        <div class="col-12 order-2 col-sm order-sm-1 header-search-col nova-header-search-hidden">
+            <div class="row">
+                <div class="col-sm-auto d-none d-sm-block d-lg-none">
+                    {{ block('layout_header_navigation_toggle_tablet') }}
+                </div>
+            </div>
+        </div>
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
+{% block layout_header_search_toggle %}
+    {% if 'search' not in (config('NovaTheme.config.headerHideIcons') ?? []) %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
+{% block layout_header_actions_wishlist %}
+    {% if 'wishlist' not in (config('NovaTheme.config.headerHideIcons') ?? []) %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
+{% block layout_header_actions_account %}
+    {% if 'account' not in (config('NovaTheme.config.headerHideIcons') ?? []) %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
+{% block layout_header_actions_cart %}
+    {% if 'cart' not in (config('NovaTheme.config.headerHideIcons') ?? []) %}
+        {{ parent() }}
+    {% endif %}
+
+    {% block nova_header_button %}
+        {% set novaButtonText = config('NovaTheme.config.headerButtonText')|trim %}
+        {% set novaButtonLink = config('NovaTheme.config.headerButtonLink')|trim %}
+        {% if novaButtonText and novaButtonLink %}
+            <div class="col-auto nova-header-btn-col">
+                <a class="btn btn-primary nova-header-btn" href="{{ novaButtonLink }}">{{ novaButtonText }}</a>
+            </div>
+        {% endif %}
+    {% endblock %}
+{% endblock %}

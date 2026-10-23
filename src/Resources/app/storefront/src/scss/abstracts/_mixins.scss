@@ -1,3 +1,11 @@
+/* Lesbare Schriftfarbe auf einer Hintergrundfarbe: hell auf dunkel, dunkel auf hell */
+@function nova-on-color($bg, $dark: #1f2421, $light: #fff) {
+    @if lightness($bg) < 58% {
+        @return $light;
+    }
+    @return $dark;
+}
+
 /* Fließende Werte zwischen zwei Viewport-Breiten (320px → 1440px) */
 @function nova-fluid($min, $max, $min-vw: 20rem, $max-vw: 90rem) {
     // Division in Klammern: kompatibel mit scssphp (Shopware) und Dart Sass

@@ -18,3 +18,10 @@
         {{ parent() }}
     {% endif %}
 {% endblock %}
+
+{# Hinweis „Alle Preise inkl. MwSt. …“ ausblenden – für Infoseiten ohne Verkauf #}
+{% block layout_footer_vat %}
+    {% if not config('NovaTheme.config.footerHideVat') %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

@@ -59,7 +59,7 @@ Alternativ in der Administration unter **Inhalte → Themes** das „Nova Theme�
 **Erweiterungen → Meine Erweiterungen → Nova Theme → Konfigurieren** – oben den Verkaufskanal wählen:
 
 - **Topbar** – an/aus, Infotext, Link, Telefon, E-Mail, Öffnungszeiten
-- **Header** – kompakter Header beim Scrollen, Ladebalken
+- **Header** – kompakter Header beim Scrollen, Ladebalken, Header-Symbole ausblenden (Suche, Merkzettel, Konto, Warenkorb – für Infoseiten ohne Shop), Header-Button mit Text und Link (z. B. „Termin anfragen“ → `/Kontakt/`)
 - **Produktlisting** – Artikelanzahl anzeigen
 - **Zuletzt angesehen** – Liste an/aus und auf welchen Seiten (leer = alle außer Checkout und Kundenkonto)
 - **Footer** – Copyright-Hinweis: Shopware-Standard, eigener Text oder ausblenden.
@@ -67,6 +67,7 @@ Alternativ in der Administration unter **Inhalte → Themes** das „Nova Theme�
   `{shop}` = Shopname). Feld leer lassen, um den Text pro Sprache über den Textbaustein
   `novaTheme.footer.copyright` (*Einstellungen → Textbausteine*) zu pflegen.
   Shopware steht unter MIT-Lizenz, der Hinweis darf entfernt werden.
+  Außerdem: Preis-Hinweis „Alle Preise inkl. MwSt. …“ ausblenden – für Infoseiten ohne Verkauf.
 - **Newsletter** – Leiste über dem Footer an/aus, Überschrift, Text (einfaches HTML), Kleingedrucktes; Anmeldung im Bestellprozess an/aus, Position (Bestellabschlussseite oder Bestellübersicht), Überschrift und Text. Leere Felder nutzen die Textbausteine `novaTheme.newsletter.*` (pro Sprache übersetzbar)
 - **Checkout** – Konfetti nach der Bestellung
 
@@ -78,7 +79,8 @@ Alternativ in der Administration unter **Inhalte → Themes** das „Nova Theme�
 - **Nova: Layout** – maximale Inhaltsbreite, Eckenradien, Flächenfarbe
 - **Nova: Header & Topbar** – Topbar-Farben, maximale Logohöhe, Header beim Runterscrollen ausblenden
 - **Nova: Produktlisting** – Bild-Modus, Bildformat (1:1, 3:4, 2:3, 4:3), 2 Produkte pro Zeile auf Smartphones
-- **Nova: Footer** – Hintergrundfarbe
+- **Nova: Footer** – Hintergrundfarbe; bei dunkler Farbe werden Schrift, Links und Linien automatisch hell
+- **Theme-Farben** – zusätzlich **Akzentfarbe** für den Haupt-Button im Startbild (`nova-hero`)
 - **Nova: Checkout & Konto** – Fortschrittsanzeige im Checkout an/aus
 - **Nova: Effekte** – dezente Einblend-Animationen
 
@@ -158,6 +160,13 @@ In CMS-Sektionen/-Blöcken (Feld „CSS-Klasse“) nutzbar:
 
 | Klasse | Wirkung |
 |---|---|
+| `nova-hero` | **Startbild:** Block (z. B. „Text“) mit Hintergrundbild in einem Abschnitt mit voller Breite. Text hell auf dunklem Verlauf, Überschrift groß. Buttons aus dem Texteditor: „Primär“ = Akzentfarbe, „Sekundär“ = weißer Rahmen |
+| `nova-lead` | Zentrierte Einleitung (Überschrift + Text) über einem Bereich |
+| `nova-trust` | Schmale weiße Leiste mit kurzen Vorteilen (Block mit 2–3 Text-Spalten) |
+| `nova-cards` | Spalten mit Bild und Text als Karten mit gemeinsamem Schatten, Bilder einheitlich 4:3 (z. B. „Drei Spalten, Bild & Text“) |
+| `nova-split` | Bild und Text nebeneinander, Bild mit runden Ecken, Text vertikal mittig („Bild & Text“) |
+| `nova-band` | Band in der Primärfarbe mit heller Schrift und runden Ecken – z. B. Kontakt oder Hinweis |
+| `nova-accent` | Hintergrund in der Akzentfarbe, Schriftfarbe automatisch |
 | `nova-surface` | Hintergrund in Flächenfarbe |
 | `nova-section` | Fließender Innenabstand oben/unten |
 | `nova-rounded` | Theme-Eckenradius |
@@ -251,6 +260,12 @@ Hier sammeln wir Hürden, die bei Installation und Betrieb tatsächlich aufgetre
 **Ursache:** Styles greifen nur mit dem Plugin „Dynamische Monats-Lieferzeiten“ (ab 2.0.0)
 
 **Lösung:** Plugin installieren; danach `theme:compile`
+
+### Startbild (`nova-hero`): Text klebt am linken Rand oder Bild fehlt
+
+**Ursache:** Der Block liegt in einem Abschnitt mit Inhaltsbreite, oder das Bild ist als Bild-Element statt als Hintergrundbild des Blocks gesetzt
+
+**Lösung:** Abschnitt auf „Volle Breite“ stellen und das Bild im Block unter *Einstellungen → Hintergrundbild* (Modus „Ausfüllen“) eintragen. Der Text richtet sich automatisch an der Inhaltsbreite aus
 
 ### Newsletter-Anmeldung erscheint doppelt
 

@@ -88,6 +88,21 @@
                 "block": "themeColors",
                 "order": 200
             },
+            "nova-accent-color": {
+                "label": {
+                    "de-DE": "Akzentfarbe (Startbild-Button)",
+                    "en-GB": "Accent colour (hero button)"
+                },
+                "type": "color",
+                "value": "#e9b44c",
+                "editable": true,
+                "block": "themeColors",
+                "order": 205,
+                "helpText": {
+                    "de-DE": "Für den Haupt-Button im Startbild (Erlebniswelt-Klasse nova-hero) und nova-accent. Die Schriftfarbe wird automatisch hell oder dunkel gewählt.",
+                    "en-GB": "For the main button in the hero (CMS class nova-hero) and nova-accent. Text colour is chosen light or dark automatically."
+                }
+            },
             "sw-border-color": {
                 "label": {
                     "de-DE": "Rahmenfarbe",

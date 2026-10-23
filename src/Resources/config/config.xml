@@ -63,6 +63,36 @@
             <label lang="de-DE">Ladebalken beim Seitenwechsel</label>
             <defaultValue>true</defaultValue>
         </input-field>
+
+        <input-field type="multi-select">
+            <name>headerHideIcons</name>
+            <label>Hide header icons</label>
+            <label lang="de-DE">Header-Symbole ausblenden</label>
+            <helpText>For information sites without a shop, e.g. hide cart, wishlist and account.</helpText>
+            <helpText lang="de-DE">Für Infoseiten ohne Shop, z. B. Warenkorb, Merkzettel und Konto ausblenden.</helpText>
+            <options>
+                <option><id>search</id><name>Search</name><name lang="de-DE">Suche</name></option>
+                <option><id>wishlist</id><name>Wishlist</name><name lang="de-DE">Merkzettel</name></option>
+                <option><id>account</id><name>Account</name><name lang="de-DE">Kundenkonto</name></option>
+                <option><id>cart</id><name>Cart</name><name lang="de-DE">Warenkorb</name></option>
+            </options>
+        </input-field>
+
+        <input-field type="text">
+            <name>headerButtonText</name>
+            <label>Header button: text</label>
+            <label lang="de-DE">Header-Button: Text</label>
+            <helpText>Button on the right in the header, e.g. "Request appointment". Shown only if text and link are set.</helpText>
+            <helpText lang="de-DE">Button rechts im Header, z. B. „Termin anfragen“. Erscheint nur, wenn Text und Link gesetzt sind.</helpText>
+        </input-field>
+
+        <input-field type="text">
+            <name>headerButtonLink</name>
+            <label>Header button: link</label>
+            <label lang="de-DE">Header-Button: Link</label>
+            <helpText>e.g. /Kontakt/ (page of this shop), https://… or tel:+496403…</helpText>
+            <helpText lang="de-DE">z. B. /Kontakt/ (Seite dieses Shops), https://… oder tel:+496403…</helpText>
+        </input-field>
     </card>
 
     <card>
@@ -131,6 +161,15 @@
             <helpText>Only for "Own text". {year} is replaced by the current year, {shop} by the shop name. Empty = text from the snippet "novaTheme.footer.copyright" (translatable per language under Settings → Snippets).</helpText>
             <helpText lang="de-DE">Nur bei „Eigener Text“. {year} wird durch das aktuelle Jahr ersetzt, {shop} durch den Shopnamen. Leer = Text aus dem Textbaustein „novaTheme.footer.copyright“ (pro Sprache unter Einstellungen → Textbausteine änderbar).</helpText>
             <placeholder>© {year} {shop} – Alle Rechte vorbehalten</placeholder>
+        </input-field>
+
+        <input-field type="bool">
+            <name>footerHideVat</name>
+            <label>Hide price note in the footer</label>
+            <label lang="de-DE">Preis-Hinweis im Footer ausblenden</label>
+            <helpText>"All prices incl. VAT plus shipping …" – for information sites without sales.</helpText>
+            <helpText lang="de-DE">„Alle Preise inkl. gesetzl. MwSt. zzgl. Versandkosten …“ – für Infoseiten ohne Verkauf.</helpText>
+            <defaultValue>false</defaultValue>
         </input-field>
     </card>
 

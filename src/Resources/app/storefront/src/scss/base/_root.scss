@@ -1,6 +1,8 @@
 /* Design-Tokens als CSS-Variablen – zur Laufzeit nutzbar */
 :root {
     --nova-primary: #{$sw-color-brand-primary};
+    --nova-accent: #{$nova-accent-color};
+    --nova-on-accent: #{nova-on-color($nova-accent-color)};
     --nova-secondary: #{$sw-color-brand-secondary};
     --nova-surface: #{$nova-surface-color};
     --nova-border: #{$sw-border-color};

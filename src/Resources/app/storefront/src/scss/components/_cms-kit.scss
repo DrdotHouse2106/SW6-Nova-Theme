@@ -1,0 +1,234 @@
+/*
+ * Bausteine für Erlebniswelten – im Block oder Abschnitt unter „CSS-Klasse“ eintragen.
+ *
+ * nova-hero   Startbild: Block (z. B. „Text“) mit Hintergrundbild, Text hell auf Verlauf,
+ *             Buttons aus dem Texteditor: primär = Akzentfarbe, sekundär = weißer Rahmen
+ * nova-lead   Zentrierte Einleitung (Überschrift + Text) über einem Bereich
+ * nova-trust  Schmale Leiste mit kurzen Vorteilen (Block mit 2–4 Text-Spalten)
+ * nova-cards  Spalten mit Bild und Text als Karten (z. B. „Drei Spalten, Bild & Text“)
+ * nova-split  Bild und Text nebeneinander, Bild mit runden Ecken, Text mittig
+ * nova-band   Farbiges Band in der Primärfarbe mit heller Schrift (Kontakt, Hinweis)
+ * nova-accent Hintergrund in der Akzentfarbe
+ */
+
+/* Startbild */
+.cms-block.nova-hero {
+    display: flex;
+    align-items: flex-end;
+    min-height: clamp(420px, 62vh, 640px);
+    overflow: hidden;
+    color: #fff;
+    isolation: isolate;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background:
+            linear-gradient(90deg, rgba(15, 22, 18, 0.82), rgba(15, 22, 18, 0.35) 55%, rgba(15, 22, 18, 0.05)),
+            linear-gradient(180deg, transparent 50%, rgba(15, 22, 18, 0.5));
+        pointer-events: none;
+    }
+
+    .cms-block-background {
+        object-fit: cover;
+    }
+
+    // Text auf Inhaltsbreite, auch wenn der Abschnitt „volle Breite“ hat (Shopware setzt das Padding inline)
+    > .cms-block-container {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-width: $nova-container-max-width;
+        margin-inline: auto;
+        padding: nova-fluid(2.5rem, 4.5rem) max(var(--nova-gutter), #{$grid-gutter-width * 0.5}) !important;
+    }
+
+    .cms-element-text {
+        max-width: 46rem;
+    }
+
+    h1, h2, .h1, .h2 {
+        color: #fff;
+        font-size: nova-fluid(2rem, 3.75rem);
+        line-height: 1.08;
+        margin-bottom: 0.5em;
+    }
+
+    p {
+        font-size: nova-fluid(1.0625rem, 1.25rem);
+        color: rgba(255, 255, 255, 0.92);
+    }
+
+    a:not(.btn) {
+        color: #fff;
+    }
+
+    .btn {
+        margin: 0.75rem 0.5rem 0 0;
+        padding: 0.8rem 1.4rem;
+        font-weight: 700;
+    }
+
+    .btn-primary {
+        background: var(--nova-accent);
+        border-color: var(--nova-accent);
+        color: var(--nova-on-accent);
+    }
+
+    .btn-secondary,
+    .btn-outline-primary,
+    .btn-outline-secondary {
+        background: transparent;
+        border: 2px solid #fff;
+        color: #fff;
+    }
+}
+
+/* Zentrierte Einleitung */
+.cms-block.nova-lead {
+    text-align: center;
+
+    .cms-element-text {
+        max-width: 46rem;
+        margin-inline: auto;
+    }
+
+    h2, .h2 {
+        font-size: nova-fluid(1.75rem, 2.5rem);
+    }
+
+    p {
+        font-size: nova-fluid(1rem, 1.125rem);
+        opacity: 0.8;
+    }
+}
+
+/* Vorteils-Leiste */
+.cms-block.nova-trust {
+    background: #fff;
+    border-block: 1px solid var(--nova-border);
+    padding-block: 1.25rem;
+    font-weight: 600;
+    font-size: 0.9375rem;
+
+    p {
+        margin: 0;
+    }
+
+    .cms-row > [class*='col'] {
+        display: flex;
+        align-items: center;
+        padding-block: 0.375rem;
+    }
+}
+
+/* Karten */
+.cms-block.nova-cards {
+    .cms-row {
+        row-gap: var(--nova-gutter);
+    }
+
+    .cms-row > [class*='col'] {
+        display: flex;
+        flex-direction: column;
+        // Ein gemeinsamer Schatten für Bild und Text, ohne zusätzlichen Rahmen um den Spaltenabstand
+        filter: drop-shadow(0 10px 18px rgba(17, 24, 39, 0.12));
+
+        > div {
+            background: #fff;
+        }
+
+        > div:first-child {
+            border-radius: var(--nova-radius) var(--nova-radius) 0 0;
+            overflow: hidden;
+        }
+
+        > div:last-child {
+            flex: 1 1 auto;
+            border-radius: 0 0 var(--nova-radius) var(--nova-radius);
+            padding: 1.25rem 1.375rem 1.5rem;
+        }
+
+        > div:only-child {
+            border-radius: var(--nova-radius);
+        }
+    }
+
+    // Bild im festen 4:3-Format statt Shopwares Mindesthöhe mit absolut positioniertem Bild
+    .cms-image-container {
+        min-height: 0 !important;
+        height: auto !important;
+    }
+
+    .cms-image-container img,
+    .cms-element-image img {
+        position: static !important;
+        width: 100%;
+        height: auto !important;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+    }
+
+    h3, .h3 {
+        font-size: nova-fluid(1.125rem, 1.375rem);
+    }
+
+    p {
+        opacity: 0.85;
+    }
+
+    a:not(.btn) {
+        font-weight: 700;
+        text-decoration: none;
+    }
+}
+
+/* Bild und Text nebeneinander */
+.cms-block.nova-split {
+    .cms-row {
+        align-items: center;
+        row-gap: 1.5rem;
+    }
+
+    img {
+        border-radius: var(--nova-radius);
+        width: 100%;
+        object-fit: cover;
+    }
+
+    h2, .h2 {
+        font-size: nova-fluid(1.75rem, 2.375rem);
+    }
+}
+
+/* Farbiges Band */
+.cms-block.nova-band {
+    > .cms-block-container {
+        background: var(--nova-primary);
+        color: #fff;
+        border-radius: calc(var(--nova-radius) + 6px);
+        // Shopware setzt die Block-Abstände als Inline-Padding – hier gilt der Innenabstand des Bandes
+        padding: nova-fluid(1.75rem, 3rem) nova-fluid(1.25rem, 3.5rem) !important;
+    }
+
+    .cms-row {
+        align-items: center;
+        row-gap: 1rem;
+    }
+
+    h2, h3, .h2, .h3,
+    a:not(.btn) {
+        color: #fff;
+    }
+
+    p {
+        color: rgba(255, 255, 255, 0.88);
+    }
+}
+
+.nova-accent {
+    background: var(--nova-accent);
+    color: var(--nova-on-accent);
+}

@@ -139,3 +139,22 @@
         }
     }
 }
+
+/* Optionaler Button rechts im Header (Plugin-Konfiguration „Header-Button“) */
+.nova-header-btn-col {
+    display: flex;
+    align-items: center;
+    margin-left: 0.5rem;
+}
+
+.nova-header-btn {
+    white-space: nowrap;
+    padding: 0.6rem 1.1rem;
+    font-weight: 600;
+
+    @include media-breakpoint-down(sm) {
+        min-height: 0;
+        padding: 0.45rem 0.8rem;
+        font-size: 0.8125rem;
+    }
+}

@@ -1,3 +1,11 @@
+# 1.5.0
+- New: building blocks for shopping experiences (CSS class on the block): `nova-hero`, `nova-lead`, `nova-trust`, `nova-cards`, `nova-split`, `nova-band`, `nova-accent`
+- New: accent colour in the theme configuration (main hero button), text colour chosen automatically
+- New: hide header icons per sales channel (search, wishlist, account, cart) – for information sites without a shop
+- New: button on the right in the header with own text and link
+- New: price note in the footer can be hidden
+- Dark footer background: text, links and lines automatically light
+
 # 1.4.7
 - Mega menu: "To category …" and all columns on one common left edge, header row with divider, even row spacing without separators, hover without jumping indent
 - Orders in the customer account: double border removed
