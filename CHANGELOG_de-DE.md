@@ -1,3 +1,7 @@
+# 1.4.0
+- Neu: Newsletter-Leiste über dem Footer (pro Verkaufskanal) mit Überschrift, Text und Kleingedrucktem – nutzt Shopwares eigene Newsletter-Anmeldung mit Double-Opt-in, Captcha und Datenschutz-Hinweis; nicht im Checkout und im Kundenkonto
+- Neu: Newsletter-Häkchen in der Bestellübersicht – nicht vorausgewählt, erscheint nur, wenn die E-Mail noch nicht angemeldet ist; meldet die Bestell-E-Mail über Shopwares Newsletter-Anmeldung an. Ein Fehler dabei bricht die Bestellung nie ab
+
 # 1.3.1
 - Behoben: Bildformat und Bild-Modus wirkten nicht, weil Shopwares feste Bildhöhe (180–200 px) Vorrang hatte – Produktbilder füllen jetzt die Karte im gewählten Seitenverhältnis
 - Produktkarten kompakter: keine Lücken mehr für leere Bewertungen, fehlende „ab“-Preise und Grundpreise; der Warenkorb-Button sitzt unten

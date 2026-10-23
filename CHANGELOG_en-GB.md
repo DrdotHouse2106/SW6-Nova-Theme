@@ -1,3 +1,7 @@
+# 1.4.0
+- New: newsletter bar above the footer (per sales channel) with headline, text and small print – uses Shopware's own newsletter registration with double opt-in, captcha and privacy notice; not shown in checkout and customer account
+- New: newsletter checkbox on the order confirmation page – not pre-checked, only shown if the e-mail is not subscribed yet; registers the order e-mail via Shopware's newsletter registration. An error never blocks the order
+
 # 1.3.1
 - Fixed: image format and image mode had no effect because Shopware's fixed image height (180–200 px) took precedence – product images now fill the card in the chosen aspect ratio
 - More compact product cards: no gaps for empty ratings, missing "from" prices and unit prices; the buy button sits at the bottom
