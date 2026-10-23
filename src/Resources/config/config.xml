@@ -163,6 +163,14 @@
             <placeholder>© {year} {shop} – Alle Rechte vorbehalten</placeholder>
         </input-field>
 
+        <input-field type="textarea">
+            <name>footerAboutText</name>
+            <label>Footer: column with logo and short text</label>
+            <label lang="de-DE">Footer: Spalte mit Logo und Kurztext</label>
+            <helpText>If filled, a first footer column with the shop logo and this text is shown (simple HTML allowed). On a dark footer the logo is shown light.</helpText>
+            <helpText lang="de-DE">Wenn ausgefüllt, erscheint im Footer vorne eine Spalte mit dem Shop-Logo und diesem Text (einfaches HTML erlaubt). Auf dunklem Footer wird das Logo hell dargestellt.</helpText>
+        </input-field>
+
         <input-field type="bool">
             <name>footerHideVat</name>
             <label>Hide price note in the footer</label>

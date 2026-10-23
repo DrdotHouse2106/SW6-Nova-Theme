@@ -1,3 +1,6 @@
+# 1.5.7
+- New: footer column with logo and short text (plugin configuration "Footer") – the logo is shown light on a dark footer
+
 # 1.5.6
 - `nova-hero` spans the full window width even inside a content-width section – no separate full-width section needed
 

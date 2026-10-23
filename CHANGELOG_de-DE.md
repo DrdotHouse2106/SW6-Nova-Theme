@@ -1,3 +1,6 @@
+# 1.5.7
+- Neu: Footer-Spalte mit Logo und Kurztext (Plugin-Konfiguration „Footer“) – auf dunklem Footer wird das Logo hell dargestellt
+
 # 1.5.6
 - `nova-hero` reicht auch in einem Abschnitt mit Inhaltsbreite über die volle Fensterbreite – ein eigener Abschnitt „Volle Breite“ ist nicht mehr nötig
 

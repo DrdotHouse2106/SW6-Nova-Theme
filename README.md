@@ -68,6 +68,7 @@ Alternativ in der Administration unter **Inhalte → Themes** das „Nova Theme�
   `novaTheme.footer.copyright` (*Einstellungen → Textbausteine*) zu pflegen.
   Shopware steht unter MIT-Lizenz, der Hinweis darf entfernt werden.
   Außerdem: Preis-Hinweis „Alle Preise inkl. MwSt. …“ ausblenden – für Infoseiten ohne Verkauf.
+  **Spalte mit Logo und Kurztext:** Text eintragen, dann erscheint vorne im Footer das Shop-Logo mit diesem Text (auf dunklem Footer automatisch hell).
 - **Newsletter** – Leiste über dem Footer an/aus, Überschrift, Text (einfaches HTML), Kleingedrucktes; Anmeldung im Bestellprozess an/aus, Position (Bestellabschlussseite oder Bestellübersicht), Überschrift und Text. Leere Felder nutzen die Textbausteine `novaTheme.newsletter.*` (pro Sprache übersetzbar)
 - **Checkout** – Konfetti nach der Bestellung
 

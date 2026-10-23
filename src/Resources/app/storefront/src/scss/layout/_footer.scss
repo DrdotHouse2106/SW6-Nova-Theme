@@ -14,6 +14,31 @@
     }
 }
 
+/* Optionale Spalte mit Logo und Kurztext – oben bündig mit den Spaltenüberschriften (Shopware: 48px) */
+.nova-footer-about {
+    padding-top: 1.5rem;
+
+    @include media-breakpoint-up(md) {
+        padding-top: 3rem;
+    }
+}
+
+.nova-footer-about-logo img {
+    display: block;
+    max-height: 3rem;
+    width: auto;
+    margin-bottom: 1rem;
+}
+
+.nova-footer-about-text {
+    max-width: 22rem;
+    opacity: 0.9;
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
 .footer-column-headline {
     font-size: 1rem;
     font-weight: 700;
@@ -75,6 +100,12 @@
         .footer-copyright {
             color: rgba(255, 255, 255, 0.7);
         }
+    }
+
+    // Logo auf dunklem Grund hell darstellen
+    .nova-footer-about-logo img {
+        filter: brightness(0) invert(1);
+        opacity: 0.92;
     }
 
     // Shopware gibt der untersten Zeile einen eigenen hellen Hintergrund – hier etwas dunkler als der Footer
