@@ -17,6 +17,7 @@
  * nova-form   Formular als Karte in Lesebreite (Block „Formular“)
  * nova-band   Farbiges Band in der Primärfarbe mit heller Schrift (Kontakt, Hinweis)
  * nova-accent Hintergrund in der Akzentfarbe
+ * nova-fitment  Tabelle im Text als moderne Übersicht (z. B. „Welches Teil passt?“), am Handy seitlich scrollbar
  * nova-chips  Links im Text als runde Auswahl-Knöpfe nebeneinander (z. B. Fahrzeugmodelle, Block „Text“)
  */
 
@@ -312,7 +313,8 @@
     .cms-element-image img {
         object-fit: contain;
         padding: 1.25rem;
-        background: var(--nova-surface);
+        // Weiß wie die Karte – Produktfotos mit weißem Hintergrund wirken sonst wie ein Kasten im Kasten
+        background: #fff;
     }
 }
 
@@ -561,6 +563,98 @@
             line-height: 1.2;
         }
     }}
+
+/* Übersichts-Tabelle („Welches Teil passt?“) */
+.cms-block.nova-fitment {
+    // Eingebettete Stile aus älteren Texten (Schrift, Rahmen) zugunsten des Themes überschreiben
+    .cms-element-text div {
+        font-family: inherit;
+        color: inherit;
+    }
+
+    .cms-element-text div:has(> table) {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin-block: 0.75rem 1.25rem;
+        border: 1px solid var(--nova-border);
+        border-radius: var(--nova-radius);
+        background: #fff;
+        box-shadow: 0 8px 24px -16px rgba(17, 24, 39, 0.35);
+    }
+
+    table {
+        width: 100%;
+        margin: 0;
+        border-collapse: separate;
+        border-spacing: 0;
+        font-size: 0.9375rem;
+    }
+
+    th,
+    td {
+        padding: 0.75rem 1rem;
+        border: 0;
+        border-bottom: 1px solid var(--nova-border);
+        text-align: left;
+        vertical-align: middle;
+        white-space: nowrap;
+    }
+
+    th {
+        position: static;
+        background: var(--nova-surface);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: rgba(0, 0, 0, 0.6);
+    }
+
+    tbody tr:last-child td {
+        border-bottom: 0;
+    }
+
+    tbody tr:hover td {
+        background: var(--nova-surface);
+    }
+
+    td:first-child {
+        font-weight: 600;
+    }
+
+    // Teilenummern als kleine Knöpfe
+    td a {
+        display: inline-block;
+        padding: 0.2rem 0.65rem;
+        border: 1px solid var(--nova-border);
+        border-bottom: 1px solid var(--nova-border);
+        border-radius: 999px;
+        background: #fff;
+        color: var(--nova-primary);
+        font-weight: 600;
+        text-decoration: none;
+
+        &:hover {
+            border-color: var(--nova-primary);
+        }
+    }
+
+    // Smartphone: erste Spalte bleibt beim seitlichen Scrollen stehen
+    @include media-breakpoint-down(md) {
+        th:first-child,
+        td:first-child {
+            position: sticky;
+            left: 0;
+            z-index: 1;
+            background: #fff;
+            box-shadow: 1px 0 0 var(--nova-border);
+        }
+
+        th:first-child {
+            background: var(--nova-surface);
+        }
+    }
+}
 
 /* Farbiges Band */
 .cms-block.nova-band {

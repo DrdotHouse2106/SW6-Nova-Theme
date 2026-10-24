@@ -1,3 +1,8 @@
+# 1.9.2
+- Neu: Baustein **`nova-fitment`** – Tabellen im Text als moderne Übersicht (Karte, Teilenummern als Knöpfe, am Handy seitlich scrollbar mit stehender erster Spalte)
+- Footer: Mit „Spalte mit Logo und Kurztext“ stehen ab Desktop vier Spalten nebeneinander, statt dass die letzte in eine neue Zeile rutscht
+- `nova-cards-contain`: Bildfläche weiß statt in Flächenfarbe – Produktfotos mit weißem Hintergrund wirken nicht mehr wie ein Kasten im Kasten
+
 # 1.9.1
 - Neu: Theme-Feld **„Footer: Logo (helle Variante, optional)“** – eigenes Logo für einen dunklen Footer. Ohne Angabe wird wie bisher das normale Logo weiß eingefärbt (bei Logos mit Bildzeichen kann das zu einer weißen Fläche werden)
 

@@ -52,6 +52,14 @@
     margin-bottom: 1rem;
 }
 
+// Mit Logo-Spalte vier statt drei Spalten nebeneinander, damit keine Spalte in eine neue Zeile rutscht
+.footer-columns:has(> .nova-footer-about) > .footer-column {
+    @include media-breakpoint-up(lg) {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+}
+
 .nova-footer-about-text {
     max-width: 22rem;
     opacity: 0.9;
