@@ -432,6 +432,30 @@
     }
 }
 
+/* Icon oben im Kasten (Bild im Text, z. B. über die HTML-Ansicht eingefügt) – die Nummer rückt nach rechts */
+.cms-block.nova-steps .cms-element-text {
+    img {
+        display: block;
+        width: 3.5rem;
+        height: 3.5rem;
+        margin-bottom: 1rem;
+        object-fit: contain;
+    }
+
+    p:has(> img:only-child) {
+        margin-bottom: 0;
+    }
+
+    &:has(img) {
+        padding-top: nova-fluid(1.25rem, 1.625rem);
+
+        &::before {
+            left: auto;
+            right: nova-fluid(1.25rem, 1.625rem);
+        }
+    }
+}
+
 /* Kästen ohne Nummer (z. B. Materialien, Vorteile) */
 .cms-block.nova-steps.nova-steps-plain .cms-element-text {
     padding-top: nova-fluid(1.25rem, 1.625rem);

@@ -1,3 +1,6 @@
+# 1.8.2
+- `nova-steps`: Icons oben im Kasten (Bild am Anfang des Textes), Nummer rückt dann nach rechts
+
 # 1.8.1
 - Neu: `nova-steps-plain` – Kästen wie `nova-steps`, aber ohne Nummer (z. B. Materialien)
 

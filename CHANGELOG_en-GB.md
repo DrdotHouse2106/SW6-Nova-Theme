@@ -1,3 +1,6 @@
+# 1.8.2
+- `nova-steps`: icons at the top of the box (image at the start of the text), the number moves to the right
+
 # 1.8.1
 - New: `nova-steps-plain` – boxes like `nova-steps` without numbers
 
