@@ -1,3 +1,7 @@
+# 1.8.3
+- Neues Plugin-Icon im Nova-Stil (Erweiterungen → Meine Erweiterungen)
+- Repository umbenannt in SW6-Nova-Theme – alte Adresse leitet weiter
+
 # 1.8.2
 - `nova-steps`: Icons oben im Kasten (Bild am Anfang des Textes), Nummer rückt dann nach rechts
 

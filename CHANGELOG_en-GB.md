@@ -1,3 +1,7 @@
+# 1.8.3
+- New plugin icon in Nova style
+- Repository renamed to SW6-Nova-Theme
+
 # 1.8.2
 - `nova-steps`: icons at the top of the box (image at the start of the text), the number moves to the right
 
