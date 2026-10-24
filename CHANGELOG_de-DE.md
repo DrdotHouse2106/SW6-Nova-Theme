@@ -1,3 +1,6 @@
+# 1.9.1
+- Neu: Theme-Feld **„Footer: Logo (helle Variante, optional)“** – eigenes Logo für einen dunklen Footer. Ohne Angabe wird wie bisher das normale Logo weiß eingefärbt (bei Logos mit Bildzeichen kann das zu einer weißen Fläche werden)
+
 # 1.9.0
 - Neu: Baustein **`nova-chips`** – Links im Text erscheinen als runde Auswahl-Knöpfe nebeneinander, z. B. für die Modellauswahl („Welches Modell fahren Sie?“). Auf dem Smartphone drei gleich breite Knöpfe pro Zeile
 

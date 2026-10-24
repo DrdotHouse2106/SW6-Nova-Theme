@@ -124,8 +124,8 @@
         }
     }
 
-    // Logo auf dunklem Grund hell darstellen
-    .nova-footer-about-logo img {
+    // Logo auf dunklem Grund hell darstellen (nicht bei eigener heller Footer-Variante)
+    .nova-footer-about-logo:not(.is-own-logo) img {
         filter: brightness(0) invert(1);
         opacity: 0.92;
     }

@@ -391,6 +391,21 @@
                 "block": "novaListing",
                 "order": 200
             },
+            "nova-footer-logo": {
+                "label": {
+                    "de-DE": "Footer: Logo (helle Variante, optional)",
+                    "en-GB": "Footer: logo (light version, optional)"
+                },
+                "helpText": {
+                    "de-DE": "Für einen dunklen Footer. Leer = das normale Logo, auf dunklem Grund automatisch weiß eingefärbt.",
+                    "en-GB": "For a dark footer. Empty = the regular logo, automatically shown in white on dark backgrounds."
+                },
+                "type": "media",
+                "value": "",
+                "editable": true,
+                "block": "novaFooter",
+                "order": 90
+            },
             "nova-footer-bg": {
                 "label": {
                     "de-DE": "Footer: Hintergrund",

@@ -80,7 +80,7 @@ Alternativ in der Administration unter **Inhalte → Themes** das „Nova Theme�
 - **Nova: Layout** – maximale Inhaltsbreite, Eckenradien, Flächenfarbe
 - **Nova: Header & Topbar** – Topbar-Farben, maximale Logohöhe, Header beim Runterscrollen ausblenden
 - **Nova: Produktlisting** – Bild-Modus, Bildformat (1:1, 3:4, 2:3, 4:3), 2 Produkte pro Zeile auf Smartphones
-- **Nova: Footer** – Hintergrundfarbe; bei dunkler Farbe werden Schrift, Links und Linien automatisch hell
+- **Nova: Footer** – Hintergrundfarbe; bei dunkler Farbe werden Schrift, Links und Linien automatisch hell. Optional „Footer: Logo (helle Variante)“ für die Spalte mit Logo und Kurztext
 - **Theme-Farben** – zusätzlich **Akzentfarbe** für den Haupt-Button im Startbild (`nova-hero`)
 - **Nova: Checkout & Konto** – Fortschrittsanzeige im Checkout an/aus
 - **Nova: Effekte** – dezente Einblend-Animationen
@@ -216,6 +216,12 @@ npm run build
 ## Häufige Probleme und Lösungen
 
 Hier sammeln wir Hürden, die bei Installation und Betrieb tatsächlich aufgetreten sind. **Neue Probleme bitte ergänzen** (oder als Issue melden), damit andere nicht lange suchen müssen.
+
+### Logo im dunklen Footer ist nur eine weiße Fläche
+
+**Ursache:** Auf dunklem Footer färbt Nova das normale Logo komplett weiß ein. Bei Logos mit Bildzeichen (z. B. einer Kugel) bleibt davon nur eine weiße Form
+
+**Lösung:** Ab 1.9.1 im Theme unter *Nova: Footer* eine helle Logo-Variante bei „Footer: Logo (helle Variante, optional)“ hinterlegen – sie wird unverändert angezeigt
 
 ### Nach Installation/Update keine Änderung im Shop
 

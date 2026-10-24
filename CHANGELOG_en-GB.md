@@ -1,3 +1,6 @@
+# 1.9.1
+- New theme field "Footer: logo (light version, optional)" for dark footers
+
 # 1.9.0
 - New: building block `nova-chips` – links in a text block become round selection buttons (e.g. vehicle models); three per row on phones
 
