@@ -1,3 +1,6 @@
+# 1.8.1
+- Neu: `nova-steps-plain` – Kästen wie `nova-steps`, aber ohne Nummer (z. B. Materialien)
+
 # 1.8.0
 - Datei-Anhänge im Kontaktformular aus dem Theme entfernt – dafür gibt es das Plugin **Nova Upload** (Dateien geschützt im Shop statt als Mail-Anhang, zusätzlich Uploads bei Artikeln)
 

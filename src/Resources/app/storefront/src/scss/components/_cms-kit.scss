@@ -13,6 +13,7 @@
  * nova-split  Bild und Text nebeneinander (auch Bild – Text – Bild), Bilder mit runden Ecken, Text mittig
  * nova-prose  Längerer Fließtext in angenehmer Lesebreite, mittig auf der Seite
  * nova-steps  Nummerierte Schritte („So funktioniert's“) – Block mit 2–4 Text-Spalten
+ * nova-steps-plain  Zusätzlich zu nova-steps: Kästen ohne Nummer, mit Linie in der Akzentfarbe (z. B. Materialien)
  * nova-form   Formular als Karte in Lesebreite (Block „Formular“)
  * nova-band   Farbiges Band in der Primärfarbe mit heller Schrift (Kontakt, Hinweis)
  * nova-accent Hintergrund in der Akzentfarbe
@@ -428,6 +429,16 @@
     .cms-element-text p:last-child,
     .cms-element-text .cms-element-alignment > p:last-child {
         margin-bottom: 0;
+    }
+}
+
+/* Kästen ohne Nummer (z. B. Materialien, Vorteile) */
+.cms-block.nova-steps.nova-steps-plain .cms-element-text {
+    padding-top: nova-fluid(1.25rem, 1.625rem);
+    border-top: 4px solid var(--nova-accent);
+
+    &::before {
+        content: none;
     }
 }
 

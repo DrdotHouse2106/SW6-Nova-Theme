@@ -1,3 +1,6 @@
+# 1.8.1
+- New: `nova-steps-plain` – boxes like `nova-steps` without numbers
+
 # 1.8.0
 - Removed contact form file attachments from the theme – use the plugin **Nova Upload** instead (protected storage instead of mail attachments, plus product uploads)
 
