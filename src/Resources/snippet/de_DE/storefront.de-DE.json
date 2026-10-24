@@ -42,15 +42,6 @@
             "checkout": "Ja, ich möchte den Newsletter erhalten (jederzeit abbestellbar).",
             "finishHeadline": "Nichts mehr verpassen",
             "finishSubmit": "Newsletter abonnieren"
-        },
-        "contactUpload": {
-            "label": "Dateien anhängen (optional)",
-            "hint": "Fotos, Zeichnungen, PDF oder 3D-Dateien (z. B. STL, 3MF, STEP) – bis zu %count% Dateien, je max. %size% MB.",
-            "errorCount": "Bitte höchstens %count% Dateien anhängen.",
-            "errorFailed": "Die Datei „%name%“ konnte nicht hochgeladen werden – vermutlich ist sie zu groß.",
-            "errorType": "Der Dateityp von „%name%“ ist nicht erlaubt.",
-            "errorSize": "Die Datei „%name%“ ist größer als %size% MB.",
-            "errorTotal": "Die Dateien sind zusammen größer als %size% MB."
         }
     }
 }

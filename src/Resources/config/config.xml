@@ -257,43 +257,6 @@
     </card>
 
     <card>
-        <title>Contact form</title>
-        <title lang="de-DE">Kontaktformular</title>
-
-        <input-field type="bool">
-            <name>contactUpload</name>
-            <label>File attachments in the contact form</label>
-            <label lang="de-DE">Datei-Anhänge im Kontaktformular</label>
-            <helpText>Adds an upload field to Shopware's contact form (shopping experience element "Form", type contact). Files are attached to the contact mail to the shop and are not stored. Allowed: images, PDF, Office, ZIP and 3D/CAD formats (e.g. STL, 3MF, OBJ, STEP). Note the PHP limits upload_max_filesize and post_max_size on the server.</helpText>
-            <helpText lang="de-DE">Ergänzt Shopwares Kontaktformular (Erlebniswelt-Element „Formular“, Typ Kontakt) um ein Upload-Feld. Die Dateien hängen an der Kontaktformular-Mail an den Shop und werden nicht gespeichert. Erlaubt: Bilder, PDF, Office, ZIP und 3D-/CAD-Formate (z. B. STL, 3MF, OBJ, STEP). PHP-Grenzen upload_max_filesize und post_max_size auf dem Server beachten.</helpText>
-            <defaultValue>false</defaultValue>
-        </input-field>
-
-        <input-field type="int">
-            <name>contactUploadMaxFiles</name>
-            <label>Max. number of files</label>
-            <label lang="de-DE">Max. Anzahl Dateien</label>
-            <defaultValue>5</defaultValue>
-        </input-field>
-
-        <input-field type="int">
-            <name>contactUploadMaxMb</name>
-            <label>Max. size per file (MB)</label>
-            <label lang="de-DE">Max. Größe je Datei (MB)</label>
-            <defaultValue>10</defaultValue>
-        </input-field>
-
-        <input-field type="int">
-            <name>contactUploadMaxTotalMb</name>
-            <label>Max. total size (MB)</label>
-            <label lang="de-DE">Max. Gesamtgröße (MB)</label>
-            <helpText>Keep below the size limit of your mail server (often 20–25 MB).</helpText>
-            <helpText lang="de-DE">Unter dem Größenlimit des Mailservers halten (oft 20–25 MB).</helpText>
-            <defaultValue>20</defaultValue>
-        </input-field>
-    </card>
-
-    <card>
         <title>Checkout</title>
         <title lang="de-DE">Checkout</title>
 

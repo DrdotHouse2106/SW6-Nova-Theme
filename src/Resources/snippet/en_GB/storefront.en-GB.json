@@ -42,15 +42,6 @@
             "checkout": "Yes, I would like to receive the newsletter (unsubscribe at any time).",
             "finishHeadline": "Don't miss anything",
             "finishSubmit": "Subscribe to newsletter"
-        },
-        "contactUpload": {
-            "label": "Attach files (optional)",
-            "hint": "Photos, drawings, PDF or 3D files (e.g. STL, 3MF, STEP) – up to %count% files, max. %size% MB each.",
-            "errorCount": "Please attach at most %count% files.",
-            "errorFailed": "The file \"%name%\" could not be uploaded – it is probably too large.",
-            "errorType": "The file type of \"%name%\" is not allowed.",
-            "errorSize": "The file \"%name%\" is larger than %size% MB.",
-            "errorTotal": "The files are larger than %size% MB in total."
         }
     }
 }

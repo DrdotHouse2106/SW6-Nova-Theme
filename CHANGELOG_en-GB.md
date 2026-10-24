@@ -1,3 +1,6 @@
+# 1.8.0
+- Removed contact form file attachments from the theme – use the plugin **Nova Upload** instead (protected storage instead of mail attachments, plus product uploads)
+
 # 1.7.1
 - New: shopping experience block `nova-steps` – numbered steps
 - New: shopping experience block `nova-form` – form as a card in reading width

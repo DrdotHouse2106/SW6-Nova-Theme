@@ -49,35 +49,3 @@ document.querySelectorAll('.cms-block[class*="nova-"] .cms-element-text p').forE
         p.remove();
     }
 });
-
-/*
- * Datei-Anhänge im Kontaktformular: Anzahl und Größe schon im Browser prüfen,
- * damit niemand erst nach dem Hochladen eine Fehlermeldung bekommt.
- * Der Server prüft zusätzlich (ContactUploadSubscriber).
- */
-document.querySelectorAll('input[type="file"][data-nova-max-files]').forEach((input) => {
-    const mb = 1024 * 1024;
-    input.addEventListener('change', () => {
-        const files = Array.from(input.files || []);
-        const maxFiles = Number(input.dataset.novaMaxFiles) || 5;
-        const maxMb = Number(input.dataset.novaMaxMb) || 10;
-        const maxTotalMb = Number(input.dataset.novaMaxTotalMb) || 20;
-        const tooBig = files.find((file) => file.size > maxMb * mb);
-        const total = files.reduce((sum, file) => sum + file.size, 0);
-
-        let message = '';
-        if (files.length > maxFiles) {
-            message = input.dataset.novaErrorCount;
-        } else if (tooBig) {
-            message = input.dataset.novaErrorSize.replace('%name%', tooBig.name);
-        } else if (total > maxTotalMb * mb) {
-            message = input.dataset.novaErrorTotal;
-        }
-
-        input.setCustomValidity(message);
-        input.classList.toggle('is-invalid', message !== '');
-        if (message) {
-            input.reportValidity();
-        }
-    });
-});

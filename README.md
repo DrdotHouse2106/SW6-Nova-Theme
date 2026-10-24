@@ -50,7 +50,6 @@ Alternativ in der Administration unter **Inhalte → Themes** das „Nova Theme�
 | **Modernes Kundenkonto** | Konto-Menü als Karte, Karten für Übersicht, Profil, Adressen und Bestellungen, Login und Registrierung mit großen Eingabefeldern |
 | **Konto löschen** | Gut sichtbarer Bereich „Konto löschen“ im Profil mit Sicherheitsabfrage |
 | **Newsletter** | Leiste über dem Footer (Überschrift, Text, Kleingedrucktes, pro Verkaufskanal) und Anmeldung im Bestellprozess – als Kasten auf der Bestellabschlussseite (ein Klick, die Bestell-E-Mail ist schon eingesetzt) oder als Häkchen in der Bestellübersicht. Beides nutzt Shopwares eigene Newsletter-Anmeldung – Double-Opt-in, Captcha und Datenschutz-Hinweis wie in Shopware eingestellt, angemeldete Empfänger stehen unter *Marketing → Newsletter-Empfänger*. Kasten bzw. Häkchen erscheinen nur, wenn die E-Mail noch nicht angemeldet ist; das Häkchen ist nie vorausgewählt |
-| **Datei-Anhänge im Kontaktformular** | Shopwares eigenes Kontaktformular (Erlebniswelt-Element „Formular“, Typ Kontakt) bekommt pro Verkaufskanal ein Feld „Dateien anhängen“ – für Fotos, Zeichnungen, PDF, Office, ZIP und 3D-/CAD-Dateien (STL, 3MF, OBJ, STEP, IGES, DXF …). Anzahl, Größe je Datei und Gesamtgröße sind einstellbar und werden schon im Browser und noch einmal auf dem Server geprüft. Die Dateien hängen direkt an der Kontaktformular-Mail an den Shop und werden **nirgends gespeichert** – ein externer Formular-Dienst ist dafür nicht mehr nötig |
 | **Copyright im Footer** | „Realisiert mit Shopware“ beibehalten, durch eigenen Text ersetzen (mit `{year}` und `{shop}`, pro Sprache übersetzbar) oder ausblenden – pro Verkaufskanal |
 
 ## Einstellungen
@@ -71,7 +70,6 @@ Alternativ in der Administration unter **Inhalte → Themes** das „Nova Theme�
   Außerdem: Preis-Hinweis „Alle Preise inkl. MwSt. …“ ausblenden – für Infoseiten ohne Verkauf.
   **Spalte mit Logo und Kurztext:** Text eintragen, dann erscheint vorne im Footer das Shop-Logo mit diesem Text (auf dunklem Footer automatisch hell).
 - **Newsletter** – Leiste über dem Footer an/aus, Überschrift, Text (einfaches HTML), Kleingedrucktes; Anmeldung im Bestellprozess an/aus, Position (Bestellabschlussseite oder Bestellübersicht), Überschrift und Text. Leere Felder nutzen die Textbausteine `novaTheme.newsletter.*` (pro Sprache übersetzbar)
-- **Kontaktformular** – Datei-Anhänge an/aus, max. Anzahl Dateien (Standard 5), max. Größe je Datei (Standard 10 MB), max. Gesamtgröße (Standard 20 MB)
 - **Checkout** – Konfetti nach der Bestellung
 
 ### Theme-Konfiguration (Farben & Layout)
@@ -300,31 +298,11 @@ Hier sammeln wir Hürden, die bei Installation und Betrieb tatsächlich aufgetre
 
 **Lösung:** Im Browser per Rechtsklick → *Untersuchen* die Klasse des Bereichs ansehen (z. B. `footer-main-newsletter`), das zugehörige Plugin unter *Erweiterungen → Meine Erweiterungen → Konfigurieren* öffnen und die Farben dort pro Verkaufskanal anpassen
 
-### Datei-Anhänge im Kontaktformular einrichten
+### Datei-Anhänge im Kontaktformular fehlen nach dem Update
 
-1. Plugin-Konfiguration → Verkaufskanal wählen → **Kontaktformular → Datei-Anhänge** einschalten
-2. In der Erlebniswelt der Anfrage-Seite ein Element **Formular** einfügen, Typ **Kontakt**, Empfänger-Adresse eintragen
-3. Cache leeren und ein Testformular mit einer Datei absenden
+**Ursache:** Seit Version 1.8.0 gehört der Datei-Upload nicht mehr zum Theme
 
-Ein vorher eingebundenes externes Formular erst entfernen, wenn der Test geklappt hat.
-
-### Upload: „Datei konnte nicht hochgeladen werden“ oder das Formular hängt
-
-**Ursache:** Die PHP-Grenzen auf dem Server sind kleiner als die Einstellung im Theme. Standard sind oft nur 2 MB je Datei (`upload_max_filesize`) und 8 MB pro Anfrage (`post_max_size`)
-
-**Lösung:** In der Hosting-Verwaltung (z. B. Plesk → *PHP-Einstellungen* der Domain) `upload_max_filesize` mindestens auf die Größe je Datei und `post_max_size` etwas über die Gesamtgröße setzen (z. B. 10M und 25M)
-
-### Upload: Mail mit Anhang kommt nicht an
-
-**Ursache:** Der Mailserver lehnt große Mails ab – Anhänge werden beim Versand um etwa ein Drittel größer
-
-**Lösung:** Gesamtgröße in der Plugin-Konfiguration verkleinern (z. B. 15 MB) oder das Limit beim Mail-Anbieter erhöhen. Unter *Einstellungen → Protokolle* bzw. im Mail-Log des Servers steht der Grund der Ablehnung
-
-### Upload-Feld erscheint nicht
-
-**Ursache:** Datei-Anhänge sind nur für einen anderen Verkaufskanal eingeschaltet, oder das Formular ist vom Typ „Allgemein“ statt „Kontakt“
-
-**Lösung:** Schalter im richtigen Verkaufskanal setzen, Formular-Typ **Kontakt** wählen und den Cache leeren
+**Lösung:** Das Plugin **Nova Upload** installieren (Plugin-Katalog des GitHub-Updaters). Es speichert die Dateien geschützt im Shop statt sie per Mail zu verschicken und bietet zusätzlich Uploads bei Artikeln (z. B. Logo)
 
 ## Lizenz
 

@@ -1,3 +1,6 @@
+# 1.8.0
+- Datei-Anhänge im Kontaktformular aus dem Theme entfernt – dafür gibt es das Plugin **Nova Upload** (Dateien geschützt im Shop statt als Mail-Anhang, zusätzlich Uploads bei Artikeln)
+
 # 1.7.1
 - Neu: Erlebniswelt-Baustein `nova-steps` – nummerierte Schritte („So funktioniert’s“)
 - Neu: Erlebniswelt-Baustein `nova-form` – Formular als Karte in Lesebreite
