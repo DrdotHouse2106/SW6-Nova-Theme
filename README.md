@@ -175,6 +175,7 @@ In CMS-Sektionen/-Blöcken (Feld „CSS-Klasse“) nutzbar:
 | `nova-steps-plain` | Zusätzlich zu `nova-steps`: Kästen ohne Nummer mit Linie in der Akzentfarbe oben – z. B. für Materialien oder Leistungen |
 | `nova-form` | Formular (Block „Formular“, z. B. Typ Kontakt) als Karte in Lesebreite mit Schatten; die Bestätigung nach dem Absenden erscheint als ruhiger Kasten |
 | `nova-band` | Band in der Primärfarbe mit heller Schrift und runden Ecken – z. B. Kontakt oder Hinweis |
+| `nova-chips` | **Auswahl-Knöpfe:** Links im Text (als Aufzählung oder in einem Absatz) erscheinen als runde Knöpfe nebeneinander, z. B. Fahrzeugmodelle oder Themen (Block „Text“) |
 | `nova-accent` | Hintergrund in der Akzentfarbe, Schriftfarbe automatisch |
 | `nova-surface` | Hintergrund in Flächenfarbe |
 | `nova-section` | Fließender Innenabstand oben/unten |

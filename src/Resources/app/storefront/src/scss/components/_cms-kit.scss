@@ -17,6 +17,7 @@
  * nova-form   Formular als Karte in Lesebreite (Block „Formular“)
  * nova-band   Farbiges Band in der Primärfarbe mit heller Schrift (Kontakt, Hinweis)
  * nova-accent Hintergrund in der Akzentfarbe
+ * nova-chips  Links im Text als runde Auswahl-Knöpfe nebeneinander (z. B. Fahrzeugmodelle, Block „Text“)
  */
 
 /* Startbild */
@@ -498,6 +499,68 @@
         text-align: center;
     }
 }
+
+/* Auswahl-Knöpfe */
+.cms-block.nova-chips {
+    text-align: center;
+
+    // Links als Aufzählung oder in einem Absatz – beides wird zu umbrechenden Knöpfen
+    ul,
+    p:has(> a) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.625rem;
+        max-width: 64rem;
+        margin: 0 auto;
+        padding: 0;
+        list-style: none;
+    }
+
+    li {
+        margin: 0;
+    }
+
+    a:not(.btn) {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 5.5rem;
+        min-height: 2.875rem;
+        padding: 0.5rem 1.25rem;
+        border: 1px solid var(--nova-border);
+        border-radius: 999px;
+        background: #fff;
+        color: inherit;
+        font-weight: 600;
+        text-decoration: none;
+        transition: border-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+
+        &:hover,
+        &:focus-visible {
+            border-color: var(--nova-primary);
+            color: var(--nova-primary);
+            box-shadow: 0 6px 16px rgba(17, 24, 39, 0.1);
+            transform: translateY(-1px);
+        }
+    }
+
+    // Smartphone: gleich breite Knöpfe, drei pro Zeile
+    @include media-breakpoint-down(sm) {
+        ul,
+        p:has(> a) {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        a:not(.btn) {
+            width: 100%;
+            min-width: 0;
+            padding-inline: 0.375rem;
+            font-size: 0.875rem;
+            line-height: 1.2;
+        }
+    }}
 
 /* Farbiges Band */
 .cms-block.nova-band {

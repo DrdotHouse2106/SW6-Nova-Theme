@@ -1,3 +1,6 @@
+# 1.9.0
+- Neu: Baustein **`nova-chips`** – Links im Text erscheinen als runde Auswahl-Knöpfe nebeneinander, z. B. für die Modellauswahl („Welches Modell fahren Sie?“). Auf dem Smartphone drei gleich breite Knöpfe pro Zeile
+
 # 1.8.4
 - Smartphone: Header-Button (z. B. „Teil anfragen“) bleibt in der Symbolzeile statt in eine eigene Zeile zu rutschen; der Merkzettel entfällt dort auf schmalen Handys
 - Primär-Buttons (z. B. „Anmelden“ im Newsletter) mit Schriftfarbe passend zur Primärfarbe – bei Orange weiß statt schwarz

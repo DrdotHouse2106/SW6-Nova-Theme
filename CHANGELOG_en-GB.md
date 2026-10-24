@@ -1,3 +1,6 @@
+# 1.9.0
+- New: building block `nova-chips` – links in a text block become round selection buttons (e.g. vehicle models); three per row on phones
+
 # 1.8.4
 - Smartphone: header button stays in the icon row (wishlist hidden there on narrow phones)
 - Primary buttons use a text colour matching the primary colour (white on orange)
