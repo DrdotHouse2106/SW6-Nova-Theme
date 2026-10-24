@@ -564,15 +564,17 @@
         }
     }}
 
-/* Übersichts-Tabelle („Welches Teil passt?“) */
-.cms-block.nova-fitment {
+/* Übersichts-Tabelle („Welches Teil passt?“) – als Block-Klasse oder an beliebigem Container (z. B. Fahrzeug-Beschreibung) */
+.cms-block.nova-fitment,
+div.nova-fitment {
     // Eingebettete Stile aus älteren Texten (Schrift, Rahmen) zugunsten des Themes überschreiben
-    .cms-element-text div {
+    .cms-element-text div,
+    &:not(.cms-block) div {
         font-family: inherit;
         color: inherit;
     }
 
-    .cms-element-text div:has(> table) {
+    div:has(> table) {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         margin-block: 0.75rem 1.25rem;

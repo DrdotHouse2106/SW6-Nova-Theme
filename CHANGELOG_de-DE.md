@@ -1,3 +1,6 @@
+# 1.9.4
+- `nova-fitment` wirkt auch außerhalb von Erlebniswelt-Blöcken, z. B. in der Fahrzeug-Beschreibung von Nova Fahrzeugauswahl (dort als CSS-Klasse eintragen)
+
 # 1.9.3
 - `nova-fitment` kompakter: erste Spalte und Spaltenköpfe brechen um, kleinere Abstände, Zusatzangabe als zweite Zeile (`<small>` in der ersten Spalte, z. B. Baujahr) – breite Tabellen passen auch neben einer Seitenleiste
 

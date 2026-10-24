@@ -1,3 +1,6 @@
+# 1.9.4
+- `nova-fitment` also works outside shopping-experience blocks (e.g. Nova vehicle selector description)
+
 # 1.9.3
 - `nova-fitment` more compact (wrapping first column and headers, smaller spacing, `<small>` second line)
 
