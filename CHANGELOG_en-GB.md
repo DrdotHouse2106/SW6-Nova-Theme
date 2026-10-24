@@ -1,3 +1,7 @@
+# 1.7.1
+- New: shopping experience block `nova-steps` – numbered steps
+- New: shopping experience block `nova-form` – form as a card in reading width
+
 # 1.7.0
 - New: file attachments in the contact form (plugin configuration "Contact form") – images, PDF, Office, ZIP and 3D/CAD files are attached to the contact mail to the shop without being stored; number and size configurable and validated
 

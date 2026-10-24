@@ -172,6 +172,8 @@ In CMS-Sektionen/-Blöcken (Feld „CSS-Klasse“) nutzbar:
 | `nova-cards` | Spalten mit Bild und Text als Karten mit gemeinsamem Schatten, Bilder einheitlich 4:3 (Block „Drei Spalten, Bilder mit Unterschrift“) |
 | `nova-split` | Bild und Text nebeneinander, Bilder mit runden Ecken, Text vertikal mittig („Zwei Spalten, zentriertes Bild & Text“ oder „Drei Spalten, Bild & Text“) |
 | `nova-prose` | Längerer Fließtext in angenehmer Lesebreite, mittig auf der Seite (Block „Text“) |
+| `nova-steps` | **Schritte:** nummerierte Kästen in Flächenfarbe, z. B. „So funktioniert’s“ (Block „Drei Spalten, Text“ oder „Zwei Spalten, Text“; Überschrift H3 + Text je Spalte) |
+| `nova-form` | Formular (Block „Formular“, z. B. Typ Kontakt) als Karte in Lesebreite mit Schatten; die Bestätigung nach dem Absenden erscheint als ruhiger Kasten |
 | `nova-band` | Band in der Primärfarbe mit heller Schrift und runden Ecken – z. B. Kontakt oder Hinweis |
 | `nova-accent` | Hintergrund in der Akzentfarbe, Schriftfarbe automatisch |
 | `nova-surface` | Hintergrund in Flächenfarbe |

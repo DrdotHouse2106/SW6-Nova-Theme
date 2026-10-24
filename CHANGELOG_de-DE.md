@@ -1,3 +1,7 @@
+# 1.7.1
+- Neu: Erlebniswelt-Baustein `nova-steps` – nummerierte Schritte („So funktioniert’s“)
+- Neu: Erlebniswelt-Baustein `nova-form` – Formular als Karte in Lesebreite
+
 # 1.7.0
 - Neu: Datei-Anhänge im Kontaktformular (Plugin-Konfiguration „Kontaktformular“) – Fotos, PDF, Office, ZIP und 3D-/CAD-Dateien hängen direkt an der Kontaktformular-Mail an den Shop, ohne gespeichert zu werden; Anzahl und Größe einstellbar und geprüft
 

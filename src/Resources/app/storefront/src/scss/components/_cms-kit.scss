@@ -12,6 +12,8 @@
  * nova-cards  Spalten mit Bild und Text als Karten (z. B. „Drei Spalten, Bild & Text“)
  * nova-split  Bild und Text nebeneinander (auch Bild – Text – Bild), Bilder mit runden Ecken, Text mittig
  * nova-prose  Längerer Fließtext in angenehmer Lesebreite, mittig auf der Seite
+ * nova-steps  Nummerierte Schritte („So funktioniert's“) – Block mit 2–4 Text-Spalten
+ * nova-form   Formular als Karte in Lesebreite (Block „Formular“)
  * nova-band   Farbiges Band in der Primärfarbe mit heller Schrift (Kontakt, Hinweis)
  * nova-accent Hintergrund in der Akzentfarbe
  */
@@ -117,7 +119,9 @@
 .cms-block.nova-lead,
 .cms-block.nova-split,
 .cms-block.nova-band,
-.cms-block.nova-prose {
+.cms-block.nova-prose,
+.cms-block.nova-steps,
+.cms-block.nova-form {
     margin-top: nova-fluid(1.5rem, 3.5rem);
 }
 
@@ -373,6 +377,90 @@
     p, li {
         font-size: nova-fluid(1rem, 1.0625rem);
         line-height: 1.7;
+    }
+}
+
+/* Nummerierte Schritte */
+.cms-block.nova-steps {
+    .cms-row {
+        counter-reset: nova-step;
+        row-gap: var(--nova-gutter);
+    }
+
+    .cms-row > [class*='col'] {
+        display: flex;
+        counter-increment: nova-step;
+    }
+
+    .cms-element-text {
+        position: relative;
+        flex: 1 1 auto;
+        border-radius: var(--nova-radius);
+        background: var(--nova-surface);
+        padding: 3.75rem nova-fluid(1.25rem, 1.625rem) nova-fluid(1.25rem, 1.625rem);
+
+        &::before {
+            content: counter(nova-step);
+            position: absolute;
+            top: 1.25rem;
+            left: nova-fluid(1.25rem, 1.625rem);
+            display: grid;
+            place-items: center;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            background: var(--nova-accent);
+            color: var(--nova-on-accent);
+            font-weight: 700;
+            font-size: 0.9375rem;
+            line-height: 1;
+        }
+    }
+
+    h3, .h3 {
+        font-size: nova-fluid(1.125rem, 1.25rem);
+    }
+
+    p {
+        opacity: 0.85;
+    }
+
+    .cms-element-text p:last-child,
+    .cms-element-text .cms-element-alignment > p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* Formular als Karte */
+.cms-block.nova-form {
+    .cms-element-form,
+    > .confirm-alert,
+    > .confirm-message {
+        max-width: 52rem;
+        margin-inline: auto;
+    }
+
+    .cms-element-form .card {
+        border: 1px solid var(--nova-border);
+        border-radius: calc(var(--nova-radius) + 4px);
+        box-shadow: var(--nova-shadow-md);
+    }
+
+    .cms-element-form .card-body {
+        padding: nova-fluid(1.25rem, 2.5rem);
+    }
+
+    .card-title {
+        font-size: nova-fluid(1.375rem, 1.75rem);
+        font-weight: 700;
+    }
+
+    // Nach dem Absenden ersetzt Shopware den Block-Inhalt durch die Bestätigung
+    > .confirm-message {
+        border-radius: calc(var(--nova-radius) + 4px);
+        background: var(--nova-surface);
+        padding: nova-fluid(1.5rem, 2.5rem);
+        text-align: center;
     }
 }
 
