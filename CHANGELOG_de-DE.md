@@ -1,3 +1,6 @@
+# 1.9.3
+- `nova-fitment` kompakter: erste Spalte und Spaltenköpfe brechen um, kleinere Abstände, Zusatzangabe als zweite Zeile (`<small>` in der ersten Spalte, z. B. Baujahr) – breite Tabellen passen auch neben einer Seitenleiste
+
 # 1.9.2
 - Neu: Baustein **`nova-fitment`** – Tabellen im Text als moderne Übersicht (Karte, Teilenummern als Knöpfe, am Handy seitlich scrollbar mit stehender erster Spalte)
 - Footer: Mit „Spalte mit Logo und Kurztext“ stehen ab Desktop vier Spalten nebeneinander, statt dass die letzte in eine neue Zeile rutscht

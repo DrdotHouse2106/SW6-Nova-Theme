@@ -1,3 +1,6 @@
+# 1.9.3
+- `nova-fitment` more compact (wrapping first column and headers, smaller spacing, `<small>` second line)
+
 # 1.9.2
 - New: building block `nova-fitment` (modern fitment table, scrollable on phones)
 - Footer: four columns side by side when the logo column is used
