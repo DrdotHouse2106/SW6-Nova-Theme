@@ -1,3 +1,7 @@
+# 1.8.4
+- Smartphone: Header-Button (z. B. „Teil anfragen“) bleibt in der Symbolzeile statt in eine eigene Zeile zu rutschen; der Merkzettel entfällt dort auf schmalen Handys
+- Primär-Buttons (z. B. „Anmelden“ im Newsletter) mit Schriftfarbe passend zur Primärfarbe – bei Orange weiß statt schwarz
+
 # 1.8.3
 - Neues Plugin-Icon im Nova-Stil (Erweiterungen → Meine Erweiterungen)
 - Repository umbenannt in SW6-Nova-Theme – alte Adresse leitet weiter

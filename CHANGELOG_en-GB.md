@@ -1,3 +1,7 @@
+# 1.8.4
+- Smartphone: header button stays in the icon row (wishlist hidden there on narrow phones)
+- Primary buttons use a text colour matching the primary colour (white on orange)
+
 # 1.8.3
 - New plugin icon in Nova style
 - Repository renamed to SW6-Nova-Theme

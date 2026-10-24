@@ -7,6 +7,15 @@
     }
 }
 
+// Schrift auf Primär-Buttons passend zur Primärfarbe (wie beim Kauf-Button) –
+// Bootstraps eigene Kontrastberechnung wählt bei Orange sonst Schwarz
+.btn-primary {
+    --bs-btn-color: #{nova-on-color($sw-color-brand-primary)};
+    --bs-btn-hover-color: #{nova-on-color($sw-color-brand-primary)};
+    --bs-btn-active-color: #{nova-on-color($sw-color-brand-primary)};
+    --bs-btn-disabled-color: #{nova-on-color($sw-color-brand-primary)};
+}
+
 .btn-primary,
 .btn-buy {
     @include nova-hover {

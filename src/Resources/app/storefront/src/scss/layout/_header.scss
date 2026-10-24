@@ -164,8 +164,32 @@
     font-weight: 600;
 
     @include media-breakpoint-down(sm) {
-        min-height: 0;
-        padding: 0.45rem 0.8rem;
-        font-size: 0.8125rem;
+        display: inline-flex;
+        align-items: center;
+        min-height: 36px;
+        padding: 0.4rem 0.65rem;
+        font-size: 0.75rem;
+    }
+}
+
+// Smartphone: Button bleibt in der Symbolzeile (statt in eine eigene Zeile zu rutschen) –
+// dafür entfällt dort der Merkzettel, die Symbole rücken etwas zusammen
+@include media-breakpoint-down(sm) {
+    .header-actions-col .row:has(.nova-header-btn-col) {
+        flex-wrap: nowrap;
+        align-items: center;
+
+        > .col-auto:has(.header-wishlist) {
+            display: none;
+        }
+
+        .header-actions-btn {
+            min-width: 40px;
+            padding-inline: 0.5rem;
+        }
+    }
+
+    .nova-header-btn-col {
+        margin-left: 0.25rem;
     }
 }

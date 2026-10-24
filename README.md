@@ -306,6 +306,12 @@ Hier sammeln wir Hürden, die bei Installation und Betrieb tatsächlich aufgetre
 
 **Lösung:** Das Plugin **Nova Upload** installieren (Plugin-Katalog des GitHub-Updaters). Es speichert die Dateien geschützt im Shop statt sie per Mail zu verschicken und bietet zusätzlich Uploads bei Artikeln (z. B. Logo)
 
+### Merkzettel-Symbol fehlt am Smartphone
+
+**Ursache:** Ist ein Header-Button gesetzt (z. B. „Teil anfragen“), passt er auf schmalen Handys nur ohne das Merkzettel-Symbol in die Symbolzeile
+
+**Lösung:** Gewollt – der Merkzettel ist weiter über das Kundenkonto erreichbar und ab Tablet-Breite wieder sichtbar. Wer den Merkzettel am Handy braucht, lässt den Header-Button-Text kurz oder leer
+
 ## Lizenz
 
 MIT
