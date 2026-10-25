@@ -220,6 +220,13 @@ Die Platzhalter für Rechtstexte (`[[Shopname]]`, `[[E-Mail]]` …) stecken seit
 
 ## Häufige Probleme und Lösungen
 
+### Website-Check meldet „Cookie-Einstellungen öffnet keinen Dialog“ bzw. kein Widerruf möglich
+
+**Ursache:** Shopware zeigt nach dem Schließen des Cookie-Banners keinen dauerhaften Link zu den Cookie-Einstellungen
+
+**Lösung:** Ab 1.11.1 setzt das Theme den Link „Cookie-Einstellungen“ in den Footer (Theme-Konfiguration *Footer*, standardmäßig an)
+
+
 Hier sammeln wir Hürden, die bei Installation und Betrieb tatsächlich aufgetreten sind. **Neue Probleme bitte ergänzen** (oder als Issue melden), damit andere nicht lange suchen müssen.
 
 ### SVG-Logo bleibt klein, egal welche Logohöhe eingestellt ist

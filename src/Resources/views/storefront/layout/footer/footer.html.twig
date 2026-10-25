@@ -43,4 +43,13 @@
     {% if not config('NovaTheme.config.footerHideVat') %}
         {{ parent() }}
     {% endif %}
+
+    {# Dauerhafter Zugang zu den Cookie-Einstellungen (Widerruf der Einwilligung) – Shopware selbst zeigt keinen #}
+    {% block nova_footer_cookie_settings %}
+        {% if config('NovaTheme.config.footerCookieLink') is not same as(false) %}
+            <div class="nova-footer-cookie js-cookie-configuration-button">
+                <button type="button" class="btn btn-link nova-footer-cookie-link">{{ 'novaTheme.footer.cookieSettings'|trans }}</button>
+            </div>
+        {% endif %}
+    {% endblock %}
 {% endblock %}

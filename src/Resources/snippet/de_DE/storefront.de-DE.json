@@ -32,7 +32,8 @@
             "recentlyViewed": "Zuletzt angesehene Produkte"
         },
         "footer": {
-            "copyright": "© {year} {shop} – Alle Rechte vorbehalten"
+            "copyright": "© {year} {shop} – Alle Rechte vorbehalten",
+            "cookieSettings": "Cookie-Einstellungen"
         },
         "newsletter": {
             "headline": "Newsletter abonnieren",

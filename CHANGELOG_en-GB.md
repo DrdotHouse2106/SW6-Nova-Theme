@@ -1,3 +1,6 @@
+# 1.11.1
+- New: "Cookie settings" link in the footer to change or withdraw consent (can be switched off)
+
 # 1.11.0
 - Legal text placeholders moved to the separate plugin Nova Legal Texts
 

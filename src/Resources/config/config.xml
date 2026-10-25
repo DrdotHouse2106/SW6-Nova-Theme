@@ -179,6 +179,15 @@
             <helpText lang="de-DE">„Alle Preise inkl. gesetzl. MwSt. zzgl. Versandkosten …“ – für Infoseiten ohne Verkauf.</helpText>
             <defaultValue>false</defaultValue>
         </input-field>
+
+        <input-field type="bool">
+            <name>footerCookieLink</name>
+            <label>Show "Cookie settings" link in the footer</label>
+            <label lang="de-DE">Link „Cookie-Einstellungen“ im Footer zeigen</label>
+            <helpText>Lets visitors change or withdraw their consent at any time (required). Turn off only if the link already exists elsewhere, e.g. as a footer category.</helpText>
+            <helpText lang="de-DE">Damit Besucher ihre Einwilligung jederzeit ändern oder widerrufen können (Pflicht). Nur ausschalten, wenn der Link schon anders vorhanden ist, z. B. als Footer-Kategorie.</helpText>
+            <defaultValue>true</defaultValue>
+        </input-field>
     </card>
 
     <card>

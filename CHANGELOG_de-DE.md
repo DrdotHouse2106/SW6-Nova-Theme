@@ -1,3 +1,6 @@
+# 1.11.1
+- Neu: Link **„Cookie-Einstellungen“** im Footer (unter dem Preis-Hinweis) – öffnet Shopwares Cookie-Einstellungen, damit Besucher ihre Einwilligung jederzeit ändern oder widerrufen können. Shopware selbst zeigt nach dem Schließen des Banners keinen solchen Link. Abschaltbar unter *Footer → Link „Cookie-Einstellungen“ im Footer zeigen*
+
 # 1.11.0
 - Die Platzhalter für Rechtstexte (1.10.0/1.10.1) sind in das eigene Plugin **Nova Rechtstexte** umgezogen und hier entfernt. Bitte Nova Rechtstexte installieren, falls Platzhalter genutzt werden
 
