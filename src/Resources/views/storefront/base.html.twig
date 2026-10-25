@@ -55,3 +55,17 @@
 
     {{ parent() }}
 {% endblock %}
+
+{#
+ # PayPal (SwagPayPal) prüft auf jeder Seite, welche PayPal-Zahlarten verfügbar sind, und lädt dafür sein
+ # Skript von paypal.com – auch ohne Einwilligung. Gebraucht wird das nur im Bestellvorgang und im Kundenkonto
+ # (Zahlungsart wählen). Abschaltbar unter „Datenschutz“ → „PayPal-Prüfung nur im Checkout“.
+ #}
+{% block paypal_funding_eligibility_script %}
+    {% set novaRoute = activeRoute|default('') %}
+    {% if config('NovaTheme.config.paypalCheckoutOnly') is same as(false)
+        or novaRoute starts with 'frontend.checkout.'
+        or novaRoute starts with 'frontend.account.' %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

@@ -2,7 +2,7 @@
     "name": "nova/nova-theme",
     "description": "Modernes, modulares und performantes Theme für Shopware 6",
     "type": "shopware-platform-plugin",
-    "version": "1.12.0",
+    "version": "1.12.1",
     "license": "MIT",
     "authors": [
         {

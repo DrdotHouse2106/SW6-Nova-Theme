@@ -137,6 +137,20 @@
     </card>
 
     <card>
+        <title>Privacy</title>
+        <title lang="de-DE">Datenschutz</title>
+
+        <input-field type="bool">
+            <name>paypalCheckoutOnly</name>
+            <label>PayPal availability check only in checkout</label>
+            <label lang="de-DE">PayPal-Prüfung nur im Checkout</label>
+            <helpText>The PayPal plugin loads its script from paypal.com on every page (even without consent) to check which PayPal payment methods are available. With this option it only runs in the checkout and the customer account.</helpText>
+            <helpText lang="de-DE">Das PayPal-Plugin lädt auf jeder Seite sein Skript von paypal.com (auch ohne Einwilligung), um zu prüfen, welche PayPal-Zahlarten verfügbar sind. Mit dieser Einstellung nur noch im Bestellvorgang und im Kundenkonto.</helpText>
+            <defaultValue>true</defaultValue>
+        </input-field>
+    </card>
+
+    <card>
         <title>Reviews</title>
         <title lang="de-DE">Bewertungen</title>
 

@@ -220,6 +220,13 @@ Die Platzhalter für Rechtstexte (`[[Shopname]]`, `[[E-Mail]]` …) stecken seit
 
 ## Häufige Probleme und Lösungen
 
+### Website-Check meldet „PayPal lädt ohne Einwilligung“, obwohl alle PayPal-Banner aus sind
+
+**Ursache:** Das PayPal-Plugin prüft auf jeder Seite, welche PayPal-Zahlarten verfügbar sind („Funding Eligibility“) und lädt dafür das Skript von paypal.com – dafür gibt es in den PayPal-Einstellungen keinen Schalter
+
+**Lösung:** Ab Nova Theme 1.12.1 läuft die Prüfung nur noch im Checkout und Kundenkonto (Theme-Konfiguration *Datenschutz*, standardmäßig an)
+
+
 ### Website-Check meldet „Cookie-Einstellungen öffnet keinen Dialog“ bzw. kein Widerruf möglich
 
 **Ursache:** Shopware zeigt nach dem Schließen des Cookie-Banners keinen dauerhaften Link zu den Cookie-Einstellungen

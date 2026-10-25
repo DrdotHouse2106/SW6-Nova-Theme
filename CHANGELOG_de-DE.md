@@ -1,3 +1,6 @@
+# 1.12.1
+- Datenschutz: Die PayPal-Verfügbarkeitsprüfung (SwagPayPal „Funding Eligibility“) lädt das PayPal-Skript nur noch im Bestellvorgang und im Kundenkonto statt auf jeder Seite – vorher ging schon beim Öffnen der Startseite eine Anfrage an paypal.com, auch ohne Einwilligung. Abschaltbar unter *Datenschutz → PayPal-Prüfung nur im Checkout*
+
 # 1.12.0
 - Neu: **Hinweis zur Prüfung der Bewertungen** über der Bewertungsliste (§ 5b Abs. 3 UWG). Standardtext: „Bewertungen werden vor der Veröffentlichung von uns freigegeben. Ob die Bewertenden das Produkt gekauft haben, prüfen wir nicht.“ Eigener Text bzw. „-“ (kein Hinweis) je Verkaufskanal unter *Bewertungen*
 

@@ -1,3 +1,6 @@
+# 1.12.1
+- Privacy: PayPal funding eligibility script only on checkout/account pages (was loaded from paypal.com on every page)
+
 # 1.12.0
 - New: note above product reviews on how they are checked (§ 5b para. 3 UWG), configurable per sales channel
 
