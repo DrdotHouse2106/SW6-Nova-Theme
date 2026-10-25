@@ -246,8 +246,8 @@
             },
             "nova-logo-height": {
                 "label": {
-                    "de-DE": "Maximale Logohöhe (Desktop)",
-                    "en-GB": "Max logo height (desktop)"
+                    "de-DE": "Logohöhe (Desktop)",
+                    "en-GB": "Logo height (desktop)"
                 },
                 "type": "text",
                 "value": "80px",
@@ -255,8 +255,23 @@
                 "block": "novaHeader",
                 "order": 300,
                 "helpText": {
-                    "de-DE": "z. B. 60px für ein flaches Logo, 160px für ein rundes Siegel-Logo",
-                    "en-GB": "e.g. 60px for a wide logo, 160px for a round badge logo"
+                    "de-DE": "Das Logo wird in dieser Höhe gezeigt (Breite ergibt sich daraus), z. B. 56px für eine Wortmarke, 160px für ein rundes Siegel-Logo",
+                    "en-GB": "The logo is shown at this height (width follows), e.g. 56px for a wordmark, 160px for a round badge"
+                }
+            },
+            "nova-logo-height-mobile": {
+                "label": {
+                    "de-DE": "Logohöhe (Handy & Tablet)",
+                    "en-GB": "Logo height (phone & tablet)"
+                },
+                "type": "text",
+                "value": "56px",
+                "editable": true,
+                "block": "novaHeader",
+                "order": 301,
+                "helpText": {
+                    "de-DE": "Auf kleinen Bildschirmen steht das Logo in einer eigenen Zeile über Menü und Symbolen. Breite Wortmarken vertragen hier mehr Höhe (z. B. 64px); das Logo wird nie breiter als der Bildschirm",
+                    "en-GB": "On small screens the logo has its own row. Wide wordmarks can be taller here (e.g. 64px); never wider than the screen"
                 }
             },
             "nova-header-autohide": {

@@ -78,7 +78,7 @@ Alternativ in der Administration unter **Inhalte → Themes** das „Nova Theme�
 
 - **Theme-Farben / Typografie** – Primär-, Sekundär-, Kauf-Button-Farbe, Schriftart (Standard: Inter, wird von Shopware selbst ausgeliefert – keine externen Font-Server). Für Überschriften mit Serifen bei *Schriftart Überschriften* eintragen: `'Nova Serif', Georgia, serif`
 - **Nova: Layout** – maximale Inhaltsbreite, Eckenradien, Flächenfarbe
-- **Nova: Header & Topbar** – Topbar-Farben, maximale Logohöhe, Header beim Runterscrollen ausblenden
+- **Nova: Header & Topbar** – Topbar-Farben, Logohöhe (Desktop und Handy getrennt), Header beim Runterscrollen ausblenden
 - **Nova: Produktlisting** – Bild-Modus, Bildformat (1:1, 3:4, 2:3, 4:3), 2 Produkte pro Zeile auf Smartphones
 - **Nova: Footer** – Hintergrundfarbe; bei dunkler Farbe werden Schrift, Links und Linien automatisch hell. Optional „Footer: Logo (helle Variante)“ für die Spalte mit Logo und Kurztext
 - **Theme-Farben** – zusätzlich **Akzentfarbe** für den Haupt-Button im Startbild (`nova-hero`)
@@ -218,6 +218,12 @@ npm run build
 
 Hier sammeln wir Hürden, die bei Installation und Betrieb tatsächlich aufgetreten sind. **Neue Probleme bitte ergänzen** (oder als Issue melden), damit andere nicht lange suchen müssen.
 
+### SVG-Logo bleibt klein, egal welche Logohöhe eingestellt ist
+
+**Ursache:** Bis 1.9.5 war die Logohöhe nur eine Obergrenze. SVG-Dateien ohne eigene Breite fielen auf Shopwares Standardbreite von etwa 200px zurück
+
+**Lösung:** Ab 1.9.6 wird die eingestellte Höhe genau verwendet. Für Handy und Tablet gibt es das eigene Feld „Logohöhe (Handy & Tablet)“ – breite Wortmarken vertragen dort 64px
+
 ### Weiße Schrift auf gelben Buttons (Kaufen-Button, Startbild)
 
 **Ursache:** Bis 1.9.4 entschied Nova über die HSL-Helligkeit, ob Schrift hell oder dunkel wird – kräftiges Gelb galt dabei als „dunkel“. Der Kaufen-Button hat außerdem ein eigenes Shopware-Feld für die Schriftfarbe, das Nova nie berechnet
@@ -276,7 +282,7 @@ Hier sammeln wir Hürden, die bei Installation und Betrieb tatsächlich aufgetre
 
 **Ursache:** Logohöhe ist begrenzt
 
-**Lösung:** Theme-Konfiguration → „Nova: Header & Topbar“ → maximale Logohöhe
+**Lösung:** Theme-Konfiguration → „Nova: Header & Topbar“ → „Logohöhe (Desktop)“ bzw. „Logohöhe (Handy & Tablet)“
 
 ### Lieferzeiten-Hinweise ohne Gestaltung
 

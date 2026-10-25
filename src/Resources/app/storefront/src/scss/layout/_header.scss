@@ -7,9 +7,18 @@
     padding-block: 0.75rem;
 }
 
+// Logo in der eingestellten Höhe zeigen statt nur zu begrenzen: SVG-Wortmarken ohne eigene Größe
+// fielen sonst auf Shopwares Standardbreite (ca. 200px) zurück und wirkten zu klein
+.header-logo-picture {
+    max-width: 100%;
+}
+
 .header-logo-main-img {
-    max-height: $nova-logo-height;
+    height: $nova-logo-height;
+    max-height: none;
     width: auto;
+    max-width: 100%;
+    object-fit: contain;
 }
 
 .header-search-input {
@@ -33,7 +42,7 @@
 
 @include media-breakpoint-down(lg) {
     .header-logo-main-img {
-        max-height: min(#{$nova-logo-height}, 64px);
+        height: $nova-logo-height-mobile;
     }
 }
 
@@ -78,7 +87,7 @@
     }
 
     .header-logo-main-img {
-        max-height: 40px;
+        height: 40px;
     }
 
     /* Menü-Button auch auf großen Bildschirmen zeigen, da die Navigation weggescrollt ist */

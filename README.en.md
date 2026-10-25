@@ -52,6 +52,7 @@ Shopware 6.6.x and 6.7.x · all current browsers.
 Known pitfalls from real installations. **Please add new ones** (or open an issue).
 
 - **White text on yellow buttons:** fixed in 1.9.5 for accent buttons; set the buy button text colour yourself in the theme.
+- **SVG logo stays small:** from 1.9.6 the configured logo height is used exactly; separate field for phone & tablet.
 - **No visible change:** run `bin/console theme:compile` and `cache:clear`.
 - **Only one shop uses the theme:** themes are assigned per sales channel – duplicate the theme per shop.
 - **Top bar missing:** enable it in the plugin configuration per sales channel; hidden below 992 px.

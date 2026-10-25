@@ -1,3 +1,7 @@
+# 1.9.6
+- Logo shown at the configured height (SVG wordmarks were stuck at about 200px width)
+- New: logo height for phone & tablet
+
 # 1.9.5
 - Text colour on accent, buttons and footer now based on perceived brightness (dark text on yellow)
 - `nova-band`: buttons visible on the dark band
