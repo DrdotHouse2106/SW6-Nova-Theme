@@ -1,3 +1,6 @@
+# 1.12.3
+- New: "Hide header icons" can also hide the main menu (bar and menu icon)
+
 # 1.12.2
 - New: CSS class nova-hero-light – light hero without dark overlay, dark centred text
 

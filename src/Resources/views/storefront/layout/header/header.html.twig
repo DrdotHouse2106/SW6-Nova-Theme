@@ -53,3 +53,16 @@
         {% endif %}
     {% endblock %}
 {% endblock %}
+
+{# Hauptmenü ausblenden (Shops mit nur einer Seite): Menü-Symbol am Handy und Tablet #}
+{% block layout_header_navigation_toggle %}
+    {% if 'menu' not in (config('NovaTheme.config.headerHideIcons') ?? []) %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
+{% block layout_header_navigation_toggle_tablet %}
+    {% if 'menu' not in (config('NovaTheme.config.headerHideIcons') ?? []) %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

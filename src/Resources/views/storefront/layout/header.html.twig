@@ -1,0 +1,8 @@
+{% sw_extends '@Storefront/storefront/layout/header.html.twig' %}
+
+{# Hauptmenü ausblenden (Plugin-Konfiguration „Header-Symbole ausblenden“ → „Hauptmenü“): Menüleiste am Desktop #}
+{% block base_navigation %}
+    {% if 'menu' not in (config('NovaTheme.config.headerHideIcons') ?? []) %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

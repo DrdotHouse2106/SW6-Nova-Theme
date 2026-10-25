@@ -1,3 +1,6 @@
+# 1.12.3
+- Neu: Bei „Header-Symbole ausblenden“ zusätzlich **„Hauptmenü“** – blendet Menüleiste und Menü-Symbol aus, z. B. für Shops mit nur einer Seite
+
 # 1.12.2
 - Neu: CSS-Klasse **nova-hero-light** (zusätzlich zu nova-hero) – helles Startbild ohne dunklen Verlauf, dunkle Schrift mittig, z. B. für Kraftpapier- oder helle Hintergründe
 

@@ -69,12 +69,13 @@
             <label>Hide header icons</label>
             <label lang="de-DE">Header-Symbole ausblenden</label>
             <helpText>For information sites without a shop, e.g. hide cart, wishlist and account.</helpText>
-            <helpText lang="de-DE">Für Infoseiten ohne Shop, z. B. Warenkorb, Merkzettel und Konto ausblenden.</helpText>
+            <helpText lang="de-DE">Für Infoseiten ohne Shop, z. B. Warenkorb, Merkzettel und Konto ausblenden. „Hauptmenü“ für Shops mit nur einer Seite (blendet Menüleiste und Menü-Symbol aus).</helpText>
             <options>
                 <option><id>search</id><name>Search</name><name lang="de-DE">Suche</name></option>
                 <option><id>wishlist</id><name>Wishlist</name><name lang="de-DE">Merkzettel</name></option>
                 <option><id>account</id><name>Account</name><name lang="de-DE">Kundenkonto</name></option>
                 <option><id>cart</id><name>Cart</name><name lang="de-DE">Warenkorb</name></option>
+                <option><id>menu</id><name>Main menu (bar and menu icon)</name><name lang="de-DE">Hauptmenü (Leiste und Menü-Symbol)</name></option>
             </options>
         </input-field>
 
