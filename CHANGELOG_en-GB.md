@@ -1,3 +1,6 @@
+# 1.10.1
+- More placeholders: [[Firma]], [[Inhaber]], [[USt-IdNr]], [[Lieferzeit]], [[Versandkosten]] (HTML); [[Zusatz1-3]] multi-line HTML
+
 # 1.10.0
 - New: placeholders in shopping experience texts per sales channel ([[Shopname]], [[E-Mail]], [[Telefon]], [[Domain]], …) – one legal text layout for all shops
 

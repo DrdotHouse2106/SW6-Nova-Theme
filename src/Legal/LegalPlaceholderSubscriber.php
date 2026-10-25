@@ -110,6 +110,14 @@ class LegalPlaceholderSubscriber implements EventSubscriberInterface
             'domain' => $domain,
             'shop-url' => rtrim($baseUrl, '/'),
             'jahr' => date('Y'),
+            'firma' => $nova('legalCompany') ?: $get('core.basicInformation.shopName'),
+            'inhaber' => $nova('legalOwner'),
+            'ust-idnr' => $nova('legalVatId'),
+            'lieferzeit' => $nova('legalDeliveryTime'),
+        ];
+        // Mehrzeilige Felder dürfen HTML enthalten (nur von Admins pflegbar) und werden nicht maskiert
+        $html = [
+            'versandkosten' => $nova('legalShipping'),
             'zusatz1' => $nova('legalExtra1'),
             'zusatz2' => $nova('legalExtra2'),
             'zusatz3' => $nova('legalExtra3'),
@@ -119,6 +127,10 @@ class LegalPlaceholderSubscriber implements EventSubscriberInterface
         foreach ($values as $k => $v) {
             $map[$k] = htmlspecialchars($v, \ENT_QUOTES | \ENT_HTML5, 'UTF-8');
         }
+        foreach ($html as $k => $v) {
+            $map[$k] = $v;
+        }
+        $map['ustidnr'] = $map['ust-id'] = $map['ust-idnr'];
         // Englische/alternative Schreibweisen
         $map['email'] = $map['mail'] = $map['e-mail'];
         $map['phone'] = $map['tel'] = $map['telefon'];
