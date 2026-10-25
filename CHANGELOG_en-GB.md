@@ -1,3 +1,6 @@
+# 1.10.0
+- New: placeholders in shopping experience texts per sales channel ([[Shopname]], [[E-Mail]], [[Telefon]], [[Domain]], …) – one legal text layout for all shops
+
 # 1.9.7
 - Footer: menu links without underline (underline on hover)
 

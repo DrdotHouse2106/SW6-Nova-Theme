@@ -47,6 +47,10 @@ Standalone JS build: `cd src/Resources/app/storefront && npm install && npm run 
 
 Shopware 6.6.x and 6.7.x · all current browsers.
 
+## Legal texts for several shops
+
+Use placeholders such as `[[Shopname]]`, `[[E-Mail]]`, `[[Telefon]]`, `[[Domain]]`, `[[Shop-URL]]`, `[[Jahr]]`, `[[Zusatz1]]`–`[[Zusatz3]]` in text elements; they are replaced per sales channel (plugin configuration → legal texts). One layout per legal text is enough for all shops.
+
 ## Troubleshooting
 
 Known pitfalls from real installations. **Please add new ones** (or open an issue).

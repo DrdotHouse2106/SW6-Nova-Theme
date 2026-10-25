@@ -267,4 +267,67 @@
             <defaultValue>true</defaultValue>
         </input-field>
     </card>
+
+    <card>
+        <title>Legal texts: placeholders per sales channel</title>
+        <title lang="de-DE">Rechtstexte: Platzhalter je Verkaufskanal</title>
+
+        <input-field type="bool">
+            <name>legalPlaceholdersDisabled</name>
+            <label>Do not replace placeholders</label>
+            <label lang="de-DE">Platzhalter NICHT ersetzen</label>
+            <helpText>Text elements in shopping experiences may contain placeholders such as [[Shopname]], [[E-Mail]], [[Telefon]], [[Telefax]], [[WhatsApp]], [[Domain]], [[Shop-URL]], [[Jahr]], [[Zusatz1]]–[[Zusatz3]]. They are replaced per sales channel – so one legal text layout can be used in all shops. Shop name and e-mail come from Settings → Basic information.</helpText>
+            <helpText lang="de-DE">Texte in Erlebniswelten dürfen Platzhalter enthalten: [[Shopname]], [[E-Mail]], [[Telefon]], [[Telefax]], [[WhatsApp]], [[Domain]], [[Shop-URL]], [[Jahr]], [[Zusatz1]] bis [[Zusatz3]]. Sie werden je Verkaufskanal ersetzt – so reicht EIN Layout je Rechtstext für alle Shops. Shopname und E-Mail kommen aus Einstellungen → Grundinformationen (E-Mail hier überschreibbar). Gilt in jedem Verkaufskanal, auch mit anderem Theme.</helpText>
+            <defaultValue>false</defaultValue>
+        </input-field>
+
+        <input-field type="text">
+            <name>legalEmail</name>
+            <label>[[E-Mail]] (optional)</label>
+            <label lang="de-DE">[[E-Mail]] (optional)</label>
+            <helpText>Empty = e-mail from Basic information.</helpText>
+            <helpText lang="de-DE">Leer = E-Mail-Adresse aus den Grundinformationen des Verkaufskanals.</helpText>
+        </input-field>
+
+        <input-field type="text">
+            <name>legalPhone</name>
+            <label>[[Telefon]]</label>
+            <label lang="de-DE">[[Telefon]]</label>
+            <placeholder>+49 6403 72201</placeholder>
+            <helpText>Empty = phone number of the top bar.</helpText>
+            <helpText lang="de-DE">Leer = Telefonnummer aus der Topbar.</helpText>
+        </input-field>
+
+        <input-field type="text">
+            <name>legalFax</name>
+            <label>[[Telefax]]</label>
+            <label lang="de-DE">[[Telefax]]</label>
+        </input-field>
+
+        <input-field type="text">
+            <name>legalWhatsapp</name>
+            <label>[[WhatsApp]]</label>
+            <label lang="de-DE">[[WhatsApp]]</label>
+        </input-field>
+
+        <input-field type="text">
+            <name>legalExtra1</name>
+            <label>[[Zusatz1]] (free)</label>
+            <label lang="de-DE">[[Zusatz1]] (frei)</label>
+            <helpText lang="de-DE">Freier Wert je Shop, z. B. ein Satz, der nur in einem Shop gilt. Leer = Platzhalter verschwindet.</helpText>
+            <helpText>Free value per shop. Empty = placeholder disappears.</helpText>
+        </input-field>
+
+        <input-field type="text">
+            <name>legalExtra2</name>
+            <label>[[Zusatz2]] (free)</label>
+            <label lang="de-DE">[[Zusatz2]] (frei)</label>
+        </input-field>
+
+        <input-field type="text">
+            <name>legalExtra3</name>
+            <label>[[Zusatz3]] (free)</label>
+            <label lang="de-DE">[[Zusatz3]] (frei)</label>
+        </input-field>
+    </card>
 </config>

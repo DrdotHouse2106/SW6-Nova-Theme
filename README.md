@@ -214,6 +214,26 @@ npm run build
 - Shopware 6.6.x und 6.7.x (getestet gegen die Templates von 6.7.15)
 - Alle aktuellen Browser (Container Queries ab Chrome 105, Safari 16, Firefox 110)
 
+## Rechtstexte für mehrere Shops: Platzhalter
+
+Impressum, Datenschutzerklärung, AGB usw. müssen nur **einmal** gepflegt werden: ein gemeinsames Layout je Rechtstext, in allen Shops zugewiesen. Shop-spezifische Angaben stehen als Platzhalter im Text und werden beim Ausliefern je Verkaufskanal ersetzt.
+
+| Platzhalter | Wert | Quelle |
+|---|---|---|
+| `[[Shopname]]` | Name des Shops | Einstellungen → Grundinformationen |
+| `[[E-Mail]]` | E-Mail-Adresse | Grundinformationen, überschreibbar unter *Rechtstexte* |
+| `[[Telefon]]` | Telefonnummer | *Rechtstexte*, sonst Topbar-Telefon |
+| `[[Telefax]]`, `[[WhatsApp]]` | Fax, WhatsApp | *Rechtstexte* |
+| `[[Domain]]` | z. B. kfz-isolierung.de | aufgerufene Domain (ohne www) |
+| `[[Shop-URL]]` | z. B. https://kfz-isolierung.de | Domain des Verkaufskanals |
+| `[[Jahr]]` | aktuelles Jahr | – |
+| `[[Zusatz1]]`–`[[Zusatz3]]` | freier Text je Shop (leer = verschwindet) | *Rechtstexte* |
+
+- Groß-/Kleinschreibung egal, auch in Links nutzbar: `mailto:[[E-Mail]]`.
+- Unbekannte Platzhalter (Tippfehler) bleiben sichtbar stehen.
+- Wirkt in allen Text-Elementen von Erlebniswelten, in **jedem** Verkaufskanal – auch mit anderem Theme – und in Modalen (AGB/Datenschutz im Checkout).
+- Nach Änderung der Werte den Cache leeren.
+
 ## Häufige Probleme und Lösungen
 
 Hier sammeln wir Hürden, die bei Installation und Betrieb tatsächlich aufgetreten sind. **Neue Probleme bitte ergänzen** (oder als Issue melden), damit andere nicht lange suchen müssen.

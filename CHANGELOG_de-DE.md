@@ -1,3 +1,6 @@
+# 1.10.0
+- Neu: **Platzhalter in Erlebniswelt-Texten je Verkaufskanal** – z. B. `[[Shopname]]`, `[[E-Mail]]`, `[[Telefon]]`, `[[Domain]]`, `[[Shop-URL]]`, `[[Jahr]]`, `[[Zusatz1]]`–`[[Zusatz3]]`. Damit genügt EIN Layout je Rechtstext (Impressum, Datenschutz, AGB …) für alle Shops. Wirkt serverseitig in jedem Verkaufskanal (auch mit anderem Theme) und in Modalen wie den AGB im Checkout. Werte unter *Nova Theme → Konfigurieren → Rechtstexte* je Verkaufskanal
+
 # 1.9.7
 - Footer: Menülinks (Rechtstexte, Infos, Spaltenüberschriften) ohne Unterstreichung, erst beim Darüberfahren – Links im Fließtext (Telefon, Kontaktformular, Versandkosten) bleiben unterstrichen
 
