@@ -1,3 +1,6 @@
+# 1.9.7
+- Footer: Menülinks (Rechtstexte, Infos, Spaltenüberschriften) ohne Unterstreichung, erst beim Darüberfahren – Links im Fließtext (Telefon, Kontaktformular, Versandkosten) bleiben unterstrichen
+
 # 1.9.6
 - Logo wird in der eingestellten Höhe gezeigt statt nur begrenzt – SVG-Wortmarken blieben vorher bei ca. 200px Breite hängen und wirkten zu klein. **Hinweis:** Logos anderer Shops können dadurch etwas größer werden; ggf. „Logohöhe (Desktop)“ anpassen
 - Neu: **Logohöhe (Handy & Tablet)** – eigene Höhe für kleine Bildschirme (Standard 56px), das Logo wird nie breiter als der Bildschirm

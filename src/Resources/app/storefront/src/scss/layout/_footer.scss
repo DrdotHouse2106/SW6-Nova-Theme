@@ -78,11 +78,18 @@
 .footer-service-menu-item a {
     color: inherit;
     opacity: 0.85;
+    // Menülisten ohne Unterstreichung (ruhiger), erst beim Darüberfahren – Links im Fließtext bleiben unterstrichen
+    text-decoration: none;
 
     @include nova-hover {
         opacity: 1;
         color: var(--nova-primary);
+        text-decoration: underline;
     }
+}
+
+.footer-column-headline a {
+    text-decoration: none;
 }
 
 .footer-logos {

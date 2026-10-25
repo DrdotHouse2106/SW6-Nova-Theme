@@ -1,3 +1,6 @@
+# 1.9.7
+- Footer: menu links without underline (underline on hover)
+
 # 1.9.6
 - Logo shown at the configured height (SVG wordmarks were stuck at about 200px width)
 - New: logo height for phone & tablet
