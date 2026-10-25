@@ -218,6 +218,12 @@ npm run build
 
 Hier sammeln wir Hürden, die bei Installation und Betrieb tatsächlich aufgetreten sind. **Neue Probleme bitte ergänzen** (oder als Issue melden), damit andere nicht lange suchen müssen.
 
+### Weiße Schrift auf gelben Buttons (Kaufen-Button, Startbild)
+
+**Ursache:** Bis 1.9.4 entschied Nova über die HSL-Helligkeit, ob Schrift hell oder dunkel wird – kräftiges Gelb galt dabei als „dunkel“. Der Kaufen-Button hat außerdem ein eigenes Shopware-Feld für die Schriftfarbe, das Nova nie berechnet
+
+**Lösung:** Ab 1.9.5 zählt die wahrgenommene Helligkeit (Startbild-Button, Bänder, Footer). Für den Kaufen-Button im Theme „Kaufen-Button Schriftfarbe“ selbst dunkel setzen (z. B. #2B2B2B)
+
 ### Logo im dunklen Footer ist nur eine weiße Fläche
 
 **Ursache:** Auf dunklem Footer färbt Nova das normale Logo komplett weiß ein. Bei Logos mit Bildzeichen (z. B. einer Kugel) bleibt davon nur eine weiße Form

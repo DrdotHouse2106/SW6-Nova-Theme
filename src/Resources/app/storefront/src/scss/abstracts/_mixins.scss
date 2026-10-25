@@ -1,6 +1,11 @@
+/* Wahrgenommene Helligkeit (0–255) statt HSL-Helligkeit: Gelb (#F5C400) zählt so als hell, Grün/Blau als dunkel */
+@function nova-is-dark($color) {
+    @return (red($color) * 299 + green($color) * 587 + blue($color) * 114) * 0.001 < 150;
+}
+
 /* Lesbare Schriftfarbe auf einer Hintergrundfarbe: hell auf dunkel, dunkel auf hell */
 @function nova-on-color($bg, $dark: #1f2421, $light: #fff) {
-    @if lightness($bg) < 58% {
+    @if nova-is-dark($bg) {
         @return $light;
     }
     @return $dark;

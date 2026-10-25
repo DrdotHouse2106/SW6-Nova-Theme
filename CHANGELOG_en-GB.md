@@ -1,3 +1,8 @@
+# 1.9.5
+- Text colour on accent, buttons and footer now based on perceived brightness (dark text on yellow)
+- `nova-band`: buttons visible on the dark band
+- `nova-hero`: long words hyphenate instead of breaking mid-word
+
 # 1.9.4
 - `nova-fitment` also works outside shopping-experience blocks (e.g. Nova vehicle selector description)
 

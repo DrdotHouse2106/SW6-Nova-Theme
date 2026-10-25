@@ -1,3 +1,8 @@
+# 1.9.5
+- Schriftfarbe auf Akzentfarbe, Buttons und Footer richtet sich nach der wahrgenommenen Helligkeit: auf Gelb (z. B. #F5C400) jetzt dunkle statt weißer Schrift
+- `nova-band`: Buttons gut sichtbar (Primär in der Akzentfarbe, Sekundär mit hellem Rahmen) – vorher dunkel auf dunkel
+- `nova-hero`: Überschrift trennt lange Wörter mit Trennstrich statt mitten im Wort, am Handy etwas kleiner
+
 # 1.9.4
 - `nova-fitment` wirkt auch außerhalb von Erlebniswelt-Blöcken, z. B. in der Fahrzeug-Beschreibung von Nova Fahrzeugauswahl (dort als CSS-Klasse eintragen)
 

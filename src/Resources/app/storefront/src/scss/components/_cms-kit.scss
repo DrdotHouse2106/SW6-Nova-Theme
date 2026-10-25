@@ -73,8 +73,11 @@
 
     h1, h2, .h1, .h2 {
         color: #fff;
-        font-size: nova-fluid(2rem, 3.75rem);
+        font-size: nova-fluid(1.75rem, 3.75rem);
         line-height: 1.08;
+        // Lange deutsche Wörter („Restaurierungsmaterial“) mit Trennstrich statt mitten im Wort umbrechen
+        hyphens: auto;
+        overflow-wrap: break-word;
         margin-bottom: 0.5em;
     }
 
@@ -695,6 +698,27 @@ div.nova-fitment {
 
     p {
         color: rgba(255, 255, 255, 0.88);
+    }
+
+    // Buttons im Band: Primär in der Akzentfarbe, Sekundär als heller Rahmen – sonst dunkel auf dunkel
+    .btn-primary {
+        background: var(--nova-accent);
+        border-color: var(--nova-accent);
+        color: var(--nova-on-accent);
+    }
+
+    .btn-secondary,
+    .btn-outline-primary,
+    .btn-outline-secondary {
+        background: transparent;
+        border: 2px solid #fff;
+        color: #fff;
+
+        &:hover,
+        &:focus-visible {
+            background: #fff;
+            color: var(--nova-primary);
+        }
     }
 }
 

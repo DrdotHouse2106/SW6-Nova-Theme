@@ -101,7 +101,7 @@
 }
 
 /* Dunkler Footer: Schrift und Linien automatisch hell (Footer-Hintergrund in der Theme-Konfiguration) */
-@if lightness($nova-footer-bg) < 58% {
+@if nova-is-dark($nova-footer-bg) {
     .footer-main {
         color: rgba(255, 255, 255, 0.82);
 
