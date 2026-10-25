@@ -137,6 +137,19 @@
     </card>
 
     <card>
+        <title>Reviews</title>
+        <title lang="de-DE">Bewertungen</title>
+
+        <input-field type="textarea">
+            <name>reviewNotice</name>
+            <label>Note on how reviews are checked</label>
+            <label lang="de-DE">Hinweis zur Prüfung der Bewertungen</label>
+            <helpText>Shown above the reviews (§ 5b para. 3 UWG: whether and how reviews are checked for authenticity). Empty = default text, "-" = no note.</helpText>
+            <helpText lang="de-DE">Erscheint über den Bewertungen (§ 5b Abs. 3 UWG: ob und wie Bewertungen auf Echtheit geprüft werden). Leer = Standardtext, „-“ = kein Hinweis.</helpText>
+        </input-field>
+    </card>
+
+    <card>
         <title>Footer</title>
         <title lang="de-DE">Footer</title>
 

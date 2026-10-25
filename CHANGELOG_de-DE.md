@@ -1,3 +1,6 @@
+# 1.12.0
+- Neu: **Hinweis zur Prüfung der Bewertungen** über der Bewertungsliste (§ 5b Abs. 3 UWG). Standardtext: „Bewertungen werden vor der Veröffentlichung von uns freigegeben. Ob die Bewertenden das Produkt gekauft haben, prüfen wir nicht.“ Eigener Text bzw. „-“ (kein Hinweis) je Verkaufskanal unter *Bewertungen*
+
 # 1.11.1
 - Neu: Link **„Cookie-Einstellungen“** im Footer (unter dem Preis-Hinweis) – öffnet Shopwares Cookie-Einstellungen, damit Besucher ihre Einwilligung jederzeit ändern oder widerrufen können. Shopware selbst zeigt nach dem Schließen des Banners keinen solchen Link. Abschaltbar unter *Footer → Link „Cookie-Einstellungen“ im Footer zeigen*
 

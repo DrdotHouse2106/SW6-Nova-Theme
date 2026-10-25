@@ -1,3 +1,6 @@
+# 1.12.0
+- New: note above product reviews on how they are checked (§ 5b para. 3 UWG), configurable per sales channel
+
 # 1.11.1
 - New: "Cookie settings" link in the footer to change or withdraw consent (can be switched off)
 

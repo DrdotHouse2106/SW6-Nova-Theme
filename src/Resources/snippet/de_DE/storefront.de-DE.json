@@ -31,6 +31,9 @@
         "cookie": {
             "recentlyViewed": "Zuletzt angesehene Produkte"
         },
+        "review": {
+            "notice": "Bewertungen werden vor der Veröffentlichung von uns freigegeben. Ob die Bewertenden das Produkt gekauft haben, prüfen wir nicht."
+        },
         "footer": {
             "copyright": "© {year} {shop} – Alle Rechte vorbehalten",
             "cookieSettings": "Cookie-Einstellungen"

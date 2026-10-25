@@ -21,3 +21,10 @@
     background-color: #fff;
     border-color: rgba(17, 24, 39, 0.45);
 }
+
+// Hinweis zur Prüfung der Bewertungen (über der Bewertungsliste)
+.nova-review-notice {
+    font-size: .875rem;
+    color: $text-muted;
+    margin-bottom: 1rem;
+}

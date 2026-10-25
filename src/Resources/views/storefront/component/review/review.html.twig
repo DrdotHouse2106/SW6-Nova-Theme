@@ -1,0 +1,14 @@
+{% sw_extends '@Storefront/storefront/component/review/review.html.twig' %}
+
+{# Hinweis, ob und wie Bewertungen geprüft werden (§ 5b Abs. 3 UWG) – Text unter Theme-Konfiguration „Bewertungen“ #}
+{% block component_review_list_container %}
+    {% set novaReviewNotice = config('NovaTheme.config.reviewNotice')|default('')|trim %}
+    {% if novaReviewNotice is empty %}
+        {% set novaReviewNotice = 'novaTheme.review.notice'|trans %}
+    {% endif %}
+    {% if novaReviewNotice != '-' %}
+        <p class="nova-review-notice">{{ novaReviewNotice|sw_sanitize }}</p>
+    {% endif %}
+
+    {{ parent() }}
+{% endblock %}
