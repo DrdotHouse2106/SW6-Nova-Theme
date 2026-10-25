@@ -1,3 +1,6 @@
+# 1.12.2
+- New: CSS class nova-hero-light – light hero without dark overlay, dark centred text
+
 # 1.12.1
 - Privacy: PayPal funding eligibility script only on checkout/account pages (was loaded from paypal.com on every page)
 

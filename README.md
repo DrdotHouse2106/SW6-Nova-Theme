@@ -162,6 +162,7 @@ In CMS-Sektionen/-Blöcken (Feld „CSS-Klasse“) nutzbar:
 | Klasse | Wirkung |
 |---|---|
 | `nova-hero` | **Startbild:** Block (z. B. „Text“) mit Hintergrundbild – reicht immer über die volle Fensterbreite, auch in einem Abschnitt mit Inhaltsbreite. Text hell auf dunklem Verlauf, Überschrift groß. Buttons aus dem Texteditor: „Primär“ = Akzentfarbe, „Sekundär“ = weißer Rahmen |
+| `nova-hero nova-hero-light` | **Helles Startbild:** wie `nova-hero`, aber ohne dunklen Verlauf, dunkle Schrift mittig – für helle Hintergründe wie Kraftpapier. Am besten Block „Text“ mit Hintergrundbild (Block-Einstellungen → Hintergrund-Medium, Modus „Cover“) |
 | `nova-hero` ohne Bild | Ohne Hintergrundbild wird das Startbild zur dunklen Fläche in der **Sekundärfarbe**. Auf „Zwei Spalten, zentriertes Bild & Text“ steht der Text links und das Bild rechts (z. B. eine Produkt-Collage) |
 | `nova-cards-cta` | Zusätzlich zu `nova-cards`: letzte Karte ohne Bild in der Akzentfarbe – als Aufruf, z. B. „Ihr Teil ist nicht dabei? → Anfrage“ |
 | `nova-cards-contain` | Zusätzlich zu `nova-cards`: Bilder ganz zeigen statt beschneiden – für freigestellte Produktfotos |

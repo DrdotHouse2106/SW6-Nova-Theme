@@ -1,3 +1,6 @@
+# 1.12.2
+- Neu: CSS-Klasse **nova-hero-light** (zusätzlich zu nova-hero) – helles Startbild ohne dunklen Verlauf, dunkle Schrift mittig, z. B. für Kraftpapier- oder helle Hintergründe
+
 # 1.12.1
 - Datenschutz: Die PayPal-Verfügbarkeitsprüfung (SwagPayPal „Funding Eligibility“) lädt das PayPal-Skript nur noch im Bestellvorgang und im Kundenkonto statt auf jeder Seite – vorher ging schon beim Öffnen der Startseite eine Anfrage an paypal.com, auch ohne Einwilligung. Abschaltbar unter *Datenschutz → PayPal-Prüfung nur im Checkout*
 
