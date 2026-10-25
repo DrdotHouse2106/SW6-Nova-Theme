@@ -24,10 +24,5 @@
             <tag name="kernel.event_subscriber"/>
         </service>
 
-        <service id="Nova\NovaTheme\Legal\LegalPlaceholderSubscriber">
-            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
-            <tag name="kernel.event_subscriber"/>
-        </service>
-
     </services>
 </container>

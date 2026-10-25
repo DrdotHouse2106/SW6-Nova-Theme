@@ -214,30 +214,9 @@ npm run build
 - Shopware 6.6.x und 6.7.x (getestet gegen die Templates von 6.7.15)
 - Alle aktuellen Browser (Container Queries ab Chrome 105, Safari 16, Firefox 110)
 
-## Rechtstexte für mehrere Shops: Platzhalter
+## Rechtstexte für mehrere Shops
 
-Impressum, Datenschutzerklärung, AGB usw. müssen nur **einmal** gepflegt werden: ein gemeinsames Layout je Rechtstext, in allen Shops zugewiesen. Shop-spezifische Angaben stehen als Platzhalter im Text und werden beim Ausliefern je Verkaufskanal ersetzt.
-
-| Platzhalter | Wert | Quelle |
-|---|---|---|
-| `[[Shopname]]` | Name des Shops | Einstellungen → Grundinformationen |
-| `[[E-Mail]]` | E-Mail-Adresse | Grundinformationen, überschreibbar unter *Rechtstexte* |
-| `[[Telefon]]` | Telefonnummer | *Rechtstexte*, sonst Topbar-Telefon |
-| `[[Telefax]]`, `[[WhatsApp]]` | Fax, WhatsApp | *Rechtstexte* |
-| `[[Firma]]` | Firmierung, z. B. „FranceTec Marcel Ulber“ | *Rechtstexte*, sonst Shopname |
-| `[[Inhaber]]`, `[[USt-IdNr]]` | Inhaber/Verantwortlicher, USt-IdNr. | *Rechtstexte* (einmal unter „Alle Verkaufskanäle“) |
-| `[[Lieferzeit]]` | z. B. „3 - 5 Tagen“ | *Rechtstexte* |
-| `[[Versandkosten]]` | Versandkosten-Abschnitt (HTML erlaubt) | *Rechtstexte* |
-| `[[Domain]]` | z. B. kfz-isolierung.de | aufgerufene Domain (ohne www) |
-| `[[Shop-URL]]` | z. B. https://kfz-isolierung.de | Domain des Verkaufskanals |
-| `[[Jahr]]` | aktuelles Jahr | – |
-| `[[Zusatz1]]`–`[[Zusatz3]]` | freier Text je Shop, HTML erlaubt (leer = verschwindet) | *Rechtstexte* |
-
-- Groß-/Kleinschreibung egal, auch in Links nutzbar: `mailto:[[E-Mail]]`.
-- Unbekannte Platzhalter (Tippfehler) bleiben sichtbar stehen.
-- Wirkt in allen Text-Elementen von Erlebniswelten, in **jedem** Verkaufskanal – auch mit anderem Theme – und in Modalen (AGB/Datenschutz im Checkout).
-- Werte unter „Alle Verkaufskanäle“ gelten für jeden Shop, der nichts Eigenes einträgt (Vererbung).
-- Nach Änderung der Werte den Cache leeren.
+Die Platzhalter für Rechtstexte (`[[Shopname]]`, `[[E-Mail]]` …) stecken seit 1.11.0 im eigenen Plugin [Nova Rechtstexte](https://github.com/DrdotHouse2106/SW6-Nova-Rechtstexte) – unabhängig vom Theme.
 
 ## Häufige Probleme und Lösungen
 

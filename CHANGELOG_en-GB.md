@@ -1,3 +1,6 @@
+# 1.11.0
+- Legal text placeholders moved to the separate plugin Nova Legal Texts
+
 # 1.10.1
 - More placeholders: [[Firma]], [[Inhaber]], [[USt-IdNr]], [[Lieferzeit]], [[Versandkosten]] (HTML); [[Zusatz1-3]] multi-line HTML
 

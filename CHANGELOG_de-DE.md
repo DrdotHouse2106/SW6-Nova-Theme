@@ -1,3 +1,6 @@
+# 1.11.0
+- Die Platzhalter für Rechtstexte (1.10.0/1.10.1) sind in das eigene Plugin **Nova Rechtstexte** umgezogen und hier entfernt. Bitte Nova Rechtstexte installieren, falls Platzhalter genutzt werden
+
 # 1.10.1
 - Weitere Platzhalter: `[[Firma]]`, `[[Inhaber]]`, `[[USt-IdNr]]`, `[[Lieferzeit]]` und `[[Versandkosten]]` (mehrzeilig, HTML erlaubt) – für gemeinsame Texte „Impressum“ und „Zahlung und Versand“
 - `[[Zusatz1]]`–`[[Zusatz3]]` jetzt mehrzeilig mit HTML
