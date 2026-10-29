@@ -1,3 +1,6 @@
+# 1.12.4
+- Sicherheit: „Verlinkung des Infotexts“ (Topbar) und „Header-Button: Link“ werden nur noch als Link ausgegeben, wenn sie mit http(s)://, mailto:, tel: beginnen oder relativ sind (z. B. /Kontakt/). Andere Schemata wie javascript: werden ignoriert – der Infotext erscheint dann ohne Link, der Button entfällt
+
 # 1.12.3
 - Neu: Bei „Header-Symbole ausblenden“ zusätzlich **„Hauptmenü“** – blendet Menüleiste und Menü-Symbol aus, z. B. für Shops mit nur einer Seite
 

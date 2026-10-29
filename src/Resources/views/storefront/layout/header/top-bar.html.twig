@@ -2,7 +2,11 @@
 
 {% block layout_header_top_bar_inner %}
     {% set novaText = config('NovaTheme.config.topbarText') %}
-    {% set novaLink = config('NovaTheme.config.topbarLink') %}
+    {% set novaLink = config('NovaTheme.config.topbarLink')|trim %}
+    {# Nur http(s)-, mailto:-, tel:- und relative Links – javascript: o. Ä. wird nicht verlinkt #}
+    {% if novaLink and not (novaLink matches '/^(?:(?:https?|mailto|tel):|[^:\\/?#]*(?:[\\/?#]|$))/i') %}
+        {% set novaLink = '' %}
+    {% endif %}
     {% set novaPhone = config('NovaTheme.config.topbarPhone') %}
     {% set novaMail = config('NovaTheme.config.topbarMail') %}
     {% set novaHours = config('NovaTheme.config.topbarHours') %}

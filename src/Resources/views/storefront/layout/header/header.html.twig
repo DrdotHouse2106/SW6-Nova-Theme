@@ -46,6 +46,10 @@
     {% block nova_header_button %}
         {% set novaButtonText = config('NovaTheme.config.headerButtonText')|trim %}
         {% set novaButtonLink = config('NovaTheme.config.headerButtonLink')|trim %}
+        {# Nur http(s)-, mailto:-, tel:- und relative Links – javascript: o. Ä. blendet den Button aus #}
+        {% if novaButtonLink and not (novaButtonLink matches '/^(?:(?:https?|mailto|tel):|[^:\\/?#]*(?:[\\/?#]|$))/i') %}
+            {% set novaButtonLink = '' %}
+        {% endif %}
         {% if novaButtonText and novaButtonLink %}
             <div class="col-auto nova-header-btn-col">
                 <a class="btn btn-primary nova-header-btn" href="{{ novaButtonLink }}">{{ novaButtonText }}</a>

@@ -1,3 +1,6 @@
+# 1.12.4
+- Security: top bar link and header button link are only rendered for http(s)://, mailto:, tel: or relative URLs; other schemes such as javascript: are ignored
+
 # 1.12.3
 - New: "Hide header icons" can also hide the main menu (bar and menu icon)
 
