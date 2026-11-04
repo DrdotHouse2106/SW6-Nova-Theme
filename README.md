@@ -212,7 +212,7 @@ npm run build
 
 ## Kompatibilität
 
-- Shopware 6.6.x und 6.7.x (getestet gegen die Templates von 6.7.15)
+- Shopware ab 6.6.10 und 6.7.x (getestet gegen die Templates von 6.7.15)
 - Alle aktuellen Browser (Container Queries ab Chrome 105, Safari 16, Firefox 110)
 
 ## Rechtstexte für mehrere Shops

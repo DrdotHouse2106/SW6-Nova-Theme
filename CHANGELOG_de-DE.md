@@ -1,3 +1,6 @@
+# 1.12.5
+- Kompatibilität: `composer.json` verlangt jetzt Shopware **6.6.10 oder neuer** bzw. 6.7 (`~6.6.10 || ~6.7.0`). In 6.6.0 bis 6.6.9 lieferte „Zuletzt angesehen“ einen Fehler 500 (Controller ohne Twig-Injektion), die Liste blieb leer; ab 6.6.10 holt Shopware Twig selbst aus dem Container
+
 # 1.12.4
 - Sicherheit: „Verlinkung des Infotexts“ (Topbar) und „Header-Button: Link“ werden nur noch als Link ausgegeben, wenn sie mit http(s)://, mailto:, tel: beginnen oder relativ sind (z. B. /Kontakt/). Andere Schemata wie javascript: werden ignoriert – der Infotext erscheint dann ohne Link, der Button entfällt
 

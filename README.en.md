@@ -45,7 +45,7 @@ Standalone JS build: `cd src/Resources/app/storefront && npm install && npm run 
 
 ## Compatibility
 
-Shopware 6.6.x and 6.7.x · all current browsers.
+Shopware 6.6.10+ and 6.7.x · all current browsers.
 
 ## Legal texts for several shops
 

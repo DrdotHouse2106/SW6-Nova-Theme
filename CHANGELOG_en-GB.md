@@ -1,3 +1,6 @@
+# 1.12.5
+- Compatibility: `composer.json` now requires Shopware **6.6.10 or newer** or 6.7 (`~6.6.10 || ~6.7.0`). On 6.6.0 to 6.6.9 "recently viewed" returned HTTP 500 (controller without Twig injection) and the list stayed empty; from 6.6.10 Shopware gets Twig from the container itself
+
 # 1.12.4
 - Security: top bar link and header button link are only rendered for http(s)://, mailto:, tel: or relative URLs; other schemes such as javascript: are ignored
 
