@@ -1,0 +1,32 @@
+{% sw_extends '@Storefront/storefront/component/product/description.html.twig' %}
+
+{#
+ # Ohne Reiter „Bewertungen“ (noch keine Bewertungen, Plugin-Konfiguration „Produktseite“): Link
+ # „Bewertung schreiben“ unter der Beschreibung. Er klappt den Bewertungsbereich samt Formular auf.
+ # novaReviewHint setzt element/cms-element-product-description-reviews.html.twig.
+ #}
+{% block component_product_description_content %}
+    {{ parent() }}
+
+    {% if novaReviewHint|default(false) and element.data.reviews is defined and element.data.reviews %}
+        {% block nova_product_description_review_hint %}
+            <div class="nova-review-hint">
+                <p class="nova-review-hint-text">
+                    {{ 'novaTheme.productTabs.noReviews'|trans|sw_sanitize }}
+                    <a class="nova-review-hint-link"
+                       href="#"
+                       role="button"
+                       data-bs-toggle="collapse"
+                       data-bs-target=".nova-review-collapse, .multi-collapse"
+                       aria-expanded="false">{{ 'novaTheme.productTabs.writeReview'|trans|sw_sanitize }}</a>
+                </p>
+                <div class="collapse nova-review-collapse">
+                    {% sw_include '@Storefront/storefront/component/review/review.html.twig' with {
+                        reviews: element.data.reviews,
+                        product: product
+                    } %}
+                </div>
+            </div>
+        {% endblock %}
+    {% endif %}
+{% endblock %}

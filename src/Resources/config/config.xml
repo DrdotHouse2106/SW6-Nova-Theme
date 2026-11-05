@@ -152,6 +152,54 @@
     </card>
 
     <card>
+        <title>Product page</title>
+        <title lang="de-DE">Produktseite</title>
+
+        <input-field type="bool">
+            <name>productReviewsOnlyIfAny</name>
+            <label>Show the reviews tab only if there are reviews</label>
+            <label lang="de-DE">Reiter „Bewertungen“ nur zeigen, wenn es Bewertungen gibt</label>
+            <helpText>Otherwise the description shows a “Write a review” link that opens the review form.</helpText>
+            <helpText lang="de-DE">Sonst steht in der Beschreibung ein Link „Bewertung schreiben“, der das Bewertungsformular öffnet.</helpText>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>productManufacturerTab</name>
+            <label>“Manufacturer information” tab (GPSR)</label>
+            <label lang="de-DE">Reiter „Herstellerinformationen“ (GPSR)</label>
+            <helpText>Shows the GPSR fields of the manufacturer (Catalogues → Manufacturers → additional fields), otherwise its description.</helpText>
+            <helpText lang="de-DE">Zeigt die GPSR-Zusatzfelder des Herstellers (Kataloge → Hersteller → Zusatzfelder), sonst dessen Beschreibung.</helpText>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>productQuestionsTab</name>
+            <label>Show the contact form of the layout in a “Questions about the product” tab</label>
+            <label lang="de-DE">Kontaktformular der Erlebniswelt im Reiter „Fragen zum Produkt“ zeigen</label>
+            <helpText>Uses the first contact form of the product page layout. A block that only contains this form is no longer shown in its original place.</helpText>
+            <helpText lang="de-DE">Nimmt das erste Kontaktformular der Produktseiten-Erlebniswelt. Ein Block, der nur dieses Formular enthält, entfällt an seiner ursprünglichen Stelle.</helpText>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>productQuestionsPrefill</name>
+            <label>Prefill subject and message with the product number</label>
+            <label lang="de-DE">Betreff und Nachricht mit der Artikelnummer vorbelegen</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>productCrossSellingHeadings</name>
+            <label>Headings for cross-selling</label>
+            <label lang="de-DE">Überschriften für Cross-Selling</label>
+            <helpText>With exactly one cross-selling group its name is shown as a heading instead of a tab; “Customers also bought” (Nova Search) gets a visible heading.</helpText>
+            <helpText lang="de-DE">Bei genau einer Cross-Selling-Gruppe steht ihr Name als Überschrift statt als Reiter; „Kunden kauften auch“ (Nova Suche) bekommt eine sichtbare Überschrift.</helpText>
+            <defaultValue>true</defaultValue>
+        </input-field>
+    </card>
+
+    <card>
         <title>Reviews</title>
         <title lang="de-DE">Bewertungen</title>
 

@@ -1,0 +1,10 @@
+{% sw_extends '@Storefront/storefront/element/cms-element-form.html.twig' %}
+
+{# Das Kontaktformular für „Fragen zum Produkt“ steht im Reiter der Produktbeschreibung,
+   nicht ein zweites Mal an seiner Stelle im Layout (siehe ProductQuestionsSubscriber). #}
+{% block element_form %}
+    {% set novaQuestions = page.extensions.novaProductQuestions|default(null) %}
+    {% if novaQuestions is null or novaQuestions.slotId != element.id or novaInProductTab|default(false) %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

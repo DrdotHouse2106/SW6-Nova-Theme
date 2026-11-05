@@ -1,0 +1,10 @@
+{% sw_extends '@Storefront/storefront/section/cms-section-block-container.html.twig' %}
+
+{# Block, der nur aus dem Kontaktformular für „Fragen zum Produkt“ besteht, entfällt an seiner Stelle –
+   das Formular steht im Reiter der Produktbeschreibung (siehe ProductQuestionsSubscriber). #}
+{% block section_content_block %}
+    {% set novaQuestions = page.extensions.novaProductQuestions|default(null) %}
+    {% if novaQuestions is null or novaQuestions.hiddenBlockId is null or novaQuestions.hiddenBlockId != block.id %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

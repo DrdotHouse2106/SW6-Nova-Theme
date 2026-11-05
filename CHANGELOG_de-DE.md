@@ -1,3 +1,12 @@
+# 1.13.0
+- Neu: **Produktseite mit Reitern** im Element „Beschreibung & Bewertungen“: *Beschreibung · Bewertungen · Herstellerinformationen · Fragen zum Produkt*. Auf Smartphones öffnen Beschreibung, Bewertungen und Herstellerinformationen wie gewohnt im Offcanvas, „Fragen zum Produkt“ klappt direkt unter der Reiterliste auf
+- Neu: Reiter **„Bewertungen“ nur, wenn es Bewertungen gibt** – sonst steht unter der Beschreibung „Zu diesem Produkt gibt es noch keine Bewertungen. *Bewertung schreiben*“; der Link klappt das Bewertungsformular auf. Nach dem Absenden einer Bewertung erscheint der Reiter mit der Bestätigung
+- Neu: **Herstellerinformationen (GPSR)** – Zusatzfeld-Set „Herstellerinformationen (GPSR)“ am Hersteller (Firmenname, Straße, PLZ/Ort, Land, E-Mail, Telefon, Website, verantwortliche Person in der EU mit Name/Anschrift/E-Mail, Sicherheits- und Warnhinweise) und „Produktsicherheit (GPSR)“ am Produkt (Sicherheits- und Warnhinweise zum Produkt). Wird bei Installation und Update angelegt. Sind die Herstellerfelder leer, zeigt der Reiter die Herstellerbeschreibung; ohne jede Angabe entfällt der Reiter
+- Neu: **„Fragen zum Produkt“** – das erste Kontaktformular der Produktseiten-Erlebniswelt erscheint im Reiter, Betreff („Frage zu Artikel 10001 – Name“) und Nachricht (Zeile „Artikelnummer: …“) sind vorbelegt. Empfänger, Nova Upload und Nova Captcha wirken unverändert, das Formular schickt weiter an Shopwares Kontakt-Route. Ein Block, der nur aus diesem Formular besteht, entfällt an seiner ursprünglichen Stelle
+- Neu: **Cross-Selling mit Überschriften** – bei genau einer Gruppe steht ihr Name als Überschrift (statt einer einzelnen Reiter-Zeile), bei mehreren bleiben die Reiter. „Kunden kauften auch“ (Nova Suche) bekommt eine sichtbare Überschrift
+- Behoben: Produkt-Slider mit vertikaler Ausrichtung (z. B. „Kunden kauften auch“) waren beim ersten Laden kurz nur wenige Pixel breit (Karten gequetscht, Text Buchstabe für Buchstabe)
+- Alles einzeln abschaltbar je Verkaufskanal unter *Konfigurieren → Produktseite* (Standard: an)
+
 # 1.12.5
 - Kompatibilität: `composer.json` verlangt jetzt Shopware **6.6.10 oder neuer** bzw. 6.7 (`~6.6.10 || ~6.7.0`). In 6.6.0 bis 6.6.9 lieferte „Zuletzt angesehen“ einen Fehler 500 (Controller ohne Twig-Injektion), die Liste blieb leer; ab 6.6.10 holt Shopware Twig selbst aus dem Container
 

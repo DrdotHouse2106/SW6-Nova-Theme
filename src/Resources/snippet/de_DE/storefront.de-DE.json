@@ -46,6 +46,26 @@
             "checkout": "Ja, ich möchte den Newsletter erhalten (jederzeit abbestellbar).",
             "finishHeadline": "Nichts mehr verpassen",
             "finishSubmit": "Newsletter abonnieren"
+        },
+        "productTabs": {
+            "manufacturer": "Herstellerinformationen",
+            "questions": "Fragen zum Produkt",
+            "noReviews": "Zu diesem Produkt gibt es noch keine Bewertungen.",
+            "writeReview": "Bewertung schreiben"
+        },
+        "manufacturerInfo": {
+            "manufacturer": "Hersteller",
+            "euResponsible": "Verantwortliche Person in der EU",
+            "safety": "Sicherheits- und Warnhinweise",
+            "productSafety": "Sicherheits- und Warnhinweise zu diesem Produkt",
+            "email": "E-Mail",
+            "phone": "Telefon",
+            "website": "Website"
+        },
+        "productQuestions": {
+            "subject": "Frage zu Artikel %number% – %name%",
+            "subjectWithoutName": "Frage zu Artikel %number%",
+            "comment": "Artikelnummer: %number%"
         }
     }
 }

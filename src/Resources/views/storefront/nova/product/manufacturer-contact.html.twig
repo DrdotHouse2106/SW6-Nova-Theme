@@ -1,0 +1,42 @@
+{# Kontaktzeilen zu den Herstellerinformationen. Links nur für gültige E-Mail-Adressen und http(s)-Websites.
+   Erwartet: novaContactEmail, novaContactPhone, novaContactWebsite (je leer erlaubt) #}
+{% block nova_product_manufacturer_contact %}
+    {% set novaEmailValid = novaContactEmail and novaContactEmail matches '/^[^\\s@<>"\'()]+@[^\\s@<>"\'()]+\\.[^\\s@<>"\'()]+$/' %}
+    {% set novaWebsiteUrl = '' %}
+    {% if novaContactWebsite matches '/^https?:\\/\\/[^\\s"<>]+$/i' %}
+        {% set novaWebsiteUrl = novaContactWebsite %}
+    {% elseif novaContactWebsite matches '/^[a-z0-9][a-z0-9.-]*\\.[a-z]{2,}(?:[\\/?#][^\\s"<>]*)?$/i' %}
+        {% set novaWebsiteUrl = 'https://' ~ novaContactWebsite %}
+    {% endif %}
+
+    {% if novaContactEmail or novaContactPhone or novaContactWebsite %}
+        <ul class="nova-manufacturer-info-contact list-unstyled">
+            {% if novaContactEmail %}
+                <li>
+                    <span class="nova-manufacturer-info-label">{{ 'novaTheme.manufacturerInfo.email'|trans|sw_sanitize }}</span>
+                    {% if novaEmailValid %}
+                        <a href="mailto:{{ novaContactEmail }}">{{ novaContactEmail }}</a>
+                    {% else %}
+                        {{ novaContactEmail }}
+                    {% endif %}
+                </li>
+            {% endif %}
+            {% if novaContactPhone %}
+                <li>
+                    <span class="nova-manufacturer-info-label">{{ 'novaTheme.manufacturerInfo.phone'|trans|sw_sanitize }}</span>
+                    <a href="tel:{{ novaContactPhone|replace({' ': '', '/': '', '-': '', '(': '', ')': ''}) }}">{{ novaContactPhone }}</a>
+                </li>
+            {% endif %}
+            {% if novaContactWebsite %}
+                <li>
+                    <span class="nova-manufacturer-info-label">{{ 'novaTheme.manufacturerInfo.website'|trans|sw_sanitize }}</span>
+                    {% if novaWebsiteUrl %}
+                        <a href="{{ novaWebsiteUrl }}" target="_blank" rel="noopener nofollow">{{ novaContactWebsite }}</a>
+                    {% else %}
+                        {{ novaContactWebsite }}
+                    {% endif %}
+                </li>
+            {% endif %}
+        </ul>
+    {% endif %}
+{% endblock %}

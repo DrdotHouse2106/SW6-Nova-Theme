@@ -30,6 +30,16 @@ Modern cart, checkout (progress indicator, shipping/payment selection cards, sti
 
 Per-sales-channel settings: *Extensions → My extensions → Nova Theme → Configure*. Colours and layout: *Content → Themes*. For several shops with different colours, duplicate the theme once per sales channel.
 
+## Product page
+
+From 1.13.0 the theme extends the "Description & reviews" element with tabs: **Description · Reviews · Manufacturer information · Questions about the product** (each part can be switched off per sales channel under *Configure → Product page*, default on).
+
+- **Reviews** only if there are reviews; otherwise the description ends with a "Write a review" link that expands the review form.
+- **Manufacturer information (GPSR):** custom field set "Manufacturer information (GPSR)" on manufacturers (`nova_gpsr_company`, `nova_gpsr_street`, `nova_gpsr_zipcode_city`, `nova_gpsr_country`, `nova_gpsr_email`, `nova_gpsr_phone`, `nova_gpsr_website`, `nova_gpsr_eu_name`, `nova_gpsr_eu_address`, `nova_gpsr_eu_email`, `nova_gpsr_safety_info`) and "Product safety (GPSR)" on products (`nova_gpsr_product_safety_info`), created on install/update. Empty manufacturer fields fall back to the manufacturer description.
+- **Questions about the product:** the first contact form of the product page layout is shown in the tab with prefilled subject and item number. The form element stays in the layout (recipient, Nova Upload, captcha keep working); a block that only contains the form is hidden in its original place – put the form in its own form block.
+- **Cross-selling:** one group → its name as heading; several groups → tabs; "Customers also bought" (Nova Search) gets a visible heading. Sliders with vertical alignment no longer render squeezed on first load.
+- On phones description, reviews and manufacturer information open in the off-canvas; the questions tab expands below the tab list.
+
 ## Recently viewed and delivery dates
 
 "Recently viewed" is shown as a slider at the bottom of every page above the footer (not in checkout after the cart and not in the customer account), only with consent (comfort features). Page types are configurable. The theme also styles the "Dynamic monthly delivery dates" plugin (product page info box, line items, listing, checkout summary).
@@ -62,6 +72,7 @@ Known pitfalls from real installations. **Please add new ones** (or open an issu
 - **Top bar missing:** enable it in the plugin configuration per sales channel; hidden below 992 px.
 - **No "delete account" button:** enable *Settings → Login & registration → customers may delete their account*.
 - **"Recently viewed" missing:** requires consent ("comfort features"), stored in the browser only, not shown in checkout/account.
+- **Product page: form missing or shown twice:** the theme uses the first contact form of the layout; put it in its own form block (blocks with other elements stay without the form).
 - **File attachments in the contact form:** moved to the plugin **Nova Upload** in 1.8.0 (protected storage, product uploads).
 
 ## How this plugin was made

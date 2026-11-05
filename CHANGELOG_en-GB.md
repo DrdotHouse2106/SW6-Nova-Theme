@@ -1,3 +1,12 @@
+# 1.13.0
+- New: **product page tabs** in the "Description & reviews" element: *Description · Reviews · Manufacturer information · Questions about the product*. On phones description, reviews and manufacturer information open in the off-canvas as before, "Questions about the product" expands right below the tab list
+- New: **"Reviews" tab only if there are reviews** – otherwise the description ends with "There are no reviews for this product yet. *Write a review*", the link expands the review form. After submitting a review the tab is shown with the confirmation
+- New: **manufacturer information (GPSR)** – custom field set "Manufacturer information (GPSR)" on manufacturers (company, street, postcode/city, country, email, phone, website, responsible person in the EU with name/address/email, safety information) and "Product safety (GPSR)" on products. Created on install and update. If the manufacturer fields are empty, the tab shows the manufacturer description; without any data the tab is omitted
+- New: **"Questions about the product"** – the first contact form of the product page layout is rendered in the tab with prefilled subject ("Question about item 10001 – name") and message (line "Item number: …"). Recipient, Nova Upload and Nova Captcha keep working, the form still posts to Shopware's contact route. A block that only contains this form is no longer shown in its original place
+- New: **cross-selling headings** – with exactly one group its name is shown as a heading instead of a single tab, with several groups the tabs stay. "Customers also bought" (Nova Search) gets a visible heading
+- Fixed: product sliders with vertical alignment (e.g. "Customers also bought") were only a few pixels wide on first load (squeezed cards, text letter by letter)
+- Every part can be switched off per sales channel under *Configure → Product page* (default: on)
+
 # 1.12.5
 - Compatibility: `composer.json` now requires Shopware **6.6.10 or newer** or 6.7 (`~6.6.10 || ~6.7.0`). On 6.6.0 to 6.6.9 "recently viewed" returned HTTP 500 (controller without Twig injection) and the list stayed empty; from 6.6.10 Shopware gets Twig from the container itself
 

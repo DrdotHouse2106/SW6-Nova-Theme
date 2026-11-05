@@ -1,0 +1,97 @@
+{#
+ # Herstellerinformationen (Produktsicherheit / GPSR) für den Reiter auf der Produktseite.
+ # Quelle: Zusatzfelder „Herstellerinformationen (GPSR)“ am Hersteller; sind sie leer, die
+ # Herstellerbeschreibung. Dazu optional „Sicherheits- und Warnhinweise zum Produkt“ am Produkt.
+ # Ohne Angaben bleibt die Ausgabe leer – dann zeigt das Theme den Reiter nicht.
+ # Erwartet: product
+ #}
+{% block nova_product_manufacturer_info %}
+    {% set novaManufacturer = product.manufacturer|default(null) %}
+    {% set novaFields = novaManufacturer ? novaManufacturer.translated.customFields|default({}) : {} %}
+    {% set novaCompany = novaFields.nova_gpsr_company|default('')|trim %}
+    {% set novaStreet = novaFields.nova_gpsr_street|default('')|trim %}
+    {% set novaZipCity = novaFields.nova_gpsr_zipcode_city|default('')|trim %}
+    {% set novaCountry = novaFields.nova_gpsr_country|default('')|trim %}
+    {% set novaEmail = novaFields.nova_gpsr_email|default('')|trim %}
+    {% set novaPhone = novaFields.nova_gpsr_phone|default('')|trim %}
+    {% set novaWebsite = novaFields.nova_gpsr_website|default('')|trim %}
+    {% set novaEuName = novaFields.nova_gpsr_eu_name|default('')|trim %}
+    {% set novaEuAddress = novaFields.nova_gpsr_eu_address|default('')|trim %}
+    {% set novaEuEmail = novaFields.nova_gpsr_eu_email|default('')|trim %}
+    {% set novaSafety = novaFields.nova_gpsr_safety_info|default('') %}
+    {% set novaProductSafety = product.translated.customFields.nova_gpsr_product_safety_info|default('') %}
+    {% set novaDescription = novaManufacturer ? novaManufacturer.translated.description|default('') : '' %}
+
+    {% set novaHasAddress = (novaCompany ~ novaStreet ~ novaZipCity ~ novaCountry ~ novaEmail ~ novaPhone ~ novaWebsite) is not empty %}
+    {% set novaHasEu = (novaEuName ~ novaEuAddress ~ novaEuEmail) is not empty %}
+    {% set novaHasSafety = novaSafety|striptags|trim is not empty %}
+    {% set novaHasGpsr = novaHasAddress or novaHasEu or novaHasSafety %}
+    {% set novaHasDescription = novaDescription|striptags|trim is not empty %}
+    {% set novaHasProductSafety = novaProductSafety|striptags|trim is not empty %}
+
+    {% if novaHasGpsr or novaHasDescription or novaHasProductSafety %}
+        <div class="nova-manufacturer-info">
+            {% if novaHasGpsr %}
+                {% if novaHasAddress %}
+                    {% block nova_product_manufacturer_info_address %}
+                        <section class="nova-manufacturer-info-section">
+                            <h3 class="nova-manufacturer-info-title">{{ 'novaTheme.manufacturerInfo.manufacturer'|trans|sw_sanitize }}</h3>
+                            <address class="nova-manufacturer-info-address">
+                                <strong class="d-block">{{ novaCompany ?: novaManufacturer.translated.name|default('') }}</strong>
+                                {% if novaStreet %}<span class="d-block">{{ novaStreet }}</span>{% endif %}
+                                {% if novaZipCity %}<span class="d-block">{{ novaZipCity }}</span>{% endif %}
+                                {% if novaCountry %}<span class="d-block">{{ novaCountry }}</span>{% endif %}
+                            </address>
+                            {% sw_include '@NovaTheme/storefront/nova/product/manufacturer-contact.html.twig' with {
+                                novaContactEmail: novaEmail,
+                                novaContactPhone: novaPhone,
+                                novaContactWebsite: novaWebsite
+                            } %}
+                        </section>
+                    {% endblock %}
+                {% endif %}
+
+                {% if novaHasEu %}
+                    {% block nova_product_manufacturer_info_eu %}
+                        <section class="nova-manufacturer-info-section">
+                            <h3 class="nova-manufacturer-info-title">{{ 'novaTheme.manufacturerInfo.euResponsible'|trans|sw_sanitize }}</h3>
+                            <address class="nova-manufacturer-info-address">
+                                {% if novaEuName %}<strong class="d-block">{{ novaEuName }}</strong>{% endif %}
+                                {% if novaEuAddress %}<span class="d-block">{{ novaEuAddress }}</span>{% endif %}
+                            </address>
+                            {% sw_include '@NovaTheme/storefront/nova/product/manufacturer-contact.html.twig' with {
+                                novaContactEmail: novaEuEmail,
+                                novaContactPhone: '',
+                                novaContactWebsite: ''
+                            } %}
+                        </section>
+                    {% endblock %}
+                {% endif %}
+
+                {% if novaHasSafety %}
+                    {% block nova_product_manufacturer_info_safety %}
+                        <section class="nova-manufacturer-info-section">
+                            <h3 class="nova-manufacturer-info-title">{{ 'novaTheme.manufacturerInfo.safety'|trans|sw_sanitize }}</h3>
+                            <div class="nova-manufacturer-info-text">{{ novaSafety|sw_sanitize }}</div>
+                        </section>
+                    {% endblock %}
+                {% endif %}
+            {% elseif novaHasDescription %}
+                {% block nova_product_manufacturer_info_description %}
+                    <section class="nova-manufacturer-info-section">
+                        <div class="nova-manufacturer-info-text">{{ novaDescription|sw_sanitize }}</div>
+                    </section>
+                {% endblock %}
+            {% endif %}
+
+            {% if novaHasProductSafety %}
+                {% block nova_product_manufacturer_info_product_safety %}
+                    <section class="nova-manufacturer-info-section">
+                        <h3 class="nova-manufacturer-info-title">{{ 'novaTheme.manufacturerInfo.productSafety'|trans|sw_sanitize }}</h3>
+                        <div class="nova-manufacturer-info-text">{{ novaProductSafety|sw_sanitize }}</div>
+                    </section>
+                {% endblock %}
+            {% endif %}
+        </div>
+    {% endif %}
+{% endblock %}

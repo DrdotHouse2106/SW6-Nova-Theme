@@ -46,6 +46,26 @@
             "checkout": "Yes, I would like to receive the newsletter (unsubscribe at any time).",
             "finishHeadline": "Don't miss anything",
             "finishSubmit": "Subscribe to newsletter"
+        },
+        "productTabs": {
+            "manufacturer": "Manufacturer information",
+            "questions": "Questions about the product",
+            "noReviews": "There are no reviews for this product yet.",
+            "writeReview": "Write a review"
+        },
+        "manufacturerInfo": {
+            "manufacturer": "Manufacturer",
+            "euResponsible": "Responsible person in the EU",
+            "safety": "Safety information and warnings",
+            "productSafety": "Safety information and warnings for this product",
+            "email": "Email",
+            "phone": "Phone",
+            "website": "Website"
+        },
+        "productQuestions": {
+            "subject": "Question about item %number% – %name%",
+            "subjectWithoutName": "Question about item %number%",
+            "comment": "Item number: %number%"
         }
     }
 }

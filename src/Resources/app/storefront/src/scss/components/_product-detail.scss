@@ -48,3 +48,145 @@
         }
     }
 }
+
+/*
+ * Reiter der Produktbeschreibung: Herstellerinformationen, Fragen zum Produkt, „Bewertung schreiben“
+ */
+.nova-manufacturer-info-section + .nova-manufacturer-info-section {
+    margin-top: 1.5rem;
+}
+
+.nova-manufacturer-info-title {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.nova-manufacturer-info-address {
+    margin-bottom: 0.5rem;
+    font-style: normal;
+}
+
+.nova-manufacturer-info-contact {
+    margin: 0;
+
+    li + li {
+        margin-top: 0.25rem;
+    }
+
+    a {
+        overflow-wrap: anywhere;
+    }
+}
+
+.nova-manufacturer-info-label {
+    margin-right: 0.25rem;
+    color: var(--bs-secondary-color, #6b7280);
+
+    &::after {
+        content: ':';
+    }
+}
+
+.nova-manufacturer-info-text > :last-child {
+    margin-bottom: 0;
+}
+
+.nova-product-questions {
+    max-width: 50rem;
+
+    // Formular sitzt schon im Reiter – keine zweite Karte drumherum
+    .cms-element-form .card {
+        border: 0;
+        background: none;
+        box-shadow: none;
+    }
+
+    .cms-element-form .card-body {
+        padding: 0;
+    }
+}
+
+.nova-review-hint {
+    margin-top: 1.5rem;
+}
+
+.nova-review-collapse {
+    margin-top: 1rem;
+
+    // „Schließen“ gehört zum Offcanvas des ganzen Reiters, nicht in den aufgeklappten Bereich
+    .offcanvas-header {
+        display: none;
+    }
+}
+
+/*
+ * Smartphones: Beschreibung, Bewertungen und Herstellerinformationen öffnen wie im Standard im
+ * Offcanvas. „Fragen zum Produkt“ klappt direkt unter der Reiterliste auf – so bleibt das Formular
+ * mit Upload und Captcha ein einziges Mal auf der Seite.
+ */
+@include media-breakpoint-down(sm) {
+    .cms-element-product-description-reviews {
+        .product-detail-tabs-content {
+            display: block;
+            padding: 0;
+        }
+
+        .tab-content > .tab-pane:not(.nova-questions-pane) {
+            display: none !important;
+        }
+
+        .nova-questions-pane.active {
+            padding: 1rem 0 0.5rem;
+        }
+    }
+}
+
+/*
+ * Cross-Selling: sichtbare Überschriften (Shopware blendet den Slider-Titel im Cross-Selling aus)
+ */
+.product-detail-cross-selling {
+    .nova-cross-selling-title {
+        margin: 0;
+        padding-inline: var(--bs-card-spacer-x, 1rem);
+    }
+
+    // Eine Gruppe: Überschrift statt Reiter – der Slider-Titel würde sich auf Smartphones doppeln
+    .nova-cross-selling-title ~ .product-detail-tabs-content {
+        padding-top: 1rem;
+
+        .cms-element-title {
+            display: none;
+        }
+    }
+}
+
+.nova-also-bought-titled .product-detail-cross-selling {
+    .cms-element-title {
+        display: block;
+        padding-inline: 0;
+    }
+
+    .cms-element-title-paragraph {
+        margin: 0 0 1rem;
+        font-size: nova-fluid(1.25rem, 1.625rem);
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--bs-heading-color, inherit);
+    }
+}
+
+/*
+ * Produkt-Slider mit vertikaler Ausrichtung (z. B. „Kunden kauften auch“ oder Cross-Selling):
+ * Shopware macht das Element dann zum Flex-Container, der Slider wird zum inhaltsbreiten Flex-Kind.
+ * Beim ersten Messen ist er dadurch nur wenige Pixel breit – Karten gequetscht, Text Buchstabe für
+ * Buchstabe. Volle Breite und min-width: 0 geben dem Slider von Anfang an die Spaltenbreite.
+ */
+.cms-element-product-slider.has-vertical-alignment {
+    > .base-slider,
+    > .cms-element-alignment {
+        flex: 1 1 100%;
+        width: 100%;
+        min-width: 0;
+    }
+}

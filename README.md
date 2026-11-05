@@ -51,6 +51,7 @@ Alternativ in der Administration unter **Inhalte → Themes** das „Nova Theme�
 | **Konto löschen** | Gut sichtbarer Bereich „Konto löschen“ im Profil mit Sicherheitsabfrage |
 | **Newsletter** | Leiste über dem Footer (Überschrift, Text, Kleingedrucktes, pro Verkaufskanal) und Anmeldung im Bestellprozess – als Kasten auf der Bestellabschlussseite (ein Klick, die Bestell-E-Mail ist schon eingesetzt) oder als Häkchen in der Bestellübersicht. Beides nutzt Shopwares eigene Newsletter-Anmeldung – Double-Opt-in, Captcha und Datenschutz-Hinweis wie in Shopware eingestellt, angemeldete Empfänger stehen unter *Marketing → Newsletter-Empfänger*. Kasten bzw. Häkchen erscheinen nur, wenn die E-Mail noch nicht angemeldet ist; das Häkchen ist nie vorausgewählt |
 | **Copyright im Footer** | „Realisiert mit Shopware“ beibehalten, durch eigenen Text ersetzen (mit `{year}` und `{shop}`, pro Sprache übersetzbar) oder ausblenden – pro Verkaufskanal |
+| **Produktseite** | Reiter *Beschreibung · Bewertungen · Herstellerinformationen · Fragen zum Produkt*, Bewertungen-Reiter nur mit Bewertungen, GPSR-Herstellerangaben als Zusatzfelder, Kontaktformular mit vorbelegter Artikelnummer im Reiter, Cross-Selling mit Überschriften – siehe [Produktseite](#produktseite) |
 
 ## Einstellungen
 
@@ -71,6 +72,7 @@ Alternativ in der Administration unter **Inhalte → Themes** das „Nova Theme�
   **Spalte mit Logo und Kurztext:** Text eintragen, dann erscheint vorne im Footer das Shop-Logo mit diesem Text (auf dunklem Footer automatisch hell).
 - **Newsletter** – Leiste über dem Footer an/aus, Überschrift, Text (einfaches HTML), Kleingedrucktes; Anmeldung im Bestellprozess an/aus, Position (Bestellabschlussseite oder Bestellübersicht), Überschrift und Text. Leere Felder nutzen die Textbausteine `novaTheme.newsletter.*` (pro Sprache übersetzbar)
 - **Checkout** – Konfetti nach der Bestellung
+- **Produktseite** – Bewertungen-Reiter nur mit Bewertungen, Reiter „Herstellerinformationen“, Kontaktformular als Reiter „Fragen zum Produkt“, Betreff/Nachricht vorbelegen, Cross-Selling-Überschriften (alles Standard an, siehe [Produktseite](#produktseite))
 
 ### Theme-Konfiguration (Farben & Layout)
 
@@ -98,6 +100,72 @@ Produktlisten, die das Theme per JavaScript nachlädt (z. B. „Zuletzt angesehe
 | `data-nova-list-id` / `data-nova-list-name` am Listen-Container | Listen-ID und -Name, z. B. `recently_viewed` / `Zuletzt angesehen` |
 | `data-product-information` an jeder Produktbox | Kommt aus Shopwares Standard-Produktbox (ID, Name, Marke, Preis, Nummer) |
 | Event `nova:products-rendered` auf `document` | Wird nach dem Einfügen ausgelöst, `event.detail.container` ist der Listen-Container |
+
+## Produktseite
+
+Ab 1.13.0 erweitert das Theme das Erlebniswelt-Element **„Beschreibung & Bewertungen“** um Reiter.
+Alles gilt für die Shopware-Elemente der Produktseiten-Erlebniswelt und ist je Verkaufskanal unter
+*Nova Theme → Konfigurieren → Produktseite* abschaltbar (Standard: an).
+
+| Reiter | Inhalt |
+|---|---|
+| **Beschreibung** | Wie im Standard. Gibt es (noch) keine Bewertungen, steht darunter „Zu diesem Produkt gibt es noch keine Bewertungen. *Bewertung schreiben*“ – der Link klappt das Bewertungsformular auf (bzw. die Anmeldung, wenn nicht eingeloggt) |
+| **Bewertungen** | Nur, wenn es freigegebene Bewertungen gibt (oder nach dem Absenden einer Bewertung, für die Bestätigung). Einstellung *Reiter „Bewertungen“ nur zeigen, wenn es Bewertungen gibt* |
+| **Herstellerinformationen** | Angaben nach der Produktsicherheitsverordnung (GPSR) aus den Zusatzfeldern des Herstellers, sonst dessen Beschreibung. Ohne jede Angabe entfällt der Reiter |
+| **Fragen zum Produkt** | Das erste Kontaktformular der Erlebniswelt, mit vorbelegtem Betreff und Artikelnummer |
+
+Auf Smartphones öffnen Beschreibung, Bewertungen und Herstellerinformationen wie im Standard im Offcanvas;
+„Fragen zum Produkt“ klappt direkt unter der Reiterliste auf, damit das Formular (mit Upload und Captcha)
+nur einmal auf der Seite steht.
+
+### Herstellerinformationen (GPSR) einrichten
+
+Bei Installation und Update legt das Theme zwei Zusatzfeld-Sets an (bestehende Werte bleiben erhalten):
+
+**„Herstellerinformationen (GPSR)“** am Hersteller (*Kataloge → Hersteller → Hersteller öffnen*):
+
+| Feld | Technischer Name |
+|---|---|
+| Firmenname | `nova_gpsr_company` |
+| Straße und Hausnummer | `nova_gpsr_street` |
+| PLZ und Ort | `nova_gpsr_zipcode_city` |
+| Land | `nova_gpsr_country` |
+| E-Mail | `nova_gpsr_email` |
+| Telefon (optional) | `nova_gpsr_phone` |
+| Website (optional) | `nova_gpsr_website` |
+| Verantwortliche Person in der EU: Name / Anschrift / E-Mail (nur bei Herstellern außerhalb der EU) | `nova_gpsr_eu_name`, `nova_gpsr_eu_address`, `nova_gpsr_eu_email` |
+| Sicherheits- und Warnhinweise (HTML, gilt für alle Produkte des Herstellers) | `nova_gpsr_safety_info` |
+
+**„Produktsicherheit (GPSR)“** am Produkt: *Sicherheits- und Warnhinweise zum Produkt* (`nova_gpsr_product_safety_info`,
+HTML) – erscheint im Reiter zusätzlich zu den Herstellerangaben.
+
+Je Hersteller werden dessen eigene Angaben gezeigt. Eigene Produkte und Handelsware lassen sich so über verschiedene
+Hersteller abbilden (z. B. eigene Marke als Hersteller bzw. der Händler selbst als verantwortlicher Wirtschaftsakteur).
+Sind die Herstellerfelder leer, zeigt der Reiter die **Herstellerbeschreibung** – Bestands-Shops funktionieren also
+sofort und können die Felder nach und nach füllen. E-Mail und Website werden nur als Link ausgegeben, wenn sie gültig
+sind (Website nur http/https).
+
+### „Fragen zum Produkt“ einrichten
+
+Das Theme nimmt das **erste Element „Formular“ vom Typ „Kontakt“** der Produktseiten-Erlebniswelt und gibt es im
+Reiter aus. Das Element bleibt im Layout – nur so gelten Empfänger, Formular-Titel, Nova Upload („Fotos anhängen“) und
+Captcha weiter, und das Formular schickt wie bisher an Shopwares Kontakt-Route.
+
+- **Block nur mit dem Formular:** entfällt an seiner ursprünglichen Stelle komplett. Empfohlen: Formular als eigener
+  Block (*Blöcke → Formular → Formular*) am Ende der Erlebniswelt.
+- **Block mit Formular und weiteren Elementen** (z. B. Text + Formular): das Formular fehlt dort, die anderen Elemente
+  bleiben stehen. Dann den Block durch einen reinen Formular-Block ersetzen.
+- **Vorbelegung:** Betreff „Frage zu Artikel {Nummer} – {Name}“, Nachricht beginnt mit „Artikelnummer: {Nummer}“. Texte
+  pro Sprache in den Textbausteinen `novaTheme.productQuestions.*`. Keine neuen Pflichtfelder, keine eigene Route.
+- Ohne Element „Beschreibung & Bewertungen“ in der Erlebniswelt bleibt das Formular, wo es ist.
+
+### Cross-Selling
+
+- **Eine Cross-Selling-Gruppe:** ihr Name steht als Überschrift über dem Slider (z. B. „Passend dazu“).
+- **Mehrere Gruppen:** Reiter wie im Standard, auf Smartphones untereinander mit Überschrift.
+- **„Kunden kauften auch“ (Nova Suche):** sichtbare Überschrift über der eigenen Zeile.
+- Leere Gruppen erscheinen nicht. Produkt-Slider mit vertikaler Ausrichtung bekommen von Anfang an die volle
+  Spaltenbreite (vorher beim ersten Laden kurz gequetscht).
 
 ## Mehrere Shops mit eigenen Farben
 
@@ -350,6 +418,18 @@ Hier sammeln wir Hürden, die bei Installation und Betrieb tatsächlich aufgetre
 **Ursache:** Ist ein Header-Button gesetzt (z. B. „Teil anfragen“), passt er auf schmalen Handys nur ohne das Merkzettel-Symbol in die Symbolzeile
 
 **Lösung:** Gewollt – der Merkzettel ist weiter über das Kundenkonto erreichbar und ab Tablet-Breite wieder sichtbar. Wer den Merkzettel am Handy braucht, lässt den Header-Button-Text kurz oder leer
+
+### Produktseite: Formular erscheint doppelt oder gar nicht
+
+Das Theme zeigt das **erste** Kontaktformular der Erlebniswelt im Reiter „Fragen zum Produkt“. Steht es zusammen mit
+anderen Elementen in einem Block, bleibt der Block (ohne Formular) stehen – Formular in einen eigenen Formular-Block
+setzen. Fehlt der Reiter: Erlebniswelt enthält kein Element „Beschreibung & Bewertungen“ oder kein Formular vom Typ
+„Kontakt“, oder *Produktseite → Kontaktformular … im Reiter* ist aus.
+
+### Produktseite: Reiter „Herstellerinformationen“ fehlt
+
+Weder GPSR-Zusatzfelder noch Beschreibung beim Hersteller gepflegt (und kein Produkt-Sicherheitshinweis) – dann gibt
+es nichts zu zeigen. Zusatzfelder fehlen im Admin? Theme einmal aktualisieren bzw. `bin/console plugin:update NovaTheme`.
 
 ## Entstehung
 

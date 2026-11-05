@@ -1,0 +1,120 @@
+{% sw_extends '@Storefront/storefront/element/cms-element-product-description-reviews.html.twig' %}
+
+{#
+ # Reiter der Produktseite: Beschreibung · Bewertungen · Herstellerinformationen · Fragen zum Produkt
+ #
+ # - Bewertungen: nur, wenn es welche gibt (Plugin-Konfiguration „Produktseite“); sonst öffnet ein Link
+ #   „Bewertung schreiben“ in der Beschreibung das Bewertungsformular (siehe component/product/description).
+ # - Herstellerinformationen: GPSR-Zusatzfelder des Herstellers, sonst dessen Beschreibung.
+ # - Fragen zum Produkt: das Kontaktformular der Erlebniswelt (ProductQuestionsSubscriber). Auf Smartphones
+ #   klappt es unter der Reiterliste auf statt im Offcanvas – dort bleibt das Formular samt Upload und Captcha
+ #   das einzige Exemplar auf der Seite.
+ #}
+{% block element_product_description_reviews %}
+    {% set novaProduct = element.data.product %}
+    {% set novaReviews = element.data.reviews|default(null) %}
+    {% set novaRatingSuccess = element.data.ratingSuccess|default(ratingSuccess|default(0)) %}
+    {% set novaHasReviews = novaReviews
+        and ((novaReviews.total|default(0)) > 0
+            or (novaReviews.matrix.totalReviewCount|default(0)) > 0
+            or novaReviews.customerReview|default(null)) %}
+    {% set novaShowReviewTab = config('core.listing.showReview')
+        and (config('NovaTheme.config.productReviewsOnlyIfAny') is same as(false)
+            or novaHasReviews
+            or novaRatingSuccess in [1, 2, -1]) %}
+    {# Wird von component/product/description.html.twig gelesen #}
+    {% set novaReviewHint = config('core.listing.showReview') and not novaShowReviewTab %}
+
+    {% set novaManufacturerInfo = '' %}
+    {% if novaProduct and config('NovaTheme.config.productManufacturerTab') is not same as(false) %}
+        {% set novaManufacturerInfo %}{% sw_include '@NovaTheme/storefront/nova/product/manufacturer-info.html.twig' with { product: novaProduct } %}{% endset %}
+    {% endif %}
+    {% set novaShowManufacturerTab = novaManufacturerInfo|striptags|trim is not empty %}
+
+    {% set novaQuestions = page.extensions.novaProductQuestions|default(null) %}
+    {% set novaShowQuestionsTab = novaQuestions is not null and novaProduct %}
+
+    {{ parent() }}
+{% endblock %}
+
+{% block element_product_description_reviews_tabs_navigation_review %}
+    {% if novaShowReviewTab %}
+        {{ parent() }}
+    {% endif %}
+
+    {% block nova_product_tabs_navigation_manufacturer %}
+        {% if novaShowManufacturerTab %}
+            <li class="nav-item">
+                <a class="nav-link product-detail-tab-navigation-link nova-manufacturer-tab"
+                   id="nova-manufacturer-tab-{{ novaProduct.id }}"
+                   data-bs-toggle="tab"
+                   data-off-canvas-tabs="true"
+                   href="#nova-manufacturer-tab-{{ novaProduct.id }}-pane"
+                   role="tab"
+                   aria-controls="nova-manufacturer-tab-{{ novaProduct.id }}-pane"
+                   aria-selected="false">
+                    {{ 'novaTheme.productTabs.manufacturer'|trans|sw_sanitize }}
+                    <span class="product-detail-tab-navigation-icon">
+                        {% sw_icon 'arrow-medium-right' style { pack: 'solid' } %}
+                    </span>
+                </a>
+            </li>
+        {% endif %}
+    {% endblock %}
+
+    {% block nova_product_tabs_navigation_questions %}
+        {% if novaShowQuestionsTab %}
+            <li class="nav-item">
+                {# Ohne data-off-canvas-tabs: auf Smartphones klappt das Formular unter der Liste auf #}
+                <a class="nav-link product-detail-tab-navigation-link nova-questions-tab"
+                   id="nova-questions-tab-{{ novaProduct.id }}"
+                   data-bs-toggle="tab"
+                   href="#nova-questions-tab-{{ novaProduct.id }}-pane"
+                   role="tab"
+                   aria-controls="nova-questions-tab-{{ novaProduct.id }}-pane"
+                   aria-selected="false">
+                    {{ 'novaTheme.productTabs.questions'|trans|sw_sanitize }}
+                    <span class="product-detail-tab-navigation-icon">
+                        {% sw_icon 'arrow-medium-down' style { pack: 'solid' } %}
+                    </span>
+                </a>
+            </li>
+        {% endif %}
+    {% endblock %}
+{% endblock %}
+
+{% block element_product_description_reviews_tabs_content_review %}
+    {% if novaShowReviewTab %}
+        {{ parent() }}
+    {% endif %}
+
+    {% block nova_product_tabs_content_manufacturer %}
+        {% if novaShowManufacturerTab %}
+            <div class="tab-pane fade nova-manufacturer-pane"
+                 id="nova-manufacturer-tab-{{ novaProduct.id }}-pane"
+                 role="tabpanel"
+                 aria-labelledby="nova-manufacturer-tab-{{ novaProduct.id }}">
+                {% sw_include '@NovaTheme/storefront/nova/product/tab-pane-offcanvas.html.twig' with {
+                    novaPaneContent: novaManufacturerInfo
+                } %}
+            </div>
+        {% endif %}
+    {% endblock %}
+
+    {% block nova_product_tabs_content_questions %}
+        {% if novaShowQuestionsTab %}
+            <div class="tab-pane fade nova-questions-pane"
+                 id="nova-questions-tab-{{ novaProduct.id }}-pane"
+                 role="tabpanel"
+                 aria-labelledby="nova-questions-tab-{{ novaProduct.id }}">
+                <div class="nova-product-questions">
+                    {% sw_include '@Storefront/storefront/element/cms-element-form.html.twig' with {
+                        element: novaQuestions.slot,
+                        data: novaQuestions.data,
+                        novaInProductTab: true
+                    } %}
+                </div>
+            </div>
+        {% endif %}
+    {% endblock %}
+{% endblock %}

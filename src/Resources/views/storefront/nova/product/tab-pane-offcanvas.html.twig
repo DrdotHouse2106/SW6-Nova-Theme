@@ -1,0 +1,9 @@
+{% sw_extends '@Storefront/storefront/utilities/offcanvas.html.twig' %}
+
+{# Hülle wie bei Beschreibung und Bewertungen: Kopf mit „Schließen“ für das Offcanvas auf Smartphones.
+   novaPaneContent ist bereits gerendertes (und maskiertes) HTML aus einer Theme-Vorlage. #}
+{% block utilities_offcanvas_content %}
+    <div class="tab-pane-container">
+        {{ novaPaneContent|raw }}
+    </div>
+{% endblock %}

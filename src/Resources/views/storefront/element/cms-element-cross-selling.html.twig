@@ -1,0 +1,28 @@
+{% sw_extends '@Storefront/storefront/element/cms-element-cross-selling.html.twig' %}
+
+{#
+ # Cross-Selling mit sichtbaren Überschriften (Plugin-Konfiguration „Produktseite“):
+ # - genau eine Gruppe: ihr Name als Überschrift statt einer einzelnen Reiter-Zeile
+ # - mehrere Gruppen: Reiter wie im Standard (auf Smartphones untereinander mit Überschrift)
+ # - „Kunden kauften auch“ der Nova Suche (Block nova_search_also_bought) mit sichtbarer Überschrift
+ # Leere Gruppen gibt schon der Standard nicht aus.
+ #}
+{% block cms_element_cross_selling_tabs_navigation %}
+    {% set novaCrossSellings = element.data.crossSellings.elements|default([])|filter(item => item.total > 0 and item.crossSelling.active == true) %}
+    {% if config('NovaTheme.config.productCrossSellingHeadings') is not same as(false) and novaCrossSellings|length == 1 %}
+        {% set novaCrossSelling = (novaCrossSellings|first).crossSelling %}
+        <h2 class="nova-section-title nova-cross-selling-title">{{ novaCrossSelling.translated.name ?: novaCrossSelling.name }}</h2>
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
+{% block nova_search_also_bought %}
+    {% if config('NovaTheme.config.productCrossSellingHeadings') is not same as(false) %}
+        <div class="nova-also-bought-titled">
+            {{ parent() }}
+        </div>
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
