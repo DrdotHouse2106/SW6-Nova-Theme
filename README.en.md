@@ -64,6 +64,10 @@ Known pitfalls from real installations. **Please add new ones** (or open an issu
 - **"Recently viewed" missing:** requires consent ("comfort features"), stored in the browser only, not shown in checkout/account.
 - **File attachments in the contact form:** moved to the plugin **Nova Upload** in 1.8.0 (protected storage, product uploads).
 
+## How this plugin was made
+
+This plugin was developed with the help of AI (Claude by Anthropic). The requirements come from running several Shopware shops day to day; the code was written and revised with AI. It is checked with automated tests and static analysis (where present in the repository), regular security reviews of the code and in production use in the author's own shops. Still: use at your own risk and without warranty (see license). Please report bugs and suggestions as an issue. More background: [SW6-Nova-Plugins](https://github.com/DrdotHouse2106/SW6-Nova-Plugins).
+
 ## License
 
 MIT
