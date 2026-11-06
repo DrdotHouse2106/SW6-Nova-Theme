@@ -104,5 +104,8 @@
             "whatsappTextWithoutName": "Interested in vehicle %number%",
             "metaTitleSold": "%name% – sold"
         }
+    },
+    "checkout": {
+        "cartHeaderTaxIncludeVat": "of which VAT"
     }
 }

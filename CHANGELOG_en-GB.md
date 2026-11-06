@@ -1,3 +1,6 @@
+# 1.14.2
+- Cart, order overview, order details in the account: column “incl. VAT” is now “of which VAT” – it shows the tax amount of the line item, not the unit price (snippet `checkout.cartHeaderTaxIncludeVat`, editable in snippets)
+
 # 1.14.1
 - Vehicle offers: sold vehicles get the page title “{name} – sold” instead of the SEO title “… buy”. With price 0 the offer stays omitted from structured data on purpose (search engines reject offers without price)
 

@@ -1,3 +1,6 @@
+# 1.14.2
+- Warenkorb, Bestellübersicht, Bestelldetails im Konto: Spalte „inkl. MwSt.“ heißt jetzt „davon MwSt.“ – sie zeigt den Steuerbetrag der Position, nicht den Stückpreis (Snippet `checkout.cartHeaderTaxIncludeVat`, in den Textbausteinen änderbar)
+
 # 1.14.1
 - Fahrzeugangebote: Verkaufte Fahrzeuge bekommen den Seitentitel „{Name} – verkauft“ statt des SEO-Titels „… kaufen“. Bei Preis 0 entfällt in den strukturierten Daten weiterhin das Angebot (offers) – bewusst, weil Suchmaschinen ein Angebot ohne Preis ablehnen
 

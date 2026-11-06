@@ -104,5 +104,8 @@
             "whatsappTextWithoutName": "Interesse an Fahrzeug %number%",
             "metaTitleSold": "%name% – verkauft"
         }
+    },
+    "checkout": {
+        "cartHeaderTaxIncludeVat": "davon MwSt."
     }
 }
