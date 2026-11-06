@@ -66,6 +66,42 @@
             "subject": "Question about item %number% – %name%",
             "subjectWithoutName": "Question about item %number%",
             "comment": "Item number: %number%"
+        },
+        "vehicle": {
+            "status": {
+                "available": "Available",
+                "reserved": "Reserved",
+                "sold": "Sold"
+            },
+            "sold": "Sold",
+            "call": "Call",
+            "whatsapp": "WhatsApp",
+            "inquiry": "Request a viewing",
+            "inquirySold": "Looking for a similar vehicle? Ask us",
+            "details": "Details",
+            "actions": "Contact about this vehicle",
+            "dataTitle": "Vehicle data",
+            "works": "Work carried out",
+            "model": "Model/type",
+            "year": "Year",
+            "firstRegistration": "First registration",
+            "mileage": "Mileage",
+            "power": "Power",
+            "engine": "Fuel/engine",
+            "gearbox": "Gearbox",
+            "color": "Colour",
+            "inspection": "Inspection valid until",
+            "historic": "Historic registration",
+            "owners": "Previous owners",
+            "location": "Location",
+            "yes": "yes",
+            "km": "%km% km",
+            "factYear": "Year %year%",
+            "factInspection": "Inspection %date%",
+            "subject": "Viewing/enquiry: %name% (%number%)",
+            "subjectSold": "Looking for a vehicle similar to %name% (%number%)",
+            "whatsappText": "Interested in %name% (%number%)",
+            "whatsappTextWithoutName": "Interested in vehicle %number%"
         }
     }
 }

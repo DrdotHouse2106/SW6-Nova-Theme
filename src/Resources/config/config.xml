@@ -197,6 +197,85 @@
             <helpText lang="de-DE">Bei genau einer Cross-Selling-Gruppe steht ihr Name als Überschrift statt als Reiter; „Kunden kauften auch“ (Nova Suche) bekommt eine sichtbare Überschrift.</helpText>
             <defaultValue>true</defaultValue>
         </input-field>
+
+        <input-field type="bool">
+            <name>productSliderHideCurrent</name>
+            <label>Do not show the current product in product sliders of the product page</label>
+            <label lang="de-DE">Aktuelles Produkt nicht in Produkt-Slidern der Produktseite zeigen</label>
+            <helpText>E.g. a slider “More offers” from a dynamic product group that contains the product itself. If nothing is left, the slider is omitted.</helpText>
+            <helpText lang="de-DE">Z. B. ein Slider „Weitere Angebote“ aus einer dynamischen Produktgruppe, die das Produkt selbst enthält. Bleibt nichts übrig, entfällt der Slider.</helpText>
+            <defaultValue>true</defaultValue>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Vehicle offers</title>
+        <title lang="de-DE">Fahrzeugangebote</title>
+
+        <input-field type="bool">
+            <name>vehicleOffers</name>
+            <label>Vehicle offers (products with the custom field “Vehicle offer → Status”)</label>
+            <label lang="de-DE">Fahrzeugangebote (Produkte mit Zusatzfeld „Fahrzeugangebot → Status“)</label>
+            <helpText>Product page: vehicle header with name, status, price, data sheet and buttons above the layout, no buy box. Product cards: status, key data and “Details” instead of “Add to cart”. Products without status are not affected.</helpText>
+            <helpText lang="de-DE">Produktseite: Fahrzeugkopf mit Name, Status, Preis, Datenblatt und Knöpfen über der Erlebniswelt, keine Kaufbox. Produktkarten: Status, Eckdaten und „Details“ statt „In den Warenkorb“. Produkte ohne Status bleiben unverändert.</helpText>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="text">
+            <name>vehiclePhone</name>
+            <label>Phone number for “Call”</label>
+            <label lang="de-DE">Telefonnummer für „Anrufen“</label>
+            <helpText>Empty = phone from the master data (Settings → Basic information → Company information), otherwise the top bar phone number. No number = no button.</helpText>
+            <helpText lang="de-DE">Leer = Telefon aus den Stammdaten (Einstellungen → Stammdaten → Firmenangaben), sonst die Telefonnummer der Topbar. Ohne Nummer kein Knopf.</helpText>
+        </input-field>
+
+        <input-field type="text">
+            <name>vehicleWhatsapp</name>
+            <label>WhatsApp number</label>
+            <label lang="de-DE">WhatsApp-Nummer</label>
+            <helpText>International format, e.g. +49 30 1234567. Empty = no WhatsApp button. The message is prefilled with “Interested in {name} ({number})”.</helpText>
+            <helpText lang="de-DE">International, z. B. +49 30 1234567. Leer = kein WhatsApp-Knopf. Die Nachricht ist mit „Interesse an {Name} ({Nummer})“ vorbelegt.</helpText>
+        </input-field>
+
+        <input-field type="text">
+            <name>vehicleButtonCall</name>
+            <label>Button text “Call”</label>
+            <label lang="de-DE">Knopftext „Anrufen“</label>
+            <helpText>Empty = snippet "novaTheme.vehicle.call".</helpText>
+            <helpText lang="de-DE">Leer = Textbaustein „novaTheme.vehicle.call“.</helpText>
+        </input-field>
+
+        <input-field type="text">
+            <name>vehicleButtonWhatsapp</name>
+            <label>Button text “WhatsApp”</label>
+            <label lang="de-DE">Knopftext „WhatsApp“</label>
+            <helpText>Empty = snippet "novaTheme.vehicle.whatsapp".</helpText>
+            <helpText lang="de-DE">Leer = Textbaustein „novaTheme.vehicle.whatsapp“.</helpText>
+        </input-field>
+
+        <input-field type="text">
+            <name>vehicleButtonInquiry</name>
+            <label>Button text “Request a viewing”</label>
+            <label lang="de-DE">Knopftext „Besichtigung anfragen“</label>
+            <helpText>Jumps to the contact form of the product page layout (subject prefilled). Empty = snippet "novaTheme.vehicle.inquiry".</helpText>
+            <helpText lang="de-DE">Springt zum Kontaktformular der Produktseiten-Erlebniswelt (Betreff vorbelegt). Leer = Textbaustein „novaTheme.vehicle.inquiry“.</helpText>
+        </input-field>
+
+        <input-field type="text">
+            <name>vehicleButtonSold</name>
+            <label>Button text for sold vehicles</label>
+            <label lang="de-DE">Knopftext bei verkauften Fahrzeugen</label>
+            <helpText>Empty = snippet "novaTheme.vehicle.inquirySold" (“Looking for a similar vehicle? Ask us”).</helpText>
+            <helpText lang="de-DE">Leer = Textbaustein „novaTheme.vehicle.inquirySold“ („Ähnliches Fahrzeug suchen? Anfragen“).</helpText>
+        </input-field>
+
+        <input-field type="text">
+            <name>vehiclePriceNote</name>
+            <label>Note below the price (optional)</label>
+            <label lang="de-DE">Hinweis unter dem Preis (optional)</label>
+            <helpText>E.g. “VAT cannot be shown (margin scheme)” or “incl. VAT”. Empty = no note.</helpText>
+            <helpText lang="de-DE">Z. B. „Differenzbesteuert nach § 25a UStG, MwSt. nicht ausweisbar“ oder „inkl. MwSt.“. Leer = kein Hinweis.</helpText>
+        </input-field>
     </card>
 
     <card>

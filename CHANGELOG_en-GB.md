@@ -1,3 +1,11 @@
+# 1.14.0
+- New: **vehicle offers** for dealers and workshops showing individual vehicles for sale (enquiry instead of order). Custom field set "Vehicle offer" on products (status available/reserved/sold, price addition, model/type, year, first registration, mileage, power, fuel/engine, gearbox, colour, inspection valid until, historic registration, previous owners, location, short description for listings, work done/restoration), created on install and update. When the status is set:
+  - Product page: vehicle header above the layout with status, name (H1), price with addition (no price at 0, "Sold" for sold vehicles), data sheet with all filled fields, expandable work done and the buttons *Call*, *WhatsApp* (prefilled message) and *Request a viewing* (jumps to the layout's contact form, subject prefilled); sold vehicles only show "Looking for a similar vehicle? Ask us". Buy box and product name element are omitted
+  - Structured data as a vehicle (JSON-LD Product + Car, used condition, year, mileage …, sold = SoldOut)
+  - Product cards: status badge, key data "year · km · inspection" and short description instead of the description excerpt, price with addition or "Sold", "Details" instead of "Add to cart"
+  - Settings per sales channel under *Configure → Vehicle offers*: on/off, phone (empty = master data or top bar), WhatsApp number, button texts, note below the price
+- New: product sliders on the product page no longer show the current product (e.g. "More offers" from a dynamic product group); if nothing is left, the slider is omitted. Switch under *Product page*
+
 # 1.13.2
 - Checkout: the card fields of PayPal “credit or debit card” now sit inside the selected payment card instead of below it; field height so that borders are not cut off
 

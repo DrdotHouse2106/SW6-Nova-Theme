@@ -40,6 +40,18 @@ From 1.13.0 the theme extends the "Description & reviews" element with tabs: **D
 - **Cross-selling:** one group → its name as heading; several groups → tabs; "Customers also bought" (Nova Search) gets a visible heading. Sliders with vertical alignment no longer render squeezed on first load.
 - On phones description, reviews and manufacturer information open in the off-canvas; the questions tab expands below the tab list.
 
+- **Product sliders** of the product page layout no longer show the current product (e.g. "More offers" from a dynamic product group); if nothing is left, the slider is omitted. Switch: *Product page → Do not show the current product in product sliders*.
+
+## Vehicle offers
+
+For dealers and workshops that show individual vehicles for sale – no online purchase, enquiry instead. Vehicles are regular products with their own product page layout. A product counts as a vehicle as soon as **Status** is set in the custom field set **"Vehicle offer"** (created on install/update); all other products are unchanged. Switch per sales channel under *Configure → Vehicle offers* (default on).
+
+- **Custom fields:** `nova_vehicle_status` (`available`, `reserved`, `sold`; empty = no vehicle), `nova_vehicle_price_suffix` (e.g. "negotiable"), `nova_vehicle_model`, `nova_vehicle_year`, `nova_vehicle_first_registration`, `nova_vehicle_mileage` (km), `nova_vehicle_power`, `nova_vehicle_engine`, `nova_vehicle_gearbox`, `nova_vehicle_color`, `nova_vehicle_inspection` (MM/YYYY), `nova_vehicle_historic` (yes/no), `nova_vehicle_owners`, `nova_vehicle_location`, `nova_vehicle_teaser` (one line for product cards), `nova_vehicle_works` (HTML, expandable).
+- **Product page:** above the layout (i.e. above the gallery, in every product page layout) a vehicle header with status, name (H1), price with addition (no price at 0, "Sold" instead of the price), optional note below the price, data sheet with all filled fields and the buttons **Call** (number from the configuration, otherwise master data company phone, otherwise top bar phone), **WhatsApp** (only with an international number, prefilled "Interested in {name} ({number})") and **Request a viewing** (jumps to the first contact form of the layout with prefilled subject; on vehicle pages the form stays in place). Sold vehicles only show "Looking for a similar vehicle? Ask us". Buy box and product name elements are not rendered for vehicles. No custom CMS element: the header hangs on the product page frame and works with every layout without an administration extension.
+- **Structured data:** JSON-LD `Product` + `Car` (used condition, year, mileage, colour, gearbox, previous owners, offer with price and availability, sold = `SoldOut`) instead of the default product; without a price the offer is omitted.
+- **Product cards:** status badge, key data "year · km · inspection" and short description instead of the description excerpt, price with addition or "Sold", "Details" instead of "Add to cart".
+- The theme hides cart buttons but does not lock the cart itself; for extra safety mark vehicles as clearance sale with stock 0.
+
 ## Recently viewed and delivery dates
 
 "Recently viewed" is shown as a slider at the bottom of every page above the footer (not in checkout after the cart and not in the customer account), only with consent (comfort features). Page types are configurable. The theme also styles the "Dynamic monthly delivery dates" plugin (product page info box, line items, listing, checkout summary).

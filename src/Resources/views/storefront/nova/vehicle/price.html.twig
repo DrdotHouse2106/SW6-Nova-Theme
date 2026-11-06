@@ -1,0 +1,20 @@
+{#
+ # Preis eines Fahrzeugangebots: „Verkauft“ statt Preis, bei Preis 0 kein Preis (nur ein Preiszusatz wie
+ # „Preis auf Anfrage“, falls gesetzt). Erwartet product und novaVehicleStatus.
+ #}
+{% block nova_vehicle_price %}
+    {% set novaVehicleFields = product.translated.customFields|default({}) %}
+    {% set novaVehiclePrice = product.calculatedPrice.unitPrice|default(0) %}
+    {% set novaVehicleSuffix = ((novaVehicleFields.nova_vehicle_price_suffix ?? '') ~ '')|trim %}
+
+    {% if novaVehicleStatus == 'sold' %}
+        <p class="nova-vehicle-price is-sold">{{ 'novaTheme.vehicle.sold'|trans|sw_sanitize }}</p>
+    {% elseif novaVehiclePrice > 0 %}
+        <p class="nova-vehicle-price">
+            <span class="nova-vehicle-price-value">{{ novaVehiclePrice|currency }}</span>
+            {%- if novaVehicleSuffix is not empty %} <span class="nova-vehicle-price-suffix">{{ novaVehicleSuffix }}</span>{% endif %}
+        </p>
+    {% elseif novaVehicleSuffix is not empty %}
+        <p class="nova-vehicle-price"><span class="nova-vehicle-price-suffix">{{ novaVehicleSuffix }}</span></p>
+    {% endif %}
+{% endblock %}

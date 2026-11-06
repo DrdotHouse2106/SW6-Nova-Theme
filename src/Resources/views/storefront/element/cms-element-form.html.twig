@@ -1,10 +1,18 @@
 {% sw_extends '@Storefront/storefront/element/cms-element-form.html.twig' %}
 
 {# Das Kontaktformular für „Fragen zum Produkt“ steht im Reiter der Produktbeschreibung,
-   nicht ein zweites Mal an seiner Stelle im Layout (siehe ProductQuestionsSubscriber). #}
+   nicht ein zweites Mal an seiner Stelle im Layout (siehe ProductQuestionsSubscriber).
+   Auf Fahrzeugseiten bleibt das Formular an seiner Stelle, ist Sprungziel von „Besichtigung anfragen“
+   und hat Betreff und Nachricht vorbelegt (siehe VehicleOfferSubscriber). #}
 {% block element_form %}
     {% set novaQuestions = page.extensions.novaProductQuestions|default(null) %}
-    {% if novaQuestions is null or novaQuestions.slotId != element.id or novaInProductTab|default(false) %}
+    {% set novaVehicle = page.extensions.novaVehicle|default(null) %}
+    {% if novaVehicle and novaVehicle.formSlotId == element.id %}
+        {% set data = novaVehicle.formData %}
+        <div id="nova-vehicle-inquiry" class="nova-vehicle-inquiry">
+            {{ parent() }}
+        </div>
+    {% elseif novaQuestions is null or novaQuestions.slotId != element.id or novaInProductTab|default(false) %}
         {{ parent() }}
     {% endif %}
 {% endblock %}

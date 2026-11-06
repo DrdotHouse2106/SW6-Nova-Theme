@@ -30,5 +30,16 @@
             <tag name="kernel.event_subscriber"/>
         </service>
 
+        <service id="Nova\NovaTheme\Product\ProductSliderSelfFilterSubscriber">
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
+
+        <service id="Nova\NovaTheme\Vehicle\VehicleOfferSubscriber">
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <argument type="service" id="translator"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
+
     </services>
 </container>

@@ -1,0 +1,11 @@
+{% sw_extends '@Storefront/storefront/layout/structured-data/json-ld-product.html.twig' %}
+
+{# Mit Shopwares JSON-LD-Funktion: Fahrzeugangebote bekommen Product + Car statt des Standard-Produkts #}
+{% block page_product_detail_json_ld %}
+    {% set novaVehicle = page.extensions.novaVehicle|default(null) %}
+    {% if novaVehicle %}
+        {% sw_include '@NovaTheme/storefront/nova/vehicle/json-ld.html.twig' with { product: page.product, novaVehicleStatus: novaVehicle.status } %}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

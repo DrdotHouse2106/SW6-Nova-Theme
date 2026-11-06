@@ -1,0 +1,86 @@
+{% sw_extends '@Storefront/storefront/component/product/card/box-standard.html.twig' %}
+
+{#
+ # Produktkarten von Fahrzeugangeboten (Zusatzfeld „Fahrzeugangebot → Status“, Plugin-Konfiguration
+ # „Fahrzeugangebote“): Status statt Rabatt-/Neu-Badges, Kurzbeschreibung und Eckdaten (Baujahr · km · HU)
+ # statt Beschreibungsauszug, Preis mit Zusatz bzw. „Verkauft“, „Details“ statt „In den Warenkorb“.
+ #}
+{% block component_product_box_content %}
+    {% set novaVehicleStatus = null %}
+    {% if config('NovaTheme.config.vehicleOffers') is not same as(false) %}
+        {% set novaVehicleStatus = product.translated.customFields.nova_vehicle_status ?? null %}
+        {% if novaVehicleStatus not in ['available', 'reserved', 'sold'] %}
+            {% set novaVehicleStatus = null %}
+        {% endif %}
+    {% endif %}
+
+    {{ parent() }}
+{% endblock %}
+
+{% block component_product_box_badges %}
+    {% if novaVehicleStatus %}
+        <div class="product-badges">
+            <span class="badge nova-vehicle-badge is-{{ novaVehicleStatus }}">{{ ('novaTheme.vehicle.status.' ~ novaVehicleStatus)|trans|sw_sanitize }}</span>
+        </div>
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
+{% block component_product_box_variant_characteristics %}
+    {% if not novaVehicleStatus %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
+{% block component_product_box_description %}
+    {% if novaVehicleStatus %}
+        {% set novaCardFields = product.translated.customFields|default({}) %}
+        {% set novaFacts = [] %}
+        {% if (novaCardFields.nova_vehicle_year ?? null) is not null and (novaCardFields.nova_vehicle_year ~ '')|trim is not empty %}
+            {% set novaFacts = novaFacts|merge(['novaTheme.vehicle.factYear'|trans({ '%year%': novaCardFields.nova_vehicle_year })]) %}
+        {% endif %}
+        {% if (novaCardFields.nova_vehicle_mileage ?? null) is not null and novaCardFields.nova_vehicle_mileage is not same as('') %}
+            {% set novaFacts = novaFacts|merge(['novaTheme.vehicle.km'|trans({ '%km%': novaCardFields.nova_vehicle_mileage|format_number })]) %}
+        {% endif %}
+        {% if ((novaCardFields.nova_vehicle_inspection ?? '') ~ '')|trim is not empty %}
+            {% set novaFacts = novaFacts|merge(['novaTheme.vehicle.factInspection'|trans({ '%date%': (novaCardFields.nova_vehicle_inspection ~ '')|trim })]) %}
+        {% endif %}
+        {% set novaTeaser = ((novaCardFields.nova_vehicle_teaser ?? '') ~ '')|trim %}
+
+        <div class="nova-vehicle-card-info">
+            {% if novaFacts is not empty %}
+                <p class="nova-vehicle-facts">{{ novaFacts|join(' · ') }}</p>
+            {% endif %}
+            {% if novaTeaser is not empty %}
+                <p class="nova-vehicle-teaser">{{ novaTeaser }}</p>
+            {% endif %}
+        </div>
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
+{% block component_product_box_price %}
+    {% if novaVehicleStatus %}
+        <div class="product-price-info nova-vehicle-card-price">
+            {% sw_include '@NovaTheme/storefront/nova/vehicle/price.html.twig' with { product: product, novaVehicleStatus: novaVehicleStatus } %}
+        </div>
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
+{% block component_product_box_action %}
+    {% if novaVehicleStatus %}
+        <div class="product-action">
+            <div class="d-grid">
+                <a href="{{ seoUrl('frontend.detail.page', { productId: product.id }) }}" class="btn btn-light btn-detail nova-vehicle-details">
+                    {{ 'novaTheme.vehicle.details'|trans|sw_sanitize }}
+                </a>
+            </div>
+        </div>
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

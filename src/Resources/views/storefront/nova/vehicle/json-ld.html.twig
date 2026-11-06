@@ -1,0 +1,89 @@
+{#
+ # Strukturierte Daten für ein Fahrzeugangebot (schema.org Product + Car) statt des Standard-Produkts:
+ # Gebrauchtzustand, Verfügbarkeit aus dem Status (verkauft = SoldOut), Baujahr, Kilometerstand, Farbe …
+ # Ohne Preis (0) entfällt das Angebot (offers), weil Suchmaschinen ein Angebot ohne Preis ablehnen.
+ # Erwartet product und novaVehicleStatus.
+ #}
+{% block nova_vehicle_json_ld %}
+    {% set novaFields = product.translated.customFields|default({}) %}
+    {% set novaUrl = seoUrl('frontend.detail.page', { productId: product.id }) %}
+    {% set novaPrice = product.calculatedPrice.unitPrice|default(0) %}
+
+    {% set novaData = {
+        '@context': 'https://schema.org',
+        '@type': ['Product', 'Car'],
+        '@id': novaUrl ~ '#product',
+        name: product.translated.name,
+        sku: product.productNumber,
+        url: novaUrl,
+        itemCondition: 'https://schema.org/UsedCondition'
+    } %}
+
+    {% set novaDescription = (novaFields.nova_vehicle_teaser ?? '') ~ '' %}
+    {% if novaDescription|trim is empty %}
+        {% set novaDescription = (product.translated.description ?? '')|striptags|trim %}
+    {% endif %}
+    {% if novaDescription|trim is not empty %}
+        {% set novaData = novaData|merge({ description: novaDescription|trim }) %}
+    {% endif %}
+
+    {% set novaImages = [] %}
+    {% for novaMedia in product.media|default([]) %}
+        {% if novaMedia.media and novaMedia.media.url and not (novaMedia.media.mediaType and novaMedia.media.mediaType.name == 'VIDEO') %}
+            {% set novaImages = novaImages|merge([novaMedia.media.url]) %}
+        {% endif %}
+    {% endfor %}
+    {% if novaImages is empty and product.cover and product.cover.media and product.cover.media.url %}
+        {% set novaImages = [product.cover.media.url] %}
+    {% endif %}
+    {% if novaImages is not empty %}
+        {% set novaData = novaData|merge({ image: novaImages }) %}
+    {% endif %}
+
+    {% if product.manufacturer %}
+        {% set novaData = novaData|merge({ brand: { '@type': 'Brand', name: product.manufacturer.translated.name } }) %}
+    {% endif %}
+
+    {% set novaMap = {
+        nova_vehicle_model: 'model',
+        nova_vehicle_year: 'vehicleModelDate',
+        nova_vehicle_first_registration: 'dateVehicleFirstRegistered',
+        nova_vehicle_color: 'color',
+        nova_vehicle_engine: 'fuelType',
+        nova_vehicle_gearbox: 'vehicleTransmission',
+        nova_vehicle_owners: 'numberOfPreviousOwners'
+    } %}
+    {% for novaField, novaProperty in novaMap %}
+        {% set novaValue = novaFields[novaField] ?? null %}
+        {% if novaValue is not null and (novaValue ~ '')|trim is not empty %}
+            {% set novaData = novaData|merge({ (novaProperty): (novaField in ['nova_vehicle_owners'] ? novaValue : (novaValue ~ '')|trim) }) %}
+        {% endif %}
+    {% endfor %}
+
+    {% set novaMileage = novaFields.nova_vehicle_mileage ?? null %}
+    {% if novaMileage is not null and novaMileage is not same as('') %}
+        {% set novaData = novaData|merge({ mileageFromOdometer: { '@type': 'QuantitativeValue', value: novaMileage, unitCode: 'KMT' } }) %}
+    {% endif %}
+
+    {% if novaPrice > 0 %}
+        {% set novaAvailability = {
+            available: 'https://schema.org/InStock',
+            reserved: 'https://schema.org/LimitedAvailability',
+            sold: 'https://schema.org/SoldOut'
+        }[novaVehicleStatus] ?? 'https://schema.org/InStock' %}
+        {% set novaData = novaData|merge({ offers: {
+            '@type': 'Offer',
+            url: novaUrl,
+            price: novaPrice,
+            priceCurrency: context.currency.isoCode,
+            availability: novaAvailability,
+            itemCondition: 'https://schema.org/UsedCondition',
+            seller: { '@type': 'Organization', name: config('core.basicInformation.shopName') }
+        } }) %}
+    {% endif %}
+
+    {% set novaJsonFlags = jsonLdFlags|default(constant('JSON_UNESCAPED_SLASHES') b-or constant('JSON_UNESCAPED_UNICODE') b-or constant('JSON_HEX_TAG') b-or constant('JSON_HEX_AMP')) %}
+    <script type="application/ld+json">
+    {{ novaData|json_encode(novaJsonFlags)|raw }}
+    </script>
+{% endblock %}

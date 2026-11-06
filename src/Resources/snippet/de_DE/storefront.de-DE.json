@@ -66,6 +66,42 @@
             "subject": "Frage zu Artikel %number% – %name%",
             "subjectWithoutName": "Frage zu Artikel %number%",
             "comment": "Artikelnummer: %number%"
+        },
+        "vehicle": {
+            "status": {
+                "available": "Verfügbar",
+                "reserved": "Reserviert",
+                "sold": "Verkauft"
+            },
+            "sold": "Verkauft",
+            "call": "Anrufen",
+            "whatsapp": "WhatsApp",
+            "inquiry": "Besichtigung anfragen",
+            "inquirySold": "Ähnliches Fahrzeug suchen? Anfragen",
+            "details": "Details",
+            "actions": "Kontakt zu diesem Fahrzeug",
+            "dataTitle": "Fahrzeugdaten",
+            "works": "Durchgeführte Arbeiten",
+            "model": "Modell/Typ",
+            "year": "Baujahr",
+            "firstRegistration": "Erstzulassung",
+            "mileage": "Kilometerstand",
+            "power": "Leistung",
+            "engine": "Antrieb/Motor",
+            "gearbox": "Getriebe",
+            "color": "Farbe",
+            "inspection": "HU bis",
+            "historic": "H-Kennzeichen",
+            "owners": "Vorbesitzer",
+            "location": "Standort",
+            "yes": "ja",
+            "km": "%km% km",
+            "factYear": "Baujahr %year%",
+            "factInspection": "HU %date%",
+            "subject": "Besichtigung/Anfrage: %name% (%number%)",
+            "subjectSold": "Suche ähnliches Fahrzeug wie %name% (%number%)",
+            "whatsappText": "Interesse an %name% (%number%)",
+            "whatsappTextWithoutName": "Interesse an Fahrzeug %number%"
         }
     }
 }

@@ -1,0 +1,107 @@
+{#
+ # Fahrzeugkopf über der Produktseiten-Erlebniswelt: Status, Name (H1), Preis, Knöpfe, Datenblatt und
+ # aufklappbar die durchgeführten Arbeiten. Erwartet product und novaVehicle (VehicleOfferStruct).
+ #}
+{% block nova_vehicle_head %}
+    {% set novaVehicleStatus = novaVehicle.status %}
+    {% set novaVehicleFields = product.translated.customFields|default({}) %}
+    {% set novaVehicleSold = novaVehicleStatus == 'sold' %}
+
+    {% set novaVehicleRows = [] %}
+    {% for novaField in ['model', 'year', 'first_registration', 'mileage', 'power', 'engine', 'gearbox', 'color', 'inspection', 'historic', 'owners', 'location'] %}
+        {% set novaValue = novaVehicleFields['nova_vehicle_' ~ novaField] ?? null %}
+        {% if novaField == 'historic' %}
+            {% set novaValue = novaValue ? 'novaTheme.vehicle.yes'|trans : null %}
+        {% elseif novaField == 'mileage' and novaValue is not null and novaValue is not same as('') %}
+            {% set novaValue = 'novaTheme.vehicle.km'|trans({ '%km%': novaValue|format_number }) %}
+        {% endif %}
+        {% if novaValue is not null and (novaValue ~ '')|trim is not empty %}
+            {% set novaLabelKey = novaField == 'first_registration' ? 'firstRegistration' : novaField %}
+            {% set novaVehicleRows = novaVehicleRows|merge([{ label: ('novaTheme.vehicle.' ~ novaLabelKey)|trans, value: novaValue ~ '' }]) %}
+        {% endif %}
+    {% endfor %}
+
+    {% set novaVehicleWorks = novaVehicleFields.nova_vehicle_works ?? '' %}
+    {% set novaPriceNote = config('NovaTheme.config.vehiclePriceNote') %}
+
+    <section class="nova-vehicle-head is-{{ novaVehicleStatus }}" aria-labelledby="nova-vehicle-title-{{ product.id }}">
+        <div class="nova-vehicle-head-main">
+            {% block nova_vehicle_head_badge %}
+                <span class="nova-vehicle-badge is-{{ novaVehicleStatus }}">{{ ('novaTheme.vehicle.status.' ~ novaVehicleStatus)|trans|sw_sanitize }}</span>
+            {% endblock %}
+
+            {% block nova_vehicle_head_title %}
+                <h1 class="nova-vehicle-title" id="nova-vehicle-title-{{ product.id }}">{{ product.translated.name }}</h1>
+            {% endblock %}
+
+            {% block nova_vehicle_head_price %}
+                {% sw_include '@NovaTheme/storefront/nova/vehicle/price.html.twig' with { product: product, novaVehicleStatus: novaVehicleStatus } %}
+                {% if novaPriceNote and not novaVehicleSold and product.calculatedPrice.unitPrice|default(0) > 0 %}
+                    <p class="nova-vehicle-price-note">{{ novaPriceNote }}</p>
+                {% endif %}
+            {% endblock %}
+
+            {% block nova_vehicle_head_actions %}
+                {% set novaInquiryHref = novaVehicle.formSlotId ? '#nova-vehicle-inquiry' : null %}
+                <div class="nova-vehicle-actions" role="group" aria-label="{{ 'novaTheme.vehicle.actions'|trans|striptags }}">
+                    {% if not novaVehicleSold %}
+                        {% if novaVehicle.phoneHref %}
+                            <a class="btn btn-primary nova-vehicle-btn nova-vehicle-btn-call" href="{{ novaVehicle.phoneHref }}">
+                                {% sw_icon 'phone' style { size: 'sm' } %}
+                                <span>{{ config('NovaTheme.config.vehicleButtonCall') ?: 'novaTheme.vehicle.call'|trans|striptags }}</span>
+                                <span class="nova-vehicle-btn-detail">{{ novaVehicle.phoneLabel }}</span>
+                            </a>
+                        {% endif %}
+                        {% if novaVehicle.whatsappHref %}
+                            <a class="btn btn-outline-primary nova-vehicle-btn nova-vehicle-btn-whatsapp" href="{{ novaVehicle.whatsappHref }}" target="_blank" rel="noopener noreferrer">
+                                {% sw_icon 'speech-bubble' style { size: 'sm' } %}
+                                <span>{{ config('NovaTheme.config.vehicleButtonWhatsapp') ?: 'novaTheme.vehicle.whatsapp'|trans|striptags }}</span>
+                            </a>
+                        {% endif %}
+                        {% if novaInquiryHref %}
+                            <a class="btn btn-outline-primary nova-vehicle-btn nova-vehicle-btn-inquiry" href="{{ novaInquiryHref }}">
+                                {% sw_icon 'calendar' style { size: 'sm' } %}
+                                <span>{{ config('NovaTheme.config.vehicleButtonInquiry') ?: 'novaTheme.vehicle.inquiry'|trans|striptags }}</span>
+                            </a>
+                        {% endif %}
+                    {% else %}
+                        {% set novaSoldHref = novaInquiryHref ?: novaVehicle.phoneHref %}
+                        {% if novaSoldHref %}
+                            <a class="btn btn-outline-primary nova-vehicle-btn nova-vehicle-btn-similar" href="{{ novaSoldHref }}">
+                                {% sw_icon 'search' style { size: 'sm' } %}
+                                <span>{{ config('NovaTheme.config.vehicleButtonSold') ?: 'novaTheme.vehicle.inquirySold'|trans|striptags }}</span>
+                            </a>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            {% endblock %}
+        </div>
+
+        {% block nova_vehicle_head_data %}
+            {% if novaVehicleRows is not empty %}
+                <div class="nova-vehicle-head-data">
+                    <table class="nova-vehicle-data">
+                        <caption>{{ 'novaTheme.vehicle.dataTitle'|trans|sw_sanitize }}</caption>
+                        <tbody>
+                            {% for novaRow in novaVehicleRows %}
+                                <tr>
+                                    <th scope="row">{{ novaRow.label }}</th>
+                                    <td>{{ novaRow.value }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% endif %}
+        {% endblock %}
+
+        {% block nova_vehicle_head_works %}
+            {% if novaVehicleWorks|striptags|trim is not empty %}
+                <details class="nova-vehicle-works">
+                    <summary>{{ 'novaTheme.vehicle.works'|trans|sw_sanitize }}</summary>
+                    <div class="nova-vehicle-works-content">{{ novaVehicleWorks|sw_sanitize }}</div>
+                </details>
+            {% endif %}
+        {% endblock %}
+    </section>
+{% endblock %}

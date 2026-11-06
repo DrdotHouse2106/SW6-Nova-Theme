@@ -1,0 +1,8 @@
+{% sw_extends '@Storefront/storefront/element/cms-element-product-name.html.twig' %}
+
+{# Auf Fahrzeugseiten steht die Überschrift (H1) schon im Fahrzeugkopf – hier keine zweite #}
+{% block element_product_name %}
+    {% if not page.extensions.novaVehicle|default(null) or element.fieldConfig.elements.content.isStatic|default(false) %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

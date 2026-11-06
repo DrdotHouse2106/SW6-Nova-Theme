@@ -51,7 +51,8 @@ Alternativ in der Administration unter **Inhalte → Themes** das „Nova Theme�
 | **Konto löschen** | Gut sichtbarer Bereich „Konto löschen“ im Profil mit Sicherheitsabfrage |
 | **Newsletter** | Leiste über dem Footer (Überschrift, Text, Kleingedrucktes, pro Verkaufskanal) und Anmeldung im Bestellprozess – als Kasten auf der Bestellabschlussseite (ein Klick, die Bestell-E-Mail ist schon eingesetzt) oder als Häkchen in der Bestellübersicht. Beides nutzt Shopwares eigene Newsletter-Anmeldung – Double-Opt-in, Captcha und Datenschutz-Hinweis wie in Shopware eingestellt, angemeldete Empfänger stehen unter *Marketing → Newsletter-Empfänger*. Kasten bzw. Häkchen erscheinen nur, wenn die E-Mail noch nicht angemeldet ist; das Häkchen ist nie vorausgewählt |
 | **Copyright im Footer** | „Realisiert mit Shopware“ beibehalten, durch eigenen Text ersetzen (mit `{year}` und `{shop}`, pro Sprache übersetzbar) oder ausblenden – pro Verkaufskanal |
-| **Produktseite** | Reiter *Beschreibung · Bewertungen · Herstellerinformationen · Fragen zum Produkt*, Bewertungen-Reiter nur mit Bewertungen, GPSR-Herstellerangaben als Zusatzfelder, Kontaktformular mit vorbelegter Artikelnummer im Reiter, Cross-Selling mit Überschriften – siehe [Produktseite](#produktseite) |
+| **Produktseite** | Reiter *Beschreibung · Bewertungen · Herstellerinformationen · Fragen zum Produkt*, Bewertungen-Reiter nur mit Bewertungen, GPSR-Herstellerangaben als Zusatzfelder, Kontaktformular mit vorbelegter Artikelnummer im Reiter, Cross-Selling mit Überschriften, Produkt-Slider ohne das aktuelle Produkt – siehe [Produktseite](#produktseite) |
+| **Fahrzeugangebote** | Für Händler und Werkstätten, die einzelne Fahrzeuge zeigen (Anfrage statt Bestellung): Zusatzfeld-Set „Fahrzeugangebot“, Fahrzeugkopf mit Status, Preis, Datenblatt und Knöpfen *Anrufen · WhatsApp · Besichtigung anfragen*, keine Kaufbox, Produktkarten mit Eckdaten und „Details“, strukturierte Daten als Fahrzeug – siehe [Fahrzeugangebote](#fahrzeugangebote) |
 
 ## Einstellungen
 
@@ -72,7 +73,8 @@ Alternativ in der Administration unter **Inhalte → Themes** das „Nova Theme�
   **Spalte mit Logo und Kurztext:** Text eintragen, dann erscheint vorne im Footer das Shop-Logo mit diesem Text (auf dunklem Footer automatisch hell).
 - **Newsletter** – Leiste über dem Footer an/aus, Überschrift, Text (einfaches HTML), Kleingedrucktes; Anmeldung im Bestellprozess an/aus, Position (Bestellabschlussseite oder Bestellübersicht), Überschrift und Text. Leere Felder nutzen die Textbausteine `novaTheme.newsletter.*` (pro Sprache übersetzbar)
 - **Checkout** – Konfetti nach der Bestellung
-- **Produktseite** – Bewertungen-Reiter nur mit Bewertungen, Reiter „Herstellerinformationen“, Kontaktformular als Reiter „Fragen zum Produkt“, Betreff/Nachricht vorbelegen, Cross-Selling-Überschriften (alles Standard an, siehe [Produktseite](#produktseite))
+- **Produktseite** – Bewertungen-Reiter nur mit Bewertungen, Reiter „Herstellerinformationen“, Kontaktformular als Reiter „Fragen zum Produkt“, Betreff/Nachricht vorbelegen, Cross-Selling-Überschriften, aktuelles Produkt nicht in Produkt-Slidern zeigen (alles Standard an, siehe [Produktseite](#produktseite))
+- **Fahrzeugangebote** – an/aus, Telefonnummer und WhatsApp-Nummer, Knopftexte, Hinweis unter dem Preis (siehe [Fahrzeugangebote](#fahrzeugangebote))
 
 ### Theme-Konfiguration (Farben & Layout)
 
@@ -166,6 +168,70 @@ Captcha weiter, und das Formular schickt wie bisher an Shopwares Kontakt-Route.
 - **„Kunden kauften auch“ (Nova Suche):** sichtbare Überschrift über der eigenen Zeile.
 - Leere Gruppen erscheinen nicht. Produkt-Slider mit vertikaler Ausrichtung bekommen von Anfang an die volle
   Spaltenbreite (vorher beim ersten Laden kurz gequetscht).
+
+### Produkt-Slider ohne das aktuelle Produkt
+
+Produkt-Slider der Produktseiten-Erlebniswelt (z. B. „Weitere Angebote“ aus einer dynamischen Produktgruppe) zeigen
+das gerade angezeigte Produkt nicht noch einmal. Bleibt nichts übrig, entfällt der Slider. Abschaltbar unter
+*Produktseite → Aktuelles Produkt nicht in Produkt-Slidern der Produktseite zeigen*.
+
+## Fahrzeugangebote
+
+Für Händler, Werkstätten und Vereine, die einzelne Fahrzeuge zum Verkauf zeigen – ohne Onlinekauf, mit Anfrage.
+Fahrzeuge sind normale Produkte mit eigener Produktseiten-Erlebniswelt (z. B. Bildergalerie, Beschreibung,
+Kontaktformular, Slider „Weitere Fahrzeuge“). Ein Produkt gilt als Fahrzeug, sobald im Zusatzfeld-Set
+**„Fahrzeugangebot“** der **Status** gesetzt ist; alle anderen Produkte bleiben unverändert. Abschaltbar je
+Verkaufskanal unter *Konfigurieren → Fahrzeugangebote* (Standard: an).
+
+**Zusatzfelder** (*Kataloge → Produkte → Produkt öffnen → Zusatzfelder*, angelegt bei Installation und Update):
+
+| Feld | Technischer Name | Hinweis |
+|---|---|---|
+| Status | `nova_vehicle_status` | verfügbar / reserviert / verkauft (`available`, `reserved`, `sold`); leer = kein Fahrzeug |
+| Preiszusatz | `nova_vehicle_price_suffix` | z. B. „VB“, „Festpreis“ |
+| Modell/Typ | `nova_vehicle_model` | |
+| Baujahr | `nova_vehicle_year` | Zahl |
+| Erstzulassung | `nova_vehicle_first_registration` | Text, z. B. 05/1987 |
+| Kilometerstand | `nova_vehicle_mileage` | Zahl, km |
+| Leistung | `nova_vehicle_power` | z. B. 29 PS / 21 kW |
+| Antrieb/Motor | `nova_vehicle_engine` | z. B. Benzin, Elektro |
+| Getriebe | `nova_vehicle_gearbox` | |
+| Farbe | `nova_vehicle_color` | |
+| HU bis | `nova_vehicle_inspection` | MM/JJJJ |
+| H-Kennzeichen | `nova_vehicle_historic` | Ja/Nein |
+| Vorbesitzer | `nova_vehicle_owners` | Zahl |
+| Standort | `nova_vehicle_location` | |
+| Kurzbeschreibung für Listen | `nova_vehicle_teaser` | eine Zeile für die Produktkarte |
+| Arbeiten/Restaurierung | `nova_vehicle_works` | HTML, aufklappbar im Fahrzeugkopf |
+
+**Produktseite:** Über der Erlebniswelt (also über der Bildergalerie, unabhängig vom Layout) steht der Fahrzeugkopf:
+Status, Name als Überschrift (H1), Preis mit Preiszusatz (bei Preis 0 kein Preis, bei „verkauft“ statt Preis
+„Verkauft“), optional ein Hinweis unter dem Preis (z. B. zur Differenzbesteuerung), das Datenblatt mit allen
+gefüllten Feldern und die Knöpfe:
+
+- **Anrufen** – Nummer aus der Konfiguration, sonst aus den Stammdaten (*Einstellungen → Stammdaten →
+  Firmenangaben → Telefon*), sonst die Telefonnummer der Topbar
+- **WhatsApp** – nur mit eingetragener Nummer (international, z. B. +49 30 1234567), öffnet einen Chat mit der
+  vorbelegten Nachricht „Interesse an {Name} ({Nummer})“
+- **Besichtigung anfragen** – springt zum ersten Kontaktformular der Erlebniswelt; Betreff „Besichtigung/Anfrage:
+  {Name} ({Nummer})“ und Artikelnummer sind vorbelegt. Auf Fahrzeugseiten bleibt das Formular an seiner Stelle
+  (kein Reiter „Fragen zum Produkt“)
+- Bei **verkauften** Fahrzeugen nur „Ähnliches Fahrzeug suchen? Anfragen“ (Betreff „Suche ähnliches Fahrzeug wie …“)
+
+Eine **Kaufbox** im Layout wird bei Fahrzeugen nicht ausgegeben, ein Element „Produktname“ ebenfalls nicht (die
+Überschrift steht im Fahrzeugkopf). Warum kein eigenes Erlebniswelt-Element: Der Fahrzeugkopf hängt am Rahmen der
+Produktseite und erscheint dadurch in jedem Produktseiten-Layout ohne Umbau der Erlebniswelten und ohne
+Administrations-Erweiterung.
+
+**Strukturierte Daten:** Fahrzeuge bekommen JSON-LD als `Product` + `Car` (Gebrauchtzustand, Baujahr,
+Kilometerstand, Farbe, Getriebe, Vorbesitzer, Angebot mit Preis und Verfügbarkeit – verkauft = `SoldOut`) statt des
+Standard-Produkts. Ohne Preis entfällt das Angebot.
+
+**Produktkarten** (Kategorien, Slider, Suche): Status-Badge, Eckdaten „Baujahr · km · HU“ und Kurzbeschreibung statt
+Beschreibungsauszug, Preis mit Zusatz bzw. „Verkauft“, Knopf „Details“ statt „In den Warenkorb“.
+
+Hinweis: Das Theme blendet Warenkorb-Knöpfe aus, sperrt aber nicht den Warenkorb selbst. Wer ganz sicher gehen will,
+setzt bei Fahrzeugen zusätzlich *Abverkauf* mit Lagerbestand 0 oder nutzt einen Verkaufskanal ohne Bestellabschluss.
 
 ## Mehrere Shops mit eigenen Farben
 

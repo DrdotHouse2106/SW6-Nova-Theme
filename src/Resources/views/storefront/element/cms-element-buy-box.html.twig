@@ -1,0 +1,10 @@
+{% sw_extends '@Storefront/storefront/element/cms-element-buy-box.html.twig' %}
+
+{# Fahrzeugangebote haben keine Kaufbox – Preis und Anfrage stehen im Fahrzeugkopf (nova/vehicle/head) #}
+{% block element_buy_box %}
+    {% set novaBuyBoxStatus = config('NovaTheme.config.vehicleOffers') is not same as(false)
+        ? (element.data.product.translated.customFields.nova_vehicle_status ?? null) : null %}
+    {% if novaBuyBoxStatus not in ['available', 'reserved', 'sold'] %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

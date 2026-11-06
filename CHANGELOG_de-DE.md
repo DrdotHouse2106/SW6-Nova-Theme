@@ -1,3 +1,11 @@
+# 1.14.0
+- Neu: **Fahrzeugangebote** für Händler und Werkstätten, die einzelne Fahrzeuge zum Verkauf zeigen (Anfrage statt Bestellung). Zusatzfeld-Set „Fahrzeugangebot“ am Produkt (Status verfügbar/reserviert/verkauft, Preiszusatz, Modell/Typ, Baujahr, Erstzulassung, Kilometerstand, Leistung, Antrieb/Motor, Getriebe, Farbe, HU bis, H-Kennzeichen, Vorbesitzer, Standort, Kurzbeschreibung für Listen, Arbeiten/Restaurierung), angelegt bei Installation und Update. Ist der Status gesetzt:
+  - Produktseite: Fahrzeugkopf über der Erlebniswelt mit Status, Name (H1), Preis mit Zusatz (bei Preis 0 kein Preis, bei „verkauft“ „Verkauft“), Datenblatt mit allen gefüllten Feldern, aufklappbaren Arbeiten und den Knöpfen *Anrufen*, *WhatsApp* (vorbelegte Nachricht) und *Besichtigung anfragen* (springt zum Kontaktformular der Erlebniswelt, Betreff vorbelegt); verkaufte Fahrzeuge nur „Ähnliches Fahrzeug suchen? Anfragen“. Kaufbox und Element „Produktname“ entfallen
+  - Strukturierte Daten als Fahrzeug (JSON-LD Product + Car, Gebrauchtzustand, Baujahr, Kilometerstand …, verkauft = SoldOut)
+  - Produktkarten: Status-Badge, Eckdaten „Baujahr · km · HU“ und Kurzbeschreibung statt Beschreibungsauszug, Preis mit Zusatz bzw. „Verkauft“, „Details“ statt „In den Warenkorb“
+  - Einstellungen je Verkaufskanal unter *Konfigurieren → Fahrzeugangebote*: an/aus, Telefon (leer = Stammdaten bzw. Topbar), WhatsApp-Nummer, Knopftexte, Hinweis unter dem Preis
+- Neu: Produkt-Slider der Produktseite zeigen das aktuelle Produkt nicht mehr mit (z. B. „Weitere Angebote“ aus einer dynamischen Produktgruppe); bleibt nichts übrig, entfällt der Slider. Abschaltbar unter *Produktseite*
+
 # 1.13.2
 - Kasse: Die Kartenfelder von PayPal „Kredit- oder Debitkarte“ stehen jetzt innerhalb der gewählten Zahlungsart-Karte statt darunter; Feldhöhe so, dass die Rahmen nicht abgeschnitten werden
 

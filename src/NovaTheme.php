@@ -3,6 +3,7 @@
 namespace Nova\NovaTheme;
 
 use Nova\NovaTheme\Gpsr\GpsrCustomFields;
+use Nova\NovaTheme\Vehicle\VehicleCustomFields;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\Plugin;
 use Shopware\Core\Framework\Plugin\Context\InstallContext;
@@ -19,12 +20,14 @@ class NovaTheme extends Plugin implements ThemeInterface
     {
         parent::install($installContext);
         $this->gpsrFields()?->install($installContext->getContext());
+        $this->vehicleFields()?->install($installContext->getContext());
     }
 
     public function update(UpdateContext $updateContext): void
     {
         parent::update($updateContext);
         $this->gpsrFields()?->install($updateContext->getContext());
+        $this->vehicleFields()?->install($updateContext->getContext());
     }
 
     public function uninstall(UninstallContext $uninstallContext): void
@@ -34,6 +37,7 @@ class NovaTheme extends Plugin implements ThemeInterface
             return;
         }
         $this->gpsrFields()?->uninstall($uninstallContext->getContext());
+        $this->vehicleFields()?->uninstall($uninstallContext->getContext());
     }
 
     private function gpsrFields(): ?GpsrCustomFields
@@ -41,5 +45,12 @@ class NovaTheme extends Plugin implements ThemeInterface
         $repository = $this->container?->get('custom_field_set.repository');
 
         return $repository instanceof EntityRepository ? new GpsrCustomFields($repository) : null;
+    }
+
+    private function vehicleFields(): ?VehicleCustomFields
+    {
+        $repository = $this->container?->get('custom_field_set.repository');
+
+        return $repository instanceof EntityRepository ? new VehicleCustomFields($repository) : null;
     }
 }

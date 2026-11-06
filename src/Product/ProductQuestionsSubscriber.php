@@ -2,6 +2,7 @@
 
 namespace Nova\NovaTheme\Product;
 
+use Nova\NovaTheme\Vehicle\VehicleOfferSubscriber;
 use Shopware\Core\Content\Cms\Aggregate\CmsSlot\CmsSlotEntity;
 use Shopware\Core\Content\Cms\CmsPageEntity;
 use Shopware\Core\Content\Product\SalesChannel\SalesChannelProductEntity;
@@ -44,13 +45,18 @@ class ProductQuestionsSubscriber implements EventSubscriberInterface
         }
 
         $page = $event->getPage();
+        // Fahrzeugangebote: das Formular bleibt sichtbar an seiner Stelle (Sprungziel „Besichtigung anfragen“)
+        if ($page->hasExtension(VehicleOfferSubscriber::EXTENSION)) {
+            return;
+        }
+
         $cmsPage = $page->getCmsPage();
         // Ohne Element „Beschreibung & Bewertungen“ gibt es keinen Reiter – das Formular bleibt, wo es ist.
         if ($cmsPage === null || $cmsPage->getElementsOfType('product-description-reviews') === []) {
             return;
         }
 
-        [$slot, $hiddenBlockId] = $this->findContactForm($cmsPage);
+        [$slot, $hiddenBlockId] = self::findContactForm($cmsPage);
         if ($slot === null) {
             return;
         }
@@ -64,9 +70,12 @@ class ProductQuestionsSubscriber implements EventSubscriberInterface
     }
 
     /**
+     * Erstes Kontaktformular der Erlebniswelt (nach Sektion, Block, Slot) und – falls der Block nur aus
+     * Formularen besteht – die ID dieses Blocks.
+     *
      * @return array{0: ?CmsSlotEntity, 1: ?string}
      */
-    private function findContactForm(CmsPageEntity $cmsPage): array
+    public static function findContactForm(CmsPageEntity $cmsPage): array
     {
         $best = null;
         $sections = $cmsPage->getSections()?->getElements() ?? [];
@@ -90,14 +99,24 @@ class ProductQuestionsSubscriber implements EventSubscriberInterface
         return $best === null ? [null, null] : [$best['slot'], $best['block']];
     }
 
-    private function prefill(DataBag $data, SalesChannelProductEntity $product): void
+    /**
+     * Produktname ohne HTML, für Betreffzeilen gekürzt.
+     */
+    public static function shortName(SalesChannelProductEntity $product): string
     {
-        $number = $product->getProductNumber();
         $name = $product->getTranslation('name');
         $name = \is_string($name) ? trim(strip_tags($name)) : '';
         if (mb_strlen($name) > self::NAME_MAX_LENGTH) {
             $name = rtrim(mb_substr($name, 0, self::NAME_MAX_LENGTH - 1)) . '…';
         }
+
+        return $name;
+    }
+
+    private function prefill(DataBag $data, SalesChannelProductEntity $product): void
+    {
+        $number = $product->getProductNumber();
+        $name = self::shortName($product);
 
         $subjectKey = $name !== '' ? 'novaTheme.productQuestions.subject' : 'novaTheme.productQuestions.subjectWithoutName';
         $data->set('subject', $this->translator->trans($subjectKey, ['%number%' => $number, '%name%' => $name]));
