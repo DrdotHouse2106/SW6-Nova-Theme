@@ -389,3 +389,24 @@
 .confirm-payment-shipping > .row > .confirm-shipping {
     margin-top: 1rem;
 }
+
+/* PayPal „Kredit- oder Debitkarte“ (Kartenfelder als sichere PayPal-iFrames): Felder in die gewählte Karte einrücken */
+.payment-method-radio:has(> .form-check-input:checked) > #swag-paypal-acdc-form {
+    margin-top: -0.5rem;
+    padding: 0.75rem 1rem 1rem 3rem;
+    background: color-mix(in srgb, var(--nova-primary) 6%, var(--bs-body-bg, #fff));
+    border: 1px solid var(--nova-primary);
+    border-top: 0;
+    border-radius: 0 0 var(--nova-radius-btn) var(--nova-radius-btn);
+    box-shadow: 0 1px 0 0 var(--nova-primary), 1px 0 0 0 var(--nova-primary), -1px 0 0 0 var(--nova-primary);
+}
+
+.payment-method-radio:has(> #swag-paypal-acdc-form:not(.d-none)) > .form-check-label {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#swag-paypal-acdc-form [id^="swag-paypal-acdc-form-"] {
+    min-height: 2.75rem;
+    overflow: visible;
+}

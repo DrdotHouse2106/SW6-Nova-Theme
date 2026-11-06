@@ -1,3 +1,6 @@
+# 1.13.2
+- Checkout: the card fields of PayPal “credit or debit card” now sit inside the selected payment card instead of below it; field height so that borders are not cut off
+
 # 1.13.1
 - Checkout “Review & order”: payment and shipping method are stacked at full width instead of two narrow columns. In the option cards the name is on the left, the logo on the right, price/delivery and extra options below at full width. Nested checkboxes of other plugins (e.g. PayPal “save account for future purchases”) are no longer framed as a card and no longer squeeze the text
 

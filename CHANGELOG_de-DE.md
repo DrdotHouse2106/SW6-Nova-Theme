@@ -1,3 +1,6 @@
+# 1.13.2
+- Kasse: Die Kartenfelder von PayPal „Kredit- oder Debitkarte“ stehen jetzt innerhalb der gewählten Zahlungsart-Karte statt darunter; Feldhöhe so, dass die Rahmen nicht abgeschnitten werden
+
 # 1.13.1
 - Kasse „Prüfen & bestellen“: Zahlungs- und Versandart stehen untereinander in voller Breite statt in zwei schmalen Spalten. In den Auswahlkarten steht der Name links, das Logo rechts, Preis/Zustellung und Zusatzoptionen darunter in voller Breite. Verschachtelte Häkchen anderer Plugins (z. B. PayPal „Konto für zukünftige Käufe speichern“) werden nicht mehr als eigene Karte gerahmt und quetschen den Text nicht mehr zusammen
 
