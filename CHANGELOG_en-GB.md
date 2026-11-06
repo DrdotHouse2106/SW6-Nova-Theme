@@ -1,3 +1,6 @@
+# 1.13.1
+- Checkout “Review & order”: payment and shipping method are stacked at full width instead of two narrow columns. In the option cards the name is on the left, the logo on the right, price/delivery and extra options below at full width. Nested checkboxes of other plugins (e.g. PayPal “save account for future purchases”) are no longer framed as a card and no longer squeeze the text
+
 # 1.13.0
 - New: **product page tabs** in the "Description & reviews" element: *Description · Reviews · Manufacturer information · Questions about the product*. On phones description, reviews and manufacturer information open in the off-canvas as before, "Questions about the product" expands right below the tab list
 - New: **"Reviews" tab only if there are reviews** – otherwise the description ends with "There are no reviews for this product yet. *Write a review*", the link expands the review form. After submitting a review the tab is shown with the confirmation

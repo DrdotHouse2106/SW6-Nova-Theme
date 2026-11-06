@@ -187,7 +187,7 @@
     margin: 0;
     padding: 0;
 
-    .form-check-input {
+    > .form-check-input {
         position: absolute;
         top: 1.125rem;
         left: 1rem;
@@ -195,12 +195,13 @@
         z-index: 1;
     }
 
-    .form-check-label {
+    // Nur das Label der Auswahlkarte selbst – nicht verschachtelte Häkchen anderer Plugins (z. B. PayPal „Konto speichern“)
+    > .form-check-label {
         display: flex;
-        flex-direction: row-reverse;
-        justify-content: space-between;
+        flex-wrap: wrap;
         align-items: center;
-        gap: 1rem;
+        column-gap: 1rem;
+        row-gap: 0.375rem;
         width: 100%;
         min-height: 3.5rem;
         padding: 0.875rem 1rem 0.875rem 3rem;
@@ -209,21 +210,65 @@
         border-radius: var(--nova-radius-btn);
         cursor: pointer;
         transition: border-color 0.15s var(--nova-ease), box-shadow 0.15s var(--nova-ease), background-color 0.15s var(--nova-ease);
+
+        // Name/Beschreibung links, Logo rechts, alles Weitere (Preis, Zustellung, Zusatzoptionen) volle Breite darunter
+        > .shipping-method-description,
+        > .payment-method-description {
+            order: 1;
+            flex: 1 1 0;
+            min-width: 0;
+        }
+
+        > picture,
+        > img,
+        > .shipping-method-image,
+        > .payment-method-image {
+            order: 2;
+            margin-left: auto;
+        }
+
+        > :not(.shipping-method-description):not(.payment-method-description):not(picture):not(img):not(.shipping-method-image):not(.payment-method-image) {
+            order: 3;
+            flex: 1 1 100%;
+            min-width: 0;
+        }
+
+        // Verschachtelte Häkchen (z. B. PayPal) schlicht darstellen
+        .form-check {
+            padding-left: 1.75rem;
+            margin: 0.25rem 0 0;
+        }
+
+        .form-check .form-check-input {
+            position: static;
+            float: left;
+            margin: 0.2rem 0 0 -1.75rem;
+        }
+
+        .form-check .form-check-label {
+            display: inline;
+            min-height: 0;
+            padding: 0;
+            border: 0;
+            background: none;
+            box-shadow: none;
+            font-size: 0.875rem;
+        }
     }
 
     @include nova-hover {
-        .form-check-label {
+        > .form-check-label {
             border-color: var(--nova-primary);
         }
     }
 
-    &:has(.form-check-input:checked) .form-check-label {
+    &:has(> .form-check-input:checked) > .form-check-label {
         background: color-mix(in srgb, var(--nova-primary) 6%, var(--bs-body-bg, #fff));
         border-color: var(--nova-primary);
         box-shadow: 0 0 0 1px var(--nova-primary);
     }
 
-    &:has(.form-check-input:focus-visible) .form-check-label {
+    &:has(> .form-check-input:focus-visible) > .form-check-label {
         @include nova-focus-ring;
     }
 }
@@ -332,4 +377,15 @@
         background: var(--bs-body-bg, #fff);
         box-shadow: 0 -0.5rem 1.5rem rgba(0, 0, 0, 0.08);
     }
+}
+
+/* Zahlungs- und Versandart untereinander statt in zwei schmalen Spalten */
+.confirm-payment-shipping > .row > .confirm-payment,
+.confirm-payment-shipping > .row > .confirm-shipping {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.confirm-payment-shipping > .row > .confirm-shipping {
+    margin-top: 1rem;
 }

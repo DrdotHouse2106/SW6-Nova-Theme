@@ -1,3 +1,6 @@
+# 1.13.1
+- Kasse „Prüfen & bestellen“: Zahlungs- und Versandart stehen untereinander in voller Breite statt in zwei schmalen Spalten. In den Auswahlkarten steht der Name links, das Logo rechts, Preis/Zustellung und Zusatzoptionen darunter in voller Breite. Verschachtelte Häkchen anderer Plugins (z. B. PayPal „Konto für zukünftige Käufe speichern“) werden nicht mehr als eigene Karte gerahmt und quetschen den Text nicht mehr zusammen
+
 # 1.13.0
 - Neu: **Produktseite mit Reitern** im Element „Beschreibung & Bewertungen“: *Beschreibung · Bewertungen · Herstellerinformationen · Fragen zum Produkt*. Auf Smartphones öffnen Beschreibung, Bewertungen und Herstellerinformationen wie gewohnt im Offcanvas, „Fragen zum Produkt“ klappt direkt unter der Reiterliste auf
 - Neu: Reiter **„Bewertungen“ nur, wenn es Bewertungen gibt** – sonst steht unter der Beschreibung „Zu diesem Produkt gibt es noch keine Bewertungen. *Bewertung schreiben*“; der Link klappt das Bewertungsformular auf. Nach dem Absenden einer Bewertung erscheint der Reiter mit der Bestätigung
