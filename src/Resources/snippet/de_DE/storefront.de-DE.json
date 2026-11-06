@@ -101,7 +101,8 @@
             "subject": "Besichtigung/Anfrage: %name% (%number%)",
             "subjectSold": "Suche ähnliches Fahrzeug wie %name% (%number%)",
             "whatsappText": "Interesse an %name% (%number%)",
-            "whatsappTextWithoutName": "Interesse an Fahrzeug %number%"
+            "whatsappTextWithoutName": "Interesse an Fahrzeug %number%",
+            "metaTitleSold": "%name% – verkauft"
         }
     }
 }

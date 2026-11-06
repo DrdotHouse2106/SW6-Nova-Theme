@@ -1,3 +1,6 @@
+# 1.14.1
+- Vehicle offers: sold vehicles get the page title “{name} – sold” instead of the SEO title “… buy”. With price 0 the offer stays omitted from structured data on purpose (search engines reject offers without price)
+
 # 1.14.0
 - New: **vehicle offers** for dealers and workshops showing individual vehicles for sale (enquiry instead of order). Custom field set "Vehicle offer" on products (status available/reserved/sold, price addition, model/type, year, first registration, mileage, power, fuel/engine, gearbox, colour, inspection valid until, historic registration, previous owners, location, short description for listings, work done/restoration), created on install and update. When the status is set:
   - Product page: vehicle header above the layout with status, name (H1), price with addition (no price at 0, "Sold" for sold vehicles), data sheet with all filled fields, expandable work done and the buttons *Call*, *WhatsApp* (prefilled message) and *Request a viewing* (jumps to the layout's contact form, subject prefilled); sold vehicles only show "Looking for a similar vehicle? Ask us". Buy box and product name element are omitted

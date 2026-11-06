@@ -1,3 +1,6 @@
+# 1.14.1
+- Fahrzeugangebote: Verkaufte Fahrzeuge bekommen den Seitentitel „{Name} – verkauft“ statt des SEO-Titels „… kaufen“. Bei Preis 0 entfällt in den strukturierten Daten weiterhin das Angebot (offers) – bewusst, weil Suchmaschinen ein Angebot ohne Preis ablehnen
+
 # 1.14.0
 - Neu: **Fahrzeugangebote** für Händler und Werkstätten, die einzelne Fahrzeuge zum Verkauf zeigen (Anfrage statt Bestellung). Zusatzfeld-Set „Fahrzeugangebot“ am Produkt (Status verfügbar/reserviert/verkauft, Preiszusatz, Modell/Typ, Baujahr, Erstzulassung, Kilometerstand, Leistung, Antrieb/Motor, Getriebe, Farbe, HU bis, H-Kennzeichen, Vorbesitzer, Standort, Kurzbeschreibung für Listen, Arbeiten/Restaurierung), angelegt bei Installation und Update. Ist der Status gesetzt:
   - Produktseite: Fahrzeugkopf über der Erlebniswelt mit Status, Name (H1), Preis mit Zusatz (bei Preis 0 kein Preis, bei „verkauft“ „Verkauft“), Datenblatt mit allen gefüllten Feldern, aufklappbaren Arbeiten und den Knöpfen *Anrufen*, *WhatsApp* (vorbelegte Nachricht) und *Besichtigung anfragen* (springt zum Kontaktformular der Erlebniswelt, Betreff vorbelegt); verkaufte Fahrzeuge nur „Ähnliches Fahrzeug suchen? Anfragen“. Kaufbox und Element „Produktname“ entfallen

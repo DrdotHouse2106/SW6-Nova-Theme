@@ -75,6 +75,11 @@ class VehicleOfferSubscriber implements EventSubscriberInterface
             }
         }
 
+        // Verkaufte Fahrzeuge: Seitentitel ohne „… kaufen“ aus der SEO-Vorlage
+        if ($sold) {
+            $page->getMetaInformation()?->setMetaTitle($this->translator->trans('novaTheme.vehicle.metaTitleSold', ['%name%' => $product->getTranslation('name') ?? $name]));
+        }
+
         $page->addExtension(self::EXTENSION, new VehicleOfferStruct($status, $phoneHref, $phoneLabel, $whatsappHref, $formSlotId, $formData));
     }
 

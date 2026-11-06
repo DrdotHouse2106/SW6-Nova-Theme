@@ -101,7 +101,8 @@
             "subject": "Viewing/enquiry: %name% (%number%)",
             "subjectSold": "Looking for a vehicle similar to %name% (%number%)",
             "whatsappText": "Interested in %name% (%number%)",
-            "whatsappTextWithoutName": "Interested in vehicle %number%"
+            "whatsappTextWithoutName": "Interested in vehicle %number%",
+            "metaTitleSold": "%name% – sold"
         }
     }
 }
