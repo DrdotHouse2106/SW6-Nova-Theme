@@ -1,3 +1,6 @@
+# 1.15.0
+- New: field **"Your order number (optional)"** at checkout next to the customer comment (configuration card "Checkout", default off; customer comment must be enabled). Stored as custom field `nova_customer_order_number` and at the start of the customer comment; max. 50 characters, no HTML. Mail templates: `{{ order.customFields.nova_customer_order_number }}`
+
 # 1.14.2
 - Cart, order overview, order details in the account: column “incl. VAT” is now “of which VAT” – it shows the tax amount of the line item, not the unit price (snippet `checkout.cartHeaderTaxIncludeVat`, editable in snippets)
 

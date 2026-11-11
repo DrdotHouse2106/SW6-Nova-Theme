@@ -103,6 +103,10 @@
             "whatsappText": "Interested in %name% (%number%)",
             "whatsappTextWithoutName": "Interested in vehicle %number%",
             "metaTitleSold": "%name% – sold"
+        },
+        "customerOrderNumber": {
+            "label": "Your order number (optional)",
+            "placeholder": "e.g. your internal purchase order number"
         }
     },
     "checkout": {

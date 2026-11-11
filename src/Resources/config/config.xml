@@ -431,4 +431,16 @@
             <defaultValue>true</defaultValue>
         </input-field>
     </card>
+    <card>
+        <title>Checkout</title>
+        <title lang="de-DE">Kasse</title>
+        <input-field type="bool">
+            <name>customerOrderNumber</name>
+            <label>Field "Your order number" at checkout</label>
+            <label lang="de-DE">Feld „Ihre Bestellnummer“ in der Kasse</label>
+            <helpText>Optional field next to the comment (comment must be enabled). Stored as custom field nova_customer_order_number on the order and at the start of the customer comment, so it reaches ERP and delivery note. Mail templates: {{ order.customFields.nova_customer_order_number }}.</helpText>
+            <helpText lang="de-DE">Optionales Feld beim Kommentar (Kommentarfeld muss in den Warenkorb-Einstellungen an sein). Gespeichert als Zusatzfeld nova_customer_order_number an der Bestellung und vorne im Kundenkommentar („Ihre Bestellnummer: …“) – so kommt es auch in Warenwirtschaft und Lieferschein an. In Mail-Vorlagen: {{ order.customFields.nova_customer_order_number }}.</helpText>
+            <defaultValue>false</defaultValue>
+        </input-field>
+    </card>
 </config>

@@ -21,3 +21,14 @@
         </div>
     {% endif %}
 {% endblock %}
+
+{# Feld „Ihre Bestellnummer“ beim Kundenkommentar (Einstellung „Kasse“) #}
+{% block page_checkout_confirm_customer_comment_control %}
+    {% if config('NovaTheme.config.customerOrderNumber') %}
+        <div class="nova-customer-order-number mb-3">
+            <label class="form-label" for="novaCustomerOrderNumber">{{ 'novaTheme.customerOrderNumber.label'|trans|sw_sanitize }}</label>
+            <input type="text" class="form-control" id="novaCustomerOrderNumber" name="novaCustomerOrderNumber" maxlength="50" autocomplete="off" form="confirmOrderForm" placeholder="{{ 'novaTheme.customerOrderNumber.placeholder'|trans|striptags }}">
+        </div>
+    {% endif %}
+    {{ parent() }}
+{% endblock %}

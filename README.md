@@ -504,3 +504,10 @@ Dieses Plugin ist mit Unterstützung von KI entstanden (Claude von Anthropic). D
 ## Lizenz
 
 MIT
+
+## Kasse: „Ihre Bestellnummer“ (ab 1.15.0)
+
+Konfiguration → Karte „Kasse“ → „Feld ‚Ihre Bestellnummer‘ in der Kasse“ (Standard aus, je Verkaufskanal). Das optionale Feld erscheint auf der Bestellbestätigungsseite beim Kundenkommentar (das Kommentarfeld muss unter *Einstellungen → Warenkorb* eingeschaltet sein). Der Wert (max. 50 Zeichen, ohne HTML) wird gespeichert
+
+- als Zusatzfeld `nova_customer_order_number` an der Bestellung – in Mail-Vorlagen z. B. `{% if order.customFields.nova_customer_order_number %}Ihre Bestellnummer: {{ order.customFields.nova_customer_order_number }}{% endif %}`,
+- und vorne im Kundenkommentar („Ihre Bestellnummer: …“), damit er auch in angebundenen Warenwirtschaften und auf Lieferscheinen ankommt.

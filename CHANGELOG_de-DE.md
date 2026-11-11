@@ -1,3 +1,6 @@
+# 1.15.0
+- Neu: Feld **„Ihre Bestellnummer (optional)“** in der Kasse beim Kundenkommentar (Konfiguration → Karte „Kasse“, Standard aus; das Kommentarfeld muss in den Warenkorb-Einstellungen an sein). Gespeichert als Zusatzfeld `nova_customer_order_number` an der Bestellung und vorne im Kundenkommentar („Ihre Bestellnummer: …“), damit es auch in der Warenwirtschaft und auf dem Lieferschein ankommt; höchstens 50 Zeichen, ohne HTML. In Mail-Vorlagen: `{{ order.customFields.nova_customer_order_number }}`
+
 # 1.14.2
 - Warenkorb, Bestellübersicht, Bestelldetails im Konto: Spalte „inkl. MwSt.“ heißt jetzt „davon MwSt.“ – sie zeigt den Steuerbetrag der Position, nicht den Stückpreis (Snippet `checkout.cartHeaderTaxIncludeVat`, in den Textbausteinen änderbar)
 
