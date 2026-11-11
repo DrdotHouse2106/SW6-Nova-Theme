@@ -1,3 +1,6 @@
+# 1.15.1
+- New: contact form mails to the shop get **Reply-To = address from the form**, sender stays the shop address (default on). Shopware's flow option "Reply to: contact form" sets the customer as sender instead, which fails SPF/DMARC – such a sender is reset to the shop address
+
 # 1.15.0
 - New: field **"Your order number (optional)"** at checkout next to the customer comment (configuration card "Checkout", default off; customer comment must be enabled). Stored as custom field `nova_customer_order_number` and at the start of the customer comment; max. 50 characters, no HTML. Mail templates: `{{ order.customFields.nova_customer_order_number }}`
 

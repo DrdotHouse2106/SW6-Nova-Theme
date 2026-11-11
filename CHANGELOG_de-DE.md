@@ -1,3 +1,6 @@
+# 1.15.1
+- Neu: Kontaktformular-Mails an den Shop bekommen **„Antwort an“ = Adresse aus dem Formular** (Reply-To), Absender bleibt die Shop-Adresse (Konfiguration → Karte „Kasse“, Standard an). Shopwares Flow-Option „Antwort an: Kontaktformular“ setzt dagegen die Kundenadresse als Absender, was an SPF/DMARC scheitert bzw. vom Mailserver ersetzt wird – ein so gesetzter Absender wird auf die Shop-Adresse zurückgestellt
+
 # 1.15.0
 - Neu: Feld **„Ihre Bestellnummer (optional)“** in der Kasse beim Kundenkommentar (Konfiguration → Karte „Kasse“, Standard aus; das Kommentarfeld muss in den Warenkorb-Einstellungen an sein). Gespeichert als Zusatzfeld `nova_customer_order_number` an der Bestellung und vorne im Kundenkommentar („Ihre Bestellnummer: …“), damit es auch in der Warenwirtschaft und auf dem Lieferschein ankommt; höchstens 50 Zeichen, ohne HTML. In Mail-Vorlagen: `{{ order.customFields.nova_customer_order_number }}`
 

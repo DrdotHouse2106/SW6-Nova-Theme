@@ -15,6 +15,11 @@
             <tag name="kernel.event_listener" event="Shopware\Core\Content\Cookie\Event\CookieGroupCollectEvent"/>
         </service>
 
+        <service id="Nova\NovaTheme\Checkout\ContactReplyToSubscriber">
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
+
         <service id="Nova\NovaTheme\Checkout\CustomerOrderNumberSubscriber">
             <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
             <argument type="service" id="request_stack"/>

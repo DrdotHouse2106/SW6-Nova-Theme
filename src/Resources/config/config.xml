@@ -442,5 +442,14 @@
             <helpText lang="de-DE">Optionales Feld beim Kommentar (Kommentarfeld muss in den Warenkorb-Einstellungen an sein). Gespeichert als Zusatzfeld nova_customer_order_number an der Bestellung und vorne im Kundenkommentar („Ihre Bestellnummer: …“) – so kommt es auch in Warenwirtschaft und Lieferschein an. In Mail-Vorlagen: {{ order.customFields.nova_customer_order_number }}.</helpText>
             <defaultValue>false</defaultValue>
         </input-field>
+
+        <input-field type="bool">
+            <name>contactReplyTo</name>
+            <label>Contact form mails: "Reply" goes to the customer</label>
+            <label lang="de-DE">Kontaktformular-Mails: „Antworten“ geht an den Kunden</label>
+            <helpText>Sets the Reply-To header of contact form mails to the shop to the address from the form; the sender stays the shop address. Do not use the flow option "Reply to: contact form" (it changes the sender).</helpText>
+            <helpText lang="de-DE">Setzt bei Kontaktformular-Mails an den Shop „Antwort an“ (Reply-To) auf die Adresse aus dem Formular; Absender bleibt die Shop-Adresse. Die Flow-Option „Antwort an: Kontaktformular“ nicht nutzen – sie ändert den Absender.</helpText>
+            <defaultValue>true</defaultValue>
+        </input-field>
     </card>
 </config>
