@@ -1,0 +1,34 @@
+{% sw_extends '@Storefront/storefront/component/buy-widget/buy-widget.html.twig' %}
+
+{#
+ # Feste Kaufleiste am Handy (Plugin-Konfiguration „Feste Kaufleiste am Handy“).
+ # Der Knopf sendet das normale Kaufformular ab (form-Attribut) – Menge, Upload und Pflichtfelder gelten weiter.
+ # Sichtbar nur, solange der normale Knopf nicht im Bild ist.
+ #}
+{% block buy_widget_buy_form %}
+    {{ parent() }}
+    {% if config('NovaTheme.config.mobileBuyBar') and page.product is defined and product.id == page.product.id
+        and product.available and product.calculatedMaxPurchase > 0 and (product.childCount ?? 0) <= 0 %}
+        {% set novaBarPrice = product.calculatedPrices|length > 0 ? product.calculatedPrices.first.unitPrice : product.calculatedPrice.unitPrice %}
+        <div class="nova-buybar d-lg-none" data-nova-buybar>
+            <div class="nova-buybar-price">
+                {%- if product.calculatedPrices|length > 1 %}<span class="nova-buybar-from">{{ 'listing.listingTextFrom'|trans|sw_sanitize }}</span> {% endif -%}
+                {{ novaBarPrice|currency }}
+            </div>
+            <button type="submit" form="productDetailPageBuyProductForm" class="btn btn-primary btn-buy nova-buybar-btn">
+                {{ 'detail.addProduct'|trans|sw_sanitize }}
+            </button>
+        </div>
+        <script>
+            (function () {
+                var bar = document.querySelector('[data-nova-buybar]');
+                var form = document.getElementById('productDetailPageBuyProductForm');
+                var btn = form && form.querySelector('.btn-buy');
+                if (!bar || !btn || !('IntersectionObserver' in window)) { return; }
+                new IntersectionObserver(function (entries) {
+                    bar.classList.toggle('is-visible', !entries[0].isIntersecting);
+                }).observe(btn);
+            })();
+        </script>
+    {% endif %}
+{% endblock %}

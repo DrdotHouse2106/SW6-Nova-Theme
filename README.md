@@ -120,6 +120,8 @@ Auf Smartphones öffnen Beschreibung, Bewertungen und Herstellerinformationen wi
 „Fragen zum Produkt“ klappt direkt unter der Reiterliste auf, damit das Formular (mit Upload und Captcha)
 nur einmal auf der Seite steht.
 
+**Feste Kaufleiste am Handy** (ab 1.16.0, Einstellung *Feste Kaufleiste am Handy*, Standard aus): Auf Handy und Tablet steht unten eine Leiste mit Preis und „In den Warenkorb“, solange der normale Knopf nicht im Bild ist. Der Knopf sendet das normale Kaufformular ab (`form="productDetailPageBuyProductForm"`), Menge, Upload-Pflichtfelder usw. gelten also weiter. Passend dazu in der Karte *Header*: **Suchfeld am Handy immer sichtbar**.
+
 ### Herstellerinformationen (GPSR) einrichten
 
 Bei Installation und Update legt das Theme zwei Zusatzfeld-Sets an (bestehende Werte bleiben erhalten):

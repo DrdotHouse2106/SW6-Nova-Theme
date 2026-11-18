@@ -1,3 +1,7 @@
+# 1.16.0
+- Neu: **Feste Kaufleiste am Handy** (Einstellung „Feste Kaufleiste am Handy“, Karte Produktseite, Standard aus). Auf Handy und Tablet bleibt unten eine Leiste mit Preis und „In den Warenkorb“ stehen, solange der normale Knopf nicht im Bild ist. Sie sendet das normale Kaufformular ab, Menge, Upload und Pflichtfelder gelten weiter
+- Neu: **Suchfeld am Handy immer sichtbar** (Einstellung in der Karte Header, Standard aus) statt nur eines Lupen-Symbols. Mit Nova Suche öffnet ein Tippen ins Feld das Suchfenster
+
 # 1.15.1
 - Neu: Kontaktformular-Mails an den Shop bekommen **„Antwort an“ = Adresse aus dem Formular** (Reply-To), Absender bleibt die Shop-Adresse (Konfiguration → Karte „Kasse“, Standard an). Shopwares Flow-Option „Antwort an: Kontaktformular“ setzt dagegen die Kundenadresse als Absender, was an SPF/DMARC scheitert bzw. vom Mailserver ersetzt wird – ein so gesetzter Absender wird auf die Shop-Adresse zurückgestellt
 

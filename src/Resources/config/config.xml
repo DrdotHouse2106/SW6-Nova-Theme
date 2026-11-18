@@ -58,6 +58,15 @@
         </input-field>
 
         <input-field type="bool">
+            <name>mobileSearchVisible</name>
+            <label>Search field always visible on phones</label>
+            <label lang="de-DE">Suchfeld am Handy immer sichtbar</label>
+            <helpText>Shows the search field below the header on small screens instead of only a magnifier icon.</helpText>
+            <helpText lang="de-DE">Zeigt das Suchfeld auf kleinen Bildschirmen unter dem Header statt nur eines Lupen-Symbols. Mit Nova Suche öffnet ein Tippen ins Feld das Suchfenster.</helpText>
+            <defaultValue>false</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
             <name>loaderBar</name>
             <label>Loading bar on page change</label>
             <label lang="de-DE">Ladebalken beim Seitenwechsel</label>
@@ -154,6 +163,15 @@
     <card>
         <title>Product page</title>
         <title lang="de-DE">Produktseite</title>
+
+        <input-field type="bool">
+            <name>mobileBuyBar</name>
+            <label>Fixed add-to-cart bar on phones</label>
+            <label lang="de-DE">Feste Kaufleiste am Handy</label>
+            <helpText>On phones and tablets a bar with price and add-to-cart button stays at the bottom of the product page while the regular button is out of view.</helpText>
+            <helpText lang="de-DE">Auf Handy und Tablet bleibt unten auf der Produktseite eine Leiste mit Preis und „In den Warenkorb“ stehen, solange der normale Knopf nicht zu sehen ist. Sie nutzt das normale Kaufformular (Menge, Upload, Pflichtfelder gelten weiter).</helpText>
+            <defaultValue>false</defaultValue>
+        </input-field>
 
         <input-field type="bool">
             <name>productReviewsOnlyIfAny</name>

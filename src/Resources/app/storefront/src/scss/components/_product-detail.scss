@@ -190,3 +190,61 @@
         min-width: 0;
     }
 }
+
+/* Feste Kaufleiste am Handy (Konfiguration „Feste Kaufleiste am Handy“) */
+.nova-buybar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1030;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: .6rem 1rem calc(.6rem + env(safe-area-inset-bottom));
+    background: var(--bs-body-bg, #fff);
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, .12);
+    transform: translateY(110%);
+    transition: transform .2s ease;
+
+    &.is-visible {
+        transform: none;
+    }
+}
+
+/* Platz unter dem Footer, damit die Leiste nichts verdeckt */
+@include media-breakpoint-down(lg) {
+    body:has(.nova-buybar) {
+        padding-bottom: 4.5rem;
+    }
+}
+
+.nova-buybar-price {
+    font-weight: 700;
+    font-size: 1.25rem;
+    white-space: nowrap;
+}
+
+.nova-buybar-from {
+    font-weight: 400;
+    font-size: .875rem;
+}
+
+.nova-buybar-btn {
+    flex: 1;
+}
+
+/* Suchfeld am Handy immer sichtbar (Konfiguration „Suchfeld am Handy immer sichtbar“) */
+.nova-mobile-search {
+    @include media-breakpoint-down(sm) {
+        #searchCollapse {
+            display: block !important;
+            height: auto !important;
+        }
+
+        .search-toggle-btn,
+        .js-search-toggle-btn {
+            display: none !important;
+        }
+    }
+}

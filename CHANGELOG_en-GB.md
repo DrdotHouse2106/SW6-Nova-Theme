@@ -1,3 +1,7 @@
+# 1.16.0
+- New: **fixed add-to-cart bar on phones** (setting, default off): price and add-to-cart button stay at the bottom of the product page while the regular button is out of view; it submits the regular buy form
+- New: **search field always visible on phones** (setting, default off) instead of only a magnifier icon
+
 # 1.15.1
 - New: contact form mails to the shop get **Reply-To = address from the form**, sender stays the shop address (default on). Shopware's flow option "Reply to: contact form" sets the customer as sender instead, which fails SPF/DMARC – such a sender is reset to the shop address
 
